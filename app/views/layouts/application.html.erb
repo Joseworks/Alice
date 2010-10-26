@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+  <head>
+    <title>QRE: Dynamic</title>
+    <link href="/rss/" rel="alternate" title="RSS" type="application/rss+xml" />
+    <link rel="stylesheet" type="text/css" href="<%= radiant_page '/styles.css' %>" />
+  </head>
+
+<body>
+<div id="container">
+  <div id="header">
+  <h1>
+    QuidnuncRE.com
+  </h1>
+</div>
+<div id="navigation">
+  <ul>
+    <li><a href='<%= radiant_page "/" %>'>Home</a></li>
+    <li><a href='<%= radiant_page "/reports" %>'>Reports</a></li>
+    <li><a href="/subscribe">Subscribe</a></li>
+    <li><a href='<%= radiant_page "/contact" %>'>Contact Us</a></li>
+  </ul>
+</div>
+
+  <div id="content-container">
+    <div id="content">
+
+      <%= @content_for_layout %>
+    </div>
+    <div id="aside">
+      <p><b>quid.nunc</b>  noun  /&#8217;kwid nengk/</p>
+      <p><b>quidnunc</b> an inquisitive person that seeks the latest news and/or gossip; someone who is always asking &#8216;What now?&#8217; or  &#8217;What&#8217;s new?&#8217;  Recorded from the early 18th century, the word comes from the Latin <i>quid</i> &#8216;what&#8217; + <i>nunc</i> &#8216;now&#8217;.
+    </div>
+
+<div id="footer">
+  Copyright &copy;2010 QuidnuncRE, LLC
+</div>
+  </div>
+</div>
+</body>
+
+<% if ["production"].include? RAILS_ENV %>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19229620-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<% end %>
+
+</html>
