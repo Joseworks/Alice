@@ -1,4 +1,6 @@
-<% form_for :crm_contact, @contact, :url => subscription_path do |f| %>
+subscriptions#new template
+
+<%= form_for @contact, :as => :crm_contact, :url => subscriptions_path do |f| %>
   <p><%= label_tag "Email address" %><br /><%=  f.text_field :email, {} %></p>
   <p><%= label_tag "First name" %><br /><%=  f.text_field :first_name, {} %></p>
   <p><%= label_tag "Last name" %><br /><%=  f.text_field :last_name, {} %></p>
