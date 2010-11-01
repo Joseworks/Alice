@@ -17,5 +17,4 @@ gem 'batchbook'
 group :test do
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'nokogiri'
 end
