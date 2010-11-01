@@ -1,6 +1,9 @@
 Nothing new to see here.
 
 <% form_tag subscription_path do -%>
+  <p><%= label_tag "Email address" %><br />
+  <%= text_field_tag "email", nil, :autocomplete => :off %></p>
+  
   <p><%= label_tag "First Name" %><br />
   <%= text_field_tag "first_name", nil, :autocomplete => :off %></p>
 
