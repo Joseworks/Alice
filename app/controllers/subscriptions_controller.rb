@@ -1,12 +1,13 @@
 class SubscriptionsController < ApplicationController
 
   def new
-    # nothing to say yet
+    @contact = CrmContact.new
   end
 
   def create
-    CrmBridge.add_contact("foo@baz.com",params[:first_name], params[:last_name])
-    
+    @contact = CrmContact.new(params[:crm_contact])
+    @contact.save
+
     redirect_back_or_default('/')
     flash[:notice] = "Logged in successfully"
   end
