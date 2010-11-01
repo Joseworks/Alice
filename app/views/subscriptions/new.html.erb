@@ -1,1 +1,11 @@
 Nothing new to see here.
+
+<% form_tag subscription_path do -%>
+  <p><%= label_tag "First Name" %><br />
+  <%= text_field_tag "first_name", nil, :autocomplete => :off %></p>
+
+  <p><%= label_tag "Last Name" %><br/>
+  <%= text_field_tag "last_name", nil, :autocomplete => :off %></p>
+
+  <p><%= submit_tag "Sign me up!", :id => "subscribe" %></p>
+<% end -%>

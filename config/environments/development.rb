@@ -1,6 +1,4 @@
 # Settings specified here will take precedence over those in config/environment.rb
-RADIANT_HOST = "quidnuncre.com"
-RADIANT_HOST_URL = "http://quidnuncre.com"
 
 # In the development environment your application's code is reloaded on
 # every request.  This slows down response time but is perfect for development

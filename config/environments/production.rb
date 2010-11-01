@@ -1,6 +1,4 @@
 # Settings specified here will take precedence over those in config/environment.rb
-RADIANT_HOST = "quidnuncre.com"
-RADIANT_HOST_URL = "http://quidnuncre.com"
 
 # The production environment is meant for finished, "live" apps.
 # Code is not reloaded between requests
