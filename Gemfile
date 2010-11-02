@@ -9,6 +9,7 @@ gem 'mysql', '2.8.1'
 
 # Bundle the extra gems:
 gem 'batchbook'
+gem 'new_hire'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
