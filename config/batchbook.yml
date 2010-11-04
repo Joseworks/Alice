@@ -1,0 +1,11 @@
+development:
+    account: qre
+    api_key: izSJrfcpFT
+
+production:
+    account: qre
+    api_key: izSJrfcpFT
+
+test:
+    account: qre
+    api_key: izSJrfcpFT

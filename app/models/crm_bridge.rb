@@ -1,12 +1,15 @@
 class CrmBridge
 
-  def self.add_contact(email, first_name, last_name)
-    person = BatchBook::Person.find(:first, :params => {:email => email})
+  def self.add_contact(crm_contact)
+    BatchBook.account = Qre::BatchbookConfig['account']
+    BatchBook.token = Qre::BatchbookConfig['api_key']
+    
+    person = BatchBook::Person.find(:first, :params => {:email => crm_contact.email})
 
     if (person.nil?)
-      person = BatchBook::Person.new(:first_name => first_name, :last_name => last_name, :notes => "Created via batchbook API")
+      person = BatchBook::Person.new(:first_name => crm_contact.first_name, :last_name => crm_contact.last_name, :notes => "Created via batchbook API")
       person.save
-      person.add_location(:label => "work", :email => email)
+      person.add_location(:label => "work", :email => 'foo@14to9.org')
       person.save
     end
 
