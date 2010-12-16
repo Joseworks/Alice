@@ -7,9 +7,15 @@ class SubscriptionsController < ApplicationController
   def create
     @contact = CrmContact.new(params[:crm_contact])
     @contact.save
-
-    redirect_back_or_default('/')
-    flash[:notice] = "Logged in successfully"
+    success = @contact && @contact.save
+    
+    if (success)
+      redirect_back_or_default('/')
+      flash[:notice] = "Logged in successfully"
+    else
+      flash[:error] = "WTF"
+      render :action => 'new'
+    end
   end
 
 end

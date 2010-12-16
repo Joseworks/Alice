@@ -6,8 +6,10 @@ gem 'rails', '3.0.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql', '2.8.1'
+gem 'unicorn', '2.0.0'
 
 # Bundle the extra gems:
+gem 'dynamic_form', '1.1.3'
 gem 'batchbook'
 gem 'hireling', '0.2.1'
 

@@ -25,6 +25,23 @@
 
   <div id="content-container">
     <div id="content">
+      <div class="flash-messages">
+        <div class="flash-message flash-error <%= flash[:error].blank? ? 'hidden' : '' %>">
+          <table>
+            <tr>
+              <td class='flash-text'><%= flash[:error] %></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="flash-message flash-notice <%= flash[:notice].blank? ? 'hidden' : '' %>">
+          <table>
+            <tr>
+              <td class='flash-text'><%= flash[:notice] %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
 
       <%= yield %>
       
