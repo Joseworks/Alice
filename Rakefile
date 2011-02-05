@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Qre::Application.load_tasks
+Quidnunc::Application.load_tasks

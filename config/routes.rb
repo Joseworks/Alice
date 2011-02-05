@@ -1,4 +1,4 @@
-Qre::Application.routes.draw do
+Quidnunc::Application.routes.draw do
   # See how all your routes lay out with "rake routes"
 
   # The priority is based upon order of creation:

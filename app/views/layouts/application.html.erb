@@ -1,30 +1,45 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html>
-  <head>
-    <title>QRE: Dynamic</title>
-    <link href="/rss/" rel="alternate" title="RSS" type="application/rss+xml" />
-    <link rel="stylesheet" type="text/css" href='/styles.css'/>
-  </head>
+<!DOCTYPE html> 
+<html> 
+  <head> 
+      <title>QuidnuncRE.com</title> 
+      <link rel="shortcut icon" href=<%= cms_url("/favicon.ico") %> /> 
+      <meta charset='utf-8' /> 
 
-<body>
-<div id="container">
-  <div id="header">
-  <h1>
-    quidnunc re dot com
-  </h1>
-</div>
-<div id="navigation">
-  <ul>
-    <li><a href='/'>Home</a></li>
-    <li><a href='/reports'>Reports</a></li>
-    <li><a href="/subscribe">Subscribe</a></li>
-    <li><a href='/contact'>Contact Us</a></li>
-  </ul>
-</div>
+      <link href="/rss/" rel="alternate" title="RSS" type="application/rss+xml" />
+      <link href='<%= cms_url("/theme/stylesheets/application.css") %>'
+        media="screen" rel="stylesheet" type="text/css" /> 
+      <link href='<%= cms_url("/theme/stylesheets/formatting.css") %>' 
+        media="screen" rel="stylesheet" type="text/css" /> 
+      <link href='<%= cms_url("/stylesheets/theme.css") %>' 
+        media="screen" rel="stylesheet" type="text/css" /> 
+      <link href='<%= cms_url("/theme/stylesheets/home.css") %>' 
+        media="screen" rel="stylesheet" type="text/css" /> 
+  </head>
+  <body> 
+      <link href="/stylesheets/refinery/site_bar.css" 
+        media="screen" rel="stylesheet" type="text/css" /> 
+      <script src=<%= cms_url("/javascripts/jquery-min.js") %> 
+              type="text/javascript"></script> 
+      <script src=<%= cms_url("/javascripts/jquery/jquery.corner.js")%> 
+              type="text/javascript"></script> 
+      <script src=<%= cms_url("/javascripts/refinery/site_bar.js")%> 
+              type="text/javascript"></script> 
+
+      <div id='container'> 
+        <div id='header_content'> 
+          <h1><%= link_to "QuidnuncRE.com", cms_url %></h1> 
+        </div> 
+        <nav id='menu' class='menu clearfix'> 
+          <ul> 
+            <li class='first' id='item_0'> <%= link_to "Home", cms_url %></li> 
+            <li id='item_1'> <%= link_to "Reports", cms_url("/reports") %></li> 
+            <li id='selected item_2'> <%= link_to "Subscribe", subscribe_path %></li> 
+            <li class='last' id='item_3'> <%= link_to "Contact", cms_url("/contact-us") %></li> 
+          </ul> 
+        </nav> 
 
   <div id="content-container">
-    <div id="content">
+    <div id='body_content' class='clearfix'> 
       <div class="flash-messages">
         <div class="flash-message flash-error <%= flash[:error].blank? ? 'hidden' : '' %>">
           <table>
@@ -44,31 +59,17 @@
       </div>
 
       <%= yield %>
-      
-    </div>
-    <div id="aside">
-      <p><b>quid.nunc</b>  noun  /&#8217;kwid nengk/</p>
-      <p><b>quidnunc</b> an inquisitive person that seeks the latest news and/or gossip; someone who is always asking &#8216;What now?&#8217; or  &#8217;What&#8217;s new?&#8217;  Recorded from the early 18th century, the word comes from the Latin <i>quid</i> &#8216;what&#8217; + <i>nunc</i> &#8216;now&#8217;.
-    </div>
 
-<div id="footer">
-  Copyright &copy;2010 QuidnuncRE, LLC
-</div>
-  </div>
-</div>
-</body>
+    </div> 
 
-<% if ["production"].include? Rails.env %>
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-19389114-1']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-<% end %>
-
+      <div id='footer'> 
+        <div id='footer_content'> 
+          <p> 
+            Copyright &copy; 2011 QuidnuncRE.com
+          </p> 
+        </div> 
+      </div> 
+    </div> 
+    </div> 
+  </body> 
 </html>

@@ -1,8 +1,8 @@
 class CrmBridge
 
   def self.add_contact(crm_contact)
-    BatchBook.account = Qre::BatchbookConfig['account']
-    BatchBook.token = Qre::BatchbookConfig['api_key']
+    BatchBook.account = Quidnunc::BatchbookConfig['account']
+    BatchBook.token = Quidnunc::BatchbookConfig['api_key']
     
     person = BatchBook::Person.find(:first, :params => {:email => crm_contact.email})
 
