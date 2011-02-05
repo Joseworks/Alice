@@ -9,7 +9,6 @@ set :rvm_ruby_string, '1.9.2'
 # Bundler support
 #
 require "bundler/capistrano"
-set :bundle_cmd,  "cd #{release_path} && bundle"
 
 #
 # Application environment defaults
@@ -73,6 +72,8 @@ set :rds, {
   :master_pwd => "flipstone",
   :port => "3306"
 }
+
+set :bundle_cmd,  "cd #{release_path} && bundle"
 
 #
 # Deploy callbacks

@@ -5,7 +5,9 @@ namespace :hirelings do
   end
 
   task :stop, :roles => :app do
-    run "cd #{current_path} && if bundle show hireling; then RAILS_ENV=#{rails_env} bundle exec hirelings_ctl stop; fi"
+    if remote_file_exists?(current_path)
+      run "cd #{current_path} && if bundle show hireling; then RAILS_ENV=#{rails_env} bundle exec hirelings_ctl stop; fi"
+    end
   end
 
   task :restart, :roles => :app do
@@ -14,5 +16,9 @@ namespace :hirelings do
   end
 end
 
-after 'deploy:start', 'hirelings:start'
+def remote_file_exists?(full_path)
+  'true' ==  capture("if [ -e #{full_path} ]; then echo 'true'; fi").strip
+end
+
 before 'deploy:update_code', 'hirelings:stop'
+after 'deploy:start', 'hirelings:start'
