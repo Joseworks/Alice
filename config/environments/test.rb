@@ -35,3 +35,4 @@ Quidnunc::Application.configure do
 end
 
 Quidnunc::CmsHost = "localhost:3030"
+Refinery.rescue_not_found = false

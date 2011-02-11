@@ -15,7 +15,7 @@ Quidnunc::Application.configure do
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
-  config.serve_static_assets = false
+  config.serve_static_assets = true # Refinery CMS requires this to be true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
@@ -26,3 +26,4 @@ Quidnunc::Application.configure do
 end
 
 Quidnunc::CmsHost = "qcms.flipstone.com"
+Refinery.rescue_not_found = true
