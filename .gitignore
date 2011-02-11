@@ -24,9 +24,6 @@ public/themes/*
 public/javascripts/cache
 public/stylesheets/cache
 
-# Vendor Cache
-vendor/cache
-
 # Acts as Indexed
 index/**/*
 
