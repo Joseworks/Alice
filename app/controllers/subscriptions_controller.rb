@@ -2,8 +2,6 @@ class SubscriptionsController < ApplicationController
 
   def new
     @contact = CrmContact.new
-    # raise method(:redirect_back_or_default).source_location.inspect
-    raise session.inspect
   end
 
   def create

@@ -22,7 +22,7 @@ gem 'hireling', '0.2.1'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 
-group :test do
+group :test, :development do
   gem 'rspec'
   gem 'rspec-rails'
 end
