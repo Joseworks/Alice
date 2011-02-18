@@ -1,0 +1,70 @@
+body, #comments .showthreadcomments_box a, .rp_item{background-color:#f1f8fa;}
+a,a:hover{color: #dc870e;}
+.alert a, .alert a:hover{color:#FFF;}
+
+.permalink h1{font-family: Helvetica,Arial,sans-serif;}
+
+blockquote { background-color: #EAF2F4; color: #51646B; line-height: 18px; margin:5px 0px; padding:10px; }
+
+#container {background-image: url('http://cache.gizmodo.com/assets/gizmodo.com/img/sidebar-tile.jpg');}
+#menubar {background: #151515 url('http://cache.gizmodo.com/assets/gizmodo.com/img/gizmodo-expanded.jpg') no-repeat;}
+
+.cb_submit { background-color: #32b9d3;border:0;}
+.cb_submit:hover {background-color: #51646B;text-decoration: none;}
+
+#apphr{color: #77776f;background-color: #77776f;height:1px;width:100%;margin:10px 0;border:0;}
+.ie #apphr{margin: 3px 0;padding: 0;}
+#appdir-button{position: relative;display: block;background-image: url('http://cache.gizmodo.com/assets/gizmodo.com/img/iphone-button.png');height: 30px;width: 92px;margin: 0 0 10px 0;padding: 0;background-position: 0 0px;}
+#appdir-button:hover{background-position: 0 30px;}
+#android-button{position: relative;display: block;background-image: url('http://cache-01.gawkerassets.com/assets/_takeover/androidapp.gizmodo.com/img/android-button.png');height: 29px;width: 103px;margin: 0 0 10px 0;padding: 0;background-position: 0 0px;}
+#android-button:hover{background-position: 0 30px;}
+
+
+#sidebar .spacer {border-bottom: 1px solid #9bafba;background-color: #F1F8FA;}
+#weekly-subscribe span,
+#sidebar,
+#sidebar p,
+#sidebar ul li strong {color: #ccc;}
+#sidebar a {color:#B4D4E1;}
+#sidebar #siteInfo a {color:#51646B;}
+#sidebar h3{text-transform:uppercase;}
+#sidebar h3, #popTags, #popTags a, .inputform_message {color: #fff;}
+#team{color:#FFF;}
+#content .contentCollapsed, #content .excerpt, #content .entry, #comment_list .content, #comment_preview_body {color:#000;}
+
+.rp_head{background-color: #EEEEEE;}
+
+.sponsored{border-color: #a7bcc5;background-color: #c4d7df;}
+.sponsored img, .sponsored .video-thumb{border: 1px solid #51646B;}
+.sp_inside,
+.sponsoredtop img,
+.sponsoredtop div{background-color: #e7f3f7;border-color: #c4d7df;}
+
+/* TABS */
+#hometab {background-image: url('http://cache.gizmodo.com/assets/gizmodo.com/img/tabs/gizmodo.png'); width: 67px;height: 11px;background-position: 0 -11px;}
+#contentSwitch a span {display: none;}
+#bestmodotab {background-image:url('http://cache.gizmodo.com/assets/gizmodo.com/img/tabs/bestmodo.png');width: 71px;}
+#iphone-apps-directorytab {background-image:url('http://cache.gizmodo.com/assets/gizmodo.com/img/tabs/iphone.png');width: 85px;}
+#lifehackertab {background-image: url('http://cache.gizmodo.com/assets/gizmodo.com/img/tabs/lifehacker.png');width: 55px;height: 15px;background-position: 0 -15px;position: relative;bottom: 2px;}
+#kotakutab {background-image: url('http://cache.gizmodo.com/assets/gizmodo.com/img/tabs/kotaku.png');width: 52px;height: 14px;background-position: 0 -14px;position: relative;bottom: 2px;}
+#jalopniktab {background-image: url('http://cache.gizmodo.com/assets/gizmodo.com/img/tabs/jalopnik.png');width: 62px;height: 12px;background-position: 0 -12px;position: relative;bottom: 0px;}
+#io9tab {background-image: url('http://cache.gizmodo.com/assets/gizmodo.com/img/tabs/io9.png');width: 25px;height: 13px;background-position: 0 -13px;position: relative;bottom: 2px;}
+.oddday #lifehacker_container {display: none;}
+.oddday #kotaku_container {display: none;}
+.evenday #jalopnik_container {display: none;}
+.evenday #io9_container {display: none;}
+#contentSwitch .selected a {position: relative;bottom: 1px;}
+#contentSwitch .selected a#lifehackertab {position: relative;bottom: 3px;}
+#bestmodotab,
+#iphone-apps-directorytab {height: 12px;background-position: 0 -12px;}
+#contentSwitch .selected a,
+#contentSwitch a:hover {background-position:0 0;}
+#contentSwitch div.selected {background-color: #f1f8fa;}
+
+#twitterLinks{margin-top:6px;color: #8e8e8e;line-height: 15px;}
+#twitterLinks img{border: 0;}
+#twimg{float: left;margin: 0 3px 0 0;}
+
+#menubar .cb_tweetthis{ color: #ffffff; }
+
+.sponsored-deal{background: #ecf2f4 url('http://cache.gizmodo.com/assets/gizmodo.com/img/sponsored-deal.jpg') bottom right no-repeat;padding:10px;border:1px #d8dee0 solid;}

@@ -1,0 +1,102 @@
+.post h1 { margin: 1px  0px 2px 0px; }
+	.post h1.feature_comment_headline { font-weight: normal; }
+	.post .noimage_title { display: block; float: left; width: 328px; }
+	.post .mostpopular_title { display:block; float:left; width:385px; }
+	.post .pp_image {position: relative;}
+		.pp_image .play_icon { bottom: 14px; right: 12px; }
+
+.postmeta { color: #888; font-size: 12px; width: 300px; }
+	.pm_l { float: left; line-height: 20px; min-height: 20px; }
+	.pm_link, .pm_link:hover { color: #888; }
+	.pm_meta_icon { margin-left: 4px; vertical-align: text-bottom; }
+	.pm_date { width: 82px; }
+	.pm_views, .pm_comments { text-align: right; width: 70px; }
+	.pm_byline, .pm_sponsored { width: 300px; }
+	.pm_byline .pm_link { font-weight: bold; }
+	.diggbadge { clear:left; }
+.ad_postmeta_static { margin-bottom: 10px; }
+
+.alert {background-color:#000000;color:#FFF;}
+	.alert .postpic {width: auto;float: right;margin-right: 4px;}
+	.alert .topTag{ background-color: transparent; border: 0; text-align: left; padding-left: 0px; }
+	.alert h1{color:#FFF;font-size:17px;font-weight:bold;}
+	.alert .inside{margin:6px;color:#FFF;}
+	.alert,.alert h1 .dcolor,.alert h1 a,.alert h1 a:hover, .alert .autolink,.serif .alert{color:#FFF;}
+
+.postpic {margin:2px 13px 0 0;width:160px;float:left;}
+.postpic.mostpopular { width:100px; color:#666; }
+		.mostpopular .from img { border:0; max-height:20px; max-width:100px; }
+.postpic img {border:1px solid #B3B3B3;border-top:0px;}
+.postpic .toptagged {border:1px solid #B3B3B3;}
+.postBigPic, .postBigVid {background-color:#FFFFFF;border:1px solid #CCCCCC;width:500px;}
+.postBigVid object{margin-left:0px;}
+.postBigPic .topTag {left:-1px;position:absolute;top:-1px;width:155px;}
+.postBigVid .topTag {left:-1px;position:absolute;top:-1px;width:155px;}
+.bigExcerptHolder {margin:5px;}
+.bigExcerptLeft{ margin: 20px 0 0 5px;width:150px;}
+.postBigVid h1 {margin:0px 3px 5px 3px;}
+
+.withpic ul{margin-left:190px;}
+
+.topTag {display:block;height:14px;line-height:14px;overflow:hidden;padding:1px 2px;text-decoration:none;text-transform:uppercase;width:156px;}
+
+.tagged-top{font-size:18px;line-height:22px;}
+.top{clear:both;margin:3px 0px;}
+.tagged-top .postpic img {border-top:1px solid #B3B3B3;}
+.normal {font-weight:normal;}
+.normal a{font-weight:bold;}
+
+.pager { margin:0 0 20px 0; text-align: center; }
+	.pager a { font-size: 12px; margin: 0px 2px; }
+	.pager a.current_page { font-size:14px; font-weight: bold; }
+
+.dateHeadline {background-color:#F3F3F3;border-bottom:3px solid #D9D9D9;font-weight:bold;margin:0 0 10px 18px;padding:3px 6px;text-transform:uppercase;}
+
+.gallery_preview {margin-top:3px;}
+	.gallery_image { display: block; float: left; margin: 2px 7px 4px 0px; position: relative; border:1px solid #B3B3B3;}
+		.play_icon { background: transparent url(http://cache.gawkerassets.com/assets/base.v9/img/ui/video_overlay.png) no-repeat 0% 0%; position: absolute; width: 38px; height: 38px; bottom: 2px; right: 2px;}
+
+/* search page header - postlist extension */
+.search_head { border-bottom: 1px solid #eee; font-size: 12px; line-height: 16px; margin-bottom: 15px; }
+	.s_line { clear: both; margin-bottom: 3px; }
+	.s_label { display: block; float: left; margin-right: 15px; /* width: 170px; */ }
+	.s_link { margin-right: 10px; }
+	.s_link.selected { color: #000; font-weight: bold; }
+	.pager { clear: both; }
+	
+.sponsored{height:10px;font-size: 6px;margin: 8px 0px 8px 16px;border:1px transparent solid;clear:both;width:502px;}
+.spship{background-color:none;border:0px;width:502px;position:absolute;bottom:17px;left:-225px;}
+.sp_footer{margin-bottom:-8px;}
+.post .sp_footer img{float:right;border:0;margin:-1px -2px 0 0;}
+
+.special-orange .content, .special-red .content, .special-green .content, .special-blue .content{ min-height:191px;padding:10px 10px 0;width:482px;}
+.special-orange .content { background: transparent url(http://cache.gawkerassets.com/assets/base.v9/img/gg-sponsored-orange.png) no-repeat 0% 0%; }
+.special-red .content { background: transparent url(http://cache.gawkerassets.com/assets/base.v9/img/gg-sponsored-red.png) no-repeat 0% 0%; }
+.special-green .content { background: transparent url(http://cache.gawkerassets.com/assets/base.v9/img/gg-sponsored-green.png) no-repeat 0% 0%; }
+.special-blue .content { background: transparent url(http://cache.gawkerassets.com/assets/base.v9/img/gg-sponsored-blue.png) no-repeat 0% 0%; }
+
+.pager { clear: both; }
+
+.pstcontrol {position: absolute; right: 0px; top: 0px;}
+	.pstcontrol.cn_indicator {margin: 0px 20px 0px 0px}
+	.pstcontrol.cn_message {margin: 20px 0px 0px 0px}
+
+.inflowNotification .orangeAlert{background-image: url('http://cache.gawkerassets.com/assets/base.v9/img/icons/icons.png'); width: 16px; height: 16px; background-position: 0 -560px; float: left; margin: 4px 3px -2px 0px;}
+	.inflowNotification .notifAlert{display: block; float: left;} 
+	.inflowNotification .downArrow{background-image: url('http://cache.gawkerassets.com/assets/base.v9/img/icons/icons.png'); width: 16px; height: 7px; background-position: 0 -576px; float: left; margin: 10px 0 0 5px;}
+	.inflowNotification .grayAlert{ background-image: url('http://cache.gawkerassets.com/assets/base.v9/img/icons/icons.png'); background-position: 0 -592px; width: 16px; height: 16px; float: left; margin: 4px 3px -2px 0px; }
+	.moreNotifIndicator{float: left; margin: 5px 0px 0px 5px;}
+	.notifMsg h1{cursor: pointer;}
+	.notifications{margin-top: 1em;}
+	.notification{margin-bottom: 5px;}
+	.notification .grayAlert{background-position: 0 -592px; background-image: url('http://cache.gawkerassets.com/assets/base.v9/img/icons/icons.png'); width: 16px; height: 16px; float: left; margin: 3px 5px 0 0;}
+	.notification .text{float: left; width: 475px;}
+	.notification .atTime{color:#888888; font-family: Helvetica, Arial, sans-serif; font-size:11px;}
+	.notif_controls{float:left; font-family: Helvetica, Arial, sans-serif; font-size:11px; width: 100%; color: #888;}
+	.notif_controls .showMore{float: left;}
+	.notif_controls .downArrow{opacity: .5;}
+	.notif_controls a{color: #888; text-decoration: none; border: 0;}
+	.notif_controls a:hover{color: #000;}
+	.notif_control:hover{color: #000;}
+	.notif_controls div.cn_clear{float: right;}
+	

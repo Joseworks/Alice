@@ -1,0 +1,10 @@
+#header { display: none; }
+#menubar { display: none; }
+#sidebar { display: none; }
+#container { background-image: none; background-color: #fff; }
+#printhead { display: block !important; }
+	#printhead h1 { border-bottom: 1px solid #000; font-size: 24px; padding: 15px 15px 5px 15px; width: 100%; }
+#wrapper { margin-left: 30px; }
+	.content { width: 670px; }
+	.content img { margin-right: 5px; }
+#comments { display: none; }

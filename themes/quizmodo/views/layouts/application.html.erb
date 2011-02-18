@@ -1,0 +1,700 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0022)http://ca.QUIDNUNCRE.com/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" class="webkit safari mac js">
+
+<%= render :partial => "/shared/head", :locals => {:theme => true} %>
+
+<body>
+  <div id="adcrib" style="position: absolute; left: -10000px;"></div>
+  <div id="printhead" style="display: none;">
+      <h1>Gizmodo</h1>
+  </div>
+  <div id="errorbar" style="display:none;"></div>
+  <div id="infobar" style="display:none;"></div>
+  <div id="randombar" style="display:none;"></div>
+
+  <%= render :partial => "/shared/menu" -%>
+
+<div id="menubar-bg" class="centered">
+  <div class="loggedin centered" id="menubar">
+  <!-- logo area -->
+
+  <h1 id="logo"><a title="Click here to go back to the front page" href="/theme/images/Gizmodo.html">Gizmodo  <img src="/theme/images/logo.png"></a></h1>
+      <span class="input_box_place"></span>
+    <a name="commentform"></a>
+<div class="commentbox_widget commentbox cb_collapsed">
+  <div class="cb_wrapper smalltype">
+    <form class="cb_form ic cn_form" action="" method="post">
+
+            <input type="hidden" name="op" value="postcomment" class="ic cn_commentop">
+      <input type="hidden" name="parentType" value="SITETAG" class="ic cn_parenttype_input">
+      <input type="hidden" name="commentId" value="" class="ic cn_commentid_input">
+      <input type="hidden" name="formToken" value="" class="ic cn_formtoken_input">
+      <input type="hidden" name="rootType" value="SITETAG" class="ic cn_roottype_input">
+      <input type="hidden" name="rootId" value="2865" class="ic cn_rootid_input">
+      <input type="hidden" name="entry_id" value="2865" class="ic cn_entryid_input">
+      <input type="hidden" name="anonymous_email" value="" class="ic cn_anonemailinput">
+      <input type="hidden" name="newsletter" value="" class="ic cn_anonnewsletter">
+      <input type="hidden" name="author_email" value="" class="ic cn_authoremailinput">
+      <input type="hidden" name="uploadedfile" value="" class="ic cn_uploadedfile">
+      <input type="hidden" name="uploadedfileformat" value="" class="ic cn_uploadedfileformat">
+      <input type="hidden" name="seoHashTag" class="ic cn_seohashtag" value="">           <input type="hidden" name="siteTag" value="tips">
+      <input type="hidden" name="hashTag" class="ic cn_hashtag" value="#tips">
+            
+      <div class="cb_inputarea">
+        <textarea name="text" class="cb_textarea ic cn_textarea serif">Got a tip for us?</textarea>
+        <div class="cb_button_holder">
+          <input class="cb_button cb_submit serif ic cn_submitform" type="submit" value="Share">
+          <input class="cb_button cb_cancel cb_onlyexp serif ic cn_collapseform" type="reset" value="Cancel">
+        </div>
+                  <!-- publish on facebook checkbox -->
+          <div class="cb_onlyexp fbuser" style="display: none; ">
+            <input type="checkbox" id="fb_publish_comment_" name="fb_publish_comment" class="ic cn_fbcomment" checked="">
+            <label for="fb_publish_comment_" class="ic fb_publish_comment_label cn_fbcommentlabel">publish on Facebook</label>
+          </div>
+              </div>
+      <div class="cb_l cb_onlyexp cb_default">
+        <a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_imgopt" title="Upload image"><img src="/theme/images/icon.picture.png"></a>
+        <a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_vidopt" title="Upload Youtube video"><img src="/theme/images/icon.youtube.png"></a>
+      </div>
+      <div class="cb_l cb_onlyexp cb_imgopt" style="display: none;">
+        <img src="/theme/images/icon.picture.png">
+        <a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_imgupl cb_imgupllink">Upload an image</a> |
+        <a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_imgurl">Add an image URL</a>
+        <a class="ic cn_close cb_closelink" href="http://ca.QUIDNUNCRE.com/#">×</a>
+      </div>
+      <div class="cb_l cb_onlyexp cb_imgurl" style="display: none;">
+        <img src="/theme/images/icon.picture.png">
+        <label for="photourl">Image URL: </label><input type="text" id="photourl" name="addphotourl" class="ic cn_photourl">
+        <a class="ic cn_close cb_closelink" href="http://ca.QUIDNUNCRE.com/#">×</a>
+      </div>
+      <div class="cb_l cb_onlyexp cb_vidopt" style="display: none;">
+        <img src="/theme/images/icon.youtube.png">
+        <label for="youtubevideo">Youtube URL: </label><input type="text" id="youtubevideo" name="addvideourl" class="ic cn_videourl">
+        <a class="ic cn_close cb_closelink" href="http://ca.QUIDNUNCRE.com/#">×</a>
+      </div>
+          </form>
+        <div class="cb_l cb_onlyexp cb_imgupl" style="display: none;">
+      <form enctype="multipart/form-data" action="http://ca.QUIDNUNCRE.com/?op=comment_image_upload" method="POST" target="imgupl_iframe" id="cb_img_uploader" class="ic cn_imgupl_form">
+        <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+        <div class="cb_labelhack">
+          <img src="/theme/images/icon.picture.png">
+          Choose a file to upload:
+        </div>
+        <div class="cb_buttonhack">
+          <input type="file" name="comment_image" class="ic cn_fileupload cb_uploader" size="0" onchange="jQuery(this).trigger(&#39;file_upload_change&#39;);">
+          <input type="submit" class="cb_imgsubmit" value="Select file">
+        </div>
+      </form>
+      <a class="ic cn_close cb_closelink" href="http://ca.QUIDNUNCRE.com/#">×</a>
+    </div>
+    <div class="cb_l cb_onlyexp cb_imguplpreview ic cn_img_preview_l" style="display: none;">
+      <img id="image_preview" class="cb_img_preview ic cn_imagepreview" src="/theme/images/x.gif" width="100" height="100">
+    </div>
+
+  </div>
+
+  <div class="ic cb_tweetthis cb_onlyexp cn_tweetthis" style="display: none;"><input type="checkbox" class="ic cn_tweetthischeck" name="tweetThis" id="tweetThis" value="1"><label for="tweetThis">Tweet this?</label></div>
+  <div class="cb_onlyexp cb_authoremail ic cn_aewrap" style="display: none; ">
+    <a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_authoremailtoggle cb_onlyexp at_icon ganja_icon"></a><a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_authoremailtoggle cb_onlyexp smalltype" title="Attribute comment to">Attribute comment to:</a>
+    <input type="text" id="authoremail" name="authoremail" class="validate valid_nonempty valid_email ic cn_authoremail cb_authemail serif empty_field" style="display: none;" title="email address" value="email address">
+    <div class="validationmessage authoremail_validmsg msg_valid_nonempty" style="display: none;">Please enter an email address.</div>
+    <div class="validationmessage authoremail_validmsg msg_valid_email" style="display: none;">Please enter a valid email address.</div>
+  </div>
+</div>      <div id="popTags" class="smalltype ">
+    <div id="popFaq"><a href="http://gawker.com/commentfaq/" class="dcolor" style="text-decoration: underline;">FAQ</a>. Include # before tag: <br></div>
+        <a class="dcolor" href="http://ca.QUIDNUNCRE.com/tag/tips"><span class="hash">#</span>tips</a>,
+        <a class="dcolor" href="http://ca.QUIDNUNCRE.com/tag/whitenoise"><span class="hash">#</span>whitenoise</a>,
+        <a class="dcolor" href="http://ca.QUIDNUNCRE.com/tag/broken"><span class="hash">#</span>broken</a>,
+        <a class="dcolor" href="http://ca.QUIDNUNCRE.com/tag/lifechanger"><span class="hash">#</span>lifechanger</a>,
+        etc.
+  </div>
+  <div style="clear: both;"></div>
+  </div>
+</div>
+
+<div>
+<div id="container" class="centered">
+  <div id="sidebar" class="smalltype">
+
+  
+  
+    <div id="skyscraper" class="">
+    <div class="ad_160x600"><div class="dfpad" id="gadc_8101022-placeholder">
+      
+    </div><div class="dfpad" id="gadc_8101022-delayed"><a target="_blank" href="#"><img src="/theme/images/dawn_dudek160x600.jpg" border="0" alt="Click here to find out more!"></a><!-- \o/ --></div></div>  </div>
+  <div id="skySpacer" class="spacer "></div>
+
+        <div id="ad_160x160" class="hide">
+        <div class="ad_160x160"><div id="ad-160x160">
+    <div class="dfpad" id="gadc_7189127-placeholder">ADVERTISEMENT</div><div class="dfpad" id="gadc_7189127-delayed"><a target="_blank" href="http://ad.doubleclick.net/click;h=v8/3ab2/0/0/%2a/l;44306;0-0;0;14043617;23-160/160;0/0/0;;~okv=;;ptile=3;sz=160x160;~aopt=2/1/31/0;~sscs=%3f"><img src="/theme/images/817-grey.gif" border="0" alt="Click here to find out more!"></a><!-- \o/ --></div></div>
+  <div id="spacer160" class="spacer" style="margin-bottom:0"></div></div>     </div>
+  
+  <div id="siteInfo">
+    <a id="appdir-button" href="http://ca.QUIDNUNCRE.com/tag/iphone-apps-directory"></a>
+    <a id="android-button" href="http://ca.QUIDNUNCRE.com/tag/androidappsdirectory"></a>
+    <hr id="apphr" noshade="true">
+
+      <p>
+    New York, 10:20 AM<br>
+    Fri Feb 18<br>
+    70 posts in the last 24 hours<br>
+  </p>
+      <p>
+      <a href="http://www.QUIDNUNCRE.fr/">FR</a> |
+      <a href="http://www.QUIDNUNCRE.it/">IT</a> |
+      <a href="http://www.QUIDNUNCRE.de/">DE</a> |
+      <a href="http://www.QUIDNUNCRE.es/">SP</a> |
+      <a href="http://www.QUIDNUNCRE.jp/">JP</a> |
+      <a href="http://www.QUIDNUNCRE.com.au/">AU</a> |
+      <a href="http://www.QUIDNUNCRE.com.br/">BR</a> |
+      <a href="http://QUIDNUNCRE.pl/">PL</a>
+    </p>
+    </div>
+
+  <div class="newsletter_signup" id="newsletter_signup_sidebar" style="margin: 10px 10px 0;">
+    <form class="newsletter_control cn_form">
+      <input type="hidden" name="op" value="newsletter_signup">
+      <label for="newsletter_email">Get Gizmodo in your inbox:</label><br>
+    <div class="fbblue">
+      <input type="text" id="newsletter_email" name="email" maxlength="255" class="validate valid_nonempty valid_email newsletter_control cn_newsletter_signup" style="width: 80px; color: #999;" onfocus="if ( this.value == &#39;email address&#39; ) { this.value=&#39;&#39;; this.style.color = &#39;black&#39;;}" onblur="if ( this.value == &#39;&#39;) { this.value = &#39;email address&#39;; this.style.color = &#39;#999&#39;; }" value="email address">
+      <input type="hidden" id="SIGNUP" name="SIGNUP" value="sidebar">
+      <input type="submit" class="sbmit" value="Join">
+    </div>
+      <div class="validationmessage email_validmsg msg_valid_nonempty">Please enter your email address.</div>
+      <div class="validationmessage email_validmsg msg_valid_email">Please enter a valid email address.</div>
+      <img class="newsletter_control cn_indicator" style="border: none; display: none;" width="16" height="16" alt="sending request" src="/theme/images/progressIndicator_roller.gif">
+      <div class="newsletter_control cn_message"></div>
+    </form>
+  </div>
+  <div id="masthead">
+    <h3 id="team">GIZMODO TEAM</h3>
+
+Tip Your Editors:<br>
+<a href="mailto:tips@QUIDNUNCRE.com">tips@QUIDNUNCRE.com</a><noscript>&lt;span style="unicode-bidi:bidi-override;direction:rtl;"&gt;&lt; moc.odomzig@spit &gt; moc.odomzig@spit&lt;/span&gt;</noscript><br><br>
+
+Editorial Director:<br>
+<a href="http://thescuttlefish.com/">Brian Lam</a> | <a href="mailto:blam@QUIDNUNCRE.com">Email</a><noscript>&lt;span style="unicode-bidi:bidi-override;direction:rtl;"&gt;&lt; moc.odomzig@malb &gt; liamE&lt;/span&gt;</noscript><br><br>
+
+Editor:<br>Jason Chen<br>
+<a href="mailto:jchen@QUIDNUNCRE.com">Email</a><noscript>&lt;span style="unicode-bidi:bidi-override;direction:rtl;"&gt;&lt; moc.odomzig@nehcj &gt; liamE&lt;/span&gt;</noscript> | <a href="aim:goim?screenname=jasonvsninjas&message=type+your+tip+here">AIM</a> | <a href="http://twitter.com/diskopo">Twitter</a>
+<br><br>
+
+Contributing Illustrator:<br>
+<a href="http://www.samspratt.com/">Sam Spratt</a>
+<br><br>
+
+Interns:<br>
+Foo Bar<br><a href="mailto:cchan@QUIDNUNCRE.com">Email</a><noscript>&lt;span style="unicode-bidi:bidi-override;direction:rtl;"&gt;&lt; moc.odomzig@nahcc &gt; liamE&lt;/span&gt;</noscript><br>
+
+Popular Posts:<br>
+<a href="http://ca.QUIDNUNCRE.com/popular/day/">Last 24 Hours</a><br>
+<a href="http://ca.QUIDNUNCRE.com/popular/week/">Last 7 Days</a><br>
+<a href="http://ca.QUIDNUNCRE.com/popular/month/">Last 30 Days</a>
+<br><br>
+
+Media Requests:<br>
+<a href="mailto:media@QUIDNUNCRE.com">media@QUIDNUNCRE.com</a><noscript>&lt;span style="unicode-bidi:bidi-override;direction:rtl;"&gt;&lt; moc.odomzig@aidem &gt; moc.odomzig@aidem&lt;/span&gt;</noscript><br><br>
+
+Follow Quidnunc on:<br>
+<a href="http://twitter.com/quidnunc">Twitter</a><br>
+</div>
+
+<div id="weekly-subscribe">
+  <h3>SUBSCRIBE TO GIZMODO <a href="http://ca.QUIDNUNCRE.com/index.xml" title="Click here for RSS" style="border:0"><img class="rss" src="/theme/images/feed_icon_small.png" alt="RSS" width="16" height="16"></a></h3>
+</div>
+
+
+<br><br>
+</div><!-- sidebar -->
+  <div id="wrapper">
+    
+<div id="inflowNotification" class="post content inflowNotification" style="display:none;">
+  <div>
+    <div class="postpic"><a class="topTag condensedTag">notification</a></div>
+    <div class="noimage_title"><h1 class="dcolor normal notifMsgFake"></h1></div> 
+    <div class="notifMsg"></div>
+    <div style="clear: both"></div>
+    <div class="notifications" style="display: none;">
+      <div class="text"></div>
+      <div class="notif_controls">
+        <div class="more notif_control cn_morenotification" style="cursor: pointer;">
+          <div class="showMore">Show more</div>
+          <div class="downArrow"></div>
+          <div class="moreNotifIndicator" style="display: none;">
+            <img src="/theme/images/progressIndicator_roller.gif" alt="" width="12" height="12">
+          </div>
+          <div style="clear: both;"></div>
+        </div>
+        <div class="seeall"><a class="see_all" href="">See all</a></div>
+        <div class="notif_control cn_clear" style="cursor: pointer;">Clear notifications</div>
+      </div>
+    </div>
+  </div>
+  <div class="inflow_terminating"></div>
+</div>
+    <div class="postid_5764153 post siteid_4">
+    
+    
+    <div class="content withpic">
+  <div class="postpic">
+    <a title="Click here to read Nikon Considering Cooling Fans Inside Cameras" href="http://QUIDNUNCRE.com/tag/patents/" class="topTag"><span class="hash">#</span>patents</a>
+        <a title="Click here to read Nikon Considering Cooling Fans Inside Cameras" href="http://ca.QUIDNUNCRE.com/5764153/nikon-considering-cooling-fans-inside-cameras" class="pp_image">
+      <img height="120" width="160" title="Click here to read Nikon Considering Cooling Fans Inside Cameras" alt="Click here to read Nikon Considering Cooling Fans Inside Cameras" src="/theme/images/160x120_nikonfan.jpg">
+          </a>
+      </div>
+  <h1>
+    <a title="Click here to read Nikon Considering Cooling Fans Inside Cameras" class="dcolor" href="http://ca.QUIDNUNCRE.com/5764153/nikon-considering-cooling-fans-inside-cameras">Nikon Considering Cooling Fans Inside Cameras</a>
+  </h1>
+  Well, this could certainly be annoying! To combat overheating sensors, Nikon may place a tiny cooling fan inside upcoming mirrorless cameras, according to a recent patent filing. Small fans mean high RPMs, which mean high pitched squealing. Not good. [<a href="http://www.petapixel.com/2011/02/17/nikon-may-use-fan-to-cool-down-its-mirrorless-cameras/">PetaPixel</a>]
+    
+</div>
+      <div class="postmeta smalltype">
+  <div class="postmeta_ad">
+<div class="dfpad" id="gadc_8082028-placeholder">POST META ADVERTISEMENT</div><div class="dfpad" id="gadc_8082028-delayed"><a target="_blank" href="http://ad.doubleclick.net/click;h=v8/3ab2/0/0/%2a/b;44306;0-0;0;38377215;1290-300/40;0/0/0;;~okv=;;ptile=4;sz=300x40;~aopt=2/1/31/0;~sscs=%3f"><img src="/theme/images/817-grey.gif" border="0" alt="Click here to find out more!"></a><!-- \o/ --></div></div>
+  <div class="pm_l pm_date">
+    <a href="http://ca.QUIDNUNCRE.com/5764153/nikon-considering-cooling-fans-inside-cameras" class="pm_link" rel="nofollow" title="on 10:20 AM">10:20 AM</a><img src="/theme/images/clock-filled.png" class="pm_meta_icon" width="15" height="15">
+  </div>
+      <div class="pm_l pm_views" title="0 views on this post">
+    0<img alt="0 views on this post" src="/theme/images/flame-gray.png" title="0 views on this post" class="pm_meta_icon" width="10" height="15">
+  </div>
+      <div class="pm_l pm_comments">
+    <a class="pm_link" href="http://ca.QUIDNUNCRE.com/5764153/nikon-considering-cooling-fans-inside-cameras#viewcomments" rel="nofollow" title="Leave a comment about this post">0</a><img src="/theme/images/comment-empty.png" title="Leave a comment about this post" class="pm_meta_icon" width="15" height="15">
+  </div>
+      <div class="pm_l pm_byline">
+        <cite class="pm_byline">By
+              <a href="http://ca.QUIDNUNCRE.com/people/SamBiddle/posts/" title="Click here to read posts written by Sam Biddle" class="pm_link">Sam Biddle</a>
+          </cite>
+      </div>
+  </div>
+</div>
+
+<div class="postid_5764160 post siteid_4">
+  <div class="content postBigPic">
+    <a title="Click here to read Waldok Is the Only iPhone Dock I Really Want" class="spimage" href="http://ca.gizmodo.com/5764160/waldok-is-the-only-iphone-dock-i-really-want">
+      <img width="500" style="padding: 0pt;" title="" alt="" class="bigpic" src="/theme/images/500x_ss_wall02.jpg">
+    </a>
+    <a title="Click here to read Waldok Is the Only iPhone Dock I Really Want" href="http://gizmodo.com/tag/audio/" class="topTag condensedTag" id="tag_5764160">
+      <span class="hash">#</span>audio    </a>
+    <div class="bigExcerptHolder">
+      <h1>
+        <a title="Click here to read Waldok Is the Only iPhone Dock I Really Want" class="dcolor" href="http://ca.gizmodo.com/5764160/waldok-is-the-only-iphone-dock-i-really-want">Waldok Is the Only iPhone Dock I Really Want</a>
+      </h1>
+      I want the Waldok. I have wanted one forever, ever since I first saw a dock for the old school iPod. Why don't make a cool dock speaker that I can plug onto my bathroom power socket or any other room?      
+              <a href="http://ca.gizmodo.com/5764160/waldok-is-the-only-iphone-dock-i-really-want" title="Click here to read more about Waldok Is the Only iPhone Dock I Really Want">More&nbsp;»</a>
+          </div>
+</div>      <div class="postmeta smalltype">
+  <div class="postmeta_ad">
+<div class="dfpad" id="gadc_8296454-placeholder">
+  
+</div>
+<div class="dfpad" id="gadc_8296454-delayed"><a target="_blank" href="#"><img src="/theme/images/817-grey.gif" border="0" alt="Click here to find out more!"></a><!-- \o/ --></div></div>
+  <div class="pm_l pm_date">
+    <a href="http://ca.gizmodo.com/5764160/waldok-is-the-only-iphone-dock-i-really-want" class="pm_link" rel="nofollow" title="on 10:20 AM">10:20 AM</a><img src="/theme/images/clock-filled.png" class="pm_meta_icon" width="15" height="15">
+  </div>
+      <div class="pm_l pm_views" title="0 views on this post">
+    0<img alt="0 views on this post" src="/theme/images/flame-gray.png" title="0 views on this post" class="pm_meta_icon" width="10" height="15">
+  </div>
+      <div class="pm_l pm_comments">
+    <a class="pm_link" href="http://ca.gizmodo.com/5764160/waldok-is-the-only-iphone-dock-i-really-want#viewcomments" rel="nofollow" title="Leave a comment about this post">0</a><img src="/theme/images/comment-empty.png" title="Leave a comment about this post" class="pm_meta_icon" width="15" height="15">
+  </div>
+      <div class="pm_l pm_byline">
+        <cite class="pm_byline">By
+              <a href="http://ca.gizmodo.com/people/jesusdiaz/posts/" title="Click here to read posts written by Jesus Diaz" class="pm_link">Jesus Diaz</a>
+          </cite>
+      </div>
+  </div>
+</div>
+
+  <div class="pager smalltype">
+        <a href="http://ca.QUIDNUNCRE.com/?p=1" class="current_page">1</a>
+      <a href="http://ca.QUIDNUNCRE.com/?p=2">2</a>
+      <a href="http://ca.QUIDNUNCRE.com/?p=3">3</a>
+      <a href="http://ca.QUIDNUNCRE.com/?p=4">4</a>
+      <a href="http://ca.QUIDNUNCRE.com/?p=5">5</a>
+      <a href="http://ca.QUIDNUNCRE.com/?p=6">6</a>
+      <a href="http://ca.QUIDNUNCRE.com/?p=7">7</a>
+      <a href="http://ca.QUIDNUNCRE.com/?p=8">8</a>
+      <a href="http://ca.QUIDNUNCRE.com/?p=9">9</a>
+      <a href="http://ca.QUIDNUNCRE.com/?p=10">10</a>
+        <a href="http://ca.QUIDNUNCRE.com/?p=2">next »</a>
+    </div>
+
+    <div class="clear">&nbsp;</div>
+  </div>
+</div>
+
+<div id="footer" class="centered smalltype">
+      <map name="footermap">
+      <area href="http://gawker.com/" alt="" title="" shape="rect" coords="1,7,176,26">
+      <area href="http://deadspin.com/" alt="" title="" shape="rect" coords="194,7,327,26">
+      <area href="http://kotaku.com/" alt="" title="" shape="rect" coords="345,3,438,28">
+      <area href="http://jezebel.com/" alt="" title="" shape="rect" coords="454,6,557,31">
+      <area href="http://io9.com/" alt="" title="" shape="rect" coords="575,2,620,28">
+      <area href="http://jalopnik.com/" alt="" title="" shape="rect" coords="636,6,746,26">
+      <area href="http://QUIDNUNCRE.com/" alt="" title="" shape="rect" coords="764,5,883,26">
+      <area href="http://lifehacker.com/" alt="" title="" shape="rect" coords="899,1,997,28">
+    </map>
+    <img src="/theme/images/footer-sitelist.png" usemap="#footermap" border="0" style="margin: 10px 0px" width="998" height="33">
+  
+  <ul id="footer_siteinfo">
+        <li>
+      <div id="sitemeter" class="plain">
+      SITEMETER
+      </div>
+    </li>
+        <li><a title="Click here to go to Archives" href="http://ca.QUIDNUNCRE.com/archive" rel="nofollow">Archives</a></li>
+        
+    <li><a title="Click here to go to About" href="http://QUIDNUNCRE.com/5525755/this-is-QUIDNUNCRE" rel="nofollow">About</a></li>
+        
+        <li><a title="Click here to go to Advertising" href="http://advertising.gawker.com/" rel="nofollow">Advertising</a></li>
+    <li><a title="Click here to go to Legal" href="http://gawker.com/advertising/legal" rel="nofollow">Legal</a></li>
+            <li><a rel="nofollow" href="http://gawker.zendesk.com/anonymous_requests/new" title="Click here to go to Report an Issue" target="_blank">Report an Issue</a></li>
+        <li><a rel="nofollow" href="http://gawker.com/commentfaq/" title="Click here to go to Comment FAQ">FAQ</a></li>
+      </ul>
+    <a href="http://advertising.gawker.com/legal/">Original material</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc/3.0/">Creative Commons License</a> permitting non-commercial sharing with attribution.
+  
+      <br class="clearer">
+</div><div id="FB_HiddenContainer" style="position: absolute; top: -10000px; width: 0px; height: 0px; "><div></div><div>FLASH SOMETHING HERE</div></div>
+
+<!-- external presence templates -->
+<div class="presence_control_external smalltype">
+  <div class="modal_overlay presence_control ic editor_control mail2control newsletter_control cn_overlay" style="display:none;"></div>
+  <div class="modal dialog login presence_control cn_login_dialog" style="display:none;width:550px;">
+    <div class="inner">
+      <h1>Login</h1>
+      <img class="siteIcon" src="/theme/images/apple-touch-icon.png">
+
+      <div class="text">
+        <p>Enter your username and password.</p>
+
+        <form class="presence_control cn_login_form" method="post" action="http://ca.QUIDNUNCRE.com/?op=login">
+          <input class="presence_control cn_redirect_to" type="hidden" name="redirect_to" value="">
+          <input type="hidden" value="1" name="remember" class="presence_control cn_remember">
+          <div class="row">
+            <label for="login_username">Username:</label><input id="login_username" name="username" type="text" value="" maxlength="255" class="validate valid_nonempty presence_control cn_username">
+            <div class="validationmessage username_validmsg msg_valid_nonempty" style="display: none; ">Please enter a username.</div>
+          </div>
+          <div class="row">
+            <label for="login_password">Password:</label><input id="login_password" name="password" type="password" value="" maxlength="255" class="validate valid_nonempty presence_control cn_password">
+            <div class="validationmessage password_validmsg msg_valid_nonempty" style="display: none; ">Please enter your password.</div>
+          </div>
+          <div class="row">
+            <span class="menubar_login_indicator presence_control cn_login_indicator" style="display: none; "><img width="16" height="16" alt="logging in" src="/theme/images/progressIndicator_roller_f0f0f0.gif"></span>
+            <input type="submit" value="Login" class="presence_control cn_login_button">
+            <input type="button" value="Cancel" class="presence_control cn_login_cancel">
+            <div class="presence_control cn_loginmessage"></div>
+          </div>
+        </form>
+
+        <div class="footer">
+                <a href="http://ca.QUIDNUNCRE.com/#" class="presence_control cn_fb_login">Login via Facebook</a> |
+          <a href="http://ca.QUIDNUNCRE.com/#" class="presence_control cn_toggleregisterdialog">Sign Up</a> |
+          <a href="http://ca.QUIDNUNCRE.com/#" class="reset presence_control cn_toggleresetpwdialog">Reset Password</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- reset password -->
+
+  <div class="modal dialog resetPassword presence_control cn_resetpw_dialog" style="display: none; width:550px;">
+    <div class="inner">
+      <h1>Reset Password</h1>
+      <img class="siteIcon" src="/theme/images/apple-touch-icon.png">
+
+      <div class="text" id="resetPassword1">
+        <p id="noAsciiNotify" style="display: none;">
+          You password contains non US-ASCII characters. We recommend you reset your password due to a flaw in handling non US-ASCII characters.
+        </p>
+        <p>Please enter the email address associated with your account to have it reset.</p>
+
+        <form action="http://ca.QUIDNUNCRE.com/?op=emailpassword" class="presence_control cn_resetpw_form">
+          <div class="row">
+            <label for="resetpw_email">Email:</label><input type="text" id="resetpw_email" name="email" maxlength="255" class="validate valid_nonempty valid_email presence_control cn_resetpwemail">
+            <div class="validationmessage email_validmsg msg_valid_nonempty" style="display: none; ">Please enter your email address.</div>
+            <div class="validationmessage email_validmsg msg_valid_email" style="display: none; ">Please enter a valid email address.</div>
+          </div>
+          <div class="row" style="margin-left: 148px">
+          <div id="resetPwRecaptcha" style="display: none;">6LfSor8SAAAAAKQnBZMKP3wYxbQWb_sjCvAaFxos</div>
+          </div>
+          <div class="row">
+            <span class="menubar_login_indicator presence_control cn_resetpw_indicator" style="display: none;"><img width="16" height="16" alt="requesting password reset" src="/theme/images/progressIndicator_roller_f0f0f0.gif"></span>
+            <input type="submit" value="Reset" class="presence_control cn_resetpw_submit">
+            <input type="button" value="Cancel" class="presence_control cn_resetpw_cancel">
+            <div class="presence_control cn_resetpwmessage"></div>
+          </div>
+        </form>
+
+      </div>
+      <div class="text" id="resetPassword2" style="display: none;">
+        <p>A temporary password has been emailed to you. If you do not receive the password reset email, please be sure to check your spam folder. In some cases, it can take up to 10 minutes for your email service to receive the email.</p> 
+        <p>If you still haven't received the email, please contact <a href="mailto:help@gawker.com">help@gawker.com</a> for further assistance.</p> 
+        <input type="button" value="Close" class="presence_control cn_resetpw_cancel"> 
+      </div>
+    </div>
+  </div>
+
+  <!-- new user -->
+
+  <div class="modal dialog register presence_control cn_register_dialog" style="width: 550px; display: none;">
+    <div class="inner">
+      <h1>Register</h1>
+      <img class="siteIcon" src="/theme/images/apple-touch-icon.png">
+
+      <div class="text">
+        <p class="presence_control cn_register_copy">Registering will give you a user profile and the ability to add other users as friends. To become a commenter, however, you need to audition.</p>
+        <p>Want to know more? Consult the <a href="http://gawker.com/commentfaq/" title="Comment FAQ" target="_blank">Comment FAQ</a> and <a href="http://advertising.gawker.com/legal/" title="Legal terms" target="_blank">legal terms</a>.</p>
+
+        <form action="http://ca.QUIDNUNCRE.com/?op=register" class="presence_control cn_register_form">
+          <input class="presence_control cn_register_invitecode" type="hidden" name="code" value="">
+          <input class="presence_control cn_register_invitecodemod" type="hidden" name="codemod" value="">
+          <div class="row">
+            <label for="register_username">Username:</label><input type="text" id="register_username" name="username" maxlength="255" class="validate valid_nonempty presence_control cn_register_username">
+            <div class="validationmessage username_validmsg msg_valid_nonempty" style="display: none; ">Please enter a username.</div>
+          </div>
+          <div class="row">
+            <label for="register_password">Password:</label><input type="password" id="register_password" name="password" maxlength="255" class="validate valid_nonempty presence_control cn_register_password">
+            <div class="validationmessage password_validmsg msg_valid_nonempty" style="display: none; ">Please enter a password.</div>
+          </div>
+          <div class="row">
+            <label for="register_confirm_password">Confirm Password:</label><input type="password" id="register_confirm_password" name="confirm_password" maxlength="255" class="validate valid_nonempty valid_sameas-password presence_control cn_register_confirm_password">
+            <div class="validationmessage confirm_password_validmsg msg_valid_nonempty" style="display: none; ">Please confirm your password.</div>
+            <div class="validationmessage confirm_password_validmsg msg_valid_sameas" style="display: none; ">Passwords are not identical.</div>
+          </div>
+          <div class="row">
+            <label for="register_email">Email (not published):</label><input type="text" id="register_email" name="email" maxlength="255" class="validate valid_email presence_control cn_register_email">
+            <div class="validationmessage email_validmsg msg_valid_email" style="display: none; ">Please enter a valid email address.</div>
+          </div>
+          <div class="row"><label for="register_remember">Remember me on this computer?</label><input type="checkbox" id="register_remember" name="remember" class="presence_control cn_register_remember" checked="yes"></div>
+          <div class="row newsletter_signup_checkbox"><label for="register_newsletter">Sign me up for Gizmodo's email newsletter</label><input type="checkbox" id="register_newsletter" name="newsletter" class="presence_control cn_register_newsletter" checked="yes"></div>
+          <div class="row">
+            <span class="menubar_login_indicator presence_control cn_register_indicator" style="display: none;"><img width="16" height="16" alt="registration sent, waiting for reply" src="/theme/images/progressIndicator_roller_f0f0f0.gif"></span>
+            <input type="submit" value="Register" class="presence_control cn_register_submit">
+            <input type="button" value="Cancel" class="presence_control cn_register_cancel">
+            <div class="presence_control cn_registermessage"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal dialog emailreminder presence_control cn_emailreminder_dialog" style="width: 550px; display: none;">
+    <div class="inner">
+      <h1>Register</h1>
+      <img class="siteIcon" src="/theme/images/apple-touch-icon.png">
+
+      <div class="text">
+        <p class="presence_control cn_emailreminder_copy">One last thing!</p>
+        <p class="presence_control cn_emailreminder_copy2">While we don't require an email address to sign up, consider adding one to your account. This will give you the ability to reset a lost or stolen password. </p>
+
+        <form action="http://ca.QUIDNUNCRE.com/?op=register" class="presence_control cn_emailreminder_form">
+          <input type="hidden" class="presence_control cn_emailreminder_invitecode" name="code" value="">
+          <input type="hidden" class="presence_control cn_emailreminder_invitecodemod" name="codemod" value="">
+          <input type="hidden" id="emailreminder_username" name="username" maxlength="255" class="presence_control cn_emailreminder_username">
+          <input type="hidden" id="emailreminder_password" name="password" maxlength="255" class="presence_control cn_emailreminder_password">
+          <input type="hidden" id="emailreminder_confirm_password" name="confirm_password" maxlength="255" class="presence_control cn_emailreminder_confirm_password">
+          <input type="hidden" id="emailreminder_remember" name="remember" class="presence_control cn_emailreminder_remember">
+          <div class="row">
+            <label for="emailreminder_email">Email (not published):</label><input type="text" id="emailreminder_email" name="email" maxlength="255" class="validate valid_email presence_control cn_emailreminder_email">
+            <div class="validationmessage email_validmsg msg_valid_email" style="display: none;">Please enter a valid email address.</div>
+          </div>
+          <div class="row newsletter_signup_checkbox"><label for="emailreminder_newsletter">Sign me up for Gawker's email newsletter</label><input type="checkbox" id="emailreminder_newsletter" name="newsletter" class="presence_control cn_emailreminder_newsletter" checked="yes"></div>
+          <div class="row">
+            <span class="menubar_login_indicator presence_control cn_emailreminder_indicator" style="display: none;"><img width="16" height="16" alt="registration sent, waiting for reply" src="/theme/images/progressIndicator_roller_f0f0f0.gif"></span>
+            <input type="submit" value="Add email" class="presence_control cn_emailreminder_submit">
+            <input type="button" value="No thanks" class="presence_control cn_emailreminder_cancel">
+            <input type="hidden" name="noemail" value="0" class="presence_control cn_emailreminder_noemail">
+            <div class="presence_control cn_emailremindermessage"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  
+  
+  <!-- change password -->
+
+  <div class="modal dialog presence_control cn_changepassword_dialog" style="display: none;">
+    <div class="inner">
+      <h1>Change password</h1>
+      <img class="siteIcon" src="/theme/images/apple-touch-icon.png">
+
+      <div class="text">
+        <p id="noAsciiNotifyChangePassword" style="display: none;">
+          You password contains non US-ASCII characters. We recommend you change your password due to a flaw in handling non US-ASCII characters.
+        </p>
+        <form action="http://ca.QUIDNUNCRE.com/?op=setprofile" method="post" class="presence_control cn_changepassword_form">
+          <input type="hidden" name="mode" value="change_password">
+          <input type="hidden" name="username" value="" class="presence_control cn_changepassword_username">
+          <input type="hidden" name="id" value="" class="presence_control cn_changepassword_id">
+          <div class="row">
+            <label for="changepassword_password">Old Password:</label><input type="password" name="password" id="changepassword_password" maxlength="255" class="validate valid_nonempty presence_control cn_changepassword_password">
+            <div class="validationmessage password_validmsg msg_valid_nonempty" style="display: none;">Please enter a password.</div>
+          </div>
+          <div class="row">
+            <label for="changepassword_new_password">New Password:</label><input type="password" name="new_password" id="changepassword_new_password" maxlength="255" class="validate valid_nonempty presence_control cn_changepassword_new_password">
+            <div class="validationmessage new_password_validmsg msg_valid_nonempty" style="display: none;">Please enter a password.</div>
+          </div>
+          <div class="row">
+            <label for="changepassword_confirm_password">Confirm Password:</label><input type="password" name="confirm_password" id="changepassword_confirm_password" maxlength="255" class="validate valid_nonempty valid_sameas-new_password presence_control cn_changepassword_confirm_password">
+            <div class="validationmessage confirm_password_validmsg msg_valid_nonempty" style="display: none;">Please confirm your password.</div>
+            <div class="validationmessage confirm_password_validmsg msg_valid_sameas" style="display: none;">Passwords are not identical.</div>
+          </div>
+          <div class="row presence_control cn_changepassword_messagebig" style="text-align: right; color: #900"></div>
+          <div class="row">
+            <span class="menubar_login_indicator presence_control cn_changepassword_indicator" style="display: none;"><img width="16" height="16" alt="password change in progress, waiting for reply" src="/theme/images/progressIndicator_roller_f0f0f0.gif"></span>
+            <input type="submit" value="Save" class="presence_control cn_changepassword_submit">
+            <input type="button" value="Cancel" class="presence_control cn_changepassword_cancel">
+            <div class="presence_control cn_changepassword_message"></div>
+          </div>
+        </form>
+        
+        <div class="footer">
+                    <a class="reset presence_control cn_toggleresetpwdialog" href="http://ca.QUIDNUNCRE.com/#">reset password</a>
+                </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- delete user -->
+
+  <div class="modal dialog presence_control cn_deleteuser_dialog" style="display: none;">
+    <div class="inner">
+      <h1>Account Deletion</h1>
+      <img class="siteIcon" src="/theme/images/apple-touch-icon.png">
+
+      <div class="text">
+        <form action="http://ca.QUIDNUNCRE.com/?op=deleteuser%20method=" post"=" class="presence_control cn_deleteuser_form">
+          <input type="hidden" name="username" value="" class="presence_control cn_deleteuser_username">
+          <input type="hidden" name="id" value="" class="presence_control cn_deleteuser_id">
+          <div class="row" style="text-align: left;">
+            <p>We understand you'd like to delete your account. If you delete your account all of your information including your comments, messages, posts, and friends and followers associations will be removed from our system. Please consider the following options before clicking delete.</p>
+            <p>If you're concerned about your public identity on site you can change both your username or your display name. Your display name is the name that is publicly visible to other users. Your username is what you login with and is in your profile url. Both can be edited by going to your profile then clicking "Edit Profile." </p>
+            <p>If you still wish to completely delete your account, click the Delete Account button below. Your account will be locked, and your information will be wiped from our servers within 30 days.</p>
+          </div>
+          <div class="row" style="text-align: left;">
+            <input type="submit" value="Delete Account" class="presence_control cn_deleteuser_submit">
+            <input type="button" value="Cancel" class="presence_control cn_deleteuser_cancel">
+            <span class="menubar_login_indicator presence_control cn_deleteuser_indicator" style="display: none;"><img width="16" height="16" alt="Account deletion is in progress." src="/theme/images/progressIndicator_roller_f0f0f0.gif"></span>
+            <div class="presence_control cn_deleteuser_message"></div>
+          </div>
+          <div class="row" style="text-align: left;">
+            <p>If you have any other questions about deleting your account, please contact <a href="mailto:help@gawker.com">help@gawker.com</a>. If you've already contacted <a href="mailto:help@gawker.com">help@gawker.com</a> about deleting your account, we've received your request and will follow up with you.</p>
+          </div>
+          <div class="row">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- anon comment panel - belongs to commentbox widget-->
+  <div class="modal dialog guestpanel ic cn_guestpanel_dialog" style="display: none; width: 550px;">
+    <div class="inner">
+      <h1>Submit Your Comment</h1>
+      <img class="siteIcon" src="/theme/images/apple-touch-icon.png">
+
+      <div class="text">
+
+        <div class="leftside">
+          <p>You don't need a login to comment. Just enter your email address below.</p>
+          <p><strong>Your username will be the part of your email address before the @ sign.</strong> If you wish to remain anonymous, create your own username by signing up for a Gawker account <a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_requestregister">here</a>.</p>
+          <form class="ic cn_guestpanel_form" method="post">
+            <div class="row">
+              <label for="guestpanel_email">Email:</label><input id="guestpanel_email" name="email" type="text" value="" maxlength="255" class="validate valid_nonempty valid_email ic cn_guestpanelemail">
+              <div class="validationmessage email_validmsg msg_valid_email" style="display: none;">Please enter a valid email address.</div>
+              <div class="validationmessage email_validmsg msg_valid_nonempty" style="display: none;">Please enter a valid email address.</div>
+              <div class="row newsletter_signup_checkbox" style="margin: 10px 0;"><label for="gusetpanel_newsletter" style="margin-right: 3px; vertical-align: 2px;">Get Gizmodo's daily newsletter?</label><input type="checkbox" id="guestpanel_newsletter" name="newsletter" class="ic cn_guestpanel_newsletter" checked="yes"></div>
+            </div>
+            <div class="row">
+              <span class="menubar_guestpanel_indicator ic cn_guestpanel_indicator" style="display: none;"><img width="16" height="16" alt="logging in" src="/theme/images/progressIndicator_roller_f0f0f0.gif"></span>
+              <input type="submit" value="Submit" class="ic cn_guestpanel_button">
+              <input type="button" value="Cancel" class="ic cn_guestpanel_cancel">
+              <div class="ic cn_guestpanelmessage"></div>
+            </div>
+          </form>
+        </div>
+
+        <div class="rightside">
+          <p><strong>Already Have an Account?</strong><br>
+          Login with your <a href="http://ca.QUIDNUNCRE.com/#" title="Login via Facebook" class="ic cn_request_fb_login">Facebook</a> or existing <a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_requestlogin">Gizmodo</a> account.</p>
+          <p><strong>Questions?</strong><br>
+          Learn more at the <a href="http://gawker.com/commentfaq/" target="_blank">Comment FAQ</a>.</p>
+
+                </div>
+        <br style="clear: both; height: 0px;">
+      </div>
+      <br style="clear: both; height: 0px;">
+    </div>
+  </div>
+
+  
+          
+  <div class="modal dialog presence_control cn_policy_dialog" style="display: none;">
+    <div class="inner">
+      <div class="content communitypolicy_popup">
+<h1><img src="/theme/images/gawker_logo_175.gif"><br>Gawker Media Community Policy</h1>
+<p>
+These are our sites, and we reserve the right to moderate the discussion. The basic rules are standard: An attack on authors or other commenters is unlikely to make you popular. Think before you disparage social or ethnic groups. Don't spam. Don't post pornography or copyrighted imagery. Stay on topic. 
+</p>
+<p>
+That said, the community policy of Gawker Media is forgiving. If your criticism is articulate, it will likely get through. We dole it out; we can take it. What do we mean by articulate? Support your point with argument, facts and citations. Good grammar and spelling also help.
+</p>
+<p style="font-size:12px;">Got questions? Need answers? See our <a href="http://gawker.com/commentfaq">FAQ</a> and <a href="http://gawker.com/commentfaq/#auditiontips">site-specific community guidelines.</a></p>
+
+<a href="http://ca.QUIDNUNCRE.com/#" class="presence_control cn_closepolicypopup">Close</a><br clear="both">
+</div>    </div>
+  </div>
+  
+  </div>
+
+    <div class="notificationMsgTemplates" style="display: none;">
+      <span class="star">Congratulations, %youAre% a star! %userName% starred %you% on %sitename% <span class="atTime">%time%</span></span>
+      <span class="unstar">%youHave% lost your star. %userName% took away %your% star <span class="atTime">%time%</span></span>
+      <span class="promote">%userName% promoted %your% comment in <a href="http://ca.QUIDNUNCRE.com/%postLink%">%postName%</a> <span class="atTime">%time%</span></span>
+      <span class="demote">%userName% demoted %your% comment in <a href="http://ca.QUIDNUNCRE.com/%postLink%">%postName%</a> <span class="atTime">%time%</span></span>
+      <span class="reply">%userName% <a href="http://ca.QUIDNUNCRE.com/%commentLink%">replied</a> to %your% comment in <a href="http://ca.QUIDNUNCRE.com/%postLink%">%postName%</a> <span class="atTime">%time%</span></span>
+      <span class="approve">Congratulations, %youAre% a commenter! %userName% approved %you% <span class="atTime">%time%</span></span>
+      <span class="pending">%youHave% lost your commenter status. %userName% took away %your% approval <span class="atTime">%time%</span></span>
+      <span class="removed">%youAre% banned. <a href="http://ca.QUIDNUNCRE.com/%userLink%">%userName%</a> has banned %you% <span class="atTime">%time%</span></span>
+      <span class="banned">%youHave% been banned by <a href="http://ca.QUIDNUNCRE.com/%userLink%">%userName%</a> for your <a href="http://ca.QUIDNUNCRE.com/comment/%commentid%">comment</a> on <a href="http://ca.QUIDNUNCRE.com/%movedfromurl%">%movedfromtitle%</a>. %movetomessage% <span class="atTime">%time%</span></span>
+      <span class="suspended">%youHave% been suspended for one week by <a href="http://ca.QUIDNUNCRE.com/%userLink%">%userName%</a> for your <a href="http://ca.QUIDNUNCRE.com/comment/%commentid%">comment</a> on <a href="http://ca.QUIDNUNCRE.com/%movedfromurl%">%movedfromtitle%</a>. %movetomessage% <span class="atTime">%time%</span></span>
+      <span class="warned">%youHave% been warned by <a href="http://ca.QUIDNUNCRE.com/%userLink%">%userName%</a> for your <a href="http://ca.QUIDNUNCRE.com/comment/%commentid%">comment</a> on <a href="http://ca.QUIDNUNCRE.com/%movedfromurl%">%movedfromtitle%</a>. %movetomessage% <span class="atTime">%time%</span></span>
+      <span class="container">
+      <div class="notification">
+        <div class="grayAlert"></div>
+        <div class="text">%text%</div>
+        <div style="clear: both;"></div>
+      </div>
+    </span>
+    <span class="header-one">
+      <h1>
+        <div class="orangeAlert"></div>
+        <span class="notifAlert notif_control cn_morenotification cn_notificatonheader">You have %count% new reply</span>
+        <div class="moreNotifIndicator" style="display: none;">
+          <img src="/theme/images/progressIndicator_roller.gif" alt="" width="12" height="12">
+        </div>
+        <div class="downArrow"></div>
+      </h1>
+    </span>
+    <span class="header-more">
+      <h1>
+        <div class="orangeAlert"></div>
+        <span class="notifAlert notif_control cn_morenotification">You have %count% new replies</span>
+        <div class="moreNotifIndicator" style="display: none;">
+          <img src="/theme/images/progressIndicator_roller.gif" alt="" width="12" height="12">
+        </div>
+        <div class="downArrow"></div>
+      </h1>
+    </span>
+  </div>
+
+
+
+</div>
+<!-- content -->
+
+<div id="lbOverlay" class="grey" style="display: none; "></div><div id="lbMain" style="display: none; "><div id="lbOuterContainer" class="grey"><div id="lbIframeContainer" style="display: none; "><iframe id="lbIframe" name="lbIframe" style="display: none; "></iframe></div><div id="lbImageContainer"><img id="lbImage"><div id="lbHoverNav"><a id="lbPrev" class="grey" href="http://ca.QUIDNUNCRE.com/#"></a><a id="lbNext" class="grey" href="http://ca.QUIDNUNCRE.com/#"></a></div></div><div id="lbLoading"></div></div><div id="lbDetailsContainer" class="grey"><div id="lbDetailsData" class="grey"><div id="lbDetails"><span id="lbCaption"></span><span id="lbNumberDisplay"></span><span id="lbNavDisplay" style="display: none; "></span></div><div id="lbBottomNav"><a id="lbClose" class="grey" href="http://ca.QUIDNUNCRE.com/#"></a><a id="lbPause" class="grey" href="http://ca.QUIDNUNCRE.com/#" style="display: none; "></a><a id="lbPlay" class="grey" href="http://ca.QUIDNUNCRE.com/#" style="display: none; "></a></div></div></div></div></body></html>

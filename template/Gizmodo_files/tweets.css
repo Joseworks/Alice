@@ -1,0 +1,6 @@
+.content.tweets .commenttools .ptc { background-image: url(http://cache.gawkerassets.com/assets/base.v9/img/icons/icons.png); background-repeat: no-repeat; cursor: pointer; display: block; float: left; height: 12px; width: 12px; padding: 0; margin-right: 6px; text-decoration: none; border-bottom: 0 !important; }
+	.content.tweets .commenttools .ptc.noPost { background-position: 0 -368px; } /* tweet promote icon */
+		.content.tweets .commenttools .ptc.noPost:hover { background-position: 0 -352px;}
+	.content.tweets .commenttools .ptc.hasPost { background-position: 0 -464px; } /* tweetpost edit icon */
+		.content.tweets .commenttools .ptc.hasPost:hover { background-position: 0 -448px; }
+	.content.tweets .twitpics { float: left; margin: 0px 5px 5px 0px; max-width: 330px; }

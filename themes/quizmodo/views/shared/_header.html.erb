@@ -1,0 +1,27 @@
+<div id="header" class="centered">
+  <div id="topMenu" class="evenday">
+    <ul id="contentSwitch">
+      <li><div class="selected"><%= link_to RefinerySetting.get(:site_name), root_url(:only_path => true) %> </div></li>
+    </ul>
+    <div id="userLinks">
+      <div id="top_presence_control" class="smalltype">
+          <span class="cn_logout_panel presence_control" style="display:none;">
+          <a href="#" class="presence_control cn_profile_link">Profile</a>
+          <a href="#" class="presence_control cn_logout_link normal">logout</a>
+          <img class="presence_control cn_logout_indicator" src="/theme/images/bar-loader.gif" width="16" height="16" border="0" style="display: none;">
+        </span>
+        <span class="cn_login_panel presence_control" style="">
+          <a href="#" class="login presence_control cn_togglelogindialog normal">login</a>
+        </span>
+      </div>
+      <div class="search" id="top_search_control">
+        <form class="searchControl cn_form" method="post" action="#" id="search_form" name="search_form">
+          <span class="left"></span>
+            <input type="search" class="searchControl cn_q noq" results="5" value="" id="term" name="q" placeholder="Search" autosave="gawker_srch">
+            <input type="hidden" name="searchall" value="0" class="searchControl cn_searchall">
+            <input type="hidden" name="searchbyrelevance" value="0" class="searchControl cn_searchbyrelevance">
+          <span class="right"></span>
+        </form>
+      </div>
+    </div>
+</div>

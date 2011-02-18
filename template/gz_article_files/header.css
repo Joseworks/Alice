@@ -1,0 +1,60 @@
+#header{margin-top: 10px;height: 260px;position: relative;}
+#ad-300x250 {height:250px;position:absolute;right:0;top:0;width:300px;z-index: 1000;}
+#topMenu {background: url('http://cache.gawkerassets.com/assets/base.v9/img/topmenu-bg.jpg') bottom left repeat-x;float: left;margin-bottom: 6px; margin-top: 1px; position: relative;width: 692px;}
+
+/* content switcher */
+#contentSwitch {float:left;list-style-type: none;margin-left:10px;width: 350px;height: 38px;overflow: hidden;}
+#contentSwitch li {float:left;}
+.ie #contentSwitch li {width: auto;}
+.ie6 #contentSwitch li {width: 1%;}
+#contentSwitch li div {display: block;height: 20px;	padding: 12px 11px 5px;}
+#contentSwitch div.selected {background-color: #FFFFFF;border-color: #AAAAAA;border-style: solid solid none solid;border-width: 1px 1px 0px 1px;padding: 12px 10px 5px;}
+#contentSwitch div a {overflow: hidden;display:block;}
+
+/* userLinks on right */
+#userLinks {float: right;margin-top: 10px;}
+#userLinks div {float: left;margin-left: 10px;line-height: 20px;}
+#userLinks a {margin-left: 5px;font-weight: bold;}
+#userLinks a.normal {font-weight:normal;}
+#top_presence_control {line-height: 18px;}
+
+/** styles for search box ***/
+#search_form {background: transparent url(http://cache.gawkerassets.com/assets/base.v9/img/ui/srch_l.gif) 0 0 no-repeat;padding-left: 18px;float: left;}
+#search_form .right {background: transparent url(http://cache.gawkerassets.com/assets/base.v9/img/ui/srch_r.gif) 0 0 no-repeat;float: left;width: 19px;height: 19px;}
+#search_form input {background: transparent url(http://cache.gawkerassets.com/assets/base.v9/img/ui/srch_bg.gif) 0 0 repeat-x;float: left;border: 0;height: 19px;width: 100px;padding: 3px;font: 11px/13px  Helvetica, Arial, sans-serif;color: #000;}
+#search_form input.noq {color: #999;}
+.webkit #search_form .left, .webkit #search_form .right {display: none;}
+.webkit #search_form {background: none;	padding-left: 0;}
+.webkit #search_form input {width: 130px;}
+
+/** top stories **/
+#splashPosts {margin-left: 0;clear: left;float: left;width: 1000px;overflow: hidden;}
+#splashPosts .topStory {position: relative;height: 210px;width: 128px;padding: 0 13px 0 0;float:left;z-index: 20;}
+	.ie #splashPosts .topStory {padding: 0 13px 0 0;}
+#splashPosts .topStory img {width: 126px;height: 100px;display: block;background-color: #aaa;border: 1px solid #b3b3b3; margin: 0px;}
+#splashPosts .topStory h1 {line-height: 17px;height: 102px;overflow: hidden;width: 126px;font-size: 13px;font-weight: bold; padding-top: 4px;}
+#splashPosts .play_icon { top: 55px; right: 23px; bottom:auto;}
+
+.sponsoredtop div {border-style: solid; border-width: 0px 1px 1px 1px;}
+	#splashPosts .sponsoredtop h1 {margin-left: 2px; margin-right: 2px; height: 85px; padding-top: 2px;}
+	.sponsoredtop span.sponsoredcopy {color: #585858; display: block; font-family: Arial, Verdana; font-size: 9px; line-height: 1; padding: 5px 0px 2px 2px; text-transform: uppercase;}
+	.sponsoredtop .tags {display: none;}
+
+/** menubar **/
+#menubar {position: relative;z-index:2;}
+input, textarea {outline-style:none;} /* no input focus highlighting */
+#logo {height: 60px;text-indent: -1000px;top: 0;left: 0;width: 330px;float: left;}
+#logo a {border:0 none;display: block;height: 100%;width: 100%;}
+#logo img{height: 60px;position: absolute;width: 335px;left: 0px;top: 0px;z-index:1;display: none;}
+.ie #header, .ie #splashPosts, .ie .topStory{z-ind ex: 100;}
+#popTags {margin-top: 10px;width: 300px;float: right;height: 40px;overflow: hidden;}
+
+/** hash tags **/
+span.hash {font-family:arial;font-weight:bold;margin-right:1px;opacity:0.35;}
+
+#tagpageheader{clear: both; line-height:45px; width: 680px;}
+	.tp_head_title { border-bottom:2px solid #F0F0F0; font-size:42px; margin-bottom:10px; padding-bottom:10px; text-transform: lowercase; font-weight: normal; }
+		.tp_head_link { color: #000; }
+			.tp_head_link .hash { margin-right:5px; }
+		.tp_head_link:hover { color: #000; text-decoration: none; }
+		.tp_head_text { line-height: 19px; }
