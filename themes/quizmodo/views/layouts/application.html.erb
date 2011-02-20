@@ -7,7 +7,7 @@
 <body>
   <div id="adcrib" style="position: absolute; left: -10000px;"></div>
   <div id="printhead" style="display: none;">
-      <h1>Gizmodo</h1>
+      <h1>quidnunc</h1>
   </div>
   <div id="errorbar" style="display:none;"></div>
   <div id="infobar" style="display:none;"></div>
@@ -15,103 +15,7 @@
 
   <%= render :partial => "/shared/menu" -%>
 
-<div id="menubar-bg" class="centered">
-  <div class="loggedin centered" id="menubar">
-  <!-- logo area -->
-
-  <h1 id="logo"><a title="Click here to go back to the front page" href="/theme/images/Gizmodo.html">Gizmodo  <img src="/theme/images/logo.png"></a></h1>
-      <span class="input_box_place"></span>
-    <a name="commentform"></a>
-<div class="commentbox_widget commentbox cb_collapsed">
-  <div class="cb_wrapper smalltype">
-    <form class="cb_form ic cn_form" action="" method="post">
-
-            <input type="hidden" name="op" value="postcomment" class="ic cn_commentop">
-      <input type="hidden" name="parentType" value="SITETAG" class="ic cn_parenttype_input">
-      <input type="hidden" name="commentId" value="" class="ic cn_commentid_input">
-      <input type="hidden" name="formToken" value="" class="ic cn_formtoken_input">
-      <input type="hidden" name="rootType" value="SITETAG" class="ic cn_roottype_input">
-      <input type="hidden" name="rootId" value="2865" class="ic cn_rootid_input">
-      <input type="hidden" name="entry_id" value="2865" class="ic cn_entryid_input">
-      <input type="hidden" name="anonymous_email" value="" class="ic cn_anonemailinput">
-      <input type="hidden" name="newsletter" value="" class="ic cn_anonnewsletter">
-      <input type="hidden" name="author_email" value="" class="ic cn_authoremailinput">
-      <input type="hidden" name="uploadedfile" value="" class="ic cn_uploadedfile">
-      <input type="hidden" name="uploadedfileformat" value="" class="ic cn_uploadedfileformat">
-      <input type="hidden" name="seoHashTag" class="ic cn_seohashtag" value="">           <input type="hidden" name="siteTag" value="tips">
-      <input type="hidden" name="hashTag" class="ic cn_hashtag" value="#tips">
-            
-      <div class="cb_inputarea">
-        <textarea name="text" class="cb_textarea ic cn_textarea serif">Got a tip for us?</textarea>
-        <div class="cb_button_holder">
-          <input class="cb_button cb_submit serif ic cn_submitform" type="submit" value="Share">
-          <input class="cb_button cb_cancel cb_onlyexp serif ic cn_collapseform" type="reset" value="Cancel">
-        </div>
-                  <!-- publish on facebook checkbox -->
-          <div class="cb_onlyexp fbuser" style="display: none; ">
-            <input type="checkbox" id="fb_publish_comment_" name="fb_publish_comment" class="ic cn_fbcomment" checked="">
-            <label for="fb_publish_comment_" class="ic fb_publish_comment_label cn_fbcommentlabel">publish on Facebook</label>
-          </div>
-              </div>
-      <div class="cb_l cb_onlyexp cb_default">
-        <a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_imgopt" title="Upload image"><img src="/theme/images/icon.picture.png"></a>
-        <a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_vidopt" title="Upload Youtube video"><img src="/theme/images/icon.youtube.png"></a>
-      </div>
-      <div class="cb_l cb_onlyexp cb_imgopt" style="display: none;">
-        <img src="/theme/images/icon.picture.png">
-        <a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_imgupl cb_imgupllink">Upload an image</a> |
-        <a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_imgurl">Add an image URL</a>
-        <a class="ic cn_close cb_closelink" href="http://ca.QUIDNUNCRE.com/#">×</a>
-      </div>
-      <div class="cb_l cb_onlyexp cb_imgurl" style="display: none;">
-        <img src="/theme/images/icon.picture.png">
-        <label for="photourl">Image URL: </label><input type="text" id="photourl" name="addphotourl" class="ic cn_photourl">
-        <a class="ic cn_close cb_closelink" href="http://ca.QUIDNUNCRE.com/#">×</a>
-      </div>
-      <div class="cb_l cb_onlyexp cb_vidopt" style="display: none;">
-        <img src="/theme/images/icon.youtube.png">
-        <label for="youtubevideo">Youtube URL: </label><input type="text" id="youtubevideo" name="addvideourl" class="ic cn_videourl">
-        <a class="ic cn_close cb_closelink" href="http://ca.QUIDNUNCRE.com/#">×</a>
-      </div>
-          </form>
-        <div class="cb_l cb_onlyexp cb_imgupl" style="display: none;">
-      <form enctype="multipart/form-data" action="http://ca.QUIDNUNCRE.com/?op=comment_image_upload" method="POST" target="imgupl_iframe" id="cb_img_uploader" class="ic cn_imgupl_form">
-        <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
-        <div class="cb_labelhack">
-          <img src="/theme/images/icon.picture.png">
-          Choose a file to upload:
-        </div>
-        <div class="cb_buttonhack">
-          <input type="file" name="comment_image" class="ic cn_fileupload cb_uploader" size="0" onchange="jQuery(this).trigger(&#39;file_upload_change&#39;);">
-          <input type="submit" class="cb_imgsubmit" value="Select file">
-        </div>
-      </form>
-      <a class="ic cn_close cb_closelink" href="http://ca.QUIDNUNCRE.com/#">×</a>
-    </div>
-    <div class="cb_l cb_onlyexp cb_imguplpreview ic cn_img_preview_l" style="display: none;">
-      <img id="image_preview" class="cb_img_preview ic cn_imagepreview" src="/theme/images/x.gif" width="100" height="100">
-    </div>
-
-  </div>
-
-  <div class="ic cb_tweetthis cb_onlyexp cn_tweetthis" style="display: none;"><input type="checkbox" class="ic cn_tweetthischeck" name="tweetThis" id="tweetThis" value="1"><label for="tweetThis">Tweet this?</label></div>
-  <div class="cb_onlyexp cb_authoremail ic cn_aewrap" style="display: none; ">
-    <a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_authoremailtoggle cb_onlyexp at_icon ganja_icon"></a><a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_authoremailtoggle cb_onlyexp smalltype" title="Attribute comment to">Attribute comment to:</a>
-    <input type="text" id="authoremail" name="authoremail" class="validate valid_nonempty valid_email ic cn_authoremail cb_authemail serif empty_field" style="display: none;" title="email address" value="email address">
-    <div class="validationmessage authoremail_validmsg msg_valid_nonempty" style="display: none;">Please enter an email address.</div>
-    <div class="validationmessage authoremail_validmsg msg_valid_email" style="display: none;">Please enter a valid email address.</div>
-  </div>
-</div>      <div id="popTags" class="smalltype ">
-    <div id="popFaq"><a href="http://gawker.com/commentfaq/" class="dcolor" style="text-decoration: underline;">FAQ</a>. Include # before tag: <br></div>
-        <a class="dcolor" href="http://ca.QUIDNUNCRE.com/tag/tips"><span class="hash">#</span>tips</a>,
-        <a class="dcolor" href="http://ca.QUIDNUNCRE.com/tag/whitenoise"><span class="hash">#</span>whitenoise</a>,
-        <a class="dcolor" href="http://ca.QUIDNUNCRE.com/tag/broken"><span class="hash">#</span>broken</a>,
-        <a class="dcolor" href="http://ca.QUIDNUNCRE.com/tag/lifechanger"><span class="hash">#</span>lifechanger</a>,
-        etc.
-  </div>
-  <div style="clear: both;"></div>
-  </div>
-</div>
+  <%= render :partial => "/shared/header" -%>
 
 <div>
 <div id="container" class="centered">
