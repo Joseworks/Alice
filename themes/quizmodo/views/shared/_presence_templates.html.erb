@@ -9,7 +9,7 @@
       <div class="text">
         <p>Enter your username and password.</p>
 
-        <form class="presence_control cn_login_form" method="post" action="http://ca.QUIDNUNCRE.com/?op=login">
+        <form class="presence_control cn_login_form" method="post" action="/?op=login">
           <input class="presence_control cn_redirect_to" type="hidden" name="redirect_to" value="">
           <input type="hidden" value="1" name="remember" class="presence_control cn_remember">
           <div class="row">
@@ -29,9 +29,9 @@
         </form>
 
         <div class="footer">
-                <a href="http://ca.QUIDNUNCRE.com/#" class="presence_control cn_fb_login">Login via Facebook</a> |
-          <a href="http://ca.QUIDNUNCRE.com/#" class="presence_control cn_toggleregisterdialog">Sign Up</a> |
-          <a href="http://ca.QUIDNUNCRE.com/#" class="reset presence_control cn_toggleresetpwdialog">Reset Password</a>
+                <a href="/#" class="presence_control cn_fb_login">Login via Facebook</a> |
+          <a href="/#" class="presence_control cn_toggleregisterdialog">Sign Up</a> |
+          <a href="/#" class="reset presence_control cn_toggleresetpwdialog">Reset Password</a>
         </div>
       </div>
     </div>
@@ -50,7 +50,7 @@
         </p>
         <p>Please enter the email address associated with your account to have it reset.</p>
 
-        <form action="http://ca.QUIDNUNCRE.com/?op=emailpassword" class="presence_control cn_resetpw_form">
+        <form action="/?op=emailpassword" class="presence_control cn_resetpw_form">
           <div class="row">
             <label for="resetpw_email">Email:</label><input type="text" id="resetpw_email" name="email" maxlength="255" class="validate valid_nonempty valid_email presence_control cn_resetpwemail">
             <div class="validationmessage email_validmsg msg_valid_nonempty" style="display: none; ">Please enter your email address.</div>
@@ -69,9 +69,9 @@
 
       </div>
       <div class="text" id="resetPassword2" style="display: none;">
-        <p>A temporary password has been emailed to you. If you do not receive the password reset email, please be sure to check your spam folder. In some cases, it can take up to 10 minutes for your email service to receive the email.</p> 
-        <p>If you still haven't received the email, please contact <a href="mailto:help@gawker.com">help@gawker.com</a> for further assistance.</p> 
-        <input type="button" value="Close" class="presence_control cn_resetpw_cancel"> 
+        <p>A temporary password has been emailed to you. If you do not receive the password reset email, please be sure to check your spam folder. In some cases, it can take up to 10 minutes for your email service to receive the email.</p>
+        <p>If you still haven't received the email, please contact <a href="mailto:help@gawker.com">help@gawker.com</a> for further assistance.</p>
+        <input type="button" value="Close" class="presence_control cn_resetpw_cancel">
       </div>
     </div>
   </div>
@@ -87,7 +87,7 @@
         <p class="presence_control cn_register_copy">Registering will give you a user profile and the ability to add other users as friends. To become a commenter, however, you need to audition.</p>
         <p>Want to know more? Consult the <a href="http://gawker.com/commentfaq/" title="Comment FAQ" target="_blank">Comment FAQ</a> and <a href="http://advertising.gawker.com/legal/" title="Legal terms" target="_blank">legal terms</a>.</p>
 
-        <form action="http://ca.QUIDNUNCRE.com/?op=register" class="presence_control cn_register_form">
+        <form action="/?op=register" class="presence_control cn_register_form">
           <input class="presence_control cn_register_invitecode" type="hidden" name="code" value="">
           <input class="presence_control cn_register_invitecodemod" type="hidden" name="codemod" value="">
           <div class="row">
@@ -129,7 +129,7 @@
         <p class="presence_control cn_emailreminder_copy">One last thing!</p>
         <p class="presence_control cn_emailreminder_copy2">While we don't require an email address to sign up, consider adding one to your account. This will give you the ability to reset a lost or stolen password. </p>
 
-        <form action="http://ca.QUIDNUNCRE.com/?op=register" class="presence_control cn_emailreminder_form">
+        <form action="/?op=register" class="presence_control cn_emailreminder_form">
           <input type="hidden" class="presence_control cn_emailreminder_invitecode" name="code" value="">
           <input type="hidden" class="presence_control cn_emailreminder_invitecodemod" name="codemod" value="">
           <input type="hidden" id="emailreminder_username" name="username" maxlength="255" class="presence_control cn_emailreminder_username">
@@ -153,8 +153,8 @@
     </div>
   </div>
 
-  
-  
+
+
   <!-- change password -->
 
   <div class="modal dialog presence_control cn_changepassword_dialog" style="display: none;">
@@ -166,7 +166,7 @@
         <p id="noAsciiNotifyChangePassword" style="display: none;">
           You password contains non US-ASCII characters. We recommend you change your password due to a flaw in handling non US-ASCII characters.
         </p>
-        <form action="http://ca.QUIDNUNCRE.com/?op=setprofile" method="post" class="presence_control cn_changepassword_form">
+        <form action="/?op=setprofile" method="post" class="presence_control cn_changepassword_form">
           <input type="hidden" name="mode" value="change_password">
           <input type="hidden" name="username" value="" class="presence_control cn_changepassword_username">
           <input type="hidden" name="id" value="" class="presence_control cn_changepassword_id">
@@ -191,9 +191,9 @@
             <div class="presence_control cn_changepassword_message"></div>
           </div>
         </form>
-        
+
         <div class="footer">
-                    <a class="reset presence_control cn_toggleresetpwdialog" href="http://ca.QUIDNUNCRE.com/#">reset password</a>
+                    <a class="reset presence_control cn_toggleresetpwdialog" href="/#">reset password</a>
                 </div>
 
       </div>
@@ -208,7 +208,7 @@
       <img class="siteIcon" src="/theme/images/apple-touch-icon.png">
 
       <div class="text">
-        <form action="http://ca.QUIDNUNCRE.com/?op=deleteuser%20method=" post"=" class="presence_control cn_deleteuser_form">
+        <form action="/?op=deleteuser%20method=" post"=" class="presence_control cn_deleteuser_form">
           <input type="hidden" name="username" value="" class="presence_control cn_deleteuser_username">
           <input type="hidden" name="id" value="" class="presence_control cn_deleteuser_id">
           <div class="row" style="text-align: left;">
@@ -242,7 +242,7 @@
 
         <div class="leftside">
           <p>You don't need a login to comment. Just enter your email address below.</p>
-          <p><strong>Your username will be the part of your email address before the @ sign.</strong> If you wish to remain anonymous, create your own username by signing up for a Gawker account <a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_requestregister">here</a>.</p>
+          <p><strong>Your username will be the part of your email address before the @ sign.</strong> If you wish to remain anonymous, create your own username by signing up for a Gawker account <a href="/#" class="ic cn_requestregister">here</a>.</p>
           <form class="ic cn_guestpanel_form" method="post">
             <div class="row">
               <label for="guestpanel_email">Email:</label><input id="guestpanel_email" name="email" type="text" value="" maxlength="255" class="validate valid_nonempty valid_email ic cn_guestpanelemail">
@@ -261,7 +261,7 @@
 
         <div class="rightside">
           <p><strong>Already Have an Account?</strong><br>
-          Login with your <a href="http://ca.QUIDNUNCRE.com/#" title="Login via Facebook" class="ic cn_request_fb_login">Facebook</a> or existing <a href="http://ca.QUIDNUNCRE.com/#" class="ic cn_requestlogin">Gizmodo</a> account.</p>
+          Login with your <a href="/#" title="Login via Facebook" class="ic cn_request_fb_login">Facebook</a> or existing <a href="/#" class="ic cn_requestlogin">Gizmodo</a> account.</p>
           <p><strong>Questions?</strong><br>
           Learn more at the <a href="http://gawker.com/commentfaq/" target="_blank">Comment FAQ</a>.</p>
 
@@ -272,38 +272,38 @@
     </div>
   </div>
 
-  
-          
+
+
   <div class="modal dialog presence_control cn_policy_dialog" style="display: none;">
     <div class="inner">
       <div class="content communitypolicy_popup">
 <h1><img src="/theme/images/gawker_logo_175.gif"><br>Gawker Media Community Policy</h1>
 <p>
-These are our sites, and we reserve the right to moderate the discussion. The basic rules are standard: An attack on authors or other commenters is unlikely to make you popular. Think before you disparage social or ethnic groups. Don't spam. Don't post pornography or copyrighted imagery. Stay on topic. 
+These are our sites, and we reserve the right to moderate the discussion. The basic rules are standard: An attack on authors or other commenters is unlikely to make you popular. Think before you disparage social or ethnic groups. Don't spam. Don't post pornography or copyrighted imagery. Stay on topic.
 </p>
 <p>
 That said, the community policy of Gawker Media is forgiving. If your criticism is articulate, it will likely get through. We dole it out; we can take it. What do we mean by articulate? Support your point with argument, facts and citations. Good grammar and spelling also help.
 </p>
 <p style="font-size:12px;">Got questions? Need answers? See our <a href="http://gawker.com/commentfaq">FAQ</a> and <a href="http://gawker.com/commentfaq/#auditiontips">site-specific community guidelines.</a></p>
 
-<a href="http://ca.QUIDNUNCRE.com/#" class="presence_control cn_closepolicypopup">Close</a><br clear="both">
+<a href="/#" class="presence_control cn_closepolicypopup">Close</a><br clear="both">
 </div>    </div>
   </div>
-  
+
   </div>
 
     <div class="notificationMsgTemplates" style="display: none;">
       <span class="star">Congratulations, %youAre% a star! %userName% starred %you% on %sitename% <span class="atTime">%time%</span></span>
       <span class="unstar">%youHave% lost your star. %userName% took away %your% star <span class="atTime">%time%</span></span>
-      <span class="promote">%userName% promoted %your% comment in <a href="http://ca.QUIDNUNCRE.com/%postLink%">%postName%</a> <span class="atTime">%time%</span></span>
-      <span class="demote">%userName% demoted %your% comment in <a href="http://ca.QUIDNUNCRE.com/%postLink%">%postName%</a> <span class="atTime">%time%</span></span>
-      <span class="reply">%userName% <a href="http://ca.QUIDNUNCRE.com/%commentLink%">replied</a> to %your% comment in <a href="http://ca.QUIDNUNCRE.com/%postLink%">%postName%</a> <span class="atTime">%time%</span></span>
+      <span class="promote">%userName% promoted %your% comment in <a href="/%postLink%">%postName%</a> <span class="atTime">%time%</span></span>
+      <span class="demote">%userName% demoted %your% comment in <a href="/%postLink%">%postName%</a> <span class="atTime">%time%</span></span>
+      <span class="reply">%userName% <a href="/%commentLink%">replied</a> to %your% comment in <a href="/%postLink%">%postName%</a> <span class="atTime">%time%</span></span>
       <span class="approve">Congratulations, %youAre% a commenter! %userName% approved %you% <span class="atTime">%time%</span></span>
       <span class="pending">%youHave% lost your commenter status. %userName% took away %your% approval <span class="atTime">%time%</span></span>
-      <span class="removed">%youAre% banned. <a href="http://ca.QUIDNUNCRE.com/%userLink%">%userName%</a> has banned %you% <span class="atTime">%time%</span></span>
-      <span class="banned">%youHave% been banned by <a href="http://ca.QUIDNUNCRE.com/%userLink%">%userName%</a> for your <a href="http://ca.QUIDNUNCRE.com/comment/%commentid%">comment</a> on <a href="http://ca.QUIDNUNCRE.com/%movedfromurl%">%movedfromtitle%</a>. %movetomessage% <span class="atTime">%time%</span></span>
-      <span class="suspended">%youHave% been suspended for one week by <a href="http://ca.QUIDNUNCRE.com/%userLink%">%userName%</a> for your <a href="http://ca.QUIDNUNCRE.com/comment/%commentid%">comment</a> on <a href="http://ca.QUIDNUNCRE.com/%movedfromurl%">%movedfromtitle%</a>. %movetomessage% <span class="atTime">%time%</span></span>
-      <span class="warned">%youHave% been warned by <a href="http://ca.QUIDNUNCRE.com/%userLink%">%userName%</a> for your <a href="http://ca.QUIDNUNCRE.com/comment/%commentid%">comment</a> on <a href="http://ca.QUIDNUNCRE.com/%movedfromurl%">%movedfromtitle%</a>. %movetomessage% <span class="atTime">%time%</span></span>
+      <span class="removed">%youAre% banned. <a href="/%userLink%">%userName%</a> has banned %you% <span class="atTime">%time%</span></span>
+      <span class="banned">%youHave% been banned by <a href="/%userLink%">%userName%</a> for your <a href="/comment/%commentid%">comment</a> on <a href="/%movedfromurl%">%movedfromtitle%</a>. %movetomessage% <span class="atTime">%time%</span></span>
+      <span class="suspended">%youHave% been suspended for one week by <a href="/%userLink%">%userName%</a> for your <a href="/comment/%commentid%">comment</a> on <a href="/%movedfromurl%">%movedfromtitle%</a>. %movetomessage% <span class="atTime">%time%</span></span>
+      <span class="warned">%youHave% been warned by <a href="/%userLink%">%userName%</a> for your <a href="/comment/%commentid%">comment</a> on <a href="/%movedfromurl%">%movedfromtitle%</a>. %movetomessage% <span class="atTime">%time%</span></span>
       <span class="container">
       <div class="notification">
         <div class="grayAlert"></div>

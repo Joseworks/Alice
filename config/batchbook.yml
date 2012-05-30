@@ -1,11 +1,11 @@
 development:
     account: qre
-    api_key: izSJrfcpFT
+    api_key: iHfQnWYsFj
 
 production:
     account: qre
-    api_key: izSJrfcpFT
+    api_key: iHfQnWYsFj
 
 test:
     account: qre
-    api_key: izSJrfcpFT
+    api_key: iHfQnWYsFj

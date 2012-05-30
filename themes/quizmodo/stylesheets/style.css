@@ -7,7 +7,7 @@ a,a:hover{color: #dc870e;}
 blockquote { background-color: #EAF2F4; color: #51646B; line-height: 18px; margin:5px 0px; padding:10px; }
 
 #container {background-image: url('http://cache.gizmodo.com/assets/gizmodo.com/img/sidebar-tile.jpg');}
-#menubar {background: #151515 url('http://cache.gizmodo.com/assets/gizmodo.com/img/gizmodo-expanded.jpg') no-repeat;}
+#menubar {background: #151515 url('/theme/images/quizmodo-expanded.jpg') no-repeat;}
 
 .cb_submit { background-color: #32b9d3;border:0;}
 .cb_submit:hover {background-color: #51646B;text-decoration: none;}

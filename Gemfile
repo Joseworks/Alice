@@ -4,6 +4,7 @@ gem 'rails', '3.0.3'
 gem 'mysql', '2.8.1'
 gem 'unicorn', '2.0.0'
 gem 'capistrano'
+gem 'haml'
 
 gem 'rspec'
 gem 'rspec-rails'
