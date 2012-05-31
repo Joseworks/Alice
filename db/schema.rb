@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110210210040) do
+ActiveRecord::Schema.define(:version => 20120531010356) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -56,6 +56,25 @@ ActiveRecord::Schema.define(:version => 20110210210040) do
     t.datetime "crm_pushed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "feed_posts", :force => true do |t|
+    t.integer  "feed_id"
+    t.string   "title"
+    t.string   "url"
+    t.string   "author"
+    t.text     "summary"
+    t.text     "content"
+    t.datetime "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feeds", :force => true do |t|
+    t.string "title"
+    t.string "etag"
+    t.string "url"
+    t.string "feed_url"
   end
 
   create_table "images", :force => true do |t|

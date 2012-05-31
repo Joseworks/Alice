@@ -6,6 +6,6 @@ Quidnunc::Application.routes.draw do
 
   match '/subscribe' => 'subscriptions#new'
 
+  resources :feeds
   resources :subscriptions, :only => [:create]
-
 end

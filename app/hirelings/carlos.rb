@@ -11,6 +11,6 @@ class Carlos < Hireling
       contact.update_attribute(:crm_pushed_at, Time.now)
     end
   end
-  
+
 end
 

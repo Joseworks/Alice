@@ -9,7 +9,7 @@
 .ie .content{width:498px;}
 .post{margin-bottom: 20px;}
 .content ul, .content ol{margin-left:20px;}
-
+.content label { display: block; width: 100px;font-weight:bold;}
 /* sidebar */
 #sidebar {width:160px;border-color:#DDD;border-top-style:solid;border-top-width:1px;}
 #skyscraper{padding-bottom: 15px;}
@@ -25,7 +25,7 @@
 #weekly-subscribe #EMAIL,#weekly-subscribe .bttn  {border:1px solid #DADADA;margin-left:2px;width:65px;font-weight:bold;}
 
 /* footer */
-#footer {border-top:1px solid #CCCCCC;font-size:11px;line-height:19px;margin-bottom:0;}
+#footer {font-size:11px;line-height:19px;margin-bottom:0;}
 #footer_siteinfo {border-top: 1px solid #ccc;height: 22px;}
 #footer_siteinfo {clear: both;padding-bottom: 8px;list-style-type: none;}
 #footer_siteinfo li {float: left;	margin-right: 10px;	height: 22px;line-height: 33px;color: #000;}

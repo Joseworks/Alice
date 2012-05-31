@@ -1,0 +1,20 @@
+.content
+  %h1
+    Feed:
+    = @feed.title
+
+  %p
+    %label Title
+    = @feed.title
+  %p
+    %label URL
+    = @feed.url
+  %p
+    %label Feed URL
+    = @feed.feed_url
+  %p
+    %label eTag
+    = @feed.etag
+
+  = link_to "Edit Feed", edit_feed_path(@feed)
+  = link_to "All Feeds", feeds_path

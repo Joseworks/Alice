@@ -1,0 +1,15 @@
+.content
+  %h1 Feeds (#{@feeds.count})
+
+  %table
+    %tr
+      %th{width:100} Title
+      %th{width:100} URL
+      %th{width:100} Feed URL
+    %tr
+      - @feeds.each do |feed|
+        %td= feed.title
+        %td= link_to "Site", feed.url
+        %td= link_to "Feed", feed.feed_url
+
+  = link_to "Add a Feed", new_feed_path
