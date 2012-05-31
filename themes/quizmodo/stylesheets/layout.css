@@ -12,7 +12,7 @@
 
 /* sidebar */
 #sidebar {width:160px;border-color:#DDD;border-top-style:solid;border-top-width:1px;}
-#skyscraper{height:600px;}
+#skyscraper{padding-bottom: 15px;}
 #skySpacer{margin:0;height:11px;}
 
 #masthead, #siteInfo, #weekly-subscribe{margin:10px 10px 0 10px;}
@@ -30,7 +30,7 @@
 #footer_siteinfo {clear: both;padding-bottom: 8px;list-style-type: none;}
 #footer_siteinfo li {float: left;	margin-right: 10px;	height: 22px;line-height: 33px;color: #000;}
 #sitemeter{position: relative;margin-top: 5px;z-index: 1000;}
-
+#inner-footer {margin-left: 177px;}
 /* misc classes */
 .hide { display: none; }
 
