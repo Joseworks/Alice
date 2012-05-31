@@ -19,9 +19,7 @@ gem 'dynamic_form', '1.1.3'
 gem 'batchbook'
 gem 'hireling', '0.2.1'
 
-group :test, :development do
-  gem 'fakeweb'
-  gem 'factory_girl'
-  gem 'rspec'
-  gem 'rspec-rails'
-end
+gem 'fakeweb'
+gem 'factory_girl'
+gem 'rspec'
+gem 'rspec-rails'
