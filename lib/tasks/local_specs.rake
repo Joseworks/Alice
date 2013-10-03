@@ -1,1 +1,0 @@
-RSpec::Core::RakeTask.new(:local_spec)

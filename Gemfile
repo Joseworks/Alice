@@ -1,25 +1,61 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem 'rails', '3.0.3'
-gem 'mysql', '2.8.1'
-gem 'unicorn', '2.0.0'
-gem 'capistrano'
-gem 'haml'
+gem 'rails', '~> 4.0.0'
 
-gem 'bilge-pump', git: 'git://github.com/flipstone/bilge-pump.git', branch: 'f1ec23e6'
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# Refinery and plugins
-gem 'refinerycms', :git => 'git://github.com/resolve/refinerycms.git', :branch => '6be066df4560c5f8349df7eb8b8cd8b3faffe512'
-gem 'refinerycms-theming',    '~> 0.9.8'
-gem 'refinerycms-blog', '~> 1.1'
-gem 'refinerycms-i18n',         '~> 0.9'
+# Gems used only for assets and not required
+# in production environments by default.
+gem 'sass-rails'
 
-gem "feedzirra", "~> 0.2.0.rc1"
-gem 'dynamic_form', '1.1.3'
-gem 'batchbook'
-gem 'hireling', '0.2.1'
+platforms :ruby do
+  gem 'sqlite3'
+end
 
-gem 'fakeweb'
-gem 'factory_girl'
-gem 'rspec'
-gem 'rspec-rails'
+platforms :jruby do
+  # The stable version has not yet supported Rails 4
+  gem 'activerecord-jdbcsqlite3-adapter', '1.3.0.beta2'
+  gem 'trinidad'
+  gem 'jruby-openssl'
+end
+
+gem 'jquery-rails'
+
+# Use unicorn as the web server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'ruby-debug'
+
+# Bundle the extra gems:
+gem 'RedCloth', '~> 4.2.9', :require => 'redcloth'
+gem 'ruby-openid', :require => 'openid'
+gem 'rack-openid', :require => 'rack/openid'
+gem 'aaronh-chronic', :require => 'chronic' # Fixes for 1.9.2
+gem 'coderay', '~> 1.0.5'
+gem 'lesstile', '~> 1.1.0'
+gem 'formtastic'
+gem 'will_paginate', '~> 3.0.2'
+gem 'exception_notification', '~> 2.5.2'
+gem 'open_id_authentication'
+
+# Bundle gems for the local environment. Make sure to
+# put test-only gems in this group so their generators
+# and rake tasks are available in development mode:
+group :test do
+  gem 'database_cleaner'
+  gem 'cucumber-rails',    :require => false
+  gem 'cucumber-websteps', :require => false
+  gem 'factory_girl'
+  gem 'rspec'
+  gem 'nokogiri', '~> 1.5.0'
+  gem 'webrat'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+end
