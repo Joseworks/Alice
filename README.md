@@ -1,8 +1,7 @@
 This is based on Enki:
 
-h1. Enki
+**Enki**
 
-!https://travis-ci.org/xaviershay/enki.png?branch=master!:https://travis-ci.org/xaviershay/enki
 
 A Ruby on Rails blogging app for the fashionable developer.
 
@@ -10,7 +9,7 @@ Preferences are for the masses. Any real coder knows the easiest and best way to
 
 [Enki home](http://github.com/xaviershay/enki)
 
-h2. More info
+**More info**
 
 Enki is a compact, easily extendable base for your blog. It does this by being highly opinionated, for example:
 
@@ -22,23 +21,22 @@ Enki is a compact, easily extendable base for your blog. It does this by being h
 * If you're not using OpenID you're a chump
 * Hacking code is the easiest way to customize something
 
-h2. URL path prefix
+**URL path prefix**
 
 Enki can run your blog with a URL path prefix.  For example, you can run it at example.com/*blog* instead of blog.example.com.  You can do so with the RAILS_RELATIVE_URL_ROOT environment variable, set either before starting the server or in config/application.rb before Enki::Application.  Uncommenting this line in config/application.rb will enable this behavior in all environments:
 
 <pre><code>ENV['RAILS_RELATIVE_URL_ROOT'] = '/blog'</code></pre>
 
-h2. Compatibility
+**Compatibility**
 
 Uses Ruby 1.9.3 or newer and Rails 4. Runs on MySQL or Postgres. Works on heroku.
+)
 
-h2. Contributors, these guys rock
+**Contributors, these guys rock**
 
-<pre><code>git log | grep Author | sort | uniq</code></pre>
+(see the Enki homepage)
 
-If you want to help out, try tackling an "open issue":https://github.com/xaviershay/enki/issues. Please include specs for any fixes. Enki is by design feature light. Unless you feel very strongly your feature should be in core, add a link to your fork in the wiki instead.
-
-h2. License
+**License**
 
 GPL(General Public License) - See LICENSE
 
