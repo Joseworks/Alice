@@ -9,24 +9,6 @@ A Ruby on Rails blogging app for the fashionable developer.
 Preferences are for the masses. Any real coder knows the easiest and best way to customize something is by *hacking code*. Because you want your blog to be you, not bog standard install #4958 with 20 posts per page instead of 15. For this you need a *clean, simple, easy to understand code base* that stays out of your way. No liquid drops and templates hindering your path, no ugly PHP(Hypertext Preprocessor) stylings burning your eyeballs.
 
 [Enki home](http://github.com/xaviershay/enki)
-  cd enki
-  git checkout -b myblog # Create a new work branch
-  bundle install         # Install all the required gems
-
-  cp config/database.example.yml config/database.yml
-  # Edit config/enki.yml and config/database.yml to taste
-
-  # Next step needs libxml2 and libxslt1 and their headers
-  # On Debian-based systems: apt-get install libxml2-dev libxslt1-dev
-  # On Mac OS X: no action required
-
-  rake secret # Paste output into place in config/initializers/secret_token.rb
-  rake db:migrate
-  rake            # Run tests
-  rails server    # Start the server
-  # Load http://localhost:3000/admin in your browser</code></pre>
-
-Or for bonus points, fork "enki at github":http://github.com/xaviershay/enki/tree/master and clone that instead.
 
 h2. More info
 
@@ -45,14 +27,6 @@ h2. URL path prefix
 Enki can run your blog with a URL path prefix.  For example, you can run it at example.com/*blog* instead of blog.example.com.  You can do so with the RAILS_RELATIVE_URL_ROOT environment variable, set either before starting the server or in config/application.rb before Enki::Application.  Uncommenting this line in config/application.rb will enable this behavior in all environments:
 
 <pre><code>ENV['RAILS_RELATIVE_URL_ROOT'] = '/blog'</code></pre>
-
-h2. How it differs from Mephisto
-
-Mephisto is feature packed and quite customizable. It can however be daunting trying to find your way around the code, which isn’t so good if you’re trying to hack in your own features. Enki strips out a lot of the features that you probably don’t need (multiple authors and liquid templates, for example), and focuses on keeping a tight code base that is easy to comprehend and extend.
-
-h2. How it differs from SimpleLog
-
-Enki embodies much of the philosophy of SimpleLog, but does so in a style that is much more consistent with Rails best practices, making it easier to understand and hack the code.
 
 h2. Compatibility
 
