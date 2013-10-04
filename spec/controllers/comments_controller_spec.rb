@@ -68,6 +68,7 @@ describe CommentsController, 'handling commenting' do
       post :create, :year => '2007', :month => '01', :day => '01', :slug => 'a-post', :comment => {
         :author => 'Don Alias',
         :body   => 'This is a comment',
+        :intro_text => 'this is some intro text',
 
         # Attributes you are not allowed to set
         :author_url              => 'http://www.enkiblog.com',

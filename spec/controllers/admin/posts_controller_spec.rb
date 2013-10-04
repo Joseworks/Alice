@@ -164,6 +164,7 @@ describe Admin::PostsController do
     {
       'title'      => "My Post",
       'body'       => "hello this is my post",
+      'intro_text' => "this is my intro text",
       'minor_edit' => "0"
     }
   end

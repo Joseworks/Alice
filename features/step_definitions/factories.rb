@@ -9,6 +9,7 @@ FactoryGirl.define do
     title     'A post'
     slug      'a-post'
     body      'This is a post'
+    intro_text 'This is intro text'
 
     published_at { 1.day.ago }
     created_at   { 1.day.ago }

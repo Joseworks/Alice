@@ -97,7 +97,8 @@ describe Admin::CommentsController do
         'author'       => "Don Alias",
         'author_url'   => "http://example.com",
         'author_email' => "donalias@example.com",
-        'body'         => "This is a comment"
+        'body'         => "This is a comment",
+        'intro_text'   => "this is some intro text"
       }
 
       assigns(:comment).author.should == "Don Alias"

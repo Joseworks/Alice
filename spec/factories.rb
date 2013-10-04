@@ -6,6 +6,7 @@ FactoryGirl.define do
   factory :post do
     title                'My Post'
     body                 'hello this is my post'
+    intro_text           'this is some intro text'
     tag_list             'red, green, blue'
     published_at_natural 'now'
     slug                 'my-manually-entered-slug'

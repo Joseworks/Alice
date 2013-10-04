@@ -4,8 +4,8 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Post, "integration" do
   describe 'setting tag_list' do
     it 'increments tag counter cache' do
-      post1 = Post.create!(:title => 'My Post', :body => "body", :tag_list => "ruby")
-      post2 = Post.create!(:title => 'My Post', :body => "body", :tag_list => "ruby")
+      post1 = Post.create!(:title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
+      post2 = Post.create!(:title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
       Tag.find_by_name('ruby').taggings_count.should == 2
       Post.last.destroy
       Tag.find_by_name('ruby').taggings_count.should == 1
@@ -206,7 +206,9 @@ describe Post, 'validations' do
     {
       :title                => "My Post",
       :slug                 => "my-post",
+      :intro_text           => "this is an introduction",
       :body                 => "hello this is my post",
+      :intro_text           => "this is my intro text",
       :published_at_natural => 'now'
     }
   end
@@ -217,6 +219,10 @@ describe Post, 'validations' do
 
   it 'is invalid with no title' do
     Post.new(valid_post_attributes.merge(:title => '')).should_not be_valid
+  end
+
+  it 'is invalid with no intro text' do
+    Post.new(valid_post_attributes.merge(:intro_text => '')).should_not be_valid
   end
 
   it 'is invalid with no body' do
