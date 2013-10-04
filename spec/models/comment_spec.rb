@@ -80,6 +80,7 @@ describe Comment do
     @comment.post.approved_comments.count.should == 0
   end
 
+  # TODO: modify or remove to fit Markdown instead of Textile
   it "applies a Lesstile filter to body and store it in body_html before save" do
     set_comment_attributes(@comment)
     @comment.blank_openid_fields
@@ -148,7 +149,7 @@ describe Comment, '.build_for_preview' do
   end
 
   it 'applies filter to body' do
-    @comment.body_html.should == 'A Comment'
+    @comment.body_html.should == "<p>A Comment</p>\n"
   end
 end
 
@@ -166,7 +167,7 @@ describe Comment, '.build_for_preview with OpenID author' do
   end
 
   it 'applies filter to body' do
-    @comment.body_html.should == 'A Comment'
+    @comment.body_html.should == "<p>A Comment</p>\n"
   end
 
   it 'sets author_url to OpenID identity' do

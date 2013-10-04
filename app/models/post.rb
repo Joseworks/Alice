@@ -102,7 +102,7 @@ class Post < ActiveRecord::Base
   end
 
   def apply_filter
-    self.body_html = EnkiFormatter.format_as_xhtml(self.body)
+    self.body_html = EnkiFormatter.format_page_as_xhtml(self.body)
   end
 
   def set_dates

@@ -66,6 +66,6 @@ describe Page, '.build_for_preview' do
   end
 
   it 'applies filter to body' do
-    @page.body_html.should == '<p>body</p>'
+    @page.body_html.should == "<p>body</p>\n"
   end
 end

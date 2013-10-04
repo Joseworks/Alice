@@ -256,7 +256,7 @@ describe Post, '.build_for_preview' do
   end
 
   it 'applies filter to body' do
-    @post.body_html.should == '<p>body</p>'
+    @post.body_html.should == "<p>body</p>\n"
   end
 
   it 'generates tags from tag_list' do
