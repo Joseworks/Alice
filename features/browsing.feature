@@ -6,7 +6,7 @@ Feature: Browsing
   Scenario: browsing the home page
     Given there is at least one post tagged "awesome"
     When I go to the home page
-    Then I should see "This is a post"
+    Then I should see "This is intro text"
     And I should see a link to all posts tagged "awesome"
 
   Scenario: browsing the archive, to find more content to read
