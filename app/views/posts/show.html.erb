@@ -3,7 +3,7 @@
 <% end -%>
 
 <%= render @post %>
-<%= @post.body_html %>
+<%= raw(@post.body_html) %>
 
 <ol id="comments" class="commentlist">
   <% @post.approved_comments.each do |comment| -%>
