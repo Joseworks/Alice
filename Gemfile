@@ -11,9 +11,6 @@ gem 'rails', '~> 4.0.0'
 # in production environments by default.
 gem 'sass-rails'
 
-gem 'sqlite3'
-
-
 gem 'jquery-rails'
 
 # Use unicorn as the web server
@@ -52,6 +49,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails'
 end
 
