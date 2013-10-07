@@ -1,6 +1,9 @@
 # Load the rails application
 require File.expand_path('../application', __FILE__)
 
+# silence deprecations for test runs:
+ActiveSupport::Deprecation.silenced = true
+
 ActionDispatch::ParamsParser::DEFAULT_PARSERS.delete(Mime::XML)
 ActionDispatch::ParamsParser::DEFAULT_PARSERS.delete(Mime::YAML)
 
