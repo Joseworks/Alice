@@ -1,6 +1,6 @@
 <div id="summary">
 <h1><%= link_to(enki_config[:title], '/') %></h1>
-<p class="stats"><%= pluralize(@stats.post_count, 'post') %>, <%= pluralize(@stats.comment_count, 'comment') %>, <%= pluralize(@stats.tag_count, 'tag') %></p>
+<p class="stats"><%= pluralize(@stats.post_count, 'post') %>, <%= pluralize(@stats.tag_count, 'tag') %></p>
 </div>
 
 <div id="recent-posts" class="panel">
@@ -16,7 +16,7 @@
 </ul>
 </div>
 
-<div id="recent-comments" class="panel">
+<!-- <div id="recent-comments" class="panel">
 <h2>Latest Comments</h2>
 <ul>
   <% @comment_activity.each_with_index do |activity, i| -%>
@@ -45,5 +45,5 @@
     </li>
   <% end -%>
 </ul>
-</div>
+</div> -->
 

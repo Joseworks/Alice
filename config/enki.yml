@@ -6,7 +6,7 @@ author:
   name:    Quidnunc Team        # For copyright notice and ATOM feeds
   email:   bigredtriangle@gmail.com # Exception emails will go here, and it is used in ATOM feeds
   open_id:                  # These are used to login to the admin area
-      - http://thiscouldbeourlastchance.blogspot.com/
+      - https://profiles.google.com/103382573522916598862
       # - http://secondaryopenid.com
 
 # Delete the following section if your site will not be acting as an OpenID delegate (http://wiki.openid.net/Delegation)
@@ -14,3 +14,6 @@ author:
 # open_id_delegation:
 #   server:   http://www.myopenid.com/server
 #   delegate: http://username.myopenid.com
+
+
+# https://profiles.google.com/u/0/103382573522916598862
