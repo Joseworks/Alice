@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131004165430) do
+ActiveRecord::Schema.define(version: 20131008190116) do
 
   create_table "comments", force: true do |t|
     t.integer  "post_id",      null: false
@@ -56,19 +56,20 @@ ActiveRecord::Schema.define(version: 20131004165430) do
   add_index "pages", ["title"], name: "index_pages_on_title"
 
   create_table "posts", force: true do |t|
-    t.string   "title",                                  null: false
-    t.string   "slug",                                   null: false
-    t.text     "body",                                   null: false
-    t.text     "body_html",                              null: false
-    t.boolean  "active",                  default: true, null: false
-    t.integer  "approved_comments_count", default: 0,    null: false
+    t.string   "title",                                              null: false
+    t.string   "slug",                                               null: false
+    t.text     "body",                                               null: false
+    t.text     "body_html",                                          null: false
+    t.boolean  "active",                  default: true,             null: false
+    t.integer  "approved_comments_count", default: 0,                null: false
     t.string   "cached_tag_list"
     t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "edited_at",                              null: false
+    t.datetime "edited_at",                                          null: false
     t.text     "intro_text"
     t.text     "intro_text_html"
+    t.string   "author",                  default: "Quidnunc Staff"
   end
 
   add_index "posts", ["published_at"], name: "index_posts_on_published_at"

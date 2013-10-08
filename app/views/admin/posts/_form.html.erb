@@ -1,6 +1,6 @@
 <%= form.inputs do -%>
   <%= form.input :title -%>
-  <!-- <%= form.input :body, :hint => "<a href='http://redcloth.org/textile'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode.".html_safe -%> -->
+  <%= form.input :author %>
   <%= form.input :intro_text, :hint => "Front page blurb. Will also appear at head of article." %>
   <%= form.input :body, :hint => "<a href='http://github.github.com/github-flavored-markdown/'>Markdown enabled</a>. Use Ctrl+E to switch between preview and edit mode.".html_safe -%>
   <%= form.input :tag_list, :as => 'string', :required => false, :hint => 'Comma separated: ruby, rails&hellip;'.html_safe -%>

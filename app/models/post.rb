@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
   before_save             :apply_filter
   before_save             :apply_filter_to_intro
 
-  validates               :title, :slug, :body, :intro_text, :presence => true
+  validates               :author, :title, :slug, :body, :intro_text, :presence => true
 
   validate                :validate_published_at_natural
 

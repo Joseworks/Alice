@@ -4,8 +4,8 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Post, "integration" do
   describe 'setting tag_list' do
     it 'increments tag counter cache' do
-      post1 = Post.create!(:title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
-      post2 = Post.create!(:title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
+      post1 = Post.create!(:author => "writer", :title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
+      post2 = Post.create!(:author => "staff", :title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
       Tag.find_by_name('ruby').taggings_count.should == 2
       Post.last.destroy
       Tag.find_by_name('ruby').taggings_count.should == 1
@@ -204,6 +204,7 @@ end
 describe Post, 'validations' do
   def valid_post_attributes
     {
+      :author               => "Quidnunc Staff",
       :title                => "My Post",
       :slug                 => "my-post",
       :intro_text           => "this is an introduction",
@@ -242,7 +243,8 @@ end
 
 describe Post, '.build_for_preview' do
   before(:each) do
-    @post = Post.build_for_preview(:title => 'My Post',
+    @post = Post.build_for_preview(:author => "IRONMAN",
+                                   :title => 'My Post',
                                    :intro_text => 'intro text',
                                    :body => "body",
                                    :tag_list => "ruby",
