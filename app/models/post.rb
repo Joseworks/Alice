@@ -45,6 +45,7 @@ class Post < ActiveRecord::Base
       post.generate_slug
       post.set_dates
       post.apply_filter
+      post.apply_filter_to_intro
       TagList.from(params[:tag_list]).each do |tag|
         post.tags << Tag.new(:name => tag)
       end
