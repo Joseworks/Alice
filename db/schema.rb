@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131004165430) do
+ActiveRecord::Schema.define(version: 20131008181926) do
+
+  create_table "authors", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: true do |t|
     t.integer  "post_id",      null: false
@@ -69,6 +75,7 @@ ActiveRecord::Schema.define(version: 20131004165430) do
     t.datetime "edited_at",                              null: false
     t.text     "intro_text"
     t.text     "intro_text_html"
+    t.integer  "author_id",               default: 1
   end
 
   add_index "posts", ["published_at"], name: "index_posts_on_published_at"

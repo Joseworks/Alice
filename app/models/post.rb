@@ -3,6 +3,8 @@ class Post < ActiveRecord::Base
 
   acts_as_taggable
 
+  belongs_to :author
+
   has_many                :comments, :dependent => :destroy
   has_many                :approved_comments, :class_name => 'Comment'
 
