@@ -15,7 +15,7 @@ class Admin::SessionsController < ApplicationController
   end
 
   def create
-    return successful_login if allow_login_bypass? && params[:bypass_login]
+    return successful_login(User.first) if allow_login_bypass? && params[:bypass_login]
 
     if params[:openid_url].blank? && !request.env[Rack::OpenID::RESPONSE]
       flash.now[:error] = "You must provide an OpenID URL"
@@ -31,20 +31,21 @@ class Admin::SessionsController < ApplicationController
         else
           flash.now[:error] = result.message
         end
-        render :action => 'new'
       end
+      render :action => 'new'
     end
   end
 
   def destroy
-    session[:logged_in] = false
+    session[:logged_in] = nil
     redirect_to('/')
   end
 
 protected
 
-  def successful_login
+  def successful_login(user)
     session[:logged_in] = true
+    session[:user_id] = user.id
     redirect_to(admin_root_path)
   end
 

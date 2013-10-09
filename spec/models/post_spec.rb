@@ -218,6 +218,10 @@ describe Post, 'validations' do
     Post.new(valid_post_attributes).should be_valid
   end
 
+  it 'is invalid with no author' do
+    Post.new(valid_post_attributes.merge(author: '')).should_not be_valid
+  end
+
   it 'is invalid with no title' do
     Post.new(valid_post_attributes.merge(:title => '')).should_not be_valid
   end

@@ -29,7 +29,7 @@ describe Admin::SessionsController do
     end
 
     it 'logs out the current session' do
-      session[:logged_in].should == false
+      session[:logged_in].should == nil
     end
 
     it 'redirects to /' do
@@ -74,6 +74,7 @@ describe Admin::SessionsController, "handling CREATE with post" do
   end
 
   def stub_open_id_authenticate(url, status_code, return_value)
+    User.stub(:with_open_id_url).and_return(nil)
     status = double("Result", :successful? => status_code == :successful, :message => '')
     @controller.stub(:enki_config).and_return(double("enki_config", :author_open_ids => [
         "http://enkiblog.com",
@@ -92,6 +93,7 @@ describe Admin::SessionsController, "handling CREATE with post" do
   describe "with valid URL http://enkiblog.com and OpenID authentication succeeding" do
     before do
       stub_open_id_authenticate("http://enkiblog.com", :successful, false)
+      User.stub(:with_open_id_url).and_return(User.new)
       post :create, :openid_url => "http://enkiblog.com"
     end
     it_should_behave_like "logged in and redirected to /admin"
@@ -132,12 +134,14 @@ describe Admin::SessionsController, "handling CREATE with post" do
   end
   describe "with bypass login selected" do
     before do
+      User.stub(:find).and_return(User.new)
       post :create, :openid_url => "", :bypass_login => "1"
     end
     it_should_behave_like "logged in and redirected to /admin"
   end
   describe "with bypass login selected but login bypassing disabled" do
     before do
+      User.stub(:find).and_return(User.new)
       @controller.stub(:allow_login_bypass?).and_return(false)
       post :create, :openid_url => "", :bypass_login => "1"
     end

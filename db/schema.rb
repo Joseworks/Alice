@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008190116) do
+ActiveRecord::Schema.define(version: 20131009134500) do
 
   create_table "comments", force: true do |t|
     t.integer  "post_id",      null: false
@@ -108,5 +108,13 @@ ActiveRecord::Schema.define(version: 20131008190116) do
   end
 
   add_index "undo_items", ["created_at"], name: "index_undo_items_on_created_at"
+
+  create_table "users", force: true do |t|
+    t.string   "name",        null: false
+    t.string   "email",       null: false
+    t.string   "open_id_url", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
