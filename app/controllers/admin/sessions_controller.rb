@@ -4,11 +4,12 @@ class Admin::SessionsController < ApplicationController
   layout 'login'
 
   def show
-    # if using_open_id?
-    #   create
-    # else
+    if session[:logged_in]
+      puts "FROG RETURNZ"
+      redirect_to admin_root_path, notice: "welcome back!" and return
+    else
       redirect_to :action => 'new'
-    # end
+    end
   end
 
   def new
@@ -22,13 +23,6 @@ class Admin::SessionsController < ApplicationController
     session[:logged_in] = true
     session[:user_id] = user.id
     redirect_to admin_root_path, notice: "Signed in!"
-
-
-  #   if params[:openid_url].present?
-  #     open_id_authentication
-  #   else
-  #     failed_login "PROBLEM."
-  #   end
   end
 
   def destroy
@@ -44,11 +38,7 @@ class Admin::SessionsController < ApplicationController
 protected
 
   def open_id_authentication
-    puts 'BEFORE AUTHENTICATING'
-    puts params.inspect
     authenticate_with_open_id do |result, identity_url|
-      puts 'GROG'
-      puts result.inspect
       if result.successful?
         if user = User.with_openid_url(identity_url)
           return successful_login(user)
