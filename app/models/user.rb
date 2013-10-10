@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates_presence_of :name, :email
+  validates_presence_of :name, :email, :uid
   # validate :openid_valid
 
   class << self

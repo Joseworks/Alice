@@ -15,13 +15,14 @@ class Admin::SessionsController < ApplicationController
   end
 
   def create
+    return successful_login(User.first) if allow_login_bypass? && params[:bypass_login]
+
     auth = request.env["omniauth.auth"]
     user = User.find_by_uid(auth["uid"]) || User.create_with_omniauth(auth)
     session[:logged_in] = true
     session[:user_id] = user.id
     redirect_to admin_root_path, notice: "Signed in!"
 
-  #   return successful_login(User.first) if allow_login_bypass? && params[:bypass_login]
 
   #   if params[:openid_url].present?
   #     open_id_authentication
