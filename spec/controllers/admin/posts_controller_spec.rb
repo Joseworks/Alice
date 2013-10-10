@@ -52,6 +52,7 @@ describe Admin::PostsController do
       @post = mock_model(Post)
       Post.stub(:new).and_return(@post)
       @current_user = mock_model(User)
+      User.stub(:find).and_return(@current_user)
       session[:user_id] = @current_user.id
       session[:logged_in] = true
       get :new
