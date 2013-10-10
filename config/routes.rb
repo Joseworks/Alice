@@ -1,6 +1,9 @@
 Enki::Application.routes.draw do
   namespace :admin do
+
     resource :session
+
+
 
     resources :posts, :pages do
       post 'preview', :on => :collection
@@ -29,6 +32,8 @@ Enki::Application.routes.draw do
     get 'posts.:format', :as => :formatted_posts
     get '(:tag)', :as => :posts
   end
+
+  match "/auth/:provider/callback" => "admin/sessions#create", via: [:get, :post]
 
   root :to => 'posts#index'
 end

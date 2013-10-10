@@ -24,15 +24,16 @@ gem 'jquery-rails'
 # Bundle the extra gems:
 # gem 'RedCloth', '~> 4.2.9', :require => 'redcloth'
 gem 'redcarpet', :require => 'redcarpet'
-gem 'ruby-openid', :require => 'openid'
-gem 'rack-openid', :require => 'rack/openid'
+# gem 'ruby-openid', :require => 'openid'
+# gem 'rack-openid', :require => 'rack/openid'
 gem 'aaronh-chronic', :require => 'chronic' # Fixes for 1.9.2
 gem 'coderay', '~> 1.0.5'
 # gem 'lesstile', '~> 1.1.0'
 gem 'formtastic'
 gem 'will_paginate', '~> 3.0.2'
 gem 'exception_notification', '~> 2.5.2'
-gem 'open_id_authentication'
+# gem 'open_id_authentication'
+gem "omniauth-google-oauth2"
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

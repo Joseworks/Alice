@@ -1,32 +1,43 @@
 class Admin::SessionsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
-  before_filter :verify_authenticity_token_unless_openid, :only => :create
+  # before_filter :verify_authenticity_token_unless_openid, :only => :create
   layout 'login'
 
   def show
-    if using_open_id?
-      create
-    else
+    # if using_open_id?
+    #   create
+    # else
       redirect_to :action => 'new'
-    end
+    # end
   end
 
   def new
   end
 
   def create
-    return successful_login(User.first) if allow_login_bypass? && params[:bypass_login]
+    auth = request.env["omniauth.auth"]
+    user = User.find_by_uid(auth["uid"]) || User.create_with_omniauth(auth)
+    session[:logged_in] = true
+    session[:user_id] = user.id
+    redirect_to admin_root_path, notice: "Signed in!"
 
-    if params[:openid_url].present?
-      open_id_authentication
-    else
-      failed_login "PROBLEM."
-    end
+  #   return successful_login(User.first) if allow_login_bypass? && params[:bypass_login]
+
+  #   if params[:openid_url].present?
+  #     open_id_authentication
+  #   else
+  #     failed_login "PROBLEM."
+  #   end
   end
 
   def destroy
     session[:logged_in] = nil
+    session[:user_id] = nil
     redirect_to('/')
+  end
+
+  def failure
+    redirect_to root_url, alert: "Authentication failed, please try again."
   end
 
 protected
