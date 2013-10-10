@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :name,         null: false
       t.string :email,        null: false
-      t.string :open_id_url,  null: false
+      t.string :openid_url,  null: false
 
       t.timestamps
     end

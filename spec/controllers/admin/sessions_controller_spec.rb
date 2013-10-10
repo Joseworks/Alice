@@ -74,7 +74,7 @@ describe Admin::SessionsController, "handling CREATE with post" do
   end
 
   def stub_open_id_authenticate(url, status_code, return_value)
-    User.stub(:with_open_id_url).and_return(nil)
+    User.stub(:with_openid_url).and_return(nil)
     status = double("Result", :successful? => status_code == :successful, :message => '')
     @controller.stub(:enki_config).and_return(double("enki_config", :author_open_ids => [
         "http://enkiblog.com",
@@ -93,18 +93,11 @@ describe Admin::SessionsController, "handling CREATE with post" do
   describe "with valid URL http://enkiblog.com and OpenID authentication succeeding" do
     before do
       stub_open_id_authenticate("http://enkiblog.com", :successful, false)
-      User.stub(:with_open_id_url).and_return(User.new)
+      User.stub(:with_openid_url).and_return(User.new)
       post :create, :openid_url => "http://enkiblog.com"
     end
     it_should_behave_like "logged in and redirected to /admin"
   end
-  # describe "with valid secondary URL http://secondaryopenid.com and OpenID authentication succeeding" do
-  #   before do
-  #     stub_open_id_authenticate("http://secondaryopenid.com", :successful, false)
-  #     post :create, :openid_url => "http://secondaryopenid.com"
-  #   end
-  #   it_should_behave_like "logged in and redirected to /admin"
-  # end
   describe "with valid URL http://enkiblog.com and OpenID authentication returning 'failed'" do
     before do
       stub_open_id_authenticate("http://enkiblog.com", :failed, true)
