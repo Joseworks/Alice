@@ -7,6 +7,7 @@ FactoryGirl.define do
 
   factory :post do
     title     'A post'
+    author    'Writer Person'
     slug      'a-post'
     body      'This is a post'
     intro_text 'This is intro text'

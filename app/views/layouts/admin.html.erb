@@ -29,7 +29,7 @@
     <div id="nav">
       <ul>
         <li><%= nav_link_to("Dashboard", admin_root_path,       :accesskey => '1') %></li>
-        <li><%= nav_link_to("Posts",     admin_posts_path,      :accesskey => '2') %> <%= nav_link_to("(new)", new_admin_post_path, :accesskey => 'n') %></li>
+        <li><%= nav_link_to("Posts",     admin_posts_path,      :accesskey => '2') %></li>
         <li><%= nav_link_to("Actions",   admin_undo_items_path, :accesskey => '5') %></li>
         <li class="separator">&nbsp;</li>
         <li><%= link_to("Logout", admin_session_path, :accesskey => 'l', :method => :delete) %></li>

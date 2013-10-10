@@ -10,6 +10,7 @@ describe Admin::DashboardController do
 
       CommentActivity.stub(:find_recent).and_return(@comment_activity)
 
+      session[:user_id] = 2
       session[:logged_in] = true
       get :show
     end

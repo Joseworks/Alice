@@ -5,12 +5,21 @@ require 'factory_girl'
 FactoryGirl.define do
   factory :post do
     title                'My Post'
+    author               'Quidnunc staff'
     body                 'hello this is my post'
     intro_text           'this is some intro text'
     tag_list             'red, green, blue'
     published_at_natural 'now'
     slug                 'my-manually-entered-slug'
     minor_edit           '0'
+  end
+
+  factory :user do
+    name                 "Don Alias"
+    email                "don@enkiblog.com"
+    openid_url           "http://enkiblog.com"
+    provider             "google_oauth2"
+    uid                  "averylongnumber"
   end
 
   factory :comment do

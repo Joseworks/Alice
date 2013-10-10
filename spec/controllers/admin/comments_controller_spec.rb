@@ -7,6 +7,7 @@ describe Admin::CommentsController do
     before(:each) do
       @posts = [mock_model(Comment), mock_model(Comment)]
       Comment.stub(:paginate).and_return(@comments)
+      session[:user_id] = 2
       session[:logged_in] = true
       get :index
     end
@@ -20,6 +21,7 @@ describe Admin::CommentsController do
     before(:each) do
       @comment = Comment.new
       Comment.stub(:find).and_return(@comment)
+      session[:user_id] = 2
       session[:logged_in] = true
       get :show, :id => 1
     end
@@ -39,6 +41,7 @@ describe Admin::CommentsController do
     end
 
     def do_put
+      session[:user_id] = 2
       session[:logged_in] = true
       put :update, :id => 1, :comment => @attributes
     end
@@ -70,6 +73,7 @@ describe Admin::CommentsController do
     end
 
     def do_put
+      session[:user_id] = 2
       session[:logged_in] = true
       put :update, :id => 1, :comment => @attributes
     end
@@ -92,6 +96,7 @@ describe Admin::CommentsController do
     end
 
     it 'allows whitelisted attributes as expected' do
+      session[:user_id] = 2
       session[:logged_in] = true
       put :update, :id => 1, :comment => {
         'author'       => "Don Alias",
@@ -116,6 +121,7 @@ describe Admin::CommentsController do
     end
 
     def do_delete
+      session[:user_id] = 2
       session[:logged_in] = true
       delete :destroy, :id => 1
     end
@@ -140,6 +146,7 @@ describe Admin::CommentsController do
     end
 
     def do_delete
+      session[:user_id] = 2
       session[:logged_in] = true
       delete :destroy, :id => 1, :format => 'json'
     end

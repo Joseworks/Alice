@@ -5,6 +5,7 @@ describe Admin::PagesController do
     before(:each) do
       @pages = [mock_model(Page), mock_model(Page)]
       Page.stub(:paginate).and_return(@pages)
+      session[:user_id] = 2
       session[:logged_in] = true
       get :index
     end
@@ -26,6 +27,7 @@ describe Admin::PagesController do
     before(:each) do
       @page = mock_model(Page)
       Page.stub(:find).and_return(@page)
+      session[:user_id] = 2
       session[:logged_in] = true
       get :show, :id => 1
     end
@@ -47,6 +49,7 @@ describe Admin::PagesController do
     before(:each) do
       @page = mock_model(Page)
       Page.stub(:new).and_return(@page)
+      session[:user_id] = 2
       session[:logged_in] = true
       get :new
     end
@@ -63,6 +66,7 @@ describe Admin::PagesController do
     end
 
     def do_put
+      session[:user_id] = 2
       session[:logged_in] = true
       put :update, :id => 1, :page => {
         'title' => 'My Post',
@@ -96,6 +100,7 @@ describe Admin::PagesController do
     end
 
     def do_put
+      session[:user_id] = 2
       session[:logged_in] = true
       put :update, :id => 1, :page => {}
     end
@@ -115,6 +120,7 @@ end
 describe Admin::PagesController, 'with an AJAX request to preview' do
   before(:each) do
     Page.should_receive(:build_for_preview).and_return(@page = mock_model(Page))
+    session[:user_id] = 2
     session[:logged_in] = true
     xhr :post, :preview, :page => {
       :title        => 'My Page',

@@ -4,7 +4,7 @@ class Admin::SessionsController < ApplicationController
   layout 'login'
 
   def show
-    if session[:logged_in]
+    if session[:user_id]
       puts "FROG RETURNZ"
       redirect_to admin_root_path, notice: "welcome back!" and return
     else
@@ -22,6 +22,7 @@ class Admin::SessionsController < ApplicationController
     user = User.find_by_uid(auth["uid"]) || User.create_with_omniauth(auth)
     session[:logged_in] = true
     session[:user_id] = user.id
+    session[:username] = user.name
     redirect_to admin_root_path, notice: "Signed in!"
   end
 
@@ -37,19 +38,19 @@ class Admin::SessionsController < ApplicationController
 
 protected
 
-  def open_id_authentication
-    authenticate_with_open_id do |result, identity_url|
-      if result.successful?
-        if user = User.with_openid_url(identity_url)
-          return successful_login(user)
-        else
-          failed_login result.message
-        end
-      else
-        failed_login "Sorry, the OpenID server couldn't be found"
-      end
-    end
-  end
+  # def open_id_authentication
+  #   authenticate_with_open_id do |result, identity_url|
+  #     if result.successful?
+  #       if user = User.with_openid_url(identity_url)
+  #         return successful_login(user)
+  #       else
+  #         failed_login result.message
+  #       end
+  #     else
+  #       failed_login "Sorry, the OpenID server couldn't be found"
+  #     end
+  #   end
+  # end
 
   def successful_login(user)
     session[:logged_in] = true
@@ -66,9 +67,9 @@ protected
     %w(development test).include?(Rails.env)
   end
 
-  def verify_authenticity_token_unless_openid
-    verify_authenticity_token unless using_open_id?
-  end
+  # def verify_authenticity_token_unless_openid
+  #   verify_authenticity_token unless using_open_id?
+  # end
 
   helper_method :allow_login_bypass?
 end

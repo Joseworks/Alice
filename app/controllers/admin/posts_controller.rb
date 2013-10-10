@@ -52,7 +52,7 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def new
-    @post = Post.new
+    @post = Post.new(author: current_user.name)
   end
 
   def preview

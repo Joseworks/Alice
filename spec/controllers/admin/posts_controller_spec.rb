@@ -6,6 +6,8 @@ describe Admin::PostsController do
     before(:each) do
       @posts = [mock_model(Post), mock_model(Post)]
       Post.stub(:paginate).and_return(@posts)
+      # @current_user = [mock_model(User)]
+      session[:user_id] = 2
       session[:logged_in] = true
       get :index
     end
@@ -28,6 +30,7 @@ describe Admin::PostsController do
       @post = mock_model(Post)
       Post.stub(:find).and_return(@post)
       session[:logged_in] = true
+      session[:user_id] = 2
       get :show, :id => 1
     end
 
@@ -48,6 +51,8 @@ describe Admin::PostsController do
     before(:each) do
       @post = mock_model(Post)
       Post.stub(:new).and_return(@post)
+      @current_user = mock_model(User)
+      session[:user_id] = @current_user.id
       session[:logged_in] = true
       get :new
     end
@@ -65,6 +70,7 @@ describe Admin::PostsController do
 
     def do_put
       session[:logged_in] = true
+      session[:user_id] = 2
       put :update, :id => 1, :post => valid_post_attributes
     end
 
@@ -92,6 +98,7 @@ describe Admin::PostsController do
 
     def do_put
       session[:logged_in] = true
+      session[:user_id] = 2
       put :update, :id => 1, :post => valid_post_attributes
     end
 
@@ -113,9 +120,11 @@ describe Admin::PostsController do
     end
 
     it 'allows whitelisted attributes as expected' do
+      session[:user_id] = 2
       session[:logged_in] = true
       put :update, :id => 1, :post => {
         'title'                => "My Updated Post",
+        'author'               => "Writer Person",
         'body'                 => "hello this is my updated post",
         'tag_list'             => "red, green, blue, magenta",
         'published_at_natural' => "1 hour from now",
@@ -134,6 +143,7 @@ describe Admin::PostsController do
 
   describe 'handling POST to create with valid attributes' do
     it 'creates a post' do
+      session[:user_id] = 2
       session[:logged_in] = true
       lambda { post :create, :post => valid_post_attributes }.should change(Post, :count).by(1)
     end
@@ -141,9 +151,11 @@ describe Admin::PostsController do
 
   describe 'handling POST to create with expected whitelisted attributes present' do
     it 'allows whitelisted attributes as expected' do
+      session[:user_id] = 2
       session[:logged_in] = true
       put :create, :id => 1, :post => {
         'title'                => "My Awesome New Post",
+        'author'               => "Writer Person",
         'body'                 => "hello this is my awesome new post",
         'tag_list'             => "teal, azure, turquoise",
         'published_at_natural' => "now",
@@ -152,6 +164,7 @@ describe Admin::PostsController do
       }
 
       assigns(:post).title.should == "My Awesome New Post"
+      assigns(:post).author.should == "Writer Person"
       assigns(:post).body.should == "hello this is my awesome new post"
       assigns(:post).tag_list.should == ["teal", "azure", "turquoise"]
       assigns(:post).published_at_natural.should == "now"
@@ -163,6 +176,7 @@ describe Admin::PostsController do
   def valid_post_attributes
     {
       'title'      => "My Post",
+      'author'     => "Author Person",
       'body'       => "hello this is my post",
       'intro_text' => "this is my intro text",
       'minor_edit' => "0"
@@ -177,6 +191,7 @@ describe Admin::PostsController do
     end
 
     def do_delete
+      session[:user_id] = 2
       session[:logged_in] = true
       delete :destroy, :id => 1
     end
@@ -201,6 +216,7 @@ describe Admin::PostsController do
     end
 
     def do_delete
+      session[:user_id] = 2
       session[:logged_in] = true
       delete :destroy, :id => 1, :format => 'json'
     end
@@ -220,9 +236,11 @@ end
 describe Admin::PostsController, 'with an AJAX request to preview' do
   before(:each) do
     Post.should_receive(:build_for_preview).and_return(@post = mock_model(Post))
+    session[:user_id] = 2
     session[:logged_in] = true
     xhr :post, :preview, :post => {
       :title        => 'My Post',
+      :author       => 'Writer Person',
       :body         => 'body',
       :tag_list     => 'ruby',
       :published_at => 'now'
