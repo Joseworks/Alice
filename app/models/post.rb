@@ -6,12 +6,17 @@ class Post < ActiveRecord::Base
   has_many                :comments, :dependent => :destroy
   has_many                :approved_comments, :class_name => 'Comment'
 
+  attr_accessor           :image
+  has_attached_file       :image
+
   before_validation       :generate_slug
   before_validation       :set_dates
   before_save             :apply_filter
   before_save             :apply_filter_to_intro
 
   validates               :author, :title, :slug, :body, :intro_text, :presence => true
+
+  validates_attachment    :image, size: { in: 0..1.megabytes }
 
   validate                :validate_published_at_natural
 
