@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131010133231) do
+ActiveRecord::Schema.define(version: 20131010210456) do
 
   create_table "comments", force: true do |t|
     t.integer  "post_id",      null: false
@@ -70,6 +70,10 @@ ActiveRecord::Schema.define(version: 20131010133231) do
     t.text     "intro_text"
     t.text     "intro_text_html"
     t.string   "author",                  default: "Quidnunc Staff"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "posts", ["published_at"], name: "index_posts_on_published_at"
