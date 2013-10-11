@@ -15,7 +15,8 @@ describe "/posts/index.html" do
       :published?        => true,
       :slug              => 'a-post',
       :approved_comments => [mock_model(Comment)],
-      :tags              => [mock_tag]
+      :tags              => [mock_tag],
+      :image             => nil
     )
 
     assign :posts, [mock_post, mock_post]
