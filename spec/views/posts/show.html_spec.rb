@@ -32,7 +32,8 @@ describe "/posts/show.html" do
       :published?        => true,
       :slug              => 'a-post',
       :approved_comments => [mock_comment, mock_comment2],
-      :tags              => [mock_tag]
+      :tags              => [mock_tag],
+      :image             => nil
     )
     assign :post, @post
     assign :comment, Comment.new

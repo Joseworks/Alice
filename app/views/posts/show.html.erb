@@ -11,7 +11,9 @@
   </ul>
 </div>
 
-<%= image_tag @post.image.url %>
+<% if @post.image.present? %>
+  <%= image_tag @post.image.url %>
+<% end %>
 <%= raw(@post.body_html) %>
 
 <ol id="comments" class="commentlist">

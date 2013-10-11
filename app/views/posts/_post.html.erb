@@ -1,6 +1,11 @@
 <h2><%= link_to_post(post) %></h2>
 
 <div class="entry-body">
+
+<% if post.image.present? %>
+  <%= image_tag post.image.url(:small) %>
+<% end %>
+
   <%= raw(post.intro_text_html) %>
   <!-- <%= raw(post.body_html) %> -->
 </div>

@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   has_many                :approved_comments, :class_name => 'Comment'
 
   attr_accessor           :image
-  has_attached_file       :image
+  has_attached_file       :image, styles: {thumb: "100x100#", small: "200x200>"}
 
   before_validation       :generate_slug
   before_validation       :set_dates
