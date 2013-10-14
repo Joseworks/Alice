@@ -1,13 +1,15 @@
 class Post < ActiveRecord::Base
   DEFAULT_LIMIT = 15
 
+  self.per_page = 15
+
   acts_as_taggable
 
   has_many                :comments, :dependent => :destroy
   has_many                :approved_comments, :class_name => 'Comment'
 
   attr_accessor           :image
-  has_attached_file       :image, styles: {thumb: "100x100#", small: "200x200>"}
+  has_attached_file       :image, styles: {thumb: "100x100#", small: "200x200>", medium: "300x300>"}
 
   before_validation       :generate_slug
   before_validation       :set_dates
@@ -61,13 +63,14 @@ class Post < ActiveRecord::Base
       tag = options.delete(:tag)
       options = {
         :order      => 'posts.published_at DESC',
-        :conditions => ['published_at < ?', Time.zone.now],
-        :limit      => DEFAULT_LIMIT
+        :conditions => ['published_at < ?', Time.now]
       }.merge(options)
       if tag
         find_tagged_with(tag, options)
       else
-        find(:all, options)
+        # find(:all, options)
+        # paginate(page: options[:page]).order('published_at DESC')
+        paginate(options)
       end
     end
 

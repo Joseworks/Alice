@@ -17,10 +17,10 @@ describe Post, ".find_recent" do
   it 'finds the most recent posts that were published before now' do
     now = Time.now
     Time.stub(:now).and_return(now)
-    Post.should_receive(:find).with(:all, {
+    # Post.should_receive(:paginate).with(page: nil, conditions: ['published_at < ?', now], order: 'published_at DESC')
+    Post.should_receive(:paginate).with({
       :order      => 'posts.published_at DESC',
-      :conditions => ['published_at < ?', now],
-      :limit      => Post::DEFAULT_LIMIT
+      :conditions => ['published_at < ?', now]
     })
     Post.find_recent
   end
@@ -30,8 +30,7 @@ describe Post, ".find_recent" do
     Time.stub(:now).and_return(now)
     Post.should_receive(:find_tagged_with).with('code', {
       :order      => 'posts.published_at DESC',
-      :conditions => ['published_at < ?', now],
-      :limit      => Post::DEFAULT_LIMIT
+      :conditions => ['published_at < ?', now]
     })
     Post.find_recent(:tag => 'code')
   end

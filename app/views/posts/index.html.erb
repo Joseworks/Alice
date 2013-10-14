@@ -9,12 +9,17 @@
 <% if @posts.empty? -%>
 	<p>There are no posts yet.</p>
 <% else -%>
-	<% @posts.each do |post| -%>
-	<div class="post" id="<%= dom_id(post) %>">
-	  <%= render post %>
-	</div>
-	<% end -%>
-  <% if more_content? -%>
-    <div class="related">Looking for more? Head on over to the <%= link_to 'archives', archives_path %>.</div>
+
+  <% @posts.each do |post| -%>
+   <div class="post" id="<%= dom_id(post) %>">
+     <%= render post %>
+   </div>
   <% end -%>
+
+    <tr class="pagination">
+      <td colspan="5">
+        <%= will_paginate(@posts, :previous_label => '« Newer', :next_label => 'Older »') %>
+      </td>
+    </tr>
+
 <% end -%>

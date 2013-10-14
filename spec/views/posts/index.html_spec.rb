@@ -8,7 +8,7 @@ describe "/posts/index.html" do
       :name => 'code'
     )
 
-    mock_post = mock_model(Post,
+    mock_post = [mock_model(Post,
       :title             => "A post",
       :body_html         => "Posts contents!",
       :published_at      => 1.year.ago,
@@ -17,9 +17,10 @@ describe "/posts/index.html" do
       :approved_comments => [mock_model(Comment)],
       :tags              => [mock_tag],
       :image             => nil
-    )
+    )]
 
-    assign :posts, [mock_post, mock_post]
+    mock_post.stub(:total_pages).and_return(1)
+    assign :posts, mock_post
   end
 
   after(:each) do
