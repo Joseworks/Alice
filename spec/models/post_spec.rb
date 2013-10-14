@@ -20,9 +20,22 @@ describe Post, ".find_recent" do
     # Post.should_receive(:paginate).with(page: nil, conditions: ['published_at < ?', now], order: 'published_at DESC')
     Post.should_receive(:paginate).with({
       :order      => 'posts.published_at DESC',
-      :conditions => ['published_at < ?', now]
+      :conditions => ['published_at < ?', now],
+      :page       => nil
     })
     Post.find_recent
+  end
+
+  it 'finds the most recent posts that were published before now, with a page number' do
+    now = Time.now
+    Time.stub(:now).and_return(now)
+    # Post.should_receive(:paginate).with(page: nil, conditions: ['published_at < ?', now], order: 'published_at DESC')
+    Post.should_receive(:paginate).with({
+      :order      => 'posts.published_at DESC',
+      :conditions => ['published_at < ?', now],
+      :page       => 1
+    })
+    Post.find_recent(page: 1)
   end
 
   it 'finds the most recent posts that were published before now with a tag' do
@@ -30,9 +43,21 @@ describe Post, ".find_recent" do
     Time.stub(:now).and_return(now)
     Post.should_receive(:find_tagged_with).with('code', {
       :order      => 'posts.published_at DESC',
-      :conditions => ['published_at < ?', now]
+      :conditions => ['published_at < ?', now],
+      :page       => nil
     })
     Post.find_recent(:tag => 'code')
+  end
+
+  it 'finds the most recent posts that were published before now with a tag, with page number' do
+    now = Time.now
+    Time.stub(:now).and_return(now)
+    Post.should_receive(:find_tagged_with).with('code', {
+      :order      => 'posts.published_at DESC',
+      :conditions => ['published_at < ?', now],
+      :page       => 1
+    })
+    Post.find_recent(:tag => 'code', page: 1)
   end
 
   it 'finds all posts grouped by month' do
