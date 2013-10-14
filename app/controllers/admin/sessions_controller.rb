@@ -38,20 +38,6 @@ class Admin::SessionsController < ApplicationController
 
 protected
 
-  # def open_id_authentication
-  #   authenticate_with_open_id do |result, identity_url|
-  #     if result.successful?
-  #       if user = User.with_openid_url(identity_url)
-  #         return successful_login(user)
-  #       else
-  #         failed_login result.message
-  #       end
-  #     else
-  #       failed_login "Sorry, the OpenID server couldn't be found"
-  #     end
-  #   end
-  # end
-
   def successful_login(user)
     session[:logged_in] = true
     session[:user_id] = user.id
