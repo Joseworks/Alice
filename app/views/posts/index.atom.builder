@@ -14,13 +14,13 @@ atom_feed(
   feed.generator "Enki", "uri" => "http://enkiblog.com"
 
   feed.author do |xml|
-    xml.name  author.name
-    xml.email author.email unless author.email.nil?
+    xml.name  'Quidnunc Staff'
   end
 
   @posts.each do |post|
    feed.entry(post, :url => post_path(post, :only_path => false), :published => post.published_at, :updated => post.edited_at) do |entry|
       entry.title   post.title
+      entry.author  post.author
       entry.content post.body_html, :type => 'html'
     end
   end

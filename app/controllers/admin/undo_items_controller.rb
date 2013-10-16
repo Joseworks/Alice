@@ -21,7 +21,7 @@ class Admin::UndoItemsController < Admin::BaseController
         }
       end
     rescue UndoFailed
-      msg = "Could not undo, would result in an invalid state (i.e. a comment with no post)"
+      msg = "Could not undo, would result in an invalid state"
       respond_to do |format|
         format.html do
           flash[:notice] = msg
