@@ -11,7 +11,7 @@
 </div>
 <div class="meta">
   <ul>
-    <li class="date">Posted on <%= format_post_date(post.published_at) if post.published? %></li>
+    <li class="date">Posted at <%= format_post_date(post.published_at) if post.published? %></li>
     <li>By <%= post.author %></li>
     <li class="comments"><%= link_to_post_comments post %></li>
     <% unless post.tag_list.empty? -%>

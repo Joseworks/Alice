@@ -4,7 +4,7 @@ module DateHelper
   end
 
   def format_post_date(date)
-    date.strftime("%B %d, %Y")
+    date.strftime("%l:%M, %B %d, %Y")
   end
 
   def format_comment_date(date)
