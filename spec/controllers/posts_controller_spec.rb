@@ -127,9 +127,7 @@ describe PostsController do
   describe "handling GET for a single post" do
     before(:each) do
       @post = mock_model(Post)
-      @comment = mock_model(Post)
       Post.stub(:find_by_permalink).and_return(@post)
-      Comment.stub(:new).and_return(@comment)
     end
 
     def do_get

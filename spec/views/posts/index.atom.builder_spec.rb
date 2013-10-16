@@ -10,7 +10,6 @@ describe "/posts/index.atom.builder" do
       :published_at      => 1.year.ago,
       :edited_at         => 1.year.ago,
       :slug              => 'a-post',
-      :approved_comments => [mock_model(Comment)],
       :tags              => 'code'
     )
 

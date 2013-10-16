@@ -22,11 +22,11 @@ FactoryGirl.define do
     uid                  "averylongnumber"
   end
 
-  factory :comment do
-    author       'Don Pseudonym'
-    author_email 'donpseudonym@enkiblog.com'
-    author_url   'http://enkiblog.com'
-    body         'Not all those who wander are lost'
-    association :post
-  end
+  # factory :comment do
+  #   author       'Don Pseudonym'
+  #   author_email 'donpseudonym@enkiblog.com'
+  #   author_url   'http://enkiblog.com'
+  #   body         'Not all those who wander are lost'
+  #   association :post
+  # end
 end

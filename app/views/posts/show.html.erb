@@ -4,7 +4,6 @@
   <ul>
     <li class="date">Posted on <%= format_post_date(@post.published_at) if @post.published? %></li>
     <li>By <%= @post.author %></li>
-    <li class="comments"><%= link_to_post_comments @post %></li>
     <% unless @post.tag_list.empty? -%>
       <li class="tags">Tagged <%= linked_tag_list(@post.tag_list) %></li>
     <% end -%>
@@ -16,39 +15,6 @@
 <% end %>
 <%= raw(@post.body_html) %>
 
-<ol id="comments" class="commentlist">
-  <% @post.approved_comments.each do |comment| -%>
-    <li<%=raw cycle(' class="alt"', '') %> id="comment-<%= comment.id %>">
-      <%= render comment %>
-    </li>
-  <% end -%>
-</ol>
 
 <div class="related">Looking for more? Head on over to the <%= link_to 'archives', archives_path %>.</div>
 
-<h2>Post a comment</h2>
-<% unless @comment.errors.empty? -%>
-<div class="errors">
-  <h3>Comment not added!</h3>
-  <ul>
-    <% @comment.errors.sort_by(&:first).each do |error| -%>
-      <li><%= format_comment_error(error) %></li>
-    <% end -%>
-  </ul>
-</div>
-<% end -%>
-
-<div>
-  <%= form_for [@post, @comment] do |form| -%>
-    <p>
-      <%= form.text_field 'author' %>
-      <%= form.label :author %>
-      <small>Name or <%= link_to 'OpenID', 'http://openidexplained.com/' %> (required)</small>
-    </p>
-    <p>
-      <%= form.text_area 'body' %><br/>
-      <small>(<%= link_to 'Github-flavored Markdown enabled', 'http://github.github.com/github-flavored-markdown/' %>)</small>
-    </p>
-    <p><%= form.submit 'Add Comment' %></p>
-  <% end -%>
-</div>

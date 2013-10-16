@@ -10,7 +10,6 @@ describe "/posts/index.html" do
       :published_at      => 1.year.ago,
       :published?        => true,
       :slug              => 'a-post',
-      :approved_comments => [mock_model(Comment)],
       :tag_list          => ['code'],
       :image             => nil
     )]

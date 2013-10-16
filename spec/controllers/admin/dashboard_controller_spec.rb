@@ -8,8 +8,6 @@ describe Admin::DashboardController do
       Post.stub(:find_recent).and_return(@posts)
       Stats.stub(:new).and_return(@stats = Struct.new(:post_count, :comment_count, :tag_count).new(3,2,1))
 
-      CommentActivity.stub(:find_recent).and_return(@comment_activity)
-
       session[:user_id] = 2
       session[:logged_in] = true
       get :show
@@ -29,10 +27,6 @@ describe Admin::DashboardController do
 
     it "assigns stats for the view" do
       assigns[:stats].should == @stats
-    end
-
-    it "finds comment activity for the view" do
-      assigns[:comment_activity].should == @comment_activity
     end
   end
 end

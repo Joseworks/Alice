@@ -5,9 +5,6 @@ class Post < ActiveRecord::Base
 
   acts_as_taggable
 
-  has_many                :comments, :dependent => :destroy
-  has_many                :approved_comments, :class_name => 'Comment'
-
   attr_accessor           :image
   has_attached_file       :image, styles: {thumb: "100x100#", small: "200x200>", medium: "300x300>"}
 
@@ -53,9 +50,6 @@ class Post < ActiveRecord::Base
       post.set_dates
       post.apply_filter
       post.apply_filter_to_intro
-      # TagList.from(params[:tag_list]).each do |tag|
-      #   post.tags << Tag.new(:name => tag)
-      # end
       post
     end
 
@@ -139,9 +133,4 @@ class Post < ActiveRecord::Base
     self.slug.slugorize!
   end
 
-  # TODO: Contribute this back to acts_as_taggable_on_steroids plugin
-  # def tag_list=(value)
-  #   value = value.join(", ") if value.respond_to?(:join)
-  #   super(value)
-  # end
 end

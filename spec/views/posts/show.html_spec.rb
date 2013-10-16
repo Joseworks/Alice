@@ -6,33 +6,16 @@ describe "/posts/show.html" do
   before(:each) do
     view.stub(:enki_config).and_return(Enki::Config.default)
 
-    mock_comment = mock_model(Comment,
-      :created_at              => 1.month.ago,
-      :author                  => "Don Alias",
-      :author_url              => "http://enkiblog.com",
-      :author_openid_authority => "http://enkiblog.com/server",
-      :body_html               => "A comment"
-    )
-
-    mock_comment2 = mock_model(Comment,
-      :created_at              => 1.month.ago,
-      :author                  => "Don Alias",
-      :author_url              => '',
-      :body_html               => "A comment"
-    )
-
     @post = mock_model(Post,
       :title             => "A post",
       :body_html         => "Posts contents!",
       :published_at      => 1.year.ago,
       :published?        => true,
       :slug              => 'a-post',
-      :approved_comments => [mock_comment, mock_comment2],
       :tag_list          => ['code'],
       :image             => nil
     )
     assign :post, @post
-    assign :comment, Comment.new
   end
 
   after(:each) do

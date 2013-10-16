@@ -7,10 +7,6 @@ module UrlHelper
     path
   end
 
-  def post_comments_path(post, comment)
-    post_path(post) + "/comments"
-  end
-
   def author_link(comment)
     if comment.author_url.blank?
      comment.author
@@ -24,17 +20,6 @@ module UrlHelper
       link_to(link_text, post_path(post))
     else
       link_text
-    end
-  end
-
-  def link_to_post_comments(post)
-    link_text = pluralize(post.approved_comments.size, "comment")
-    if post.published?
-      link_to(link_text, post_path(post, :anchor => 'comments'))
-    else
-      # Posts would have to be published to be on the public index,
-      # the only place where a fragment won't work.
-      link_to(link_text, '#comments')
     end
   end
 end

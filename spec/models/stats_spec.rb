@@ -8,13 +8,6 @@ describe Stats do
     end
   end
 
-  describe '#comment_count' do
-    it 'returns the total number of comments' do
-      Comment.should_receive(:count).and_return(2)
-      Stats.new.comment_count.should == 2
-    end
-  end
-
   describe '#tag_count' do
     it 'returns the total number of tags' do
       Post.create!(:author => "writer", :title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby, test")

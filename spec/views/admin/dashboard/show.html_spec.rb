@@ -13,21 +13,9 @@ describe "/admin/dashboard/show.html" do
     assign :posts, [mock_model(Post,
       :title             => 'A Post',
       :published_at      => Time.now,
-      :slug              => 'a-post',
-      :approved_comments => []
+      :slug              => 'a-post'
     )]
-    assign :comment_activity, [double("comment-activity-1",
-      :post                => mock_model(Post,
-        :published_at      => Time.now,
-        :published?        => true,
-        :title             => "A Post",
-        :slug              => 'a-post',
-        :approved_comments => []
-      ),
-      :comments            => [mock_model(Comment, :author => 'Don', :body_html => 'Hello')],
-      :most_recent_comment => mock_model(Comment, :created_at => Time.now, :author => 'Don')
-    )]
-    assign :stats, Struct.new(:post_count, :comment_count, :tag_count).new(3,2,1)
+    assign :stats, Struct.new(:post_count, :tag_count).new(3,1)
     render :template => '/admin/dashboard/show', :formats => [:html]
   end
 end

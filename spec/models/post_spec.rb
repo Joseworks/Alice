@@ -207,16 +207,6 @@ describe Post, 'before validation' do
   end
 end
 
-describe Post, '#denormalize_comments_count!' do
-  it 'updates approved_comments_count without triggering AR callbacks' do
-    p = Post.new
-    p.id = 999
-    p.stub(:approved_comments).and_return(double("approved_comments association", :count => 9))
-    Post.should_receive(:update_all).with(["approved_comments_count = ?", 9], ["id = ?", 999])
-    p.denormalize_comments_count!
-  end
-end
-
 describe Post, 'validations' do
   def valid_post_attributes
     {
@@ -252,12 +242,6 @@ describe Post, 'validations' do
 
   it 'is invalid with bogus published_at_natural' do
     Post.new(valid_post_attributes.merge(:published_at_natural => 'bogus')).should_not be_valid
-  end
-end
-
-describe Post, 'being destroyed' do
-  it 'destroys all comments' do
-    Post.reflect_on_association(:comments).options[:dependent].should == :destroy
   end
 end
 

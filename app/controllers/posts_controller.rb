@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   def index
     @tag = params[:tag]
-    # @posts = Post.paginate(page: params[:page]).order('published_at DESC')
     @posts = Post.find_recent(:tag => @tag, :include => :tags, page: params[:page])
 
     respond_to do |format|
@@ -12,6 +11,5 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_permalink(*([:year, :month, :day, :slug].collect {|x| params[x] } << {:include => [:approved_comments, :tags]}))
-    @comment = Comment.new
   end
 end
