@@ -5,7 +5,7 @@
 #
 # Anyway, as a result, we can't depend on any newer gem versions and have to
 # include this in the source tree.
-$LOAD_PATH.unshift(File.expand_path('../../../lib/acts_as_taggable_on_steroids/lib', __FILE__))
-require 'acts_as_taggable_on_steroids/init'
-require 'tag_list'
-require 'tags_helper'
+# $LOAD_PATH.unshift(File.expand_path('../../../lib/acts_as_taggable_on_steroids/lib', __FILE__))
+# require 'acts_as_taggable_on_steroids/init'
+# require 'tag_list'
+# require 'tags_helper'

@@ -8,6 +8,6 @@ class Stats
   end
 
   def tag_count
-    Tag.count
+    Post.tag_counts.count
   end
 end

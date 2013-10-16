@@ -53,9 +53,9 @@ class Post < ActiveRecord::Base
       post.set_dates
       post.apply_filter
       post.apply_filter_to_intro
-      TagList.from(params[:tag_list]).each do |tag|
-        post.tags << Tag.new(:name => tag)
-      end
+      # TagList.from(params[:tag_list]).each do |tag|
+      #   post.tags << Tag.new(:name => tag)
+      # end
       post
     end
 
@@ -68,9 +68,7 @@ class Post < ActiveRecord::Base
         :page       => page_num
       }.merge(options)
       if tag
-        # because acts_as_taggable_on_steroids finders
-        options.delete(:page)
-        find_tagged_with(tag, options)
+        tagged_with(tag).paginate(options)
       else
         paginate(options)
       end
@@ -142,8 +140,8 @@ class Post < ActiveRecord::Base
   end
 
   # TODO: Contribute this back to acts_as_taggable_on_steroids plugin
-  def tag_list=(value)
-    value = value.join(", ") if value.respond_to?(:join)
-    super(value)
-  end
+  # def tag_list=(value)
+  #   value = value.join(", ") if value.respond_to?(:join)
+  #   super(value)
+  # end
 end

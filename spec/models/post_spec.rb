@@ -6,9 +6,9 @@ describe Post, "integration" do
     it 'increments tag counter cache' do
       post1 = Post.create!(:author => "writer", :title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
       post2 = Post.create!(:author => "staff", :title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
-      Tag.find_by_name('ruby').taggings_count.should == 2
+      Post.tagged_with('ruby').count.should == 2
       Post.last.destroy
-      Tag.find_by_name('ruby').taggings_count.should == 1
+      Post.tagged_with('ruby').count.should == 1
     end
   end
 end
@@ -17,7 +17,6 @@ describe Post, ".find_recent" do
   it 'finds the most recent posts that were published before now' do
     now = Time.now
     Time.stub(:now).and_return(now)
-    # Post.should_receive(:paginate).with(page: nil, conditions: ['published_at < ?', now], order: 'published_at DESC')
     Post.should_receive(:paginate).with({
       :order      => 'posts.published_at DESC',
       :conditions => ['published_at < ?', now],
@@ -29,7 +28,6 @@ describe Post, ".find_recent" do
   it 'finds the most recent posts that were published before now, with a page number' do
     now = Time.now
     Time.stub(:now).and_return(now)
-    # Post.should_receive(:paginate).with(page: nil, conditions: ['published_at < ?', now], order: 'published_at DESC')
     Post.should_receive(:paginate).with({
       :order      => 'posts.published_at DESC',
       :conditions => ['published_at < ?', now],
@@ -41,22 +39,16 @@ describe Post, ".find_recent" do
   it 'finds the most recent posts that were published before now with a tag' do
     now = Time.now
     Time.stub(:now).and_return(now)
-    Post.should_receive(:find_tagged_with).with('code', {
-      :order      => 'posts.published_at DESC',
-      :conditions => ['published_at < ?', now],
-      :page       => nil
-    })
-    Post.find_recent(:tag => 'code')
+    Post.stub_chain(:tagged_with, :paginate)
+    Post.should_receive(:tagged_with).with('test')
+    Post.find_recent(:tag => 'test')
   end
 
   it 'finds the most recent posts that were published before now with a tag, with page number' do
     now = Time.now
     Time.stub(:now).and_return(now)
-    Post.should_receive(:find_tagged_with).with('code', {
-      :order      => 'posts.published_at DESC',
-      :conditions => ['published_at < ?', now],
-      :page       => 1
-    })
+    Post.stub_chain(:tagged_with, :paginate)
+    Post.should_receive(:tagged_with).with('code')
     Post.find_recent(:tag => 'code', page: 1)
   end
 
@@ -297,6 +289,6 @@ describe Post, '.build_for_preview' do
   end
 
   it 'generates tags from tag_list' do
-    @post.tags.collect {|tag| tag.name}.should == ['ruby']
+    @post.tag_list.collect {|tag| tag}.should == ['ruby']
   end
 end

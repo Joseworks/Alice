@@ -6,10 +6,6 @@ describe "/posts/show.html" do
   before(:each) do
     view.stub(:enki_config).and_return(Enki::Config.default)
 
-    mock_tag = mock_model(Tag,
-      :name => 'code'
-    )
-
     mock_comment = mock_model(Comment,
       :created_at              => 1.month.ago,
       :author                  => "Don Alias",
@@ -32,7 +28,7 @@ describe "/posts/show.html" do
       :published?        => true,
       :slug              => 'a-post',
       :approved_comments => [mock_comment, mock_comment2],
-      :tags              => [mock_tag],
+      :tag_list          => ['code'],
       :image             => nil
     )
     assign :post, @post

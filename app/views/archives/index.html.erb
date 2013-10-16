@@ -12,7 +12,7 @@
 	<h3><%= format_month(month.date) %></h3>
 	<ul class='archive-month'>
 	  <% month.posts.each do |post| -%>
-	    <li><%= link_to(post.title, post_path(post)) %><% unless post.tags.empty? %> <span class='tags'>(<%= linked_tag_list(post.tags) %>)</span><% end -%></li>
+	    <li><%= link_to(post.title, post_path(post)) %><% unless post.tag_list.empty? %> <span class='tags'>(<%= linked_tag_list(post.tag_list) %>)</span><% end -%></li>
 	  <% end -%>
 	</ul>
 	<% end -%>

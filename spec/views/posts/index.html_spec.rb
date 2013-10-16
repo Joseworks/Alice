@@ -4,10 +4,6 @@ describe "/posts/index.html" do
   before(:each) do
     view.stub(:enki_config).and_return(Enki::Config.default)
 
-    mock_tag = mock_model(Tag,
-      :name => 'code'
-    )
-
     mock_post = [mock_model(Post,
       :title             => "A post",
       :body_html         => "Posts contents!",
@@ -15,7 +11,7 @@ describe "/posts/index.html" do
       :published?        => true,
       :slug              => 'a-post',
       :approved_comments => [mock_model(Comment)],
-      :tags              => [mock_tag],
+      :tag_list          => ['code'],
       :image             => nil
     )]
 

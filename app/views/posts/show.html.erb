@@ -5,8 +5,8 @@
     <li class="date">Posted on <%= format_post_date(@post.published_at) if @post.published? %></li>
     <li>By <%= @post.author %></li>
     <li class="comments"><%= link_to_post_comments @post %></li>
-    <% unless @post.tags.empty? -%>
-      <li class="tags">Tagged <%= linked_tag_list(@post.tags) %></li>
+    <% unless @post.tag_list.empty? -%>
+      <li class="tags">Tagged <%= linked_tag_list(@post.tag_list) %></li>
     <% end -%>
   </ul>
 </div>
