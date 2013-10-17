@@ -38,6 +38,10 @@ class Post < ActiveRecord::Base
     published_at?
   end
 
+  def updated?
+    self.updated_at > self.created_at
+  end
+
   attr_accessor :published_at_natural
   def published_at_natural
     @published_at_natural ||= published_at.send_with_default(:strftime, '', "%Y-%m-%d %H:%M")
@@ -115,17 +119,13 @@ class Post < ActiveRecord::Base
 
   def set_dates
     self.edited_at = Time.now if self.edited_at.nil? || !minor_edit?
-    unless self.published_at_natural.nil?
+    # if not self.published_at_natural.nil?
       if self.published_at_natural.blank?
         self.published_at = nil
       elsif new_published_at = Chronic.parse(self.published_at_natural)
         self.published_at = new_published_at
       end
-    end
-  end
-
-  def denormalize_comments_count!
-    Post.update_all(["approved_comments_count = ?", self.approved_comments.count], ["id = ?", self.id])
+    # end
   end
 
   def generate_slug

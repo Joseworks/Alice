@@ -4,4 +4,10 @@ module PostsHelper
   def more_content?
     @posts.size == Post::DEFAULT_LIMIT
   end
+
+  def updated_time(post)
+    if post.updated?
+      "Updated:#{post.updated_at.strftime("%l:%M, %b %d")}"
+    end
+  end
 end

@@ -9,6 +9,7 @@ describe "/posts/index.html" do
       :body_html         => "Posts contents!",
       :published_at      => 1.year.ago,
       :published?        => true,
+      :updated?          => false,
       :slug              => 'a-post',
       :tag_list          => ['code'],
       :image             => nil
