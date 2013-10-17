@@ -39,7 +39,7 @@ class Post < ActiveRecord::Base
   end
 
   def updated?
-    self.updated_at > self.created_at
+    self.edited_at > self.published_at
   end
 
   attr_accessor :published_at_natural

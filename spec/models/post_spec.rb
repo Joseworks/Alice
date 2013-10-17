@@ -192,16 +192,41 @@ describe Post, '#published?' do
 end
 
 describe Post, '#updated?' do
-  it 'returns true if updated_at does not match created_at' do
+  it 'returns true if edited_at does not match published_at' do
+    before = 1.day.ago
+    updated = 1.hour.ago
     now = Time.now
     Time.stub(:now).and_return(now)
-    post = Post.new(:created_at => 1.day.ago)
-    post.updated_at = now
+    post = Post.new(created_at: before, published_at: updated, edited_at: now)
+    # post.updated_at = now
     post.stub(:minor_edit?).and_return(false)
 
     post.set_dates
     post.updated?.should == true
   end
+
+  it 'returns false if edited_at the same as published_at' do
+    before = 1.day.ago
+    now = Time.now
+    Time.stub(:now).and_return(now)
+    post = Post.new(created_at: before, published_at: now, edited_at: now)
+    post.stub(:minor_edit?).and_return(false)
+
+    post.updated?.should == false
+  end
+
+  it 'returns false if minor_edit is true' do
+    before = 1.day.ago
+    now = Time.now
+    Time.stub(:now).and_return(now)
+    post = Post.new(created_at: before, published_at: before, edited_at: before)
+    # post.updated_at = now
+    post.stub(:minor_edit?).and_return("1")
+
+    post.set_dates
+    post.updated?.should == false
+  end
+
 end
 
 describe Post, "#minor_edit?" do

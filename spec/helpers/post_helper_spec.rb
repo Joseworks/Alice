@@ -14,11 +14,13 @@ describe PostsHelper do
     end
 
     it 'shows the update-time' do
+      created = 1.day.ago
       before = Time.now - 1
       now = Time.now
       post = mock_model(Post,
-        :created_at        => before,
-        :updated_at        => now,
+        :created_at        => created,
+        :published_at      => before,
+        :edited_at         => now,
         :updated?          => true
         )
 

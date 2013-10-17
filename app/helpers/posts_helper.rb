@@ -7,7 +7,7 @@ module PostsHelper
 
   def updated_time(post)
     if post.updated?
-      "Updated:#{post.updated_at.strftime("%l:%M, %b %d")}"
+      "Updated:#{post.edited_at.strftime("%l:%M, %b %d")}"
     end
   end
 end
