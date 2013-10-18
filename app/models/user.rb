@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
       user.email = auth["info"]["email"]
-      user.openid_url = 'http://example.com'
+      # user.openid_url = 'http://example.com'
     end
   end
 

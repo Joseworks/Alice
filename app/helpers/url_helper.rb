@@ -7,14 +7,6 @@ module UrlHelper
     path
   end
 
-  def author_link(comment)
-    if comment.author_url.blank?
-     comment.author
-    else
-      link_to(comment.author, comment.author_url, :class => 'openid')
-    end
-  end
-
   def link_to_post(post, link_text=post.title)
     if post.published?
       link_to(link_text, post_path(post))

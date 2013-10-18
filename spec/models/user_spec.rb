@@ -5,7 +5,6 @@ describe User, 'validations' do
     {
       :name    => "Don Alias",
       :email   => "don@enkiblog.com",
-      :openid_url => "http://enkiblog.com",
       :provider =>  "google_oauth2",
       :uid =>      "averylongnumber"
     }

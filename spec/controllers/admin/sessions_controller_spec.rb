@@ -76,7 +76,7 @@ describe Admin::SessionsController, "handling CREATE with post" do
   describe "with bypass login selected" do
     before do
       User.stub(:first).and_return(User.new)
-      post :create, :openid_url => "", :bypass_login => "1"
+      post :create, :bypass_login => "1"
     end
     it_should_behave_like "logged in and redirected to /admin"
   end
