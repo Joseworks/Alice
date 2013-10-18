@@ -10,6 +10,7 @@
       <th>Author</th>
       <th>Excerpt</th>
       <th>Actions</th>
+      <th>Publication status</th>
     </tr>
   </thead>
 
@@ -23,7 +24,7 @@
 
   <tfoot>
       <tr class="pagination">
-        <td colspan="5">
+        <td colspan="6">
           <%= will_paginate(@posts, :previous_label => '« Newer', :next_label => 'Older »') %>
         </td>
       </tr>

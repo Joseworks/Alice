@@ -9,4 +9,11 @@
       <%= image_submit_tag("silk/delete.png", :alt => 'Delete Post') %>
     <% end -%>
   </td>
+  <td>
+    <% if post.published? %>
+      published!
+    <% else %>
+      draft
+    <% end %>
+  </td>
 </tr>
