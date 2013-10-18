@@ -5,7 +5,7 @@ describe UrlHelper do
 
   describe '#post_path' do
     it 'should prefix slug with published_at' do
-      post = stub(
+      post = double(Post,
         :published_at => Date.new(2012,1,1),
         :slug         => 'post'
       )
