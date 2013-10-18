@@ -118,7 +118,7 @@ class Post < ActiveRecord::Base
   end
 
   def set_dates
-    self.edited_at = Time.now if self.edited_at.nil? || !minor_edit?
+    self.edited_at = Time.now if !minor_edit? or self.edited_at.nil?
     # if not self.published_at_natural.nil?
       if self.published_at_natural.blank?
         self.published_at = nil

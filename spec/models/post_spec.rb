@@ -219,11 +219,8 @@ describe Post, '#updated?' do
     before = 1.day.ago
     now = Time.now
     Time.stub(:now).and_return(now)
-    post = Post.new(created_at: before, published_at: before, edited_at: before)
-    # post.updated_at = now
-    post.stub(:minor_edit?).and_return("1")
+    post = Post.new(created_at: before, published_at: before, edited_at: before, minor_edit: '1')
 
-    post.set_dates
     post.updated?.should == false
   end
 
