@@ -1,11 +1,12 @@
 class Admin::PostsController < Admin::BaseController
   before_filter :find_post, :only => [:show, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   def index
     respond_to do |format|
       format.html {
         @posts = Post.paginate(
-          :order => "coalesce(published_at, updated_at) DESC",
+          :order => ("#{sort_column} #{sort_direction}"),
           :page  => params[:page]
         )
       }
@@ -85,14 +86,23 @@ class Admin::PostsController < Admin::BaseController
 
   private
 
-  def post_params
-    params.require(:post).permit(:author, :title, :body, :intro_text, :tag_list, :image, :published_at_natural, :slug, :minor_edit)
-  end
+    # derived from RailsCast #228 sortable table columns
+    def sort_column
+      Post.column_names.include?(params[:sort]) ? params[:sort] : "coalesce(published_at, updated_at)"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "DESC"
+    end
+
+    def post_params
+      params.require(:post).permit(:author, :title, :body, :intro_text, :tag_list, :image, :published_at_natural, :slug, :minor_edit)
+    end
 
   protected
 
-  def find_post
-    @post = Post.find(params[:id])
-  end
+    def find_post
+      @post = Post.find(params[:id])
+    end
 
 end

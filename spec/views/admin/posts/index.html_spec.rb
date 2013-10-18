@@ -5,6 +5,16 @@ describe "/admin/posts/index.html" do
     rendered.should be_valid_html5_fragment
   end
 
+  before do
+    controller.singleton_class.class_eval do
+      protected
+        def sort_column
+
+        end
+        helper_method :sort_column
+    end
+  end
+
   it 'should render' do
     posts = [mock_model(Post,
       :published_at      => Time.now,
@@ -12,7 +22,7 @@ describe "/admin/posts/index.html" do
       :body              => 'Hello I am a post',
       :slug              => 'a-post',
       :approved_comments => [],
-      :published?         => true
+      :published?        => true
     )]
     posts.stub(:total_pages).and_return(1)
     assign :posts, posts

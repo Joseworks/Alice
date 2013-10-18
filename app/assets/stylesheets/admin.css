@@ -188,6 +188,10 @@ a {
   color: #222222;
 }
 
+.admin-link {
+  color: #eeeeee;
+}
+
 /* -------- FORMS */
 form input,
 form select,
