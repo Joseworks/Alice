@@ -301,3 +301,11 @@ table img {
 #content {
   padding-bottom: 2em;
 }
+
+.draft {
+  color: orange;
+}
+
+.published {
+  color: green;
+}
