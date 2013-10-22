@@ -12,6 +12,7 @@ Enki::Application.routes.draw do
     resources :undo_items do
       post 'undo', :on => :member
     end
+    resources :users
 
     get 'health(/:action)' => 'health', :action => 'index', :as => :health
 

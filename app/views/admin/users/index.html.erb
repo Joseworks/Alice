@@ -1,0 +1,27 @@
+<h1>Users</h1>
+
+
+<table id='users'>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @users.empty? -%>
+      <tr><td colspan="1">There are no users at this time.</td></tr>
+    <% else -%>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+          </tr>
+        <% end %>
+    <% end -%>
+  </tbody>
+
+  <tfoot>
+  </tfoot>
+</table>
