@@ -1,24 +1,24 @@
+<% roles_array = [['Writer', 'writer'], ['Editor', 'editor']] %>
 <h1>Users</h1>
 
 <h3>logged in as: <%= session[:username] %>, id:<%= session[:user_id] %></h3>
 
 <table id='users'>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>email</th>
-    </tr>
-  </thead>
-
   <tbody>
     <% if @users.empty? -%>
       <tr><td colspan="1">There are no users at this time.</td></tr>
     <% else -%>
         <% @users.each do |user| %>
-          <tr>
-            <td><%= user.name %></td>
-            <td><%= user.email %></td>
-          </tr>
+          <%= semantic_form_for([:admin, user]) do |form| -%>
+            <%= form.inputs do -%>
+              <%= form.input :name -%>
+              <%= form.input :email -%>
+              <%= form.select :role, roles_array -%>
+              <%= form.action :submit, :as => :button -%>
+            <% end -%>
+          <% end -%>
+
+
         <% end %>
     <% end -%>
   </tbody>
@@ -26,3 +26,5 @@
   <tfoot>
   </tfoot>
 </table>
+
+
