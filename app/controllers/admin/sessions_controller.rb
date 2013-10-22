@@ -4,7 +4,6 @@ class Admin::SessionsController < ApplicationController
 
   def show
     if session[:user_id]
-      puts "FROG RETURNZ"
       redirect_to admin_root_path, notice: "welcome back!" and return
     else
       redirect_to :action => 'new'
