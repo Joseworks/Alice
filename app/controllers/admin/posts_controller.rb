@@ -96,7 +96,8 @@ class Admin::PostsController < Admin::BaseController
     end
 
     def post_params
-      params.require(:post).permit(:author, :title, :body, :intro_text, :tag_list, :image, :published_at_natural, :slug, :minor_edit)
+      params.require(:post).permit(:author, :title, :body, :intro_text, :tag_list,
+                                   :image, :published_at_natural, :slug, :minor_edit, :source_link)
     end
 
   protected

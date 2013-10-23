@@ -17,6 +17,10 @@
 <% end %>
 <%= raw(@post.body_html) %>
 
+<% if @post.source_link != '' %>
+  Source: <%= link_to @post.source_link %>
+<% end %>
+
 <div id="disqus_thread"></div>
 
 <%= disqus_comments %>

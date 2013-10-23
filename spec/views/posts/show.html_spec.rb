@@ -14,7 +14,8 @@ describe "/posts/show.html" do
       :updated?          => false,
       :slug              => 'a-post',
       :tag_list          => ['code'],
-      :image             => nil
+      :image             => nil,
+      :source_link       => ''
     )
     assign :post, @post
   end
