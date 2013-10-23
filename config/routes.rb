@@ -3,12 +3,9 @@ Enki::Application.routes.draw do
 
     resource :session
 
-
-
     resources :posts, :pages do
       post 'preview', :on => :collection
     end
-    resources :comments
     resources :undo_items do
       post 'undo', :on => :member
     end
@@ -23,9 +20,6 @@ Enki::Application.routes.draw do
   resources :pages, :only => [:show]
 
   constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
-    get ':year/:month/:day/:slug/comments'  => 'comments#index'
-    post ':year/:month/:day/:slug/comments' => 'comments#create'
-    get ':year/:month/:day/:slug/comments/new' => 'comments#new'
     get ':year/:month/:day/:slug' => 'posts#show'
   end
 
