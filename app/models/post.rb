@@ -128,6 +128,10 @@ class Post < ActiveRecord::Base
     # end
   end
 
+  def flag_for_review
+    self.ready_for_review = Time.now
+  end
+
   def generate_slug
     self.slug = self.title.dup if self.slug.blank?
     self.slug.slugorize!

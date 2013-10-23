@@ -318,3 +318,21 @@ describe Post, '.build_for_preview' do
     @post.tag_list.collect {|tag| tag}.should == ['ruby']
   end
 end
+
+describe Post, '.flag_for_review' do
+  before(:each) do
+    @post = Post.build_for_preview(:author => "Agent Coulson",
+                                   :title => 'My Post',
+                                   :intro_text => 'intro text',
+                                   :body => "body",
+                                   :tag_list => "ruby")
+  end
+
+  it 'sets the ready_for_review' do
+    now = Time.now
+    Time.stub(:now).and_return(now)
+
+    @post.flag_for_review
+    @post.ready_for_review.should == now
+  end
+end
