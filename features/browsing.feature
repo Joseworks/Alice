@@ -1,7 +1,7 @@
 Feature: Browsing
   Because I write totally awesome posts
   An everyday Joe
-  Should be able to read and comment on my posts
+  Should be able to read my posts
 
   Scenario: browsing the home page
     Given there is at least one post tagged "awesome"

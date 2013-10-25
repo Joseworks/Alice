@@ -21,7 +21,6 @@ describe "/admin/posts/index.html" do
       :title             => 'A post',
       :body              => 'Hello I am a post',
       :slug              => 'a-post',
-      :approved_comments => [],
       :published?        => true
     )]
     posts.stub(:total_pages).and_return(1)

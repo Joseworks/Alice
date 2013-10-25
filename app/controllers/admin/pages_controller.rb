@@ -13,7 +13,7 @@ class Admin::PagesController < Admin::BaseController
   end
 
   def create
-    @page = Page.new(params[:page])
+    @page = Page.new(params[:page]).permit(:title, :body, :slug)
     if @page.save
       respond_to do |format|
         format.html {

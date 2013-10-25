@@ -108,7 +108,7 @@ function destroyAndUndoBehaviour(type) {
 }
 
 $(document).ready(function() {
-  $(['posts', 'comments', 'pages']).each(function() {
+  $(['posts', 'pages']).each(function() {
     if ($('#' + this).length > 0) {
       destroyAndUndoBehaviour(this)();
     }

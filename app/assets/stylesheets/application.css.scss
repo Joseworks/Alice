@@ -267,11 +267,6 @@ textarea
   height: 150px;
 }
 
-#new_comment textarea, #edit_comment textarea
-{
-  height: 150px;
-}
-
 .alt, .container_alt
 {
   background-color: #fafafa;
@@ -281,22 +276,6 @@ div.date
 {
 	color: #999;
 	font-size: .8em;
-}
-
-div.comments div.body
-{
-  padding: 5px;
-}
-
-div.comments div.meta
-{
-  min-height: 0px;
-  padding: 0px;
-}
-
-div.comments div.separator
-{
-  height: 10px;
 }
 
 div.errors

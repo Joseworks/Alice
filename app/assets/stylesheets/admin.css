@@ -114,57 +114,6 @@ body {
   color: #888888;
 }
 
-#recent-comments ul ul {
-  clear: left;
-}
-
-#recent-comments ul ul li {
-  display: inline;
-}
-
-#recent-comments ul ul li:after {
-	content: ", ";
-}
-
-#recent-comments ul ul li.last:after {
-	content: "";
-}
-
-#recent-comments .count {
-  font-size: 22pt;
-  line-height: 1;
-}
-
-#recent-comments .comment-body {
-  position: absolute;
-  width: 33.1em;
-  background-color: #ffffff;
-  border: solid 1px #cccccc;
-  padding: 5px;
-  margin-top: 4px;
-}
-
-#recent-comments .comment-body p {
-  margin: 0;
-}
-
-#recent-comments .comment-body table {
-  margin: 0;
-}
-
-#recent-comments .comment-link {
-  font-weight: normal;
-}
-
-#recent-comments .comment-body div.comment-actions {
-  margin-bottom: 10px;
-  color: #888888;
-}
-
-#recent-comments .comment-body a {
-  font-weight: normal;
-  color: #888888;
-}
 #summary {
   text-align: center;
   max-width: 970px;
@@ -264,13 +213,6 @@ div.pagination {
 
 div.pagination a {
   color: #eeeeee;
-}
-
-.comment-actions img,
-table img {
-  float: left;
-  border: none;
-  display: inline;
 }
 
 /* --------- MESSAGING */

@@ -17,11 +17,4 @@ FactoryGirl.define do
     updated_at   { 1.day.ago }
   end
 
-  factory :comment do
-    author       'Don Alias'
-    author_email 'enki@enkiblog.com'
-    author_url   'http://enkiblog.com'
-    body         'I find this article thought provoking'
-    association :post
-  end
 end

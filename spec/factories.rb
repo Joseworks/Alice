@@ -20,12 +20,4 @@ FactoryGirl.define do
     provider             "google_oauth2"
     uid                  "averylongnumber"
   end
-
-  # factory :comment do
-  #   author       'Don Pseudonym'
-  #   author_email 'donpseudonym@enkiblog.com'
-  #   author_url   'http://enkiblog.com'
-  #   body         'Not all those who wander are lost'
-  #   association :post
-  # end
 end
