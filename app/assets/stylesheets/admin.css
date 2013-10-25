@@ -226,6 +226,9 @@ form fieldset ol li.boolean label {
   padding-left: 100px;
 }
 
+.frogedit {
+  margin-left: 120px;
+}
 /* ---------- TABLES */
 table {
   font-size: 12px;
