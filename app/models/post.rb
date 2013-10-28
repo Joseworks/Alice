@@ -15,7 +15,8 @@ class Post < ActiveRecord::Base
 
   validates               :author, :title, :slug, :body, :intro_text, :presence => true
 
-  validates_attachment    :image, size: { in: 0..1.megabytes }
+  validates_attachment    :image, content_type: { content_type: ['image/jpg', 'image/jpeg', 'image/png'] },
+                                  size: { in: 0..1.megabytes }
 
   validate                :validate_published_at_natural
 
