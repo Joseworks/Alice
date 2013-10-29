@@ -14,15 +14,14 @@
    <div class="post" id="<%= dom_id(post) %>">
      <%= render post %>
    </div>
+   <hr>
   <% end -%>
 
-  <% if @posts.class != Array %>
     <tr class="pagination">
       <td colspan="5">
         <%= will_paginate(@posts, :previous_label => '« Newer', :next_label => 'Older »') %>
       </td>
     </tr>
-  <% end %>
 
   <%= disqus_comment_counts %>
 

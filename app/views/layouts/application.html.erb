@@ -9,15 +9,35 @@
   <%= yield(:head) %>
 </head>
 <body>
+<div id="top-spacer"> </div>
+
+<div id="header">
+  <div id="logo">
+      <div class="logo-element"><h1>LOGOTON</h1></div>
+      <div class="logo-element"><h1 id="page_heading"><a href="./Quidnunc Beta_files/Quidnunc Beta.html">Quidnunc Beta</a></h1></div>
+  </div>
+
+  <div id="hot-news">
+    <div class="hot-headline">Junk in space</div>
+    <div class="hot-headline">quidnunc launches to fanfare, applause</div>
+  </div>
+
+</div>
+
+
   <div id="page_container">
     <div id="content">
-      <h1 id="page_heading"><a href="<%= root_url %>"><%= enki_config[:title] %></a></h1>
+
+    <div id="navbar">SUBSCRIBE | CALENDAR | SEND US DIRT | CONTACT US </div>
+
 
       <div id="main">
         <%= yield %>
       </div>
 
       <div id="navigation">
+        <div class="ad-box">YOUR AD HERE.</div>
+
         <h2>Pages</h2>
         <ul>
           <% page_links_for_navigation.each do |link| -%>
@@ -40,6 +60,8 @@
             <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
           </div>
         </form>
+
+        <div class="ad-box">YOUR AD HERE.</div>
       </div>
 
       <div id="footer"><%= enki_config[:title] %>. Valid <a href="http://validator.w3.org/check?uri=referer">HTML5</a> and <%= link_to "ATOM", "http://feedvalidator.org/check.cgi?url=#{enki_config[:url]}/posts.atom" %>. Powered by <a href="http://www.enkiblog.com" title="A Ruby on Rails blogging app for the fashionable developer">Enki</a>.</div>
