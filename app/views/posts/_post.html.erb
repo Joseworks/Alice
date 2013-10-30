@@ -4,7 +4,7 @@
 <div class="entry-body">
 
 <% if post.image.present? %>
-  <%= image_tag post.image.url %>
+  <%= image_tag post.image.url(:medium) %>
 <% end %>
 
   <%= raw(post.intro_text_html) %>

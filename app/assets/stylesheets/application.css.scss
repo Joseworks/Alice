@@ -143,10 +143,12 @@ body {
 /* Headings */
 h1#page_heading {
   font-size: 24pt;
+  font-weight: lighter;
   color: orange !important; }
 
 h2 {
   font-size: 1.4em;
+  font-weight: lighter;
   color: #333333; }
 
 h2 a, h3, h4, h5 {
@@ -236,14 +238,11 @@ img {
   margin-bottom: 1em; }
 
 #main {
+  width: 620px;
   padding-right: 150px;
   padding-left: 0px;
   padding-top: 0px;
   padding-bottom: 40px;
-}
-
-#main p {
-  width: 580px;
 }
 
 div.meta {
@@ -254,6 +253,10 @@ div.meta {
   border-top: 1px dotted orange;
   border-bottom: 1px solid orange;
  }
+
+.tags, {
+  color: #f56b23;
+}
 
 /* Formatting */
 .meta ul {
@@ -269,7 +272,6 @@ div.meta {
   color: #bbbbbb; }
 
 .meta a, .archive-month .tags a {
-  color: #bbbbbb;
   border-bottom: dotted 1px #bbbbbb; }
 
 .meta a:hover {
@@ -328,14 +330,6 @@ div.errors h3 {
 span.error {
   font-weight: bold; }
 
-hr {
-  border: none 1px orange;
-  background-color: orange;
-  height: 1px;
-  width: 95%;
-  margin-left: -12px;
-}
-
 #preview {
   height: 200px;
   overflow: auto; }
@@ -349,7 +343,6 @@ hr {
 /* Disqus formatting */
 
 #disqus_thread {
-  width: 585px;
   padding: 5px;
 }
 
