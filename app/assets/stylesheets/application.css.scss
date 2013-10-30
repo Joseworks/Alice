@@ -59,18 +59,18 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 700px;
+  width: 800px;
   background-color: white;
 }
 
 #logo {
   vertical-align: middle;
-  width: 40%;
+  width: 60%;
   display: inline-block;
 }
 
 .logo-element {
-  margin-right: 24px;
+  margin-right: 22px;
   vertical-align: middle;
   width: 40%;
   display: inline-block;
@@ -88,8 +88,8 @@ body {
   float: left;
   margin: 12px;
   padding: 6px;
-  height: 72px;
-  max-width: 84px;
+  height: 84px;
+  width: 84px;
   border: solid;
   border-width: 2px;
   border-color: gray;
@@ -103,12 +103,20 @@ body {
   margin-right: -54px;
   padding: 6px;
   padding-left: 14px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 #navbar form {
   margin-left: -8px;
   display: inline
+}
+
+#navbar #social-links {
+  display: inline;
+  color: black;
+  font-size: 12px;
+  float: right;
+  margin: 5px 26px;
 }
 
 .ad-box {
@@ -193,9 +201,8 @@ img {
 #navigation {
   position: absolute;
   width: 15em;
-  top: 14px;
+  top: 24px;
   right: 0px;
-  border: 1px solid orange;
   padding: 28px; }
 
 #navigation h2 {
@@ -232,11 +239,21 @@ img {
   padding-right: 150px;
   padding-left: 0px;
   padding-top: 0px;
-  padding-bottom: 40px; }
+  padding-bottom: 40px;
+}
+
+#main p {
+  width: 580px;
+}
 
 div.meta {
   margin-top: 1em;
-  margin-bottom: 3em; }
+  margin-bottom: 3em;
+  padding: 8px;
+  width: 90%;
+  border-top: 1px dotted orange;
+  border-bottom: 1px solid orange;
+ }
 
 /* Formatting */
 .meta ul {
