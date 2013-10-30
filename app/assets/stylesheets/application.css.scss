@@ -20,7 +20,7 @@
 /* High level containers */
 body {
   color: black;
-  font: normal 12px verdana, arial, helvetica, sans-serif;
+  font: normal 0.87em verdana, arial, helvetica, sans-serif;
   line-height: 1.5;
   padding: 0px;
   margin: 0px; }
@@ -42,7 +42,7 @@ body {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  width: 700px;
+  width: 800px;
   margin: 5px auto;
   position: relative;
   padding: 16px;
@@ -70,6 +70,7 @@ body {
 }
 
 .logo-element {
+  margin-right: 24px;
   vertical-align: middle;
   width: 40%;
   display: inline-block;
@@ -102,7 +103,12 @@ body {
   margin-right: -54px;
   padding: 6px;
   padding-left: 14px;
-  font-size: 16px;
+  font-size: 14px;
+}
+
+#navbar form {
+  margin-left: -8px;
+  display: inline
 }
 
 .ad-box {
@@ -318,9 +324,17 @@ hr {
   overflow: auto; }
 
 .related {
+  width: 585px;
   background-color: #f8f8f8;
   border: 1px solid silver;
   padding: 10px; }
+
+/* Disqus formatting */
+
+#disqus_thread {
+  width: 585px;
+  padding: 5px;
+}
 
 /* Syntax */
 

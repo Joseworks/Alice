@@ -14,7 +14,7 @@
 <div id="header">
   <div id="logo">
       <div class="logo-element"><h1>LOGOTON</h1></div>
-      <div class="logo-element"><h1 id="page_heading"><a href="./Quidnunc Beta_files/Quidnunc Beta.html">Quidnunc Beta</a></h1></div>
+      <div class="logo-element"><h1 id="page_heading"><%= link_to 'Quidnunc Beta', root_path %></h1></div>
   </div>
 
   <div id="hot-news">
@@ -28,7 +28,14 @@
   <div id="page_container">
     <div id="content">
 
-    <div id="navbar">SUBSCRIBE | CALENDAR | SEND US DIRT | CONTACT US </div>
+    <div id="navbar">
+      SUBSCRIBE | CALENDAR | SEND US DIRT | CONTACT US
+      <form method="get" id="sform" action="http://www.google.com/search">
+        <label for="q">Search:</label>
+        <input type="text" id="q" value="" name="q">
+        <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
+      </form>
+    </div>
 
 
       <div id="main">
@@ -52,14 +59,6 @@
             <% end -%>
           </ul>
         <% end -%>
-        <form method="get" id="sform" action="http://www.google.com/search">
-          <div>
-            <h2><label for="q">Search</label></h2>
-
-            <input type="text" id="q" value="" name="q">
-            <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
-          </div>
-        </form>
 
         <div class="ad-box">YOUR AD HERE.</div>
       </div>

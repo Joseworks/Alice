@@ -13,7 +13,7 @@
 </div>
 
 <% if @post.image.present? %>
-  <%= image_tag @post.image.url(:medium) %>
+  <%= image_tag @post.image.url %>
 <% end %>
 <%= raw(@post.body_html) %>
 
