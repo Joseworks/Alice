@@ -26,6 +26,3 @@ function init(){
 if(document.childNodes) {
   window.onload = init
 }
-
-
-// <script src="autoclear.js" type="text/javascript"></script>
