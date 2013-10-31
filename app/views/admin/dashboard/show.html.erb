@@ -5,11 +5,24 @@
 
 <div id="recent-posts" class="panel">
 <h2>Drafts in progress</h2>
-<ul>
-  <% @posts.each_with_index do |post, i| -%>
-    <li class="<%= i == 0 ? 'first ' : '' %>item">
-      <h3><%= link_to(truncate(post.title, :length => 50), admin_post_path(post)) %></h3>
-    </li>
-  <% end -%>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @posts.empty? -%>
+      <tr><td colspan="5">There are no posts at this time.</td></tr>
+    <% else -%>
+      <% @posts.each_with_index do |post, i| -%>
+        <tr class="<%= cycle('', 'alt') %>">
+          <td><%= post.author %></td>
+          <td><h3><%= link_to(truncate(post.title, :length => 50), admin_post_path(post)) %></h3></td>
+        </tr>
+      <% end -%>
+    <% end %>
+  </tbody>
+</table>
 </div>
