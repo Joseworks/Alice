@@ -3,7 +3,7 @@
   <%= form.input :title -%>
   <%= form.input :author %>
   <%= form.input :intro_text, :label => "Summary text", :hint => "Front page summary.", input_html: { rows: 5 } %>
-  <div class='frogedit'><%= form.input :body, input_html: {class: "tinymce" } -%></div>
+  <%= form.input :body, input_html: {class: "tinymce" } -%>
   <%= form.input :tag_list, :as => 'string', :required => false, :hint => 'Comma separated: ruby, rails&hellip;'.html_safe -%>
   <%= form.input :source_link -%>
   <p>Coming soon: image upload!</p>
