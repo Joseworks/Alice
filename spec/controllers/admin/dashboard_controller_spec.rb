@@ -4,7 +4,7 @@ describe Admin::DashboardController do
   describe 'handling GET to show' do
     before(:each) do
       @posts    = [mock_model(Post), mock_model(Post)]
-      Post.stub(:find_recent).and_return(@posts)
+      Post.stub(:where).and_return(@posts)
       Stats.stub(:new).and_return(@stats = Struct.new(:post_count, :tag_count).new(3,1))
 
       session[:user_id] = 2
