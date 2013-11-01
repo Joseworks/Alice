@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    aaronh-chronic (0.3.9)
     actionmailer (4.0.0)
       actionpack (= 4.0.0)
       mail (~> 2.5.3)
@@ -43,6 +42,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chronic (0.10.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.2)
@@ -198,9 +198,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aaronh-chronic
   acts-as-taggable-on
   aws-sdk
+  chronic
   coderay (~> 1.0.5)
   cucumber-rails
   cucumber-websteps

@@ -132,7 +132,9 @@ class Post < ActiveRecord::Base
       if self.published_at_natural.blank?
         self.published_at = nil
       elsif new_published_at = Chronic.parse(self.published_at_natural)
-        self.published_at = new_published_at
+        # unless !minor_edit?
+          self.published_at = new_published_at
+        # end
       end
     # end
   end
