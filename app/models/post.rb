@@ -148,4 +148,8 @@ class Post < ActiveRecord::Base
     self.slug.slugorize!
   end
 
+  def publish_now
+    self.published_at = Time.now
+  end
+
 end

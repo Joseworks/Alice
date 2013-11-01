@@ -157,9 +157,10 @@ describe Post, "#set_dates" do
 
     pub = 1.day.ago
     post = Post.new(:published_at_natural => nil, :published_at => pub)
-    # magic^h^h^h^h^h problem happens here. So apparently-offending method call
-    # is temporarily disabled.
-    # post.set_dates
+    # magic^h^h^h^h^h problem happens here.
+    # Problem might be solved by update to Chronic gem.
+    # Enabling this method call pending further verification.
+    post.set_dates
     # Some rounding/truncating is acceptable...
     post.published_at.should be_within(60.seconds).of(pub)
   end
@@ -321,7 +322,7 @@ end
 
 describe Post, '.flag_for_review' do
   before(:each) do
-    @post = Post.build_for_preview(:author => "Agent Coulson",
+    @post = Post.new(:author => "Agent Coulson",
                                    :title => 'My Post',
                                    :intro_text => 'intro text',
                                    :body => "body",
@@ -335,4 +336,23 @@ describe Post, '.flag_for_review' do
     @post.flag_for_review
     @post.ready_for_review.should == now
   end
+end
+
+describe Post, '.publish_now' do
+  before(:each) do
+    @post = Post.new(:author => "Agent Coulson",
+                                   :title => 'My Post',
+                                   :intro_text => 'intro text',
+                                   :body => "body",
+                                   :tag_list => "ruby")
+  end
+
+  it 'sets the ready_for_review' do
+    now = Time.now
+    Time.stub(:now).and_return(now)
+
+    @post.publish_now
+    @post.published_at.should == now
+  end
+
 end
