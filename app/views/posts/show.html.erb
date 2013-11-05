@@ -18,7 +18,12 @@
 <%= raw(@post.body_html) %>
 
 <% if @post.source_link != '' %>
-  Source: <a href= <%= @post.source_link %> ><%= @post.source_link %></a>
+  Source: <a href= <%= @post.source_link %> >
+    <% if @post.source_link_description %>
+      <%= @post.source_link_description %>
+    <% else %>
+      <%= @post.source_link %></a>
+    <% end %>
 <% end %>
 
 <div id="disqus_thread"></div>

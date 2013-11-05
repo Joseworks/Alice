@@ -6,6 +6,7 @@
   <%= form.input :body, input_html: {class: "tinymce", rows: 24 } -%>
   <%= form.input :tag_list, :as => 'string', :required => false, :hint => 'Comma separated: ruby, rails&hellip;'.html_safe -%>
   <%= form.input :source_link -%>
+  <%= form.input :source_link_description -%>
   <p>Coming soon: image upload!</p>
   <%= form.input :image %>
 <% end -%>

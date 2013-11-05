@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131023180740) do
+ActiveRecord::Schema.define(version: 20131105202557) do
 
   create_table "comments", force: true do |t|
     t.integer  "post_id",      null: false
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20131023180740) do
     t.datetime "image_updated_at"
     t.string   "source_link",             default: ""
     t.datetime "ready_for_review"
+    t.string   "source_link_description"
   end
 
   add_index "posts", ["published_at"], name: "index_posts_on_published_at"
