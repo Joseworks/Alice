@@ -9,6 +9,9 @@
 <% end %>
 
   <%= raw(post.intro_text_html) %>
+  <% if post.body_html %>
+    <%= link_to("[more...]", post_path(post)) %>
+  <% end %>
 </div>
 <div class="meta">
   <ul>
