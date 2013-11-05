@@ -37,16 +37,16 @@ GPL(General Public License) - See LICENSE
 
 Admin design heavily inspired by "Habari":http://www.habariproject.org/en/
 
-**DIFFERENCES FROM ENKI**
+**DIFFERENCES FROM ENKI:**
 ***there are many***
 
-multi-user login using Omniauth/Google-specific strategy.
-TinyMCE rich text editor.
-multiple additional fields in the Post model.
-OpenID and acts_as_taggable_on_steroids removed. Using acts_as_taggable_on instead.
-Textile removed, Markdown added but not really used.
-Intro Text area for front page, body text for post main. Not concatenated.
-will_paginate for pagination, used more than in original Enki install.
-Disqus for commenting, Enki's comments system removed.
-uses current Chronic for time parsing instead of aaronh-chronic hacky fix to get older Chronic working with newer Rubies.
-Image upload with paperclip to S3.
+* multi-user login using Omniauth/Google-specific strategy.
+* TinyMCE rich text editor.
+* multiple additional fields in the Post model.
+* OpenID and acts_as_taggable_on_steroids removed. Using acts_as_taggable_on instead.
+* Textile removed, Markdown added but not really used.
+* Intro Text area for front page, body text for post main. Not concatenated.
+* will_paginate for pagination, used more than in original Enki install.
+* Disqus for commenting, Enki's comments system removed.
+* uses current Chronic for time parsing instead of aaronh-chronic hacky fix to get older Chronic working with newer Rubies.
+* Image upload with paperclip to S3.
