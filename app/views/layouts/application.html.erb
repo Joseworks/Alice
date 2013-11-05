@@ -56,14 +56,16 @@
             <li><%= link_to(link.name, link.url) %></li>
           <% end -%>
         </ul>
-        <% unless category_links_for_navigation.empty? -%>
-          <h2>Categories</h2>
-          <ul>
-            <% category_links_for_navigation.each do |link| -%>
-              <li><%= link_to(link.name, link.url) %></li>
-            <% end -%>
-          </ul>
-        <% end -%>
+
+        <% if @tags %>
+          <h2>Tag Cloud</h2>
+
+          <div>
+            <% tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class| %>
+              <%= link_to tag.name, posts_path(:tag => tag.name), class: css_class %>
+            <% end %>
+          </div>
+        <% end %>
 
         <div class="ad-box">YOUR AD HERE.</div>
       </div>
