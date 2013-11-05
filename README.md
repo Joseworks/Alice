@@ -1,3 +1,5 @@
+**Quidnunc blog management system**
+
 This is based on Enki:
 
 **Enki**
@@ -21,16 +23,9 @@ Enki is a compact, easily extendable base for your blog. It does this by being h
 * If you're not using OpenID you're a chump
 * Hacking code is the easiest way to customize something
 
-**URL path prefix**
-
-Enki can run your blog with a URL path prefix.  For example, you can run it at example.com/*blog* instead of blog.example.com.  You can do so with the RAILS_RELATIVE_URL_ROOT environment variable, set either before starting the server or in config/application.rb before Enki::Application.  Uncommenting this line in config/application.rb will enable this behavior in all environments:
-
-<pre><code>ENV['RAILS_RELATIVE_URL_ROOT'] = '/blog'</code></pre>
-
 **Compatibility**
 
 Uses Ruby 1.9.3 or newer and Rails 4. Runs on MySQL or Postgres. Works on heroku.
-)
 
 **Contributors, these guys rock**
 
@@ -41,3 +36,17 @@ Uses Ruby 1.9.3 or newer and Rails 4. Runs on MySQL or Postgres. Works on heroku
 GPL(General Public License) - See LICENSE
 
 Admin design heavily inspired by "Habari":http://www.habariproject.org/en/
+
+**DIFFERENCES FROM ENKI**
+***there are many***
+
+multi-user login using Omniauth/Google-specific strategy.
+TinyMCE rich text editor.
+multiple additional fields in the Post model.
+OpenID and acts_as_taggable_on_steroids removed. Using acts_as_taggable_on instead.
+Textile removed, Markdown added but not really used.
+Intro Text area for front page, body text for post main. Not concatenated.
+will_paginate for pagination, used more than in original Enki install.
+Disqus for commenting, Enki's comments system removed.
+uses current Chronic for time parsing instead of aaronh-chronic hacky fix to get older Chronic working with newer Rubies.
+Image upload with paperclip to S3.
