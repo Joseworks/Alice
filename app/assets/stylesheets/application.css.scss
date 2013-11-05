@@ -295,21 +295,18 @@ div.meta {
 .archive-month .tags {
   color: #bbbbbb; }
 
-.tag1 {
-  font-size: 1.0em;
+.small-tag {
+  font-size: 0.8em;
 }
 
-.tag2 {
+.med-tag {
   font-size: 1.2em;
 }
 
-.tag3 {
-  font-size: 1.4em;
+.large-tag {
+  font-size: 1.7em;
 }
 
-.tag4 {
-  font-size: 1.6em;
-}
 
 .meta a, .archive-month .tags a {
   border-bottom: dotted 1px #bbbbbb; }

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @tag = params[:tag]
-    @tags = Post.tag_counts_on(:tags)
+    @tags = Post.tag_counts_on(:tags).order('count desc').limit(15)
     @posts = Post.find_recent(:tag => @tag, :include => :tags, page: params[:page])
 
     respond_to do |format|
