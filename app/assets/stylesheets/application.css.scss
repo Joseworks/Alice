@@ -60,6 +60,7 @@ body {
   position: relative;
   padding: 16px;
   padding-right: 55px;
+  min-height: 860px;
   /*  display: inline;*/ }
 
 #top-spacer {
@@ -131,7 +132,7 @@ body {
   color: black;
   font-size: 12px;
   float: right;
-  margin: 5px 26px;
+  margin: 5px 64px;
 }
 
 #navbar input {
@@ -272,7 +273,7 @@ img {
   padding-left: 0px;
   padding-top: 0px;
   padding-bottom: 40px;
-  border-right: 1px solid orange;
+  border-right: 1px solid #f56b23;
 }
 
 div.meta {
@@ -280,9 +281,11 @@ div.meta {
   margin-bottom: 3em;
   padding: 8px;
   width: 90%;
-  border-top: 1px dotted orange;
-  border-bottom: 1px solid orange;
+  border-top: 1px dotted #f56b23;
+  border-bottom: 1px solid #f56b23;
+  min-height: 46px;
  }
+
 
 .tags, {
   color: #f56b23;
