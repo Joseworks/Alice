@@ -1,4 +1,5 @@
-toolbar1: styleselect | bold italic | link unlink | undo redo | table
+toolbar1: styleselect | bold italic | link unlink | media | undo redo | table
 plugins:
   - table
   - link
+  - media
