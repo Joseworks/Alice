@@ -50,22 +50,24 @@
       <div id="navigation">
         <div class="ad-box">YOUR AD HERE.</div>
 
-        <h2>Pages</h2>
-        <ul>
-          <% page_links_for_navigation.each do |link| -%>
-            <li><%= link_to(link.name, link.url) %></li>
-          <% end -%>
-        </ul>
+        <div class="links">
+          <h2>Pages</h2>
+          <ul>
+            <% page_links_for_navigation.each do |link| -%>
+              <li><%= link_to(link.name, link.url) %></li>
+            <% end -%>
+          </ul>
 
-        <% if @tags %>
-          <h2>Tag Cloud</h2>
+          <% if @tags %>
+            <h2>Tag Cloud</h2>
 
-          <div>
-            <% tag_cloud(@tags, %w(small-tag med-tag large-tag)) do |tag, css_class| %>
-              <%= link_to tag.name, posts_path(:tag => tag.name), class: css_class %>
-            <% end %>
-          </div>
-        <% end %>
+            <div>
+              <% tag_cloud(@tags, %w(small-tag med-tag large-tag)) do |tag, css_class| %>
+                <%= link_to tag.name, posts_path(:tag => tag.name), class: css_class %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
 
         <div class="ad-box">YOUR AD HERE.</div>
       </div>

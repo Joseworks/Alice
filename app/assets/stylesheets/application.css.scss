@@ -47,7 +47,7 @@ body {
   width: 100%; }
 
 #content {
-  box-shadow: 0px 1px 14px 0px #9a9a9a;
+  box-shadow: 0px 1px 17px 1px #323453;
   background-color: white;
   border: solid;
   border-width: 1px;
@@ -55,7 +55,7 @@ body {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  width: 800px;
+  width: 900px;
   margin: 5px auto;
   position: relative;
   padding: 16px;
@@ -143,14 +143,19 @@ body {
 }
 
 .ad-box {
-  display: inline-block;
-  margin: 12px;
+  display: block;
+  margin: 30px auto;
   padding: 6px;
-  height: 160px;
-  width: 160px;
+  height: 240px;
+  width: 240px;
   border: solid;
   border-width: 2px;
   border-color: gray;
+}
+
+#navigation .links {
+  margin: auto;
+  width: 240px;
 }
 
 #footer {
@@ -226,7 +231,7 @@ img {
 /* Two columns */
 #navigation {
   position: absolute;
-  width: 15em;
+  width: 21em;
   top: 24px;
   right: 0px;
   padding: 28px; }
@@ -262,11 +267,12 @@ img {
   margin-bottom: 1em; }
 
 #main {
-  width: 620px;
-  padding-right: 150px;
+  width: 600px;
+  padding-right: 10px;
   padding-left: 0px;
   padding-top: 0px;
   padding-bottom: 40px;
+  border-right: 1px solid orange;
 }
 
 div.meta {
