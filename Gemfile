@@ -27,7 +27,7 @@ gem 'chronic'
 gem 'coderay', '~> 1.0.5'
 gem 'formtastic'
 gem 'will_paginate', '~> 3.0.2'
-gem 'exception_notification', '~> 2.5.2'
+gem 'exception_notification'
 gem "omniauth-google-oauth2"
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
