@@ -26,6 +26,16 @@
     <% end %>
 <% end %>
 
+<% if %w(development test).include?(Rails.env) %>
+  <% if @post.previous %>
+    <%= link_to "<- Previous ", @post.previous %>
+  <% end %>
+
+  <% if @post.next %>
+    <%= link_to " Next ->", @post.next %>
+  <% end %>
+<% end %>
+
 <div id="disqus_thread"></div>
 
 <%= disqus_comments %>

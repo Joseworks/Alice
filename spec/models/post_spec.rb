@@ -356,3 +356,29 @@ describe Post, '.publish_now' do
   end
 
 end
+
+describe Post, '.previous and .next' do
+  before(:each) do
+    @previous_post = Post.create(:author => "Agent Coulson",
+                                   :title => 'My Post',
+                                   :intro_text => 'intro text',
+                                   :body => "body",
+                                   :tag_list => "ruby", published_at: (Time.now - 1))
+
+    @post = Post.create(:author => "Agent Coulson",
+                                   :title => 'My Post',
+                                   :intro_text => 'intro text',
+                                   :body => "body",
+                                   :tag_list => "ruby", published_at: Time.now)
+  end
+
+  it 'finds the previous published post' do
+    @post.previous.should == @previous_post
+  end
+
+  it 'finds the next published post' do
+    @previous_post.next.should == @post
+  end
+
+
+end

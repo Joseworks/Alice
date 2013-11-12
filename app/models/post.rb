@@ -152,4 +152,11 @@ class Post < ActiveRecord::Base
     self.published_at = Time.now
   end
 
+  def previous
+    Post.where(["edited_at < ?", edited_at]).where("published_at IS NOT NULL").last
+  end
+
+  def next
+    Post.where(["edited_at > ?", edited_at]).where("published_at IS NOT NULL").first
+  end
 end
