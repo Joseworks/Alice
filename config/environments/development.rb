@@ -27,5 +27,9 @@ Enki::Application.configure do
   config.assets.debug = true
 
   config.eager_load = false
+
+  # OmniAuth test mode
+  # OmniAuth.config.test_mode = true
+
 end
 

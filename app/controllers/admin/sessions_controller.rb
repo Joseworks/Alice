@@ -6,7 +6,7 @@ class Admin::SessionsController < ApplicationController
     if session[:user_id]
       redirect_to admin_root_path, notice: "welcome back!" and return
     else
-      redirect_to :action => 'new'
+      redirect_to action: 'new'
     end
   end
 
@@ -14,7 +14,6 @@ class Admin::SessionsController < ApplicationController
   end
 
   def create
-    return successful_login(User.first) if allow_login_bypass? && params[:bypass_login]
 
     auth = request.env["omniauth.auth"]
     user = User.find_by_uid(auth["uid"]) || User.create_with_omniauth(auth)
@@ -24,7 +23,8 @@ class Admin::SessionsController < ApplicationController
       session[:username] = user.name
       redirect_to admin_root_path, notice: "Signed in!"
     else
-      redirect_to action: 'new'
+      flash[:error] = "login fails."
+      render action: 'new'
     end
   end
 
@@ -38,22 +38,4 @@ class Admin::SessionsController < ApplicationController
     redirect_to root_url, alert: "Authentication failed, please try again."
   end
 
-protected
-
-  def successful_login(user)
-    session[:logged_in] = true
-    session[:user_id] = user.id
-    redirect_to(admin_root_path)
-  end
-
-  def failed_login(message)
-    flash[:error] = message
-    redirect_to(action: 'new')
-  end
-
-  def allow_login_bypass?
-    %w(development test).include?(Rails.env)
-  end
-
-  helper_method :allow_login_bypass?
 end

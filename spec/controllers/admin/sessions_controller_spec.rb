@@ -38,12 +38,6 @@ describe Admin::SessionsController do
     end
   end
 
-  describe '#allow_login_bypass? when RAILS_ENV == production' do
-    it 'returns false' do
-      ::Rails.stub(:env).and_return('production')
-      @controller.send(:allow_login_bypass?).should == false
-    end
-  end
 end
 
 shared_examples_for "logged in and redirected to /admin" do
@@ -55,6 +49,7 @@ shared_examples_for "logged in and redirected to /admin" do
     response.should redirect_to('/admin')
   end
 end
+
 shared_examples_for "not logged in" do
   it "should not set session[:logged_in]" do
     session[:logged_in].should be_nil
@@ -73,19 +68,23 @@ describe Admin::SessionsController, "handling CREATE with post" do
     @controller.instance_eval { flash.extend(DisableFlashSweeping) }
   end
 
-  describe "with bypass login selected" do
+  describe "with valid openid credentials" do
     before do
-      User.stub(:first).and_return(User.new)
-      post :create, :bypass_login => "1"
+    request.env["omniauth.auth"] = OmniAuth.config.add_mock(:google,
+                                                   { uid: '123545', info:  {
+                                                     email: 'testuser@quidnuncre.com' }})
+      post :create
     end
     it_should_behave_like "logged in and redirected to /admin"
   end
-  # describe "with bypass login selected but login bypassing disabled" do
-  #   before do
-  #     User.stub(:first).and_return(User.new)
-  #     @controller.stub(:allow_login_bypass?).and_return(false)
-  #     post :create, :openid_url => "", :bypass_login => "1"
-  #   end
-  #   it_should_behave_like "not logged in"
-  # end
+
+  describe "invalid login" do
+    before do
+    request.env["omniauth.auth"] = OmniAuth.config.add_mock(:google,
+                                                   { uid: '123545', info:  {
+                                                     email: 'testuser@example.com' }})
+      post :create
+    end
+    it_should_behave_like "not logged in"
+  end
 end

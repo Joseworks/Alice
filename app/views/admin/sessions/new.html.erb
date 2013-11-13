@@ -2,11 +2,3 @@
 <% if flash[:error] %><p><%= flash[:error] %></p><% end %>
 
 <h2><%= link_to "Sign in with Google", '/auth/google_oauth2' %></h2>
-<% if allow_login_bypass? -%>
-  <%= form_tag(admin_session_path) do -%>
-    <h2>Stop! Who are you?</h2>
-    <p><%= text_field_tag 'openid_url' %></p>
-    <p><%= check_box_tag 'bypass_login' %> <label for="bypass_login">Bypass credentials check</label></p>
-  <% end -%>
-  <p><%= submit_tag("Login with OpenID") %></p>
-<% end -%>
