@@ -74,23 +74,25 @@ body {
   margin-left: auto;
   margin-right: auto;
   height: 130px;
-  width: 800px;
+  width: 900px;
   background-color: white;
+  vertical-align: middle;
 }
 
 #logo {
-  vertical-align: middle;
-  width: 60%;
+  margin-top: 22px;
   display: inline-block;
 }
 
 .logo-element {
-  margin-right: 22px;
-  vertical-align: middle;
-  width: 40%;
+  float: left;
   display: inline-block;
+  margin-right: 20px;
 }
 
+.logo-element img {
+  border: none;
+}
 
 #hot-news {
   vertical-align: middle;
