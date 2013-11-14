@@ -7,8 +7,6 @@ class EnkiFormatter
       markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :space_after_headers => true)
 
       output = markdown.render(text)
-      # output = Redcarpet::Markdown.new(text, :hard_wrap , :fenced_code, :no_intraemphasis,
-      #                              :gh_blockcode, :xhtml ).to_html
       coderay_filter(output)
     end
 

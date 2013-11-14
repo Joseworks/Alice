@@ -7,7 +7,6 @@ describe Admin::UsersController do
   describe 'handling GET to index' do
     before(:each) do
       @users = [mock_model(User), mock_model(User)]
-      # @current_user = [mock_model(User)]
       User.stub(:all).and_return(@users)
       session[:user_id] = 2
       session[:logged_in] = true

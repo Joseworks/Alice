@@ -6,7 +6,6 @@ describe Admin::PostsController do
     before(:each) do
       @posts = [mock_model(Post), mock_model(Post)]
       Post.stub(:paginate).and_return(@posts)
-      # @current_user = [mock_model(User)]
       session[:user_id] = 2
       session[:logged_in] = true
       get :index
