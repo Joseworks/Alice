@@ -76,3 +76,5 @@ capybara-*html
 .rvmrc.*
 
 .vagrant
+
+.env

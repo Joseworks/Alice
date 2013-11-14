@@ -8,12 +8,12 @@ class Post < ActiveRecord::Base
   attr_accessor           :image
   has_attached_file       :image, styles: {thumb: "100x100#", small: "200x200>", medium: "300x300>"},
                                   storage: :s3,
-                                  bucket: 'qn-test',
+                                  bucket: ENV['S3_BUCKET_NAME'],
                                   url: ":s3_domain_url",
                                   path: "/:class/:attachment/:id_partition/:style/:filename'",
                                   s3_credentials: {
-                                    access_key_id: 'AKIAIXJETBIQXIL3O6PQ',
-                                    secret_access_key: '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'
+                                    access_key_id: ENV['S3_KEY'],
+                                    secret_access_key: ENV['S3_SECRET']
                                   }
 
   before_validation       :generate_slug
