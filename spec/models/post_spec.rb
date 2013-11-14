@@ -288,38 +288,6 @@ describe Post, 'validations' do
   end
 end
 
-describe Post, '.build_for_preview' do
-  before(:each) do
-    @post = Post.build_for_preview(:author => "IRONMAN",
-                                   :title => 'My Post',
-                                   :intro_text => 'intro text',
-                                   :body => "body",
-                                   :tag_list => "ruby",
-                                   :published_at_natural => 'now')
-  end
-
-  it 'returns a new post' do
-    @post.should be_new_record
-  end
-
-  it 'generates slug' do
-    @post.slug.should_not be_nil
-  end
-
-  it 'sets date' do
-    @post.edited_at.should_not be_nil
-    @post.published_at.should_not be_nil
-  end
-
-  it 'applies filter to body' do
-    @post.body_html.should == "<p>body</p>\n"
-  end
-
-  it 'generates tags from tag_list' do
-    @post.tag_list.collect {|tag| tag}.should == ['ruby']
-  end
-end
-
 describe Post, '.flag_for_review' do
   before(:each) do
     @post = Post.new(:author => "Agent Coulson",

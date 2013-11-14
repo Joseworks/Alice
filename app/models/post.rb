@@ -57,15 +57,6 @@ class Post < ActiveRecord::Base
   end
 
   class << self
-    def build_for_preview(params)
-      post = Post.new(params)
-      post.generate_slug
-      post.set_dates
-      post.apply_filter
-      post.apply_filter_to_intro
-      post
-    end
-
     def find_recent(options = {})
       tag = options.delete(:tag)
       page_num = options.delete(:page) || nil
