@@ -151,15 +151,10 @@ describe Post, "#set_dates" do
     post.published_at.should == pub
   end
 
-  # for reasons still under investigation, the 'set_dates' part of this sprays
-  # deprecation/obsolescence warnings for Time.succ
   it 'preserves published_at if published_at_natural is nil' do
 
     pub = 1.day.ago
     post = Post.new(:published_at_natural => nil, :published_at => pub)
-    # magic^h^h^h^h^h problem happens here.
-    # Problem might be solved by update to Chronic gem.
-    # Enabling this method call pending further verification.
     post.set_dates
     # Some rounding/truncating is acceptable...
     post.published_at.should be_within(60.seconds).of(pub)
@@ -199,7 +194,6 @@ describe Post, '#updated?' do
     now = Time.now
     Time.stub(:now).and_return(now)
     post = Post.new(created_at: before, published_at: updated, edited_at: now)
-    # post.updated_at = now
     post.stub(:minor_edit?).and_return(false)
 
     post.set_dates
@@ -289,64 +283,56 @@ describe Post, 'validations' do
 end
 
 describe Post, '.flag_for_review' do
-  before(:each) do
-    @post = Post.new(:author => "Agent Coulson",
-                                   :title => 'My Post',
-                                   :intro_text => 'intro text',
-                                   :body => "body",
-                                   :tag_list => "ruby")
-  end
+  let(:post) { Post.new(:author => "Agent Coulson",
+                        :title => 'My Post',
+                        :intro_text => 'intro text',
+                        :body => "body",
+                        :tag_list => "ruby")}
 
   it 'sets the ready_for_review' do
     now = Time.now
     Time.stub(:now).and_return(now)
 
-    @post.flag_for_review
-    @post.ready_for_review.should == now
+    post.flag_for_review
+    post.ready_for_review.should == now
   end
 end
 
 describe Post, '.publish_now' do
-  before(:each) do
-    @post = Post.new(:author => "Agent Coulson",
-                                   :title => 'My Post',
-                                   :intro_text => 'intro text',
-                                   :body => "body",
-                                   :tag_list => "ruby")
-  end
+  let(:post) {Post.new(:author => "Agent Coulson",
+                       :title => 'My Post',
+                       :intro_text => 'intro text',
+                       :body => "body",
+                       :tag_list => "ruby")}
 
   it 'sets the ready_for_review' do
     now = Time.now
     Time.stub(:now).and_return(now)
 
-    @post.publish_now
-    @post.published_at.should == now
+    post.publish_now
+    post.published_at.should == now
   end
 
 end
 
 describe Post, '.previous and .next' do
-  before(:each) do
-    @previous_post = Post.create(:author => "Agent Coulson",
+    let!(:previous_post) {Post.create(:author => "Agent Coulson",
                                    :title => 'My Post',
                                    :intro_text => 'intro text',
                                    :body => "body",
-                                   :tag_list => "ruby", published_at: (Time.now - 1))
+                                   :tag_list => "ruby", published_at: (Time.now - 1))}
 
-    @post = Post.create(:author => "Agent Coulson",
+    let!(:post) {Post.create(:author => "Agent Coulson",
                                    :title => 'My Post',
                                    :intro_text => 'intro text',
                                    :body => "body",
-                                   :tag_list => "ruby", published_at: Time.now)
-  end
+                                   :tag_list => "ruby", published_at: Time.now)}
 
   it 'finds the previous published post' do
-    @post.previous.should == @previous_post
+    post.previous.should == previous_post
   end
 
   it 'finds the next published post' do
-    @previous_post.next.should == @post
+    previous_post.next.should == post
   end
-
-
 end

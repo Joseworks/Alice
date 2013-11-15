@@ -234,7 +234,7 @@ describe Admin::PostsController do
 end
 
 describe Admin::PostsController, 'with an AJAX request to preview' do
-  before(:each) do
+  before do
     Post.should_receive(:build_for_preview).and_return(@post = mock_model(Post))
     session[:user_id] = 2
     session[:logged_in] = true

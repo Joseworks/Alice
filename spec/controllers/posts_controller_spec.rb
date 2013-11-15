@@ -24,11 +24,13 @@ shared_examples_for "ATOM feed" do
 end
 
 describe PostsController do
-  describe 'handling GET to index'do
-    before(:each) do
-      @posts = [mock_model(Post)]
-      Post.stub(:find_recent).and_return(@posts)
-    end
+  let(:posts) {[mock_model(Post)]}
+
+  before(:each) do
+    Post.stub(:find_recent).and_return(@posts)
+  end
+
+  context 'handling GET to index'do
 
     def do_get
       get :index
@@ -42,11 +44,7 @@ describe PostsController do
     end
   end
 
-  describe 'handling GET to index with tag'do
-    before(:each) do
-      @posts = [mock_model(Post)]
-      Post.stub(:find_recent).and_return(@posts)
-    end
+  context 'handling GET to index with tag'do
 
     def do_get
       get :index, :tag => 'code'
@@ -62,7 +60,7 @@ describe PostsController do
 
   describe 'handling GET to index with no posts' do
     before(:each) do
-      @posts = []
+      posts = []
     end
 
     def do_get
@@ -72,7 +70,7 @@ describe PostsController do
     it_should_behave_like('successful posts list')
   end
 
-  describe 'handling GET to index with invalid tag'do
+  context 'handling GET to index with invalid tag'do
     it "shows post not found" do
       # This would normally 404, except the way future dated posts are handled
       # means it is possible for a tag to exist (and show up in the navigation)
@@ -84,11 +82,7 @@ describe PostsController do
     end
   end
 
-  describe 'handling GET to /posts.atom'do
-    before(:each) do
-      @posts = [mock_model(Post)]
-      Post.stub(:find_recent).and_return(@posts)
-    end
+  context 'handling GET to /posts.atom'do
 
     def do_get
       @request.env["HTTP_ACCEPT"] = "application/atom+xml"
@@ -104,11 +98,7 @@ describe PostsController do
     end
   end
 
-  describe 'handling GET to /posts.atom with tag'do
-    before(:each) do
-      @posts = [mock_model(Post)]
-      Post.stub(:find_recent).and_return(@posts)
-    end
+  context 'handling GET to /posts.atom with tag'do
 
     def do_get
       @request.env["HTTP_ACCEPT"] = "application/atom+xml"
@@ -124,10 +114,10 @@ describe PostsController do
     end
   end
 
-  describe "handling GET for a single post" do
+  context "handling GET for a single post" do
+    let(:post) { mock_model(Post)}
     before(:each) do
-      @post = mock_model(Post)
-      Post.stub(:find_by_permalink).and_return(@post)
+      Post.stub(:find_by_permalink).and_return(post)
     end
 
     def do_get
@@ -151,7 +141,7 @@ describe PostsController do
 
     it "should assign the found post for the view" do
       do_get
-      assigns[:post].should equal(@post)
+      assigns[:post].should equal(post)
     end
 
     it "should route /pages to posts#index with tag pages" do
