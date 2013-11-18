@@ -96,16 +96,6 @@ class Post < ActiveRecord::Base
     end
   end
 
-  class MonthPostHolder
-    def initialize(date, posts)
-      @date = date
-      @posts = posts
-    end
-
-    attr_reader :date, :posts
-  end
-
-
   def destroy_with_undo
     transaction do
       undo = DeletePostUndo.create_undo(self)

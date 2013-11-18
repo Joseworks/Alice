@@ -16,13 +16,4 @@ module NavigationHelper
     classes << 'first'   if index == 0
     classes.join(' ')
   end
-
-  class LinkHolder
-    def initialize(name, url)
-      @name = name
-      @url = url
-    end
-
-    attr_reader :name, :url
-  end
 end
