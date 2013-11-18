@@ -92,10 +92,19 @@ class Post < ActiveRecord::Base
         :order      => 'posts.published_at DESC',
         :conditions => ['published_at < ?', Time.now]
       )
-      month = Struct.new(:date, :posts)
-      posts.group_by(&:month).inject([]) {|a, v| a << month.new(v[0], v[1])}
+      posts.group_by(&:month).inject([]) {|a, v| a << MonthPostHolder.new(v[0], v[1])}
     end
   end
+
+  class MonthPostHolder
+    def initialize(date, posts)
+      @date = date
+      @posts = posts
+    end
+
+    attr_reader :date, :posts
+  end
+
 
   def destroy_with_undo
     transaction do
