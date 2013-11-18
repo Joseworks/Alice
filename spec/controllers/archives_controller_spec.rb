@@ -3,8 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe ArchivesController do
   describe 'handling GET to index' do
     before(:each) do
-      month = Struct.new(:date, :posts)
-      @months = [month.new(1.month.ago.utc.beginning_of_month, [mock_model(Post)])]
+      @months = [MonthPostHolder.new(1.month.ago.utc.beginning_of_month, [mock_model(Post)])]
       Post.stub(:find_all_grouped_by_month).and_return(@months)
     end
 
