@@ -22,6 +22,7 @@ class Post < ActiveRecord::Base
   before_save             :apply_filter_to_intro
 
   validates               :author, :title, :slug, :body, :intro_text, :presence => true
+  validates               :slug, uniqueness: true
 
   validates_attachment    :image, content_type: { content_type: ['image/jpg', 'image/jpeg', 'image/png'] },
                                   size: { in: 0..1.megabytes }

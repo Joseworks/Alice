@@ -5,7 +5,7 @@ describe Post, "integration" do
   describe 'setting tag_list' do
     it 'increments tag counter cache' do
       post1 = Post.create!(:author => "writer", :title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
-      post2 = Post.create!(:author => "staff", :title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
+      post2 = Post.create!(:author => "staff", :title => 'My Second Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
       Post.tagged_with('ruby').count.should == 2
       Post.last.destroy
       Post.tagged_with('ruby').count.should == 1
@@ -323,7 +323,7 @@ describe Post, '.previous and .next' do
                                    :tag_list => "ruby", published_at: (Time.now - 1))}
 
     let!(:post) {Post.create(:author => "Agent Coulson",
-                                   :title => 'My Post',
+                                   :title => 'My Second Post',
                                    :intro_text => 'intro text',
                                    :body => "body",
                                    :tag_list => "ruby", published_at: Time.now)}
