@@ -8,7 +8,7 @@ describe PagesController do
     end
 
     def do_get
-      get :show, :id => 'a-page'
+      get :show, id: 'a-page'
     end
 
     it "should be successful" do
@@ -36,7 +36,7 @@ describe PagesController do
     it 'raises a RecordNotFound error' do
       Page.stub(:find_by_slug).and_return(nil)
       lambda {
-        get :show, :id => 'a-page'
+        get :show, id: 'a-page'
       }.should raise_error(ActiveRecord::RecordNotFound)
     end
   end

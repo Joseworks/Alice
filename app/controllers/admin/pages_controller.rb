@@ -1,12 +1,12 @@
 class Admin::PagesController < Admin::BaseController
-  before_filter :find_page, :only => [:show, :update, :destroy]
+  before_filter :find_page, only: [:show, :update, :destroy]
 
   def index
     respond_to do |format|
       format.html {
         @pages = Page.paginate(
-          :order => "created_at DESC",
-          :page  => params[:page]
+          order: "created_at DESC",
+          page:  params[:page]
         )
       }
     end
@@ -18,12 +18,13 @@ class Admin::PagesController < Admin::BaseController
       respond_to do |format|
         format.html {
           flash[:notice] = "Created page '#{@page.title}'"
-          redirect_to(:action => 'show', :id => @page)
+          redirect_to(action: 'show', id: @page)
         }
       end
     else
       respond_to do |format|
-        format.html { render :action => 'new',         :status => :unprocessable_entity }
+        format.html { render action: 'new',
+                             status: :unprocessable_entity }
       end
     end
   end
@@ -33,12 +34,13 @@ class Admin::PagesController < Admin::BaseController
       respond_to do |format|
         format.html {
           flash[:notice] = "Updated page '#{@page.title}'"
-          redirect_to(:action => 'show', :id => @page)
+          redirect_to(action: 'show', id: @page)
         }
       end
     else
       respond_to do |format|
-        format.html { render :action => 'show',        :status => :unprocessable_entity }
+        format.html { render action: 'show',
+                             status: :unprocessable_entity }
       end
     end
   end
@@ -46,7 +48,7 @@ class Admin::PagesController < Admin::BaseController
   def show
     respond_to do |format|
       format.html {
-        render :partial => 'page', :locals => {:page => @page} if request.xhr?
+        render partial: 'page', locals: {page: @page} if request.xhr?
       }
     end
   end
@@ -60,7 +62,7 @@ class Admin::PagesController < Admin::BaseController
 
     respond_to do |format|
       format.js {
-        render :partial => 'pages/page', :locals => {:page => @page}
+        render partial: 'pages/page', locals: {page: @page}
       }
     end
   end
@@ -71,13 +73,13 @@ class Admin::PagesController < Admin::BaseController
     respond_to do |format|
       format.html do
         flash[:notice] = "Deleted page '#{@page.title}'"
-        redirect_to :action => 'index'
+        redirect_to action: 'index'
       end
       format.json {
-        render :json => {
-          :undo_path    => undo_admin_undo_item_path(undo_item),
-          :undo_message => undo_item.description,
-          :page         => @page.attributes
+        render json: {
+          undo_path:    undo_admin_undo_item_path(undo_item),
+          undo_message: undo_item.description,
+          page:         @page.attributes
         }.to_json
       }
     end

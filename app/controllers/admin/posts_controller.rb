@@ -1,13 +1,13 @@
 class Admin::PostsController < Admin::BaseController
-  before_filter :find_post, :only => [:show, :update, :destroy]
+  before_filter :find_post, only: [:show, :update, :destroy]
   helper_method :sort_column, :sort_direction
 
   def index
     respond_to do |format|
       format.html {
         @posts = Post.paginate(
-          :order => ("#{sort_column} #{sort_direction}"),
-          :page  => params[:page]
+          order: ("#{sort_column} #{sort_direction}"),
+          page: params[:page]
         )
       }
     end
@@ -19,12 +19,12 @@ class Admin::PostsController < Admin::BaseController
       respond_to do |format|
         format.html {
           flash[:notice] = "Created post '#{@post.title}'"
-          redirect_to(:action => 'show', :id => @post)
+          redirect_to(action: 'show', id: @post)
         }
       end
     else
       respond_to do |format|
-        format.html { render :action => 'new', :status => :unprocessable_entity }
+        format.html { render action: 'new', status: :unprocessable_entity }
       end
     end
   end
@@ -34,12 +34,12 @@ class Admin::PostsController < Admin::BaseController
       respond_to do |format|
         format.html {
           flash[:notice] = "Updated post '#{@post.title}'"
-          redirect_to(:action => 'show', :id => @post)
+          redirect_to(action: 'show', id: @post)
         }
       end
     else
       respond_to do |format|
-        format.html { render :action => 'show', :status => :unprocessable_entity }
+        format.html { render action: 'show', status: :unprocessable_entity }
       end
     end
   end
@@ -47,7 +47,7 @@ class Admin::PostsController < Admin::BaseController
   def show
     respond_to do |format|
       format.html {
-        render :partial => 'post', :locals => {:post => @post} if request.xhr?
+        render partial: 'post', locals: {post: @post} if request.xhr?
       }
     end
   end
@@ -61,7 +61,7 @@ class Admin::PostsController < Admin::BaseController
 
     respond_to do |format|
       format.js {
-        render :partial => 'posts/post', :locals => {:post => @post}
+        render partial: 'posts/post', locals: {post: @post}
       }
     end
   end
@@ -72,13 +72,13 @@ class Admin::PostsController < Admin::BaseController
     respond_to do |format|
       format.html do
         flash[:notice] = "Deleted post '#{@post.title}'"
-        redirect_to :action => 'index'
+        redirect_to action: 'index'
       end
       format.json {
-        render :json => {
-          :undo_path    => undo_admin_undo_item_path(undo_item),
-          :undo_message => undo_item.description,
-          :post         => @post.attributes
+        render json: {
+          undo_path:    undo_admin_undo_item_path(undo_item),
+          undo_message: undo_item.description,
+          post:         @post.attributes
         }
       }
     end

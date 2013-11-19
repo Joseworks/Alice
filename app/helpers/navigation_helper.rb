@@ -7,7 +7,7 @@ module NavigationHelper
 
   def category_links_for_navigation
     @popular_tags ||= Post.all_tags.reject { |tag| tag.taggings.empty? }.sort_by { |tag| tag.taggings.size }.reverse
-    @popular_tags.collect { |tag| LinkHolder.new(tag.name, posts_path(:tag => tag.name)) }
+    @popular_tags.collect { |tag| LinkHolder.new(tag.name, posts_path(tag: tag.name)) }
   end
 
   def class_for_tab(tab_name, index)

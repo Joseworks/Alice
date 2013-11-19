@@ -29,7 +29,7 @@ describe Admin::PagesController do
       Page.stub(:find).and_return(@page)
       session[:user_id] = 2
       session[:logged_in] = true
-      get :show, :id => 1
+      get :show, id: 1
     end
 
     it "is successful" do
@@ -60,7 +60,7 @@ describe Admin::PagesController do
 
   describe 'handling PUT to update with valid attributes' do
     before(:each) do
-      @page = mock_model(Page, :title => 'A page')
+      @page = mock_model(Page, title: 'A page')
       @page.stub(:update_attributes).and_return(true)
       Page.stub(:find).and_return(@page)
     end
@@ -68,7 +68,7 @@ describe Admin::PagesController do
     def do_put
       session[:user_id] = 2
       session[:logged_in] = true
-      put :update, :id => 1, :page => {
+      put :update, id: 1, page: {
         'title' => 'My Post',
         'slug'  => 'my-post',
         'body'  => 'This is my post'
@@ -102,7 +102,7 @@ describe Admin::PagesController do
     def do_put
       session[:user_id] = 2
       session[:logged_in] = true
-      put :update, :id => 1, :page => {}
+      put :update, id: 1, page: {}
     end
 
     it 'renders show' do
@@ -122,9 +122,9 @@ describe Admin::PagesController, 'with an AJAX request to preview' do
     Page.should_receive(:build_for_preview).and_return(@page = mock_model(Page))
     session[:user_id] = 2
     session[:logged_in] = true
-    xhr :post, :preview, :page => {
-      :title        => 'My Page',
-      :body         => 'body'
+    xhr :post, :preview, page: {
+      title:        'My Page',
+      body:         'body'
     }
   end
 

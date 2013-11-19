@@ -21,7 +21,7 @@ class Post < ActiveRecord::Base
   before_save             :apply_filter
   before_save             :apply_filter_to_intro
 
-  validates               :author, :title, :slug, :body, :intro_text, :presence => true
+  validates               :author, :title, :slug, :body, :intro_text, presence: true
   validates               :slug, uniqueness: true
 
   validates_attachment    :image, content_type: { content_type: ['image/jpg', 'image/jpeg', 'image/png'] },
@@ -62,9 +62,9 @@ class Post < ActiveRecord::Base
       tag = options.delete(:tag)
       page_num = options.delete(:page) || nil
       options = {
-        :order      => 'posts.published_at DESC',
-        :conditions => ['published_at < ?', Time.now],
-        :page       => page_num
+        order:      'posts.published_at DESC',
+        conditions: ['published_at < ?', Time.now],
+        page:       page_num
       }.merge(options)
       if tag
         tagged_with(tag).paginate(options)
@@ -90,8 +90,8 @@ class Post < ActiveRecord::Base
     def find_all_grouped_by_month
       posts = find(
         :all,
-        :order      => 'posts.published_at DESC',
-        :conditions => ['published_at < ?', Time.now]
+        order:      'posts.published_at DESC',
+        conditions: ['published_at < ?', Time.now]
       )
       posts.group_by(&:month).inject([]) {|a, v| a << MonthPostHolder.new(v[0], v[1])}
     end

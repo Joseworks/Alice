@@ -39,7 +39,7 @@ describe PostsController do
     it_should_behave_like('successful posts list')
 
     it "should find recent posts" do
-      Post.should_receive(:find_recent).with(:tag => nil, :include => :tags, page: nil).and_return(@posts)
+      Post.should_receive(:find_recent).with(tag: nil, include: :tags, page: nil).and_return(@posts)
       do_get
     end
   end
@@ -47,13 +47,13 @@ describe PostsController do
   context 'handling GET to index with tag'do
 
     def do_get
-      get :index, :tag => 'code'
+      get :index, tag: 'code'
     end
 
     it_should_behave_like('successful posts list')
 
     it "should find recent tagged posts" do
-      Post.should_receive(:find_recent).with(:tag => 'code', :include => :tags, page: nil).and_return(@posts)
+      Post.should_receive(:find_recent).with(tag: 'code', include: :tags, page: nil).and_return(@posts)
       do_get
     end
   end
@@ -77,7 +77,7 @@ describe PostsController do
       # without having any public posts. If that issue is ever fixed, this
       # behaviour should revert to 404ing.
       Post.stub(:find_recent).and_return([])
-      get :index, :tag => 'bogus'
+      get :index, tag: 'bogus'
       assigns(:posts).should be_empty
     end
   end
@@ -93,7 +93,7 @@ describe PostsController do
     it_should_behave_like('ATOM feed')
 
     it "should find recent posts" do
-      Post.should_receive(:find_recent).with(:tag => nil, :include => :tags, page: nil).and_return(@posts)
+      Post.should_receive(:find_recent).with(tag: nil, include: :tags, page: nil).and_return(@posts)
       do_get
     end
   end
@@ -102,14 +102,14 @@ describe PostsController do
 
     def do_get
       @request.env["HTTP_ACCEPT"] = "application/atom+xml"
-      get :index, :tag => 'code'
+      get :index, tag: 'code'
     end
 
     it_should_behave_like('successful posts list')
     it_should_behave_like('ATOM feed')
 
     it "should find recent posts" do
-      Post.should_receive(:find_recent).with(:tag => 'code', :include => :tags, page: nil).and_return(@posts)
+      Post.should_receive(:find_recent).with(tag: 'code', include: :tags, page: nil).and_return(@posts)
       do_get
     end
   end
@@ -121,7 +121,7 @@ describe PostsController do
     end
 
     def do_get
-      get :show, :year => '2008', :month => '01', :day => '01', :slug => 'a-post'
+      get :show, year: '2008', month: '01', day: '01', slug: 'a-post'
     end
 
     it "should be successful" do
@@ -135,7 +135,7 @@ describe PostsController do
     end
 
     it "should find the post requested" do
-      Post.should_receive(:find_by_permalink).with('2008', '01', '01', 'a-post', :include => [:tags]).and_return(@post)
+      Post.should_receive(:find_by_permalink).with('2008', '01', '01', 'a-post', include: [:tags]).and_return(@post)
       do_get
     end
 
@@ -145,7 +145,7 @@ describe PostsController do
     end
 
     it "should route /pages to posts#index with tag pages" do
-      {:get => "/pages"}.should route_to(:controller => 'posts', :action => 'index', :tag => 'pages')
+      {get: "/pages"}.should route_to(controller: 'posts', action: 'index', tag: 'pages')
     end
   end
 end

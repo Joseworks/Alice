@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  before_filter :find_user, :only => :update
+  before_filter :find_user, only: :update
 
 
   def index
@@ -11,12 +11,12 @@ class Admin::UsersController < Admin::BaseController
       respond_to do |format|
         format.html {
           flash[:notice] = "Updated user '#{@user.name}'"
-          redirect_to(:action => 'index')
+          redirect_to(action: 'index')
         }
       end
     else
       respond_to do |format|
-        format.html { render :action => 'index', :status => :unprocessable_entity }
+        format.html { render action: 'index', status: :unprocessable_entity }
       end
     end
   end
