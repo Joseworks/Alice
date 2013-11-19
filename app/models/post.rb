@@ -27,9 +27,9 @@ class Post < ActiveRecord::Base
   validates_attachment    :image, content_type: { content_type: ['image/jpg', 'image/jpeg', 'image/png'] },
                                   size: { in: 0..1.megabytes }
 
-  validate                :validate_published_at_natural
+  validate                :validate_published_at_natural_parsed_and_assigned
 
-  def validate_published_at_natural
+  def validate_published_at_natural_parsed_and_assigned
     if published_at_natural.present? && !published?
       errors.add("published_at_natural", "Unable to parse time")
     end
@@ -119,15 +119,11 @@ class Post < ActiveRecord::Base
 
   def set_dates
     self.edited_at = Time.now if !minor_edit? or self.edited_at.nil?
-    # if not self.published_at_natural.nil?
       if self.published_at_natural.blank?
         self.published_at = nil
       elsif new_published_at = Chronic.parse(self.published_at_natural)
-        # unless !minor_edit?
           self.published_at = new_published_at
-        # end
       end
-    # end
   end
 
   def flag_for_review
@@ -143,11 +139,11 @@ class Post < ActiveRecord::Base
     self.published_at = Time.now
   end
 
-  def previous
-    Post.where(["edited_at < ?", edited_at]).where("published_at IS NOT NULL").last
+  def previous_post
+    Post.where(["published_at < ?", published_at]).last
   end
 
-  def next
-    Post.where(["edited_at > ?", edited_at]).where("published_at IS NOT NULL").first
+  def next_post
+    Post.where(["published_at > ?", published_at]).first
   end
 end

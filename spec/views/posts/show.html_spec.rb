@@ -7,17 +7,17 @@ describe "/posts/show.html" do
     view.stub(:enki_config).and_return(Enki::Config.default)
 
     @post = mock_model(Post,
-      :title             => "A post",
-      :body_html         => "Posts contents!",
-      :published_at      => 1.year.ago,
-      :published?        => true,
-      :updated?          => false,
-      :slug              => 'a-post',
-      :tag_list          => ['code'],
-      :image             => nil,
-      :source_link       => '',
-      :previous          => '',
-      :next              => ''
+      title:             "A post",
+      body_html:         "Posts contents!",
+      published_at:      1.year.ago,
+      published?:        true,
+      updated?:          false,
+      slug:              'a-post',
+      tag_list:          ['code'],
+      image:             nil,
+      source_link:       '',
+      previous_post:     '',
+      next_post:         ''
     )
     assign :post, @post
   end

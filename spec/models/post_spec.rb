@@ -315,7 +315,7 @@ describe Post, '.publish_now' do
 
 end
 
-describe Post, '.previous and .next' do
+describe Post, '.previous_post and .next_post' do
     let!(:previous_post) {Post.create(:author => "Agent Coulson",
                                    :title => 'My Post',
                                    :intro_text => 'intro text',
@@ -329,10 +329,10 @@ describe Post, '.previous and .next' do
                                    :tag_list => "ruby", published_at: Time.now)}
 
   it 'finds the previous published post' do
-    post.previous.should == previous_post
+    post.previous_post.should == previous_post
   end
 
   it 'finds the next published post' do
-    previous_post.next.should == post
+    previous_post.next_post.should == post
   end
 end

@@ -27,12 +27,12 @@
 <% end %>
 
 <% if %w(development test).include?(Rails.env) %>
-  <% if @post.previous %>
-    <%= link_to "<- Previous ", @post.previous %>
+  <% if @post.previous_post %>
+    <%= link_to "<- Previous ", @post.previous_post %>
   <% end %>
 
-  <% if @post.next %>
-    <%= link_to " Next ->", @post.next %>
+  <% if @post.next_post %>
+    <%= link_to " Next ->", @post.next_post %>
   <% end %>
 <% end %>
 

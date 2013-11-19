@@ -11,9 +11,9 @@ describe "/admin/dashboard/show.html" do
 
   it 'should render' do
     assign :posts, [mock_model(Post,
-      :title             => 'A Post',
-      :published_at      => Time.now,
-      :slug              => 'a-post'
+      title:             'A Post',
+      published_at:      Time.now,
+      slug:              'a-post'
     )]
     assign :stats, Struct.new(:post_count, :tag_count).new(3,1)
     render :template => '/admin/dashboard/show', :formats => [:html]
