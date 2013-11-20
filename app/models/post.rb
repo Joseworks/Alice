@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   acts_as_taggable
 
   attr_accessor           :image
-  has_attached_file       :image, styles: {thumb: "100x100#", small: "200x200>", medium: "300x300>"},
+  has_attached_file       :image, styles: {thumb: "100x100#", small: "200x200>", medium: "540>x400>"},
                                   storage: :s3,
                                   bucket: ENV['S3_BUCKET_NAME'],
                                   url: ":s3_domain_url",

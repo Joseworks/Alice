@@ -231,6 +231,29 @@ a:hover {
 img {
   border: solid 1px black; }
 
+.img-container {
+  padding: 8px;
+  margin-bottom: 22px;
+}
+
+.img-container img {
+  display: block;
+}
+
+.img-container div {
+  position: relative;
+  display: inline-block;
+}
+
+.img-container span {
+  text-align: center;
+  font-size: 0.83em;
+  color: #777;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
 /* Two columns */
 #navigation {
   position: absolute;

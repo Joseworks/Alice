@@ -5,7 +5,14 @@
 <div class="entry-body">
 
 <% if post.image.present? %>
-  <%= image_tag post.image.url(:medium) %>
+  <div class="img-container">
+    <div>
+      <%= image_tag post.image.url(:medium) %>
+        <% if post.caption.present? %>
+          <span><%= post.caption %><span>
+        <% end %>
+    </div>
+  </div>
 <% end %>
 
   <%= raw(post.intro_text_html) %>

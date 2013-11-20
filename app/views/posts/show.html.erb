@@ -13,7 +13,14 @@
 </div>
 
 <% if @post.image.present? %>
-  <%= image_tag @post.image.url %>
+  <div class="img-container">
+    <div>
+      <%= image_tag @post.image.url(:medium) %>
+        <% if @post.caption.present? %>
+          <span><%= @post.caption %><span>
+        <% end %>
+    </div>
+  </div>
 <% end %>
 <%= raw(@post.body_html) %>
 
