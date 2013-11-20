@@ -18,7 +18,6 @@
   </div>
 
   <div id="hot-news">
-    <div class="hot-headline">Junk in space</div>
     <div class="hot-headline">quidnunc launches to fanfare, applause</div>
   </div>
 
@@ -28,13 +27,13 @@
   <div id="page_container">
 
     <div id="ad-container">
-      an advertisement appears! Save vs. persuasion or lose 2 gold.
+      Your ad here!
     </div>
 
     <div id="content">
 
     <div id="navbar">
-      SUBSCRIBE | CALENDAR | SEND US DIRT | CONTACT US
+      SUBSCRIBE | <%= link_to 'CALENDAR', archives_path %> | SEND US DIRT | CONTACT US
       <form method="get" id="sform" action="http://www.google.com/search">
         <input type="text" id="q" value="search QN" name="q">
         <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
