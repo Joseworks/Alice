@@ -1,4 +1,6 @@
 Enki::Application.routes.draw do
+  match "/signup" => "static_page#signup_form", via: :get
+
   namespace :admin do
 
     resource :session
