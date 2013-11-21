@@ -12,6 +12,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_permalink(*([:year, :month, :day, :slug].collect {|x| params[x] } << {include: [:tags]}))
+    @tags = Post.tag_counts_on(:tags).order('count desc').limit(15)
   end
 
   def tag_cloud
