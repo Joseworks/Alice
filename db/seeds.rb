@@ -6,3 +6,7 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
+Post.create(title: 'First post!',
+            body: "this is a first post.",
+            intro_text: 'a post.',
+            published_at_natural: 'October 1, 2013')

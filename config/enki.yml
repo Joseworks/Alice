@@ -1,6 +1,6 @@
 # Configuration options for your blog - customise to taste
 # This file contains no secret information, so can be stored in source control (unlike database.yml)
-title: Quidnunc Beta
+title: Quidnunc
 url:   http://quidnuncre.com
 exception_notifications: patrick.kennedy@quidnuncre.com
 author:
