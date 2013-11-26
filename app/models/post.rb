@@ -74,17 +74,7 @@ class Post < ActiveRecord::Base
     end
 
     def find_by_permalink(year, month, day, slug, options = {})
-      begin
-        day = Time.parse([year, month, day].collect(&:to_i).join("-")).midnight
-        post = find_all_by_slug(slug, options).detect do |post|
-          [:year, :month, :day].all? {|time|
-            post.published_at.send(time) == day.send(time)
-          }
-        end
-      rescue ArgumentError # Invalid time
-        post = nil
-      end
-      post || raise(ActiveRecord::RecordNotFound)
+      post = where(slug: slug).first || raise(ActiveRecord::RecordNotFound)
     end
 
     def find_all_grouped_by_month

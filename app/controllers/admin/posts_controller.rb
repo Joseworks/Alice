@@ -23,6 +23,7 @@ class Admin::PostsController < Admin::BaseController
         }
       end
     else
+      flash[:notice] = "Post did not save: errors marked in red"
       respond_to do |format|
         format.html { render action: 'new', status: :unprocessable_entity }
       end
