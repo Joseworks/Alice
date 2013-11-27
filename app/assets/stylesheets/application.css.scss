@@ -164,18 +164,23 @@ body {
 
 #navigation .links {
   margin: auto;
+  padding: 6px;
   width: 240px;
+}
+
+.tag-cloud {
+  padding: 12px;
+  width: 180px;
+  margin-bottom: 8px;
 }
 
 #footer {
   position: relative;
   font-size: 8pt;
-  /*  padding-top: 5px;*/
   padding-right: 15px;
   padding-bottom: 5px;
   padding-left: 5px;
-  color: gray;
-  /*  border-bottom: solid 1px #aaaaaa;*/ }
+  color: gray; }
 
 /* Headings */
 h1#page_heading {
@@ -292,11 +297,40 @@ img {
 
 #navigation input {
   border: solid 1px black;
-  width: 100%;
-  margin-left: 10px; }
+  width: 100%;}
 
 #navigation form {
   margin-bottom: 1em; }
+
+#mc_embed_signup-mini input {
+  border: solid 1px black;
+  width: 90%;}
+
+#mc_embed_signup-mini form {
+  margin-bottom: 1em; }
+
+#mc_embed_signup-mini .button {
+  clear:both;
+  background-color: #f56b23;
+  border: 0 none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size:16px;
+  font-weight: lighter;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 5px 10px 0;
+  padding: 0 22px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: auto;
+}
+#mc_embed_signup-mini .button:hover {
+  background-color:#777;
+}
 
 #main {
   width: 600px;
