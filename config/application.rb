@@ -59,5 +59,19 @@ module Enki
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => "quidnuncre.com",
+      :user_name            => ENV['EMAIL_SEND_ADDRESS'],
+      :password             => ENV['EMAIL_SEND_PASSWORD'],
+      :authentication       => :plain,
+      :enable_starttls_auto => true
+    }
+
+    config.action_mailer.default_url_options = {
+      :host => "quidnuncre.com"
+    }
   end
 end

@@ -1,6 +1,10 @@
 Enki::Application.routes.draw do
   match "/signup" => "static_page#signup_form", via: :get
 
+  match 'contact' => 'contact#new', :via => :get
+  match 'contact' => 'contact#create', :via => :post
+
+
   namespace :admin do
 
     resource :session
@@ -31,6 +35,7 @@ Enki::Application.routes.draw do
   end
 
   match "/auth/:provider/callback" => "admin/sessions#create", via: [:get, :post]
+
 
   root :to => 'posts#index'
 end
