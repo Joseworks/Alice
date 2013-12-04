@@ -1,10 +1,14 @@
 class ContactController < ApplicationController
 
   def new
+    @name = ''
+    @email = ''
     @message = ''
   end
 
   def create
+    @name = params[:name]
+    @email = params[:email]
     @message = params[:message]
 
     if @message

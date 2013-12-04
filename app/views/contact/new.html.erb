@@ -1,8 +1,19 @@
+Contact us!
 <%= form_for @message, :url => contact_path do |form| %>
   <fieldset class="fields">
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email %>
+    </div>
     <div class="field">
       <%= form.label :message %>
       <%= form.text_field :message %>
     </div>
+    <div>
+      <%= form.submit %></div>
   </fieldset>
 <% end %>
