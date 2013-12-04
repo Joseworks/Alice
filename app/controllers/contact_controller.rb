@@ -12,7 +12,7 @@ class ContactController < ApplicationController
     @message = params[:message]
 
     if @message
-      ContactMailer.contact_email(@message).deliver
+      ContactMailer.contact_email(@user, @email, @message).deliver
       redirect_to(root_path, :notice => "Message was successfully sent.")
     else
       flash.now.alert = "Please fill all fields."
