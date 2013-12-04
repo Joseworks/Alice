@@ -451,6 +451,23 @@ span.error {
   border: 1px solid silver;
   padding: 10px; }
 
+.contact-form {
+  color: #f56b23;
+  border: none;
+}
+
+.contact-field {
+  padding: 0;
+}
+
+.contact-field input {
+  min-width: 220px;
+}
+
+.contact-field textarea {
+  width: 380px;
+}
+
 /* Disqus formatting */
 
 #disqus_thread {
