@@ -20,4 +20,8 @@ describe ContactMailer do
       mail.body.encoded.should include('person')
     end
   end
+
+  pending describe 'tip_email' do
+
+  end
 end
