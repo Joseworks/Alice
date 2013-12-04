@@ -61,7 +61,7 @@ module Enki
     config.assets.initialize_on_precompile = false
 
     config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
+      :address              => "smtp.mandrillapp.com",
       :port                 => 587,
       :domain               => "quidnuncre.com",
       :user_name            => ENV['EMAIL_SEND_ADDRESS'],
