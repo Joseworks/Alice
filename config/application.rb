@@ -64,8 +64,8 @@ module Enki
       :address              => "smtp.mandrillapp.com",
       :port                 => 587,
       :domain               => "quidnuncre.com",
-      :user_name            => ENV['EMAIL_SEND_ADDRESS'],
-      :password             => ENV['EMAIL_SEND_PASSWORD'],
+      :user_name            => ENV['MANDRILL_USERNAME'],
+      :password             => ENV['MANDRILL_APIKEY'],
       :authentication       => :plain,
       :enable_starttls_auto => true
     }
