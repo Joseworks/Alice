@@ -25,7 +25,7 @@
   <div id="page_container">
 
     <div id="ad-container">
-
+      <%= image_tag 'Q-WebAd-3.png' %>
     </div>
 
     <div id="content">
@@ -36,7 +36,8 @@
         <input type="text" id="q" value="search QN" name="q">
         <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
       </form>
-      <div id="social-links">FOLLOW QUIDNUNC | <a href="https://twitter.com/quidnuncre">Tw</a> | FB | Li</div>
+      <div id="social-links">FOLLOW QUIDNUNC | <a href="https://twitter.com/quidnuncre">Tw</a>
+       | <a href="https://www.facebook.com/pages/QuidnuncRE/738173212877583">FB</a> </div>
     </div>
 
 
@@ -45,7 +46,9 @@
       </div>
 
       <div id="navigation">
-        <div class="ad-box">.</div>
+        <div class="ad-box">
+          <%= link_to (image_tag 'Q-WebAd-2.png'), signup_path %>
+        </div>
 
         <div class="links">
           <h2>Pages</h2>
@@ -83,7 +86,9 @@
           <!--End mc_embed_signup-->
         </div>
 
-        <div class="ad-box">.</div>
+        <div class="ad-box">
+          <a href="https://twitter.com/quidnuncre"><%=  image_tag 'Q-WebAd.png' %></a>
+        </div>
       </div>
 
       <div id="footer"><%= enki_config[:title] %>. &#9400;  2013.</div>

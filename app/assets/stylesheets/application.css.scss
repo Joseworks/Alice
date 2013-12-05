@@ -29,12 +29,12 @@ body {
   margin: auto;
   margin-top: 24px;
   margin-bottom: 24px;
-  background-color: #ccc;
+  background-color: white;
   text-align: center;
   padding: 6px;
   width: 600px;
   height: 80px;
-  border: 1px solid red;
+  border: 1px solid #000;
 }
 
 #page_container {
@@ -159,7 +159,7 @@ body {
   border: solid;
   border-width: 2px;
   border-color: gray;
-  background-color: #ccc;
+  background-color: #ddd;
 }
 
 #navigation .links {
