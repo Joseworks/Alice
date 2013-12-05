@@ -20,7 +20,7 @@
 /* High level containers */
 body {
   color: black;
-  font: normal 0.87em verdana, arial, helvetica, sans-serif;
+  font: normal 0.95em helvetica, arial, sans-serif;
   line-height: 1.5;
   padding: 0px;
   margin: 0px; }
@@ -223,7 +223,13 @@ strong {
 
 a {
   color: #000051;
-  text-decoration: none; }
+  text-decoration: none;
+}
+
+p a {
+  color: #4038ab;
+  font-weight: lighter;
+}
 
 h1 a {
   color: #f56b23;
