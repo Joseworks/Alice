@@ -14,7 +14,7 @@ atom_feed(
   feed.generator "Enki", "uri" => "http://enkiblog.com"
 
   feed.author do |xml|
-    xml.name  'Quidnunc Staff'
+    xml.name  'Quidnunc RE Staff'
   end
 
   @posts.each do |post|

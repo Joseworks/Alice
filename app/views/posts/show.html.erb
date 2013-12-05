@@ -1,17 +1,5 @@
 <h2><%= link_to_post(@post) %></h2>
 
-<div class="meta">
-  <ul>
-    <li class="date">Posted on <%= format_post_date(@post.published_at) if @post.published? %>
-      <%= updated_time(@post) %>
-    </li>
-    <li>By <%= @post.author %></li>
-    <% unless @post.tag_list.empty? -%>
-      <li class="tags">Tagged <%= linked_tag_list(@post.tag_list) %></li>
-    <% end -%>
-  </ul>
-</div>
-
 <% if @post.image.present? %>
   <div class="img-container">
     <div>
@@ -32,6 +20,19 @@
       <%= @post.source_link %></a>
     <% end %>
 <% end %>
+
+<div class="meta">
+  <ul>
+    <li class="date">Posted on <%= format_post_date(@post.published_at) if @post.published? %>
+      <%= updated_time(@post) %>
+    </li>
+    <li>By <%= @post.author %></li>
+    <% unless @post.tag_list.empty? -%>
+      <li class="tags">Tagged <%= linked_tag_list(@post.tag_list) %></li>
+    <% end -%>
+  </ul>
+</div>
+
 
 <% if %w(development test).include?(Rails.env) %>
   <% if @post.previous_post %>

@@ -5,7 +5,7 @@ require 'factory_girl'
 FactoryGirl.define do
   factory :post do
     title                'My Post'
-    author               'Quidnunc staff'
+    author               'Quidnunc RE staff'
     body                 'hello this is my post'
     intro_text           'this is some intro text'
     tag_list             'red, green, blue'

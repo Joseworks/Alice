@@ -247,7 +247,7 @@ end
 describe Post, 'validations' do
   def valid_post_attributes
     {
-      :author               => "Quidnunc Staff",
+      :author               => "Quidnunc RE Staff",
       :title                => "My Post",
       :slug                 => "my-post",
       :intro_text           => "this is an introduction",
