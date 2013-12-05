@@ -1,4 +1,5 @@
 <div>Contact us!</div>
+<% if flash[:alert] %><div class="errors"><%= flash[:alert] %></div><% end %>
 <%= form_for @message, :url => contact_path do |form| %>
   <fieldset class="contact-form">
     <div class="contact-field">

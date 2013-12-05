@@ -11,7 +11,7 @@ class ContactController < ApplicationController
     @email = params[:email]
     @message = params[:message]
 
-    if @message
+    unless @message == '' || @name == '' || @email == ''
       ContactMailer.contact_email(@user, @email, @message).deliver
       redirect_to(root_path, :notice => "Message was successfully sent.")
     else
