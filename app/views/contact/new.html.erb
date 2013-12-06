@@ -1,19 +1,24 @@
-<div>Contact us!</div>
-<% if flash[:alert] %><div class="errors"><%= flash[:alert] %></div><% end %>
-<%= form_for @message, :url => contact_path do |form| %>
-  <fieldset class="contact-form">
-    <div class="contact-field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
-    <div class="contact-field">
-      <%= form.label :email %>
-      <%= form.text_field :email %>
-    </div>
-    <div class="contact-field">
-      <div><%= form.label :message %></div>
-      <%= form.text_area :message, rows: 12 %>
-    <div>
-      <%= form.submit 'Send' %></div>
-  </fieldset>
-<% end %>
+<%= stylesheet_link_tag "signup" %>
+
+<div id="mc_embed_signup">
+  <%= form_for @message, :url => contact_path, html: {id: "mc-embedded-subscribe-form", name: "mc-embedded-subscribe-form", class: "validate"} do |form| %>
+  <h2>Contact us!</h2>
+  <p>(all fields required)</p>
+  <% if flash[:alert] %><div class="errors"><%= flash[:alert] %></div><% end %>
+      <div class="mc-field-group">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+      <div class="mc-field-group">
+        <%= form.label :email %>
+        <%= form.text_field :email %>
+      </div>
+      <div class="mc-field-group">
+        <div><%= form.label :message %></div>
+        <%= form.text_area :message, rows: 12 %>
+      </div>
+      <div class="clear">
+        <%= form.submit 'Send', id: "mc-embedded-subscribe", class: "button" %>
+      </div>
+  <% end %>
+</div>

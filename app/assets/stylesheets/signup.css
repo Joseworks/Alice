@@ -18,6 +18,13 @@
   -webkit-appearance:none;
 }
 
+#mc_embed_signup textarea {
+  border:1px solid #999;
+  width: 559px;
+  -webkit-appearance:none;
+  padding: 0;
+}
+
 #mc_embed_signup input[type=checkbox]{
   -webkit-appearance:checkbox;
 }
