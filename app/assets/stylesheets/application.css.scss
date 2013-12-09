@@ -60,7 +60,7 @@ body {
   position: relative;
   padding: 16px;
   padding-right: 55px;
-  min-height: 1300px;
+  min-height: 1350px;
   /*  display: inline;*/ }
 
 #top-spacer {
@@ -385,6 +385,28 @@ div.meta {
 
 .large-tag {
   font-size: 1.7em;
+}
+
+.large-tag:nth-of-type(even) {
+  color: #233;
+}
+.large-tag:nth-of-type(odd) {
+  color: #444;
+}
+
+.med-tag:nth-of-type(even) {
+  color: #233;
+}
+.med-tag:nth-of-type(odd) {
+  color: #444;
+}
+
+.small-tag:nth-of-type(even) {
+  color: #233;
+}
+
+.small-tag:nth-of-type(odd) {
+  color: #444;
 }
 
 
