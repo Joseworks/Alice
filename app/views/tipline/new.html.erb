@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag "signup" %>
+
+<div id="mc_embed_signup">
+  <%= form_for @message, :url => contact_path, html: {id: "mc-embedded-subscribe-form", name: "mc-embedded-subscribe-form", class: "validate"} do |form| %>
+  <h2>Contact us!</h2>
+  <p>(all fields required)</p>
+  <% if flash[:alert] %><div class="errors"><%= flash[:alert] %></div><% end %>
+      <div class="mc-field-group">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+      <div class="mc-field-group">
+        <%= form.label :email %>
+        <%= form.text_field :email %>
+      </div>
+      <div class="mc-field-group">
+        <div><%= form.label :message %></div>
+        <%= form.text_area :message, rows: 12 %>
+      </div>
+      <div class="clear">
+        <%= form.submit 'Send', id: "mc-embedded-subscribe", class: "button" %>
+      </div>
+  <% end %>
+</div>

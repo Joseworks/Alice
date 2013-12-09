@@ -4,6 +4,9 @@ Enki::Application.routes.draw do
   match 'contact' => 'contact#new', :via => :get
   match 'contact' => 'contact#create', :via => :post
 
+  match 'tipline' => 'tipline#new', :via => :get
+  match 'tipline' => 'tipline#create', :via => :post
+
 
   namespace :admin do
 

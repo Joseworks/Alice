@@ -31,7 +31,9 @@
     <div id="content">
 
     <div id="navbar">
-      <%= link_to 'SUBSCRIBE', signup_path %> | SEND US DIRT | <%= link_to('CONTACT US', contact_path) %>
+      <%= link_to 'SUBSCRIBE', signup_path %> |
+      <%= link_to('SEND US TIPS', tipline_path) %> |
+      <%= link_to('CONTACT US', contact_path) %>
       <form method="get" id="sform" action="http://www.google.com/search">
         <input type="text" id="q" value="search QN" name="q">
         <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
