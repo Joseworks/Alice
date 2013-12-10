@@ -169,9 +169,12 @@ body {
 }
 
 .tag-cloud {
-  padding: 12px;
-  width: 180px;
+  width: 220px;
   margin-bottom: 8px;
+}
+
+.tag-cloud div {
+  padding: 8px;
 }
 
 #footer {
@@ -351,7 +354,7 @@ div.meta {
   margin-top: 1em;
   margin-bottom: 3em;
   padding: 8px;
-  width: 90%;
+  width: 96%;
   border-top: 1px dotted #f56b23;
   border-bottom: 1px solid #f56b23;
   min-height: 46px;
@@ -388,25 +391,25 @@ div.meta {
 }
 
 .large-tag:nth-of-type(even) {
-  color: #b53b01;
+  color: #a52c04;
 }
 .large-tag:nth-of-type(odd) {
-  color: #444;
+  color: #484848;
 }
 
 .med-tag:nth-of-type(even) {
-  color: #b53b01;
+  color: #a52c04;
 }
 .med-tag:nth-of-type(odd) {
-  color: #444;
+  color: #484848;
 }
 
 .small-tag:nth-of-type(even) {
-  color: #b53b01;
+  color: #a52c04;
 }
 
 .small-tag:nth-of-type(odd) {
-  color: #444;
+  color: #484848;
 }
 
 
