@@ -90,8 +90,12 @@ body {
   margin-right: 20px;
 }
 
-.logo-element img {
+.logo-element img, #social-links img {
   border: none;
+}
+
+#social-links img {
+  padding: 0 2px 0 2px;
 }
 
 #hot-news {
