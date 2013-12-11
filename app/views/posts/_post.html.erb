@@ -25,7 +25,11 @@
     <li class="date">Posted at <%= format_post_date(post.published_at) if post.published? %>
       <%= updated_time(post) %>
     </li>
-    <li>By <%= post.author %></li>
+    <% if post.author == "Russ Bleemer" %>
+      <li>By <%= mail_to 'russ.bleemer@quidnuncre.com', "Russ Bleemer" %></li>
+    <% else %>
+      <li>By <%= post.author %></li>
+    <% end %>
     <li><%= link_to(post.title, post_path(post, anchor: "disqus_thread")) %></li>
   </ul>
 </div>
