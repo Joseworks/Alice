@@ -8,6 +8,7 @@
   <%= javascript_include_tag 'application' %>
   <%= yield(:head) %>
   <%= render partial: "layouts/ganalytics"  %>
+  <%= render partial: "layouts/doubleclick_head_code" %>
 </head>
 <body>
 <div id="top-spacer"> </div>
@@ -22,10 +23,16 @@
 </div>
 
 
+
   <div id="page_container">
 
     <div id="ad-container">
-      <%= image_tag 'Q-WebAd-3.png' %>
+      <!-- top-banner -->
+      <div id='div-gpt-ad-1386774150760-2' style='width:728px; height:90px;'>
+      <script type='text/javascript'>
+      googletag.cmd.push(function() { googletag.display('div-gpt-ad-1386774150760-2'); });
+      </script>
+      </div>
     </div>
 
     <div id="content">
@@ -39,7 +46,7 @@
         <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
       </form>
       <div id="social-links">FOLLOW QuidnuncRE: <a href="https://twitter.com/quidnuncre"><%= image_tag 'Twitter_logo_blue.png', alt: 'Twitter' %></a>
-       <a href="https://www.facebook.com/pages/QuidnuncRE/738173212877583"><%= image_tag 'FB-f-Logo__blue_15.png', alt: 'Facebook' %></a> </div>
+       <a href="https://www.facebook.com/QuidnuncRE/"><%= image_tag 'FB-f-Logo__blue_15.png', alt: 'Facebook' %></a> </div>
     </div>
 
 
@@ -49,7 +56,12 @@
 
       <div id="navigation">
         <div class="ad-box">
-          <%= link_to (image_tag 'Q-WebAd-2.png'), signup_path %>
+          <!-- ad-square-upper-right -->
+          <div id='div-gpt-ad-1386774150760-1' style='width:250px; height:250px;'>
+          <script type='text/javascript'>
+          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1386774150760-1'); });
+          </script>
+          </div>
         </div>
 
         <div class="links">
@@ -88,7 +100,12 @@
         </div>
 
         <div class="ad-box">
-          <a href="https://twitter.com/quidnuncre"><%=  image_tag 'Q-WebAd.png' %></a>
+          <!-- ad-square-lower-right -->
+          <div id='div-gpt-ad-1386774150760-0' style='width:250px; height:250px;'>
+          <script type='text/javascript'>
+          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1386774150760-0'); });
+          </script>
+          </div>
         </div>
 
       </div>
