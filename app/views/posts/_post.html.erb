@@ -30,6 +30,6 @@
     <% else %>
       <li>By <%= post.author %></li>
     <% end %>
-    <li><%= link_to(post.title, post_path(post, anchor: "disqus_thread")) %></li>
+    <li><%= link_to('', post_path(post, anchor: "disqus_thread")) %></li>
   </ul>
 </div>
