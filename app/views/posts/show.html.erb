@@ -26,15 +26,14 @@
     <% end %>
 <% end %>
 
-<div class="sharing">
-  <span class='st_sharethis_large' displayText='ShareThis'></span>
-  <span class='st_facebook_large' displayText='Facebook'></span>
-  <span class='st_twitter_large' displayText='Tweet'></span>
-  <span class='st_email_large' displayText='Email'></span>
-</div>
-
 <div class="meta">
   <ul>
+    Share this post:
+    <span class='st_sharethis'></span>
+    <span class='st_facebook'></span>
+    <span class='st_twitter'></span>
+    <span class='st_email'></span>
+
     <li class="date">Posted on <%= format_post_date(@post.published_at) if @post.published? %>
       <%= updated_time(@post) %>
     </li>
@@ -68,3 +67,6 @@
 
 <div class="related">Looking for more? Head on over to the <%= link_to 'archives', archives_path %>.</div>
 
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "4febf84b-b341-487d-850e-28dfc000df89", doNotHash: false, doNotCopy: false, hashAddressBar: true});</script>
