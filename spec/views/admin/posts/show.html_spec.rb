@@ -6,10 +6,12 @@ describe "/admin/posts/show.html" do
   end
 
   it 'should render' do
-    assign :post, Post.new(
+    assign :post, Post.create(
       :title        => 'A Post',
       :published_at => Time.now,
-      :slug         => 'a-post'
+      :slug         => 'a-post',
+      :body         => 'body text',
+      :intro_text   => 'intro text'
     )
     render :template => '/admin/posts/show', :formats => [:html]
   end

@@ -4,8 +4,8 @@
   <% if @post.image.exists? %>
     <%= @post.image.url(:medium).to_s %>
   <% end %>
+  <%= button_to "Publish now", publish_post_admin_post_path(@post) %>
 <% end %>
-
 <%= semantic_form_for([:admin, @post]) do |form| -%>
   <%= render :partial => 'form', :locals => {:form => form} %>
   <%= form.actions do -%>

@@ -1,5 +1,5 @@
 class Admin::PostsController < Admin::BaseController
-  before_filter :find_post, only: [:show, :update, :destroy]
+  before_filter :find_post, only: [:show, :update, :destroy, :publish_post]
   helper_method :sort_column, :sort_direction
 
   def index
@@ -83,6 +83,13 @@ class Admin::PostsController < Admin::BaseController
         }
       }
     end
+  end
+
+  def publish_post
+    @post.publish_now
+    @post.save
+    flash[:notice] = "Post published."
+    redirect_to(action: 'show', id: @post)
   end
 
   private

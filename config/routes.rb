@@ -12,7 +12,14 @@ Enki::Application.routes.draw do
 
     resource :session
 
-    resources :posts, :pages do
+    resources :posts do
+      post 'preview', :on => :collection
+      member do
+        post :publish_post
+      end
+    end
+
+    resources :pages do
       post 'preview', :on => :collection
     end
     resources :undo_items do
