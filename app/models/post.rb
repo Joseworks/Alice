@@ -29,6 +29,9 @@ class Post < ActiveRecord::Base
 
   validate                :validate_published_at_natural_parsed_and_assigned
 
+  validate                :tag_list, :length => { maximum: 30 }
+  validate                :tag_format
+
   def validate_published_at_natural_parsed_and_assigned
     if published_at_natural.present? && !published?
       errors.add("published_at_natural", "Unable to parse time")
@@ -136,4 +139,12 @@ class Post < ActiveRecord::Base
   def next_post
     Post.where(["published_at > ?", published_at]).first
   end
+
+  def tag_format
+    tag_list.each do |tag|
+      errors.add(:tag_list, "too long. maximum is 50 characters") if tag.length > 50
+      errors.add(:tag_list, "can’t contain a period") if tag.include? '.'
+    end
+  end
+
 end

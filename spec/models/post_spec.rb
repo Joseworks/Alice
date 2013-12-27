@@ -97,6 +97,20 @@ describe Post, '#tag_list=' do
     p.tag_list = ["a", "b"]
     p.tag_list.should == ["a", "b"]
   end
+
+  it 'validates the tag list to warn about periods' do
+    post = Post.create(:author => "writer", :title => 'My Post',
+                :body => "body", :intro_text => 'intro',
+                :tag_list => "ruby.com, frog, test.uz")
+    post.errors[:tag_list].should_not be_blank
+  end
+
+  it 'validates the tag list to warn about overly long tags' do
+    post = Post.create(:author => "writer", :title => 'My Post',
+                :body => "body", :intro_text => 'intro',
+                :tag_list => "ruby and lee and strog and grog frog bog log zmm they gho down of the swamp an dlziueh, frog, test")
+    post.errors[:tag_list].should_not be_blank
+  end
 end
 
 describe Post, "#set_dates" do
