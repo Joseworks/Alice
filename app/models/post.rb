@@ -143,7 +143,7 @@ class Post < ActiveRecord::Base
   def tag_format
     tag_list.each do |tag|
       errors.add(:tag_list, "too long. maximum is 50 characters") if tag.length > 50
-      errors.add(:tag_list, "can’t contain a period") if tag.include? '.'
+      errors.add(:tag_list, "tags cannot contain a period") if tag.include? '.'
     end
   end
 
