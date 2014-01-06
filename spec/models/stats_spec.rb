@@ -10,7 +10,7 @@ describe Stats do
 
   describe '#tag_count' do
     it 'returns the total number of tags' do
-      Post.create!(:author => "writer", :title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby, test")
+      Post.create(:author => "writer", :title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby, test")
       Stats.new.tag_count.should == 2
     end
   end

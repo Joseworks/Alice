@@ -4,8 +4,8 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Post, "integration" do
   describe 'setting tag_list' do
     it 'increments tag counter cache' do
-      post1 = Post.create!(:author => "writer", :title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
-      post2 = Post.create!(:author => "staff", :title => 'My Second Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
+      post1 = Post.create(:author => "writer", :title => 'My Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
+      post2 = Post.create(:author => "staff", :title => 'My Second Post', :body => "body", :intro_text => 'intro', :tag_list => "ruby")
       Post.tagged_with('ruby').count.should == 2
       Post.last.destroy
       Post.tagged_with('ruby').count.should == 1
