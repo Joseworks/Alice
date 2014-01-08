@@ -9,7 +9,7 @@ FactoryGirl.define do
     body                 'hello this is my post'
     intro_text           'this is some intro text'
     tag_list             'red, green, blue'
-    published_at_natural 'now'
+    published_at_natural '1/1/2014'
     slug                 'my-manually-entered-slug'
     minor_edit           '0'
   end

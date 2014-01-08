@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def index
     @tag = params[:tag]
     @tags = Post.tag_counts_on(:tags).order('count desc').limit(15)
@@ -13,6 +14,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by_permalink(*([:year, :month, :day, :slug].collect {|x| params[x] } << {include: [:tags]}))
     @tags = Post.tag_counts_on(:tags).order('count desc').limit(15)
+    impressionist @post
   end
 
   def tag_cloud

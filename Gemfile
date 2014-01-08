@@ -33,6 +33,7 @@ gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 gem 'acts-as-taggable-on'
 gem 'tinymce-rails'
+gem 'impressionist'
 
 
 # Bundle gems for the local environment. Make sure to
@@ -40,9 +41,9 @@ gem 'tinymce-rails'
 # and rake tasks are available in development mode:
 group :test do
   gem 'database_cleaner'
-  gem 'cucumber-rails',    :require => false
-  gem 'cucumber-websteps', :require => false
-  gem 'factory_girl'
+  # gem 'cucumber-rails',    :require => false
+  # gem 'cucumber-websteps', :require => false
+  gem 'factory_girl_rails'
   gem 'rspec'
   gem 'nokogiri', '~> 1.5.0'
   gem 'webrat'

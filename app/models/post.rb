@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
 
   acts_as_taggable
 
+  is_impressionable counter_cache: true
+
   attr_accessor           :image
   has_attached_file       :image, styles: {thumb: "100x100#", small: "200x200>", medium: "540>x400>"},
                                   storage: :s3,

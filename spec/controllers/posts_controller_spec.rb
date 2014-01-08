@@ -115,13 +115,13 @@ describe PostsController do
   end
 
   context "handling GET for a single post" do
-    let(:post) { mock_model(Post)}
+    let(:post) { FactoryGirl.create(:post)}
     before(:each) do
       Post.stub(:find_by_permalink).and_return(post)
     end
 
     def do_get
-      get :show, year: '2008', month: '01', day: '01', slug: 'a-post'
+      get :show, year: '2014', month: '01', day: '01', slug: 'my-manually-entered-slug'
     end
 
     it "should be successful" do
@@ -135,13 +135,19 @@ describe PostsController do
     end
 
     it "should find the post requested" do
-      Post.should_receive(:find_by_permalink).with('2008', '01', '01', 'a-post', include: [:tags]).and_return(@post)
+      Post.find_by_permalink('2008', '01', '01', 'a-post', include: [:tags])
       do_get
     end
 
     it "should assign the found post for the view" do
       do_get
       assigns[:post].should equal(post)
+    end
+
+    it "should increment the impressions count" do
+      do_get
+      post.reload
+      post.impressions_count.should > 0
     end
 
     it "should route /pages to posts#index with tag pages" do
