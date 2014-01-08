@@ -21,9 +21,7 @@
 
   <% if @top_posts %>
     <% @top_posts.each do |hot_post| %>
-      <div id="hot-news">
-        <div class="hot-headline"><%= hot_post.title %></div>
-      </div>
+      <div class="hot-headline"><%= hot_post.title %></div>
     <% end %>
   <% end %>
 

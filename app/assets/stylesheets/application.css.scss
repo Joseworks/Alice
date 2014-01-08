@@ -106,14 +106,15 @@ body {
 
 .hot-headline {
   display: inline-block;
-  float: left;
+  float: right;
   margin: 12px;
-  padding: 6px;
+  padding: 4px;
   height: 94px;
   width: 94px;
   border: solid;
   border-width: 2px;
   border-color: #f56b23;
+  overflow: hidden;
 }
 
 #navbar {
