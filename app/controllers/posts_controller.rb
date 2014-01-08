@@ -4,6 +4,8 @@ class PostsController < ApplicationController
     @tag = params[:tag]
     @tags = Post.tag_counts_on(:tags).order('count desc').limit(15)
     @posts = Post.find_recent(tag: @tag, include: :tags, page: params[:page])
+    # @top_posts = Post.where("created_at >= ?", (Time.zone.now.beginning_of_day - 3)).order('posts.impressions_count DESC').limit(3)
+    @top_posts = Post.order('posts.impressions_count DESC').limit(3)
 
     respond_to do |format|
       format.html
