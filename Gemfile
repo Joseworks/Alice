@@ -34,6 +34,7 @@ gem 'aws-sdk'
 gem 'acts-as-taggable-on'
 gem 'tinymce-rails'
 gem 'impressionist'
+gem 'pg'
 
 
 # Bundle gems for the local environment. Make sure to
@@ -50,11 +51,9 @@ group :test do
 end
 
 group :development, :test do
-  gem 'pg'
   gem 'rspec-rails'
 end
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg'
 end
