@@ -74,7 +74,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   height: 130px;
-  width: 1000px;
+  width: 980px;
   background-color: white;
   vertical-align: middle;
 }
@@ -105,15 +105,12 @@ body {
 }
 
 .hot-headline {
+  color: #f56b23;
   display: inline-block;
   float: right;
   margin: 12px;
-  padding: 4px;
   height: 94px;
   width: 94px;
-  border: solid;
-  border-width: 2px;
-  border-color: #f56b23;
   overflow: hidden;
 }
 
