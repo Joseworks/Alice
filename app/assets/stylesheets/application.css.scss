@@ -250,6 +250,11 @@ a:hover {
   color: gray;
   text-decoration: underline; }
 
+.post-header img {
+  vertical-align: middle;
+  border: none;
+}
+
 img {
   border: solid 1px black; }
 
@@ -362,6 +367,15 @@ div.meta {
   min-height: 46px;
  }
 
+div.post-header {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 8px;
+  width: 96%;
+  border-top: 1px solid #f56b23;
+  border-bottom: 1px solid #f56b23;
+ }
+
 
 .tags, {
   color: #f56b23;
@@ -369,6 +383,15 @@ div.meta {
 
 /* Formatting */
 .meta ul {
+  list-style: none;
+  margin: 0px;
+  padding-left: 0em;
+  padding-bottom: 0.5em;
+  display: inline;
+  color: #cccccc;
+  font-size: 9pt; }
+
+.post-header ul {
   list-style: none;
   margin: 0px;
   padding-left: 0em;
@@ -421,7 +444,7 @@ div.meta {
 .meta a:hover {
   text-decoration: none; }
 
-.meta ul li {
+.meta ul li, .post-header ul li {
   display: inline; }
 
 .meta ul li:after {
