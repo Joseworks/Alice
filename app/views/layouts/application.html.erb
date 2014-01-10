@@ -19,12 +19,10 @@
     <%= link_to (image_tag 'Dictionary.png'), root_path, class: 'logo-element' %>
   </div>
 
-  <% if %w(development test).include?(Rails.env) %>
   <% if @top_posts %>
     <% @top_posts.each do |hot_post| %>
       <div class="hot-headline"><%= hot_post.title %></div>
     <% end %>
-  <% end %>
   <% end %>
 
 </div>
