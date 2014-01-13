@@ -16,6 +16,10 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by_permalink(*([:year, :month, :day, :slug].collect {|x| params[x] } << {include: [:tags]}))
     @tags = Post.tag_counts_on(:tags).order('count desc').limit(15)
+    # @top_posts = Post.where("created_at >= ?", (Time.zone.now.beginning_of_day - 3)).order('posts.impressions_count DESC').limit(3)
+    @top_posts = Post.order('posts.impressions_count DESC').limit(3)
+
+
     impressionist @post
   end
 
