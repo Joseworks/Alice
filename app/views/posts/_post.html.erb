@@ -13,8 +13,8 @@
   </div>
 <% end %>
 
-  <%= raw(post.intro_text_html) %>
-  <% if post.body_html %>
+  <%= raw(post.intro_text) %>
+  <% if post.body %>
     <%= link_to("[more...]", post_path(post)) %>
   <% end %>
 </div>
