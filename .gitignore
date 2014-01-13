@@ -78,3 +78,6 @@ capybara-*html
 .vagrant
 
 .env
+
+# ERD pdf files
+erd.pdf
