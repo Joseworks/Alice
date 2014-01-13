@@ -105,13 +105,16 @@ body {
 }
 
 .hot-headline {
-  color: #f56b23;
   display: inline-block;
   float: right;
   margin: 12px;
   height: 94px;
   width: 94px;
   overflow: hidden;
+}
+
+.hot-headline a {
+  color: #f56b23;
 }
 
 #navbar {

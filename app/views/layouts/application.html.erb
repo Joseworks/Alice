@@ -21,7 +21,7 @@
 
   <% if @top_posts %>
     <% @top_posts.each do |hot_post| %>
-      <div class="hot-headline"><%= hot_post.title %></div>
+      <div class="hot-headline"><%= link_to(hot_post.title, post_path(hot_post)) %></div>
     <% end %>
   <% end %>
 
