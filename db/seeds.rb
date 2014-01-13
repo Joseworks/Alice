@@ -6,7 +6,7 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-10.times do |i|
+15.times do |i|
   Post.create(title: "Post Number #{i}",
             body: "This is the post number #{i}.",
             intro_text: 'just another post.',
