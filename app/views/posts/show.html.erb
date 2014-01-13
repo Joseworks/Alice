@@ -18,16 +18,6 @@
     <% end %>
 </div>
 
-<div class="sharing-buttons">
-    Share this post:
-    <span class='st_sharethis'></span>
-    <span class='st_facebook'></span>
-    <span class='st_twitter'></span>
-    <span class='st_email'></span>
-    <a href="javascript:window.print()"><%= image_tag("silk/printer.png", alt: "print") %></a>
-
-</div>
-
 <% if @post.image.present? %>
   <div class="img-container">
     <div>
@@ -38,6 +28,17 @@
     </div>
   </div>
 <% end %>
+
+<div class="sharing-buttons">
+    Share this post:
+    <span class='st_sharethis'></span>
+    <span class='st_facebook'></span>
+    <span class='st_twitter'></span>
+    <span class='st_email'></span>
+    <a href="javascript:window.print()"><%= image_tag("silk/printer.png", alt: "print") %></a>
+</div>
+
+
 <%= raw(@post.body_html) %>
 
 <% if @post.source_link != '' %>
