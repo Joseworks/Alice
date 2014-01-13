@@ -385,16 +385,7 @@ div.post-header {
 }
 
 /* Formatting */
-.meta ul {
-  list-style: none;
-  margin: 0px;
-  padding-left: 0em;
-  padding-bottom: 0.5em;
-  display: inline;
-  color: #cccccc;
-  font-size: 9pt; }
-
-.post-header ul {
+.meta ul, .post-header ul, {
   list-style: none;
   margin: 0px;
   padding-left: 0em;
@@ -463,6 +454,23 @@ h2 {
   height: 1px;
   margin-top: 5px;
   clear: both; }
+
+.sharing-buttons {
+  float: right;
+  padding: 5px;
+  margin: 2px;
+  margin-right: 8px;
+  border: 1px solid #f56b23;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+
+}
+
+.sharing-buttons img {
+  border: none;
+  vertical-align: middle;
+}
 
 /* Forms */
 label {
