@@ -51,6 +51,7 @@
 <% end %>
 
 <div class="meta">
+  <ul>
     <% unless @post.tag_list.empty? -%>
       <li class="tags">Tagged <%= linked_tag_list(@post.tag_list) %></li>
     <% end -%>
