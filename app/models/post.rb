@@ -54,7 +54,7 @@ class Post < ActiveRecord::Base
   end
 
   def updated?
-    self.edited_at > self.published_at
+    self.edited_at > self.published_at + 61
   end
 
   attr_accessor :published_at_natural

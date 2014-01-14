@@ -206,7 +206,6 @@ describe Post, '#updated?' do
     before = 1.day.ago
     updated = 1.hour.ago
     now = Time.now
-    Time.stub(:now).and_return(now)
     post = Post.new(created_at: before, published_at: updated, edited_at: now)
     post.stub(:minor_edit?).and_return(false)
 
@@ -214,11 +213,10 @@ describe Post, '#updated?' do
     post.updated?.should == true
   end
 
-  it 'returns false if edited_at the same as published_at' do
-    before = 1.day.ago
+  it 'returns false if edited_at is within one minute of published_at' do
+    before = 1.minute.ago
     now = Time.now
-    Time.stub(:now).and_return(now)
-    post = Post.new(created_at: before, published_at: now, edited_at: now)
+    post = Post.new(created_at: before, published_at: before, edited_at: now)
     post.stub(:minor_edit?).and_return(false)
 
     post.updated?.should == false
