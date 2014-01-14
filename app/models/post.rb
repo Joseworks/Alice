@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-  DEFAULT_LIMIT = 15
 
   self.per_page = 15
 
