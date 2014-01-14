@@ -3,11 +3,7 @@ class Admin::SessionsController < ApplicationController
   layout 'login'
 
   def show
-    if session[:user_id]
-      redirect_to admin_root_path, notice: "welcome back!" and return
-    else
-      redirect_to action: 'new'
-    end
+    redirect_to action: 'new'
   end
 
   def new
