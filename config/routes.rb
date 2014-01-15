@@ -7,6 +7,8 @@ Enki::Application.routes.draw do
   match 'tipline' => 'tipline#new', :via => :get
   match 'tipline' => 'tipline#create', :via => :post
 
+  match 'join_us' => 'join_us#new', :via => :get
+  match 'join_us' => 'join_us#create', :via => :post
 
   namespace :admin do
 
