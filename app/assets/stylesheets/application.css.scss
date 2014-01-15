@@ -105,12 +105,16 @@ body {
 }
 
 .hot-headline {
+  // border-image: image-url('border-brackets.png') 7 7 7;
+  // -webkit-border-image: image-url('border-brackets.png') 7 7 7; /* Safari 5 and older */
   display: inline-block;
   float: right;
   margin: 12px;
-  height: 94px;
-  width: 94px;
+  padding: 4px;
+  height: 90px;
+  width: 90px;
   overflow: hidden;
+
 }
 
 .hot-headline a {
