@@ -1,4 +1,6 @@
 class TiplineController < ApplicationController
+  before_filter :top_posts
+  before_filter :tags_for_cloud
 
   def new
     @name = ''
