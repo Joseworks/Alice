@@ -1,6 +1,6 @@
 <h2><%= link_to_post(post) %></h2>
 
-<div class="post-header">
+<div class="post-intro-header">
   <ul>
     <li class="date">Posted at <%= format_post_date(post.published_at) if post.published? %>
       <%= updated_time(post) %>
@@ -31,8 +31,6 @@
     <%= link_to("[more...]", post_path(post)) %>
   <% end %>
 </div>
-<div class="meta">
-  <ul>
-    <li><%= link_to('', post_path(post, anchor: "disqus_thread")) %></li>
-  </ul>
+<div class="front-meta">
+  <span class="comment-count"><%= link_to('', post_path(post, anchor: "disqus_thread")) %></span>
 </div>

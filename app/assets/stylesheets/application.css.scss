@@ -383,6 +383,17 @@ div.meta {
   margin-bottom: 3em;
   padding: 8px;
   width: 96%;
+  min-height: 16px;
+  border-top: 1px dotted #f56b23;
+  border-bottom: 1px solid #f56b23;
+ }
+div.front-meta {
+  text-align: right;
+  margin-top: 1em;
+  margin-bottom: 3em;
+  padding: 8px;
+  width: 96%;
+  min-height: 16px;
   border-top: 1px dotted #f56b23;
   border-bottom: 1px solid #f56b23;
  }
@@ -396,13 +407,20 @@ div.post-header {
   border-bottom: 1px solid #f56b23;
  }
 
+div.post-intro-header {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  padding: 8px;
+  width: 96%;
+ }
+
 
 .tags, {
   color: #f56b23;
 }
 
 /* Formatting */
-.meta ul, .post-header ul, {
+.meta ul, .post-header ul, .post-intro-header ul {
   list-style: none;
   margin: 0px;
   padding-left: 0em;
@@ -411,7 +429,7 @@ div.post-header {
   color: #555;
   font-size: 9pt; }
 
-.post-header ul {
+.post-header ul, .post-intro-header ul {
   color: #555;
 }
 
@@ -459,7 +477,7 @@ div.post-header {
 .meta a:hover {
   text-decoration: none; }
 
-.meta ul li, .post-header ul li {
+.meta ul li, .post-header ul li, .post-intro-header ul li {
   display: inline; }
 
 .meta ul li:after {
@@ -467,6 +485,13 @@ div.post-header {
 
 .meta ul li:last-child:after {
   content: ""; }
+
+.front-meta .comment-count {
+  padding: 3px;
+  margin-bottom: 3px;
+  color: #555;
+  font-size: 9pt;
+}
 
 h2 {
   margin-bottom: 0px; }
