@@ -81,3 +81,6 @@ capybara-*html
 
 # ERD pdf files
 erd.pdf
+
+# simplecov output
+coverage

@@ -46,6 +46,7 @@ group :test do
   gem 'rspec'
   gem 'nokogiri', '~> 1.5.0'
   gem 'webrat'
+  gem 'simplecov', :require => false
 end
 
 group :development do
