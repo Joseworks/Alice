@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140109164535) do
+ActiveRecord::Schema.define(version: 20140116160738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,13 +151,14 @@ ActiveRecord::Schema.define(version: 20140109164535) do
   add_index "undo_items", ["created_at"], name: "index_undo_items_on_created_at", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "name",       null: false
-    t.string   "email",      null: false
+    t.string   "name",           null: false
+    t.string   "email",          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
     t.string   "role"
+    t.datetime "last_logged_in"
   end
 
 end

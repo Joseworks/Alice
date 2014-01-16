@@ -12,8 +12,7 @@ class Admin::SessionsController < ApplicationController
   def create
 
     auth = request.env["omniauth.auth"]
-    #user = User.find_by_uid(auth["uid"]) || User.create_with_omniauth(auth)
-    user = User.create!(id: rand(4..3000), name: "Jose", email: "jose@quidnuncre.com", uid: "uid")
+    user = User.find_by_uid(auth["uid"]) || User.create_with_omniauth(auth)
     user.last_logged_in = Time.now
     user.save
     if user.email.include?("quidnuncre.com")
