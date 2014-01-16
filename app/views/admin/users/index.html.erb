@@ -13,6 +13,8 @@
             <%= form.inputs do -%>
               <%= form.input :name -%>
               <%= form.input :email -%>
+              <p> User created at: <%= user.created_at %></p>
+              <p> User last logged in: <%= user.last_logged_in %></p>
               <%= form.select :role, roles_array -%>
               <%= form.action :submit, :as => :button -%>
             <% end -%>
