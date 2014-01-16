@@ -154,4 +154,16 @@ describe PostsController do
       {get: "/pages"}.should route_to(controller: 'posts', action: 'index', tag: 'pages')
     end
   end
+
+  describe 'handling GET with invalid page' do
+     #let(:post) { FactoryGirl.create(:post)}
+
+    it 'raises a RecordNotFound error' do
+      # expect {
+        # get :show, year: '2014', month: '01', day: '01', slug: 'my-manually-entered-slug'
+        lambda {Post.find_by_permalink(2014, 01, 16, 'slug-1')}.should raise_error(ActiveRecord::RecordNotFound)
+      # }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+  end
+
 end

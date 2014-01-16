@@ -65,6 +65,22 @@ describe Post, ".find_recent" do
   end
 end
 
+describe Post, '#find_by_permalink' do
+  let!(:post) {Post.create(:author => "Agent Coulson",
+                                   :title => 'My Second Post',
+                                   :intro_text => 'intro text',
+                                   :body => "body",
+                                   :tag_list => "ruby", published_at: Time.now,
+                                   :slug => 'slug_1')}
+   it 'should find the right post' do
+     Post.find_by_permalink(2014, 01, 16, 'slug-1').title.should == 'My Second Post'
+   end
+
+   #it 'raises record not found error if post does not exist'
+   # Test for 'record not found' under posts_controller_spec #raises a RecordNotFound error
+end
+
+
 describe Post, '#generate_slug' do
   it 'makes a slug from the title if slug if blank' do
     post = Post.new(:slug => '', :title => 'my title')
