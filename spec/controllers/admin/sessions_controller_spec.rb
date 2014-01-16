@@ -68,6 +68,25 @@ describe Admin::SessionsController, "handling CREATE with post" do
     @controller.instance_eval { flash.extend(DisableFlashSweeping) }
   end
 
+  describe "logging attempt regardless of success" do
+    it "updates the last_logged_in" do
+      time_before = Time.now - 5.minutes
+      user = User.create(:name    => "Don Alias",
+              :email   => "testuser@quidnuncre.com",
+              :provider =>  "google_oauth2",
+              :uid =>      "averylongnumber",
+              :last_logged_in => time_before)
+      request.env["omniauth.auth"] = OmniAuth.config.add_mock(:google,
+                                                   { uid: 'averylongnumber', info:  {
+                                                     email: 'testuser@quidnuncre.com' }})
+
+
+      post :create
+      user.reload
+      user.last_logged_in.should_not == time_before
+    end
+  end
+
   describe "with valid openid credentials" do
     before do
     request.env["omniauth.auth"] = OmniAuth.config.add_mock(:google,

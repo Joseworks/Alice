@@ -26,4 +26,20 @@ describe User, 'validations' do
     User.new(valid_user_attributes.merge(:uid => '')).should_not be_valid
   end
 
+  it 'last_logged_in is blank until assigned' do
+    User.new(valid_user_attributes).last_logged_in.should be_nil
+  end
+
+  describe 'create_with_omniauth' do
+
+    it 'creates a valid user' do
+      auth = {"provider" => 'google_oauth2', "uid" => 19827348, 'info' => {"name" => 'frog', "email" => 'frog@example.com'}}
+      User.create_with_omniauth(auth)
+      user = User.last
+      user.name.should == 'frog'
+      user.uid.should == '19827348'
+    end
+
+  end
+
 end
