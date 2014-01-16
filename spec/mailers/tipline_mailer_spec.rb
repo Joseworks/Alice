@@ -7,12 +7,12 @@ describe TiplineMailer do
     ActionMailer::Base.deliveries = []
   end
 
-  describe 'contact_email' do
+  describe 'tipline_email' do
 
     let(:mail) { TiplineMailer.tipline_email('person', 'me@example.com', 'MESSAGE IS FROG') }
 
 
-    it 'should send contact email' do
+    it 'should send tipline email' do
       mail.deliver
       ActionMailer::Base.deliveries.size.should == 1
     end
