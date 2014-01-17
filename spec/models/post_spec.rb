@@ -65,6 +65,18 @@ describe Post, ".find_recent" do
   end
 end
 
+describe Post, '#find_by_permalink' do
+   it 'should find the right post' do
+    year, month, day = 2014, 1, 17
+    attributes_for_post = {published_at: "#{year}-#{month}-#{day} 10:07:11 -0500",
+                                     :slug => 'slug1'}
+    post = FactoryGirl.create(:post, attributes_for_post)
+
+    Post.find_by_permalink(year, month, day, attributes_for_post[:slug]).should == post
+   end
+end
+
+
 describe Post, '#generate_slug' do
   it 'makes a slug from the title if slug if blank' do
     post = Post.new(:slug => '', :title => 'my title')
