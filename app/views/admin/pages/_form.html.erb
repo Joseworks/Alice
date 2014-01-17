@@ -1,5 +1,7 @@
-<%= form.inputs do -%>
+<%= tinymce_assets %>
+<%= form.inputs do %>
   <%= form.input :title %>
   <%= form.input :slug, :hint => "Leave blank for an auto-generated slug based on the title." %>
-  <%= form.input :body, :hint => "<a href='http://textile.thresholdstate.com/'>Textile enabled</a>. Use Ctrl+E to switch between preview and edit mode.".html_safe %>
-<% end -%>
+    <%= form.input :body, :label => "Body", :hint => "".html_safe, input_html: { class: "tinymce", rows: 18 } %>
+<% end %>
+<%= tinymce width: 576 %>
