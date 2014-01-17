@@ -102,7 +102,10 @@ describe Admin::PagesController do
     def do_put
       session[:user_id] = 2
       session[:logged_in] = true
-      put :update, id: 1, page: {}
+      put :update, id: 1, page: {'title' => '',
+                                 'slug'  => '',
+                                 'body'  => ''
+                                }
     end
 
     it 'renders show' do

@@ -30,7 +30,7 @@ class Admin::PagesController < Admin::BaseController
   end
 
   def update
-    if @page.update_attributes(params[:page])
+    if @page.update_attributes(page_params)
       respond_to do |format|
         format.html {
           flash[:notice] = "Updated page '#{@page.title}'"
@@ -58,7 +58,7 @@ class Admin::PagesController < Admin::BaseController
   end
 
   def preview
-    @page = Page.build_for_preview(params[:page])
+    @page = Page.build_for_preview(page_params)
 
     respond_to do |format|
       format.js {
