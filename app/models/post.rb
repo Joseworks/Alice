@@ -78,7 +78,7 @@ class Post < ActiveRecord::Base
     end
 
     def find_by_permalink(year, month, day, slug, options = {})
-      post = where(slug: slug).first || raise(ActiveRecord::RecordNotFound)
+      post = find_by(slug: slug) || raise(ActiveRecord::RecordNotFound)
     end
 
     def find_all_grouped_by_month
