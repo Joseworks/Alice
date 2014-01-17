@@ -66,18 +66,14 @@ describe Post, ".find_recent" do
 end
 
 describe Post, '#find_by_permalink' do
-  let!(:post) {Post.create(:author => "Agent Coulson",
-                                   :title => 'My Second Post',
-                                   :intro_text => 'intro text',
-                                   :body => "body",
-                                   :tag_list => "ruby", published_at: Time.now,
-                                   :slug => 'slug_1')}
    it 'should find the right post' do
-     Post.find_by_permalink(2014, 01, 16, 'slug-1').title.should == 'My Second Post'
-   end
+    year, month, day = 2014, 1, 17
+    attributes_for_post = {published_at: "#{year}-#{month}-#{day} 10:07:11 -0500",
+                                     :slug => 'slug1'}
+    post = FactoryGirl.create(:post, attributes_for_post)
 
-   #it 'raises record not found error if post does not exist'
-   # Test for 'record not found' under posts_controller_spec #raises a RecordNotFound error
+    Post.find_by_permalink(year, month, day, attributes_for_post[:slug]).should == post
+   end
 end
 
 

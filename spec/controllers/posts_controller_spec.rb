@@ -134,11 +134,6 @@ describe PostsController do
       response.should render_template('show')
     end
 
-    it "should find the post requested" do
-      Post.find_by_permalink('2008', '01', '01', 'a-post', include: [:tags])
-      do_get
-    end
-
     it "should assign the found post for the view" do
       do_get
       assigns[:post].should equal(post)
@@ -156,9 +151,8 @@ describe PostsController do
   end
 
   describe 'handling GET with invalid page' do
-
     it 'raises a RecordNotFound error' do
-      lambda{Post.find_by_permalink(2014, 01, 16, 'my-manually-entered-slug')}.should raise_error(ActiveRecord::RecordNotFound)
+      lambda{get :show, year: '2014', month: '01', day: '16', slug: 'my-manually-entered-slug'}.should raise_error(ActiveRecord::RecordNotFound)
     end
   end
 
