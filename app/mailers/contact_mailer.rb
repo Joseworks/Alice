@@ -5,6 +5,6 @@ class ContactMailer < ActionMailer::Base
     @message = message
     @name = name
     @email = email
-    mail(to: 'patrick.kennedy@quidnuncre.com', subject: 'contact')
+    mail(to: 'contactqre@quidnuncre.com', subject: 'contact')
   end
 end
