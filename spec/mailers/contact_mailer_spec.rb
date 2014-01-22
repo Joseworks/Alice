@@ -22,7 +22,7 @@ describe ContactMailer do
     end
 
     it 'renders the receiver email' do
-      mail.to.should == ['patrick.kennedy@quidnuncre.com']
+      mail.to.should == ['contactqre@quidnuncre.com']
     end
 
     it 'renders the sender email' do
