@@ -11,7 +11,6 @@
   <%= javascript_include_tag 'application' %>
   <%= yield(:head) %>
   <%= render partial: "layouts/ganalytics"  %>
-  <%= render partial: "layouts/doubleclick_head_code" %>
 </head>
 <body>
 <div id="top-spacer"> </div>
@@ -66,9 +65,7 @@
       <div id="navigation">
         <div class="ad-box">
           <!-- ad-square-upper-right -->
-          <div id='div-gpt-ad-1386774150760-1' style='width:250px; height:250px;'>
-            <%= link_to (image_tag 'Q-WebAd-5-250.png'), 'https://twitter.com/quidnuncre' %>
-          </div>
+            <%= link_to (image_tag randomize_side_banner), root_path %>
         </div>
 
         <div class="links">
@@ -108,9 +105,7 @@
 
         <div class="ad-box">
           <!-- ad-square-lower-right -->
-          <div id='div-gpt-ad-1386774150760-0' style='width:250px; height:250px;'>
-                      <%= link_to (image_tag 'Q-WebAd-4-250.png'), root_path %>
-          </div>
+                      <%= link_to (image_tag randomize_side_banner), root_path %>
         </div>
 
       </div>
