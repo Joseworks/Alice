@@ -24,7 +24,6 @@ gem 'unicorn'
 # Bundle the extra gems:
 gem 'redcarpet', :require => 'redcarpet'
 gem 'chronic'
-gem 'coderay', '~> 1.0.5'
 gem 'formtastic'
 gem 'will_paginate', '~> 3.0.2'
 gem 'exception_notification'
