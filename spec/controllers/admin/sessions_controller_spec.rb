@@ -38,6 +38,13 @@ describe Admin::SessionsController do
     end
   end
 
+  describe '#allow_login_bypass? when RAILS_ENV == production' do
+    it 'returns false' do
+      ::Rails.stub(:env).and_return('production')
+      @controller.send(:allow_login_bypass?).should == false
+    end
+  end
+
 end
 
 shared_examples_for "logged in and redirected to /admin" do
@@ -106,4 +113,12 @@ describe Admin::SessionsController, "handling CREATE with post" do
     end
     it_should_behave_like "not logged in"
   end
+
+  describe "with bypass login selected" do
+    before do
+      post :create, :openid_url => "", :bypass_login => "1"
+    end
+    it_should_behave_like "logged in and redirected to /admin"
+  end
+
 end

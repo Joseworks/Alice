@@ -11,7 +11,12 @@ class Admin::SessionsController < ApplicationController
 
   def create
 
-    auth = request.env["omniauth.auth"]
+    if allow_login_bypass? && params[:bypass_login]
+      auth = dev_user
+    else
+      auth = request.env["omniauth.auth"]
+    end
+
     user = User.find_by_uid(auth["uid"]) || User.create_with_omniauth(auth)
     user.last_logged_in = Time.now
     user.save
@@ -35,5 +40,19 @@ class Admin::SessionsController < ApplicationController
   def failure
     redirect_to root_url, alert: "Authentication failed, please try again."
   end
+
+  protected
+
+    def allow_login_bypass?
+      %w(development test).include?(Rails.env)
+    end
+
+    def dev_user
+      { "info" => {"name"    => "Don Alias",
+                  "email"   => "testuser@quidnuncre.com"},
+        "provider" =>  "google_oauth2",
+        "uid" =>      "averylongnumber",
+        "last_logged_in" => Time.now }
+    end
 
 end
