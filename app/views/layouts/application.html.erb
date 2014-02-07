@@ -13,93 +13,83 @@
   <%= render partial: "layouts/ganalytics"  %>
 </head>
 <body>
-<div id="top-spacer"> </div>
-
 <div id="header">
   <div id="logo">
-    <%= link_to (image_tag 'Qlogo-F.png'), root_path, class: 'logo-element' %>
-    <%= link_to (image_tag 'Dictionary.png'), root_path, class: 'logo-element' %>
+    <%= link_to (image_tag 'quidnunc_logo.png'), root_path, class: 'logo-element' %>
+    <div id="dictionary">
+      <span class="quidnunc">quid&middot;nunc</span>
+      <span class="pronunciation">/ˈkwidˌnəNGk/</span>
+      <span class="part_of_speech">noun</span>
+      <span class="definition">1. A person who constantly seeks the latest news and  information</span>
+    </div>
   </div>
 
-  <% if @top_posts %>
-    <% @top_posts.each do |hot_post| %>
-      <div class="hot-headline"><%= link_to(hot_post.title, post_path(hot_post)) %></div>
-    <% end %>
-  <% end %>
-
+  <div id="social_links">
+    <span>Follow QuidnuncRE</span>
+    <div class="link_wrap">
+      <a href="https://www.facebook.com/QuidnuncRE/" class="facebook icon" target="_blank"></a>
+      <a href="https://twitter.com/quidnuncre" class="twitter icon" target="_blank"></a>
+    </div>
+  </div>
 </div>
 
+<nav id="navbar">
+  <div id="nav_wrap">
+    <%= link_to('ARCHIVES', archives_path) %>
+    <%= link_to 'SUBSCRIBE', signup_path %>
+    <%= link_to('SEND US TIPS', tipline_path) %>
+    <%= link_to('CONTACT US', contact_path) %>
+    <%= link_to('JOIN US', join_us_path) %>
 
+    <form method="get" id="sform" action="http://www.google.com/search">
+      <input type="text" id="q" value="search QN" name="q">
+      <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
+    </form>
+  </div>
+</nav>
+
+<% if @top_posts %>
+  <div class="hot-headline">
+    <div class="hot-headline-wrap">
+      <% @top_posts.each do |hot_post| %>
+        <%= link_to(hot_post.title, post_path(hot_post)) %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
   <div id="page_container">
-
-    <div id="ad-container">
-      <!-- top-banner -->
+    <!-- <div id="ad-container">
       <div id='div-gpt-ad-1386774150760-2' style='width:728px; height:90px;'>
         <%= link_to (image_tag 'Q-WebAd-3-728x90.png'), root_path %>
-
       </div>
-    </div>
-
+    </div> -->
     <div id="content">
-
-    <div id="navbar">
-      <%= link_to 'SUBSCRIBE', signup_path %>
-      <%= link_to('SEND US TIPS', tipline_path) %>
-      <%= link_to('CONTACT US', contact_path) %>
-      <%= link_to('JOIN US', join_us_path) %>
-      <form method="get" id="sform" action="http://www.google.com/search">
-        <input type="text" id="q" value="search QN" name="q">
-        <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
-      </form>
-      <div id="social-links">FOLLOW QuidnuncRE: <a href="https://twitter.com/quidnuncre"><%= image_tag 'Twitter_logo_blue.png', alt: 'Twitter' %></a>
-       <a href="https://www.facebook.com/QuidnuncRE/"><%= image_tag 'FB-f-Logo__blue_15.png', alt: 'Facebook' %></a> </div>
-    </div>
-
-
       <div id="main">
         <p><% if flash[:notice] %><p><%= flash[:notice] %></p><% end %><p>
         <%= yield %>
       </div>
 
       <div id="navigation">
+        <div id="mc_embed_signup-mini">
+          <form action="http://herokuapp.us3.list-manage.com/subscribe/post?u=6e437c7449d16f6abc35c325e&amp;id=4a023806c7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <label for="mce-EMAIL">Subscribe to our mailing list</label>
+            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+          </form>
+        </div>
+
         <div class="ad-box">
           <!-- ad-square-upper-right -->
             <%= link_to (image_tag randomize_side_banner), root_path %>
         </div>
 
         <div class="links">
-          <h2>Pages</h2>
-          <ul>
-            <% page_links_for_navigation.each do |link| -%>
-              <li><%= link_to(link.name, link.url) %></li>
-            <% end -%>
-          </ul>
-
-          <% if @tags %>
-            <div class="tag-cloud">
-              <h2>Tags</h2>
-              <div>
-                <% tag_cloud(@tags, %w(small-tag med-tag large-tag)) do |tag, css_class| %>
-                  <%= link_to tag.name, posts_path(:tag => tag.name), class: css_class %>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-
           <!-- Begin MailChimp Signup Form -->
           <style type="text/css">
             #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;}
             /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
                We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
           </style>
-          <div id="mc_embed_signup-mini">
-          <form action="http://herokuapp.us3.list-manage.com/subscribe/post?u=6e437c7449d16f6abc35c325e&amp;id=4a023806c7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-            <label for="mce-EMAIL">Subscribe to our mailing list</label>
-            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-          </form>
-          </div>
-
           <!--End mc_embed_signup-->
         </div>
 
@@ -109,8 +99,11 @@
         </div>
 
       </div>
-
-      <div id="footer"><%= enki_config[:title] %>. &#9400;  2013.</div>
+    </div>
+    <div id="footer">
+      <div class="footer_wrap">
+        <%= enki_config[:title] %>. &#9400;  2013.
+      </div>
     </div>
   </div>
 </body>

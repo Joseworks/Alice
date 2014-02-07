@@ -6,8 +6,8 @@ development:
   encoding: unicode
   host: localhost
   database: app_dev
-  username: patrickkennedy
-  password:
+  username: jon
+  password: testing123
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -16,9 +16,9 @@ test:
   adapter: postgresql
   encoding: unicode
   host: localhost
-  username: patrickkennedy
+  username: jon
   database: app_test
-  password:
+  password: testing123
 
 production:
   adapter: postgresql
