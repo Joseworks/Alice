@@ -3,6 +3,9 @@ Enki::Application.configure do
 
   # Code is not reloaded between requests
   config.cache_classes = true
+  config.serve_static_assets = true
+  config.assets.compile = true
+  config.assets.digest = true
 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
