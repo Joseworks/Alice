@@ -1,6 +1,43 @@
 **Quidnunc blog management system**
 
-This is based on Enki:
+
+Setup notes:
+
+1. You'll need Postgres and the Heroku Toolbelt.
+2. For reasons that are entirely my (PK) fault, you'll need to fiddle with the database.yml and (to log in to the admin area) session controller.
+3. Several environment vars are loaded from a .env file which is not checked in to Git:
+  (this is not the format of the actual file, just a list of keys)
+  * needed for Paperclip in the Post model:
+  - S3_BUCKET_NAME=<secret key redacted>
+  - S3_KEY=<secret key redacted>
+  - S3_SECRET=<secret key redacted>
+
+  * server settings passed to Unicorn:
+  - RACK_ENV=development
+  - PORT=3000
+
+  * email sending service settings:
+  - EMAIL_SEND_ADDRESS=<secret key redacted>
+  - EMAIL_SEND_PASSWORD=<secret key redacted>
+
+4. Launch the app using Foreman (foreman start) to use the .env file and Procfile.
+5. The current seeds.rb does not create long posts or posts with images, so there's a few cases it doesn't cover.
+
+This is based on Enki, but it has diverged substantially:
+
+* Ruby 2/Rails 4 updates (Enki wasn't all the way there at the time that I forked it.)
+* The Enki comments system has been removed and replaced with Disqus.
+* a Google-specific Omniauth strategy instead of OpenID.
+* No Markdown or Textile: TinyMCE rich text editor instead.
+* Goodbye Cucumber.
+* Paperclip for image upload.
+* A number of gems have been updated or replaced:
+  - acts_as_taggable_on instead of acts_as_taggable_on_steroids
+  - up-to-date chronic instead of the workaround fork aaronh-chronic
+  - newer will_paginate
+  - possibly others
+* other implementation-specific changes.
+
 
 **Enki**
 

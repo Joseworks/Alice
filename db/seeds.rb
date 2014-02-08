@@ -6,10 +6,14 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-15.times do |i|
-  Post.create(title: "Post Number #{i}",
-              body: "This is the post number #{i}.",
-              intro_text: 'just another post.',
-              published_at_natural: "January #{i}, 2014",
-              tag_list: "Tag Number #{i}, This is one tag")
+
+(1..12).each  do |k|
+  (1..26).each do |i|
+    Post.create!(title: "Post Number #{i}",
+                body: "This is the post number #{i}.",
+                intro_text: 'just another post.',
+                published_at_natural: "#{Date::MONTHNAMES[k]}, #{i}, 2014",
+                tag_list: "Tag Number #{i}, This is one tag",
+                slug:"#{i}-#{k}-#{rand()}")
+  end
 end

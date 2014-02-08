@@ -3,11 +3,7 @@ class Admin::SessionsController < ApplicationController
   layout 'login'
 
   def show
-    if session[:user_id]
-      redirect_to admin_root_path, notice: "welcome back!" and return
-    else
-      redirect_to action: 'new'
-    end
+    redirect_to action: 'new'
   end
 
   def new
@@ -15,9 +11,15 @@ class Admin::SessionsController < ApplicationController
 
   def create
 
-    auth = request.env["omniauth.auth"]
-    #user = User.find_by_uid(auth["uid"]) || User.create_with_omniauth(auth)
-    user = User.create!(id: rand(4..3000), name: "Jon", email: "jon@quidnuncre.com", uid: "uid")
+    if allow_login_bypass? && params[:bypass_login]
+      auth = dev_user
+    else
+      auth = request.env["omniauth.auth"]
+    end
+
+    user = User.find_by_uid(auth["uid"]) || User.create_with_omniauth(auth)
+    user.last_logged_in = Time.now
+    user.save
     if user.email.include?("quidnuncre.com")
       session[:logged_in] = true
       session[:user_id] = user.id
@@ -38,5 +40,19 @@ class Admin::SessionsController < ApplicationController
   def failure
     redirect_to root_url, alert: "Authentication failed, please try again."
   end
+
+  protected
+
+    def allow_login_bypass?
+      %w(development test).include?(Rails.env)
+    end
+
+    def dev_user
+      { "info" => {"name"    => "Don Alias",
+                  "email"   => "testuser@quidnuncre.com"},
+        "provider" =>  "google_oauth2",
+        "uid" =>      "averylongnumber",
+        "last_logged_in" => Time.now }
+    end
 
 end

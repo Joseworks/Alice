@@ -5,9 +5,8 @@ describe RandomizeBannersHelper do
 
   describe '#randomize_side_banner' do
     it 'should not repeat the same banner' do
-      banner1 = randomize_side_banner
-      banner2 = randomize_side_banner
-      banner1.should_not == banner2
+      ['Q-WebAd-2-250.png', 'Q-WebAd-250.png', 'Q-WebAd-4-250.png', 'Q-WebAd-5-250.png'].
+      should include randomize_side_banner
     end
   end
 end
