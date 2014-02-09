@@ -20,15 +20,15 @@
       <span class="quidnunc">quid&middot;nunc</span>
       <span class="pronunciation">/ˈkwidˌnəNGk/</span>
       <span class="part_of_speech">noun</span>
-      <span class="definition">1. A person who constantly seeks the latest news and  information</span>
+      <span class="number">1.</span> <span class="definition">A person who constantly seeks the latest news and  information</span>
     </div>
   </div>
 
   <div id="social_links">
     <span>Follow QuidnuncRE</span>
     <div class="link_wrap">
-      <a href="https://www.facebook.com/QuidnuncRE/" class="facebook icon" target="_blank"></a>
-      <a href="https://twitter.com/quidnuncre" class="twitter icon" target="_blank"></a>
+      <a href="https://www.facebook.com/QuidnuncRE/" class="facebook_top icon" target="_blank"></a>
+      <a href="https://twitter.com/quidnuncre" class="twitter_top icon" target="_blank"></a>
     </div>
   </div>
 </div>
@@ -80,8 +80,8 @@
 
         <div class="ad-box">
           <!-- ad-square-upper-right -->
-              <%= render partial: "layouts/chitika_ad_code_250" %>
-
+          <%= render partial: "layouts/chitika_ad_code_250" %>
+          <%= link_to (image_tag randomize_side_banner), root_path %>
         </div>
 
         <div class="links">
@@ -96,7 +96,8 @@
 
         <div class="ad-box">
           <!-- ad-square-lower-right -->
-                      <%= link_to (image_tag randomize_side_banner), root_path %>
+          <%= render partial: "layouts/chitika_ad_code_250" %>
+          <%= link_to (image_tag randomize_side_banner), root_path %>
         </div>
 
       </div>
