@@ -11,6 +11,9 @@
   <%= javascript_include_tag 'application' %>
   <%= yield(:head) %>
   <%= render partial: "layouts/ganalytics"  %>
+  <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="assets/ie8.css">
+  <![endif]-->
 </head>
 <body>
 <div id="header">
@@ -33,7 +36,7 @@
   </div>
 </div>
 
-<nav id="navbar">
+<div id="navbar">
   <div id="nav_wrap">
     <%= link_to('ARCHIVES', archives_path) %>
     <%= link_to 'SUBSCRIBE', signup_path %>
@@ -46,7 +49,7 @@
       <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
     </form>
   </div>
-</nav>
+</div>
 
 <% if @top_posts %>
   <div class="hot-headline">

@@ -130,7 +130,7 @@ textarea {
 
   a {
     display: inline-block;
-    margin-right: 4.6%;
+    margin-right: 4.2%;
     width: 30%;
     vertical-align: top;
 
@@ -289,7 +289,9 @@ textarea {
   background-position: 7px;
   border-radius: 3px;
   border: none;
-  box-sizing: border-box; 
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 14px;
   padding: 8px 8px 8px 40px;
   margin-top: 9px;
@@ -487,7 +489,9 @@ img {
     margin-bottom: 8px;
   }
 
-  input[type="email"] {
+  .email {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     border: 1px solid #999;
     border-bottom: none;
@@ -532,9 +536,10 @@ img {
 .post_title {
   a {
     color: #275474;
-    font-family: 'Lato';
+    font-family: 'Lato', arial;
     font-size: 28px;
     font-weight: bold;
+    line-height: 34px;
 
     &:hover {
       text-decoration: none;
@@ -563,7 +568,7 @@ div.post-intro-header, div.post-header {
 
   ul {
     padding: 0px;
-    margin: 3px 0px 5px 0px;
+    margin: 3px 0px 10px 0px;
   }
 }
 
