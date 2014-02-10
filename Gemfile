@@ -34,7 +34,7 @@ gem 'acts-as-taggable-on'
 gem 'tinymce-rails'
 gem 'impressionist'
 gem 'pg'
-
+gem 'devise'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
