@@ -59,7 +59,7 @@
 </div>
 
 
-<% if %w(development test).include?(Rails.env) %>
+<% if %w(development test production).include?(Rails.env) %>
   <% if @post.previous_post %>
     <%= link_to "<- Previous ", @post.previous_post %>
   <% end %>

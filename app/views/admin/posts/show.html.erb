@@ -1,6 +1,6 @@
 <h1>Editing post - <%= link_to_post(@post) %></h1>
 
-<% if %w(development test).include?(Rails.env) %>
+<% if %w(development test production).include?(Rails.env) %>
   <% if @post.image.exists? %>
     <%= @post.image.url(:medium).to_s %>
   <% end %>
