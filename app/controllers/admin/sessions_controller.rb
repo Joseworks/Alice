@@ -1,9 +1,13 @@
-class Admin::SessionsController < ApplicationController
+class Admin::SessionsController < Devise::SessionsController
   skip_before_filter :verify_authenticity_token, only: :create
   layout 'login'
 
   def show
-    redirect_to action: 'new'
+     if user_signed_in?
+       redirect_to admin_dashboard_show_path, notice: "Signed in!"
+     else
+       render action: 'new'
+     end
   end
 
   def new

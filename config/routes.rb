@@ -1,5 +1,5 @@
 Enki::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :path =>''
   match "/signup" => "static_page#signup_form", via: :get
 
   match 'contact' => 'contact#new', :via => :get
