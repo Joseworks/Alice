@@ -1,14 +1,11 @@
 <center>
 <h1><%= link_to(enki_config[:title], '/') %></h1>
 <% if flash[:error] %><p><%= flash[:error] %></p><% end %>
-<h2><%= link_to "Sign in with Google", '/auth/google_oauth2' %></h2>
-
-<% if %w(development test production).include?(Rails.env) %>
-  <%= form_tag(admin_session_path) do %>
-    <p><%= check_box_tag 'bypass_login' %> <label for="bypass_login">Bypass credentials check</label></p>
-    <h2><%= button_to "login with bypass power!", action: :create %></h2>
-  <% end %>
-<% end %>
+<h2>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+  <% end -%>
+</h2>
 
 <h2>Sign in with Devise</h2>
 

@@ -75,5 +75,10 @@ module Enki
     config.action_mailer.default_url_options = {
       :host => "quidnuncre.com"
     }
+
+  config.to_prepare do
+      Devise::SessionsController.layout proc{ |controller| action_name == 'new' ? "login"   : "application" }
+  end
+
   end
 end
