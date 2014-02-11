@@ -16,12 +16,10 @@
 <div class="entry-body">
 <% if post.image.present? %>
   <div class="img-container">
-    <div>
-      <%= image_tag post.image.url(:medium) %>
-        <% if post.caption.present? %>
-          <span><%= post.caption %><span>
-        <% end %>
-    </div>
+    <%= image_tag post.image.url %>
+    <% if post.caption.present? %>
+      <span><%= post.caption %><span>
+    <% end %>
   </div>
 <% end %>
 

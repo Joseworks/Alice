@@ -55,10 +55,8 @@ textarea {
   margin-bottom: 24px;
   background-color: white;
   text-align: center;
-  padding: 6px;
   width: 728px;
   height: 90px;
-  border: 1px solid #000;
 }
 
 #page_container {
@@ -421,16 +419,21 @@ a:hover {
   border: none;
 }
 
-img {
-  border: solid 1px black; }
-
 .img-container {
-  padding: 8px;
+  float: left;
   margin-bottom: 22px;
+  margin-right: 20px;
+  width: 230px;
 }
 
 .img-container img {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #dadada;
+  padding: 4px;
   display: block;
+  width: 230px;
 }
 
 .img-container div {
@@ -439,12 +442,12 @@ img {
 }
 
 .img-container span {
-  text-align: center;
-  font-size: 0.83em;
+  background: white;
+  display: inline-block;
+  font-size: 12px;
   color: #777;
-  position: absolute;
-  left: 0;
-  width: 100%;
+  margin-top: 4px;
+  font-weight: bold;
 }
 
 /* Two columns */
@@ -573,8 +576,15 @@ div.post-intro-header, div.post-header {
 }
 
 .entry-body {
+  @extend %clearfix;
+  margin-top: 25px;
+
   p {
     color: #707070;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
   }
 }
 
