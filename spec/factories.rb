@@ -15,9 +15,12 @@ FactoryGirl.define do
   end
 
   factory :user do
-    name                 "Don Alias"
-    email                "don@enkiblog.com"
+    sequence(:id) {|n|+5}
+    sequence(:name) {|n| "name#{n}" }
+    sequence(:email) {|n| "email#{n}@factory.com" }
+    sequence(:password) {|n| "password_#{n}" }
     provider             "google_oauth2"
-    uid                  "averylongnumber"
+    sequence(:uid) {|n| "#{n}"}
   end
+
 end

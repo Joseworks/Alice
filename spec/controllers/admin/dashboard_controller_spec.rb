@@ -6,9 +6,8 @@ describe Admin::DashboardController do
       @posts    = [mock_model(Post), mock_model(Post)]
       Post.stub(:where).and_return(@posts)
       Stats.stub(:new).and_return(@stats = Struct.new(:post_count, :tag_count).new(3,1))
-
-      session[:user_id] = 2
-      session[:logged_in] = true
+      user = FactoryGirl.create(:user)
+      sign_in user
       get :show
     end
 

@@ -4,10 +4,8 @@ describe Admin::UsersController do
 
   describe 'handling GET to index' do
     before(:each) do
-      @users = [mock_model(User), mock_model(User)]
-      User.stub(:all).and_return(@users)
-      session[:user_id] = 2
-      session[:logged_in] = true
+      @user = FactoryGirl.create(:user)
+      sign_in @user
       get :index
     end
 
@@ -20,9 +18,9 @@ describe Admin::UsersController do
     end
 
     it "finds users for the view" do
-      assigns[:users].should == @users
+      users = build_list(:user, 5)
+      assigns[:users].should include(@user)
     end
   end
-
 
 end

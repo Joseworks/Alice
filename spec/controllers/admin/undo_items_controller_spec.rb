@@ -5,8 +5,8 @@ describe Admin::UndoItemsController do
     before(:each) do
       @undo_items = [mock_model(UndoItem)]
       UndoItem.stub_chain(:order, :limit, :all).and_return(@undo_items)
-      session[:user_id] = 2
-      session[:logged_in] = true
+      user = FactoryGirl.create(:user)
+      sign_in user
       get :index
     end
 
@@ -24,8 +24,8 @@ describe Admin::UndoItemsController do
 
     def do_post
       request.env["HTTP_REFERER"] = "/bogus"
-      session[:user_id] = 2
-      session[:logged_in] = true
+      user = FactoryGirl.create(:user)
+      sign_in user
       post :undo, :id => 1
     end
 
@@ -43,8 +43,8 @@ describe Admin::UndoItemsController do
 
     def do_post
       request.env["HTTP_REFERER"] = "/bogus"
-      session[:user_id] = 2
-      session[:logged_in] = true
+      user = FactoryGirl.create(:user)
+      sign_in user
       post :undo, :id => 1, :format => 'json'
     end
 
@@ -61,8 +61,8 @@ describe Admin::UndoItemsController do
 
     def do_post
       request.env["HTTP_REFERER"] = "/bogus"
-      session[:user_id] = 2
-      session[:logged_in] = true
+      user = FactoryGirl.create(:user)
+      sign_in user
       post :undo, :id => 1
     end
 
@@ -79,8 +79,8 @@ describe Admin::UndoItemsController do
 
     def do_post
       request.env["HTTP_REFERER"] = "/bogus"
-      session[:user_id] = 2
-      session[:logged_in] = true
+      user = FactoryGirl.create(:user)
+      sign_in user
       post :undo, :id => 1, :format => 'json'
     end
 

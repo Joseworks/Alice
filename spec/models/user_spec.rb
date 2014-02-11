@@ -2,11 +2,12 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User, 'validations' do
   def valid_user_attributes
-    {
+    { :id      => "1",
       :name    => "Don Alias",
       :email   => "don@enkiblog.com",
       :provider =>  "google_oauth2",
-      :uid =>      "averylongnumber"
+      :uid =>      "averylongnumber",
+      :password => "apassword"
     }
   end
 
@@ -33,7 +34,8 @@ describe User, 'validations' do
   describe 'create_with_omniauth' do
 
     it 'creates a valid user' do
-      auth = {"provider" => 'google_oauth2', "uid" => 19827348, 'info' => {"name" => 'frog', "email" => 'frog@example.com'}}
+      auth = {"provider" => 'google_oauth2', "uid" => 19827348 , "password" =>'apassword12','info' => {"name" => 'frog', "email" => 'frog@example.com' }}
+
       User.create_with_omniauth(auth)
       user = User.last
       user.name.should == 'frog'

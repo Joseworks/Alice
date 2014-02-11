@@ -5,8 +5,8 @@ describe Admin::PostsController do
     before(:each) do
       @posts = [mock_model(Post), mock_model(Post)]
       Post.stub(:paginate).and_return(@posts)
-      session[:user_id] = 2
-      session[:logged_in] = true
+      user = FactoryGirl.create(:user)
+      sign_in user
       get :index
     end
 
@@ -27,8 +27,8 @@ describe Admin::PostsController do
     before(:each) do
       @post = mock_model(Post)
       Post.stub(:find).and_return(@post)
-      session[:logged_in] = true
-      session[:user_id] = 2
+      user = FactoryGirl.create(:user)
+      sign_in user
       get :show, :id => 1
     end
 
@@ -51,8 +51,8 @@ describe Admin::PostsController do
       Post.stub(:new).and_return(@post)
       @current_user = mock_model(User)
       User.stub(:find).and_return(@current_user)
-      session[:user_id] = @current_user.id
-      session[:logged_in] = true
+      user = FactoryGirl.create(:user)
+      sign_in user
       get :new
     end
 
@@ -68,8 +68,8 @@ describe Admin::PostsController do
     end
 
     def do_put
-      session[:logged_in] = true
-      session[:user_id] = 2
+      user = FactoryGirl.create(:user)
+      sign_in user
       put :update, :id => 1, :post => valid_post_attributes
     end
 
@@ -96,8 +96,8 @@ describe Admin::PostsController do
     end
 
     def do_put
-      session[:logged_in] = true
-      session[:user_id] = 2
+      user = FactoryGirl.create(:user)
+      sign_in user
       put :update, :id => 1, :post => valid_post_attributes
     end
 
@@ -119,8 +119,8 @@ describe Admin::PostsController do
     end
 
     it 'allows whitelisted attributes as expected' do
-      session[:user_id] = 2
-      session[:logged_in] = true
+      user = FactoryGirl.create(:user)
+      sign_in user
       put :update, :id => 1, :post => {
         'title'                => "My Updated Post",
         'author'               => "Writer Person",
@@ -142,16 +142,16 @@ describe Admin::PostsController do
 
   describe 'handling POST to create with valid attributes' do
     it 'creates a post' do
-      session[:user_id] = 2
-      session[:logged_in] = true
+      user = FactoryGirl.create(:user)
+      sign_in user
       lambda { post :create, :post => valid_post_attributes }.should change(Post, :count).by(1)
     end
   end
 
   describe 'handling POST to create with expected whitelisted attributes present' do
     it 'allows whitelisted attributes as expected' do
-      session[:user_id] = 2
-      session[:logged_in] = true
+      user = FactoryGirl.create(:user)
+      sign_in user
       put :create, :id => 1, :post => {
         'title'                => "My Awesome New Post",
         'author'               => "Writer Person",
@@ -190,8 +190,8 @@ describe Admin::PostsController do
     end
 
     def do_delete
-      session[:user_id] = 2
-      session[:logged_in] = true
+      user = FactoryGirl.create(:user)
+      sign_in user
       delete :destroy, :id => 1
     end
 
@@ -215,8 +215,8 @@ describe Admin::PostsController do
     end
 
     def do_delete
-      session[:user_id] = 2
-      session[:logged_in] = true
+      user = FactoryGirl.create(:user)
+      sign_in user
       delete :destroy, :id => 1, :format => 'json'
     end
 
@@ -235,8 +235,8 @@ end
 describe Admin::PostsController, 'with an AJAX request to preview' do
   before do
     Post.should_receive(:build_for_preview).and_return(@post = mock_model(Post))
-    session[:user_id] = 2
-    session[:logged_in] = true
+      user = FactoryGirl.create(:user)
+      sign_in user
     xhr :post, :preview, :post => {
       :title        => 'My Post',
       :author       => 'Writer Person',
