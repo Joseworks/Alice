@@ -18,17 +18,6 @@
     <% end %>
 </div>
 
-<% if @post.image.present? %>
-  <div class="img-container">
-    <div>
-      <%= image_tag @post.image.url(:medium) %>
-        <% if @post.caption.present? %>
-          <span><%= @post.caption %><span>
-        <% end %>
-    </div>
-  </div>
-<% end %>
-
 <div class="sharing-buttons">
     <span class="share_title">Share this post:</span>
     <span class='st_sharethis'></span>
@@ -37,6 +26,15 @@
     <span class='st_email'></span>
     <a href="javascript:window.print()"><%= image_tag("silk/printer.png", alt: "print") %></a>
 </div>
+
+<% if @post.image.present? %>
+  <div class="img-container">
+    <%= image_tag @post.image.url %>
+    <% if @post.caption.present? %>
+      <span><%= @post.caption %><span>
+    <% end %>
+  </div>
+<% end %>
 
 <%= raw(@post.body_html) %>
 
