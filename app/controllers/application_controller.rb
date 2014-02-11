@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user
   helper_method :tags_for_cloud
   helper_method :top_posts
 
@@ -13,10 +12,6 @@ class ApplicationController < ActionController::Base
   helper_method :enki_config
 
   private
-
-    def current_user
-      @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    end
 
     def tags_for_cloud
       @tags = Post.tag_counts_on(:tags).order('count desc').limit(15)

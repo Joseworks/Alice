@@ -28,7 +28,7 @@ class Admin::SessionsController < Devise::SessionsController
       session[:logged_in] = true
       session[:user_id] = user.id
       session[:username] = user.name
-      redirect_to admin_root_path, notice: "Signed in!"
+      # redirect_to admin_root_path, notice: "Signed in!"
     else
       flash[:error] = "login fails."
       render action: 'new'

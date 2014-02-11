@@ -1,0 +1,29 @@
+<center>
+<h1><%= link_to(enki_config[:title], '/') %></h1>
+<% if flash[:error] %><p><%= flash[:error] %></p><% end %>
+<h2><%= link_to "Sign in with Google", '/auth/google_oauth2' %></h2>
+
+<% if %w(development test production).include?(Rails.env) %>
+  <%= form_tag(admin_session_path) do %>
+    <p><%= check_box_tag 'bypass_login' %> <label for="bypass_login">Bypass credentials check</label></p>
+    <h2><%= button_to "login with bypass power!", action: :create %></h2>
+  <% end %>
+<% end %>
+
+<h2>Sign in with Devise</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <% end -%>
+
+  <div><%= f.submit "Sign in" %></div>
+<% end %>
+
+<%= render "users/shared/links" %>
