@@ -10,7 +10,10 @@
 	<p>There are no posts yet.</p>
 <% else -%>
 
-  <% @posts.each do |post| -%>
+  <% @posts.each_with_index do |post, i| -%>
+   <% if [2,8].include? i %>
+    <%= render 'layouts/chitika_ad_code_banner' %>
+   <% end %>
    <div class="post" id="<%= dom_id(post) %>">
      <%= render post %>
    </div>
