@@ -59,6 +59,11 @@ textarea {
   height: 90px;
 }
 
+.chitika-in-story {
+  width: 470px;
+  margin: 0 auto;
+}
+
 #page_container {
   background-color: white;
   position: absolute;
@@ -265,7 +270,7 @@ textarea {
       transition: 200ms ease;
     }
 
-    a:hover { 
+    a:hover {
       background-color: #376281;
       border-bottom: 5px solid #f46a22;
       padding-bottom: 10px;
@@ -348,7 +353,7 @@ textarea {
     margin: 0 auto;
     padding: 15px 0;
     width: 980px;
-  } 
+  }
 }
 
 /* Headings */

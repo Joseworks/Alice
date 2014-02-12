@@ -12,7 +12,9 @@
 
   <% @posts.each_with_index do |post, i| -%>
    <% if [2,8].include? i %>
+    <div class="chitika-in-story">
     <%= render 'layouts/chitika_ad_code_banner' %>
+  </div>
    <% end %>
    <div class="post" id="<%= dom_id(post) %>">
      <%= render post %>
