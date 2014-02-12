@@ -31,17 +31,15 @@ describe User, 'validations' do
     User.new(valid_user_attributes).last_logged_in.should be_nil
   end
 
-  describe 'create_with_omniauth' do
+  describe 'find_for_google_oauth2' do
 
     it 'creates a valid user' do
-      auth = {"provider" => 'google_oauth2', "uid" => 19827348 , "password" =>'apassword12','info' => {"name" => 'frog', "email" => 'frog@example.com' }}
-
-      User.create_with_omniauth(auth)
+      auth = OmniAuth.config.add_mock(:google_oauth2, :uid => '12345', :info => {:name => 'Joe', :email => 'joe@example.com'})
+      User.find_for_google_oauth2(auth)
       user = User.last
-      user.name.should == 'frog'
-      user.uid.should == '19827348'
+      user.name.should == 'Joe'
+      user.uid.should == '12345'
     end
-
   end
 
 end
