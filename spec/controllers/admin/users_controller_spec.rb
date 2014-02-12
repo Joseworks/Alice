@@ -1,5 +1,4 @@
 require 'spec_helper'
-
 describe Admin::UsersController do
 
   describe 'handling GET to index' do
@@ -23,4 +22,16 @@ describe Admin::UsersController do
     end
   end
 
+  describe 'updating a user' do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      sign_in @user
+    end
+
+    it "is successful updating the user email" do
+      put :update, id: @user, user: FactoryGirl.attributes_for(:user, :email=>"enemy@gates.com")
+      @user.reload
+      @user.email.should == "enemy@gates.com"
+    end
+  end
 end
