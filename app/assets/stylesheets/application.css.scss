@@ -397,7 +397,6 @@ a {
 
 p a {
   color: #f56b23 !important;
-  font-weight: lighter;
 }
 
 h1 a {
@@ -585,6 +584,11 @@ div.post-intro-header, div.post-header {
     &:first-of-type {
       margin-top: 0;
     }
+
+    img {
+      display: block;
+      padding-bottom: 20px;
+    }
   }
 }
 
@@ -595,7 +599,7 @@ div.post-intro-header, div.post-header {
     border-radius: 3px;
     color: white;
     padding: 2px 7px;
-    margin-right: 3px;
+    margin: 5px 5px 3px;
   }
 }
 
