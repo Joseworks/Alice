@@ -58,6 +58,37 @@ describe Admin::PagesController do
     it('assigns page for the view') { assigns[:page] == @page }
   end
 
+  describe 'handling GET to create' do
+    before(:each) do
+      user = FactoryGirl.create(:user)
+      sign_in user
+    end
+
+    it 'successfully creates a page' do
+      page = {'id'    => 2,
+              'title' => 'My Post',
+              'slug'  => 'my-post',
+              'body'  => 'This is my post'
+               }
+      post :create, page: page
+      response.should be_redirect
+      assigns(:page).title.should eq('My Post')
+
+    end
+
+    it 'does not creates a page' do
+      page = {'id'    => '2',
+              'title' => '',
+              'slug'  => 'my-post',
+              'body'  => 'This is my post'
+               }
+      post :create, page: page
+      response.should render_template('new')
+      assigns(:page).title.should_not eq('My Post')
+    end
+
+  end
+
   describe 'handling PUT to update with valid attributes' do
     before(:each) do
       @page = mock_model(Page, title: 'A page')

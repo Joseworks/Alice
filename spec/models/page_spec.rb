@@ -69,3 +69,21 @@ describe Page, '.build_for_preview' do
     @page.body_html.should == "<p>body</p>\n"
   end
 end
+
+describe Page, '#destroy with undo' do
+  def valid_page_attributes
+    {
+      :title                => "My Page",
+      :slug                 => "my-page",
+      :body                 => "body"
+    }
+  end
+
+  it 'deletes a page with undo' do
+    page = Page.new(valid_page_attributes)
+    expect(page.active?).to be true
+    page.destroy_with_undo
+    assert(page.id.nil?)
+  end
+
+end
