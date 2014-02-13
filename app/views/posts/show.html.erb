@@ -3,7 +3,7 @@
 <% end -%>
 
 
-<h2><%= link_to_post(@post) %></h2>
+<h2 class="post_title"><%= link_to_post(@post) %></h2>
 
 <div class="post-header">
   <ul>
@@ -18,19 +18,8 @@
     <% end %>
 </div>
 
-<% if @post.image.present? %>
-  <div class="img-container">
-    <div>
-      <%= image_tag @post.image.url(:medium) %>
-        <% if @post.caption.present? %>
-          <span><%= @post.caption %><span>
-        <% end %>
-    </div>
-  </div>
-<% end %>
-
 <div class="sharing-buttons">
-    Share this post:
+    <span class="share_title">Share this post:</span>
     <span class='st_sharethis'></span>
     <span class='st_facebook'></span>
     <span class='st_twitter'></span>
@@ -38,12 +27,20 @@
     <a href="javascript:window.print()"><%= image_tag("silk/printer.png", alt: "print") %></a>
 </div>
 
+<% if @post.image.present? %>
+  <div class="img-container">
+    <%= image_tag @post.image.url %>
+    <% if @post.caption.present? %>
+      <span><%= @post.caption %><span>
+    <% end %>
+  </div>
+<% end %>
 
 <%= raw(@post.body_html) %>
 
 <% if @post.source_link != '' %>
   Source: <a href= <%= @post.source_link %> >
-    <% if @post.source_link_description %>
+    <% if @post.source_link_description != "" %>
       <%= @post.source_link_description %>
     <% else %>
       <%= @post.source_link %></a>
@@ -59,15 +56,17 @@
 </div>
 
 
-<% if %w(development test production).include?(Rails.env) %>
+<div class="post_controls">
+<% if %w(development test).include?(Rails.env) %>
   <% if @post.previous_post %>
-    <%= link_to "<- Previous ", @post.previous_post %>
+    <%= link_to "Previous ", @post.previous_post, class: 'previous_post' %>
   <% end %>
 
   <% if @post.next_post %>
-    <%= link_to " Next ->", @post.next_post %>
+    <%= link_to "Next", @post.next_post, class: 'next_post' %>
   <% end %>
 <% end %>
+</div>
 
 <div id="disqus_thread"></div>
 
