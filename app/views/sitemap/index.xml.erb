@@ -4,7 +4,7 @@
     <url>
       <loc><%= post_path(post, only_path: false) %>/</loc>
       <lastmod>
-        <%= post.updated_at.strftime('%Y-%m-%d') %>
+        <%= post.created_at.strftime('%Y-%m-%d') %>
       </lastmod>
       <changefreq>daily</changefreq>
       <priority>0.5</priority>
