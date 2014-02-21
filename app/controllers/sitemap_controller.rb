@@ -6,7 +6,11 @@ class SitemapController < ApplicationController
     last_post = Post.last
     if stale?(:etag => last_post, :last_modified => last_post.updated_at.utc)
       respond_to do |format|
-        format.xml { @posts = Post.all }
+        format.xml { @posts = Post.find(
+        :all,
+        order:      'posts.published_at DESC',
+        conditions: ['published_at < ?', Time.now]
+      ) }
       end
     end
   end
