@@ -15,7 +15,7 @@ Enki::Application.routes.draw do
 
   namespace :admin do
 
-    resource :session
+    # resource :session
 
     resources :posts do
       post 'preview', :on => :collection
@@ -30,7 +30,7 @@ Enki::Application.routes.draw do
     resources :undo_items do
       post 'undo', :on => :member
     end
-    resources :users
+    resources :users, only: [:index, :update]
 
     get 'health(/:action)' => 'health', :action => 'index', :as => :health
 
