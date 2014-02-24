@@ -11,6 +11,8 @@ Enki::Application.routes.draw do
   match 'join_us' => 'join_us#new', :via => :get
   match 'join_us' => 'join_us#create', :via => :post
 
+  get 'sitemap.xml', :to => 'sitemap#index', :defaults => { :format => 'xml' }
+
   namespace :admin do
 
     resource :session
@@ -46,6 +48,7 @@ Enki::Application.routes.draw do
     get 'posts.:format', :as => :formatted_posts
     get '(:tag)', :as => :posts
   end
+
 
   match "/auth/:provider/callback" => "admin/sessions#create", via: [:get, :post]
 
