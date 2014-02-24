@@ -1,3 +1,5 @@
+require 'highline'
+
 namespace :enki do
   desc "Generates public/yadis.xrdf from enki.yml, for OpenID delegation"
   task :generate_yadis => :environment do
@@ -27,4 +29,29 @@ namespace :enki do
   task :clean_actions => :environment do
     UndoItem.delete_all(["created_at < ?", 7.days.ago])
   end
+
+  desc "Create user accounts with rake, prompting for user name and password."
+  task :user => :environment do
+    ui = HighLine.new
+    name     = ui.ask("Full Human name: ")
+    email    = ui.ask("Email: ")
+    password = ui.ask("Enter password: ") { |q| q.echo = false }
+
+    user = User.new(:name => name, :email => email, :password => password)
+    if user.save
+      puts "User account '#{name}' created."
+    else
+      puts
+      puts "Problem creating user account:"
+      puts user.errors.full_messages
+    end
+  end
+
+  desc "List users"
+  task :list_users => :environment do
+    User.all.order(:name).each do |user|
+      puts "#{user.name} | #{user.email}"
+    end
+  end
+
 end

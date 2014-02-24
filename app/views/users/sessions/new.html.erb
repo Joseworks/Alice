@@ -1,13 +1,15 @@
 <center>
 <h1><%= link_to(enki_config[:title], '/') %></h1>
 <% if flash[:error] %><p><%= flash[:error] %></p><% end %>
+<% if flash[:alert] %><p><%= flash[:alert] %></p><% end %>
+<% if flash[:notice] %><p><%= flash[:notice] %></p><% end %>
 <h2>
   <%- resource_class.omniauth_providers.each do |provider| %>
     <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
   <% end -%>
 </h2>
 <h4> - OR - </h4>
-<h2>Sign in with Devise</h2>
+<h2>Sign in with Username/password</h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div><%= f.label :email %><br />
