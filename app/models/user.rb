@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable, :registerable,
   devise :database_authenticatable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates_presence_of :name, :email, :uid
+  validates_presence_of :name, :email
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
       data = access_token.info

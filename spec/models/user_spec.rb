@@ -23,10 +23,6 @@ describe User, 'validations' do
     User.new(valid_user_attributes.merge(:email => '')).should_not be_valid
   end
 
-  it 'is invalid with no uid' do
-    User.new(valid_user_attributes.merge(:uid => '')).should_not be_valid
-  end
-
   it 'last_logged_in is blank until assigned' do
     User.new(valid_user_attributes).last_logged_in.should be_nil
   end
