@@ -17,7 +17,7 @@ FactoryGirl.define do
   factory :user do
     sequence(:id) {|n|+5}
     sequence(:name) {|n| "name#{n}" }
-    sequence(:email) {|n| "email#{n}@factory.com" }
+    sequence(:email) {|n| "email#{n}@quidnuncre.com" }
     sequence(:password) {|n| "password_#{n}" }
     provider             "google_oauth2"
     sequence(:uid) {|n| "#{n}"}

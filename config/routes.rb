@@ -49,9 +49,5 @@ Enki::Application.routes.draw do
     get '(:tag)', :as => :posts
   end
 
-
-  match "/auth/:provider/callback" => "admin/sessions#create", via: [:get, :post]
-
-
   root :to => 'posts#index'
 end
