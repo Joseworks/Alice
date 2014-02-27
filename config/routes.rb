@@ -1,4 +1,6 @@
 Enki::Application.routes.draw do
+  resources :feeds, :only => [:index]
+
   devise_for :users, :path =>'',  :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   match "/signup" => "static_page#signup_form", via: :get
 

@@ -36,6 +36,8 @@ gem 'impressionist'
 gem 'pg'
 gem 'devise'
 gem 'highline'
+gem 'simple-rss'
+
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

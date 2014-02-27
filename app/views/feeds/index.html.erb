@@ -1,0 +1,11 @@
+<div class="archives">
+<h2>Listing Feeds</h2>
+
+    <% @all_feeds.each do |feed| %>
+     <% feed.entries.each do |entry|%>
+        <li><%= link_to "#{entry.title}".force_encoding('UTF-8'), "#{entry.link}" %></li>
+      </br>
+      <% end %>
+    <% end %>
+
+</div>
