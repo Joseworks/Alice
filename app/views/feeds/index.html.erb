@@ -3,7 +3,9 @@
 
     <% @all_feeds.each do |feed| %>
      <% feed.entries.each do |entry|%>
-        <li><%= link_to "#{entry.title}".force_encoding('UTF-8'), "#{entry.link}" %></li>
+
+        <li> <span class="feeds-element"><%= link_to "#{feed.title}".force_encoding('UTF-8'), "#{feed.link}".force_encoding('UTF-8') %></span>
+          <%= link_to "#{entry.title}".force_encoding('UTF-8'), "#{entry.link}".force_encoding('UTF-8') %></li>
       </br>
       <% end %>
     <% end %>
