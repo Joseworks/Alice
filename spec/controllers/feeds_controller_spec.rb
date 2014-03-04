@@ -12,18 +12,18 @@ describe FeedsController do
       SimpleRSS.stub(:parse).and_return(@first_feed)
       get :index
     end
-    it "should be successful" do
 
+    it "should be successful" do
       response.should be_success
     end
 
     it "should render index template" do
-
       response.should render_template('index')
     end
 
     it "should return a feed" do
       assigns(:all_feeds).should include(@first_feed)
     end
+
   end
 end
