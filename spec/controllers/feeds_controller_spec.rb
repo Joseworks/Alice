@@ -2,14 +2,19 @@ require 'spec_helper'
 
 describe FeedsController do
 
+  describe "GET index without feeds" do
+    render_views
+    it "should display a message if there are no feeds" do
+      @first_feed = {}
+      get :index
+      @first_feed[:parsed_feed].should be_nil
+      response.should contain("There are no feeds yet. We will update soon.")
+    end
+  end
+
   describe "GET index" do
     before (:each) do
-      @first_feed = {:title=>"Kepler's Alien World Count Skyrockets",
-              :link=>"http://rss.slashdot.org/~r/Slashdot/slashdot/to/~3/Opg2H9HUTIo/keplers-alien-world-count-skyrockets",
-              :description=>"&lt;img src=\"http://feeds.feedburner.com/~r/Slashdot/slashdot/to/~4/Opg2H9HUTIo\" height=\"1\" width=\"1\"/&gt;",
-              :feedburner_origLink=>"http://science.slashdot.org/story/14/02/26/2025231/keplers-alien-world-count-skyrockets?utm_source=rss0.9mainlinkanon&amp;utm_medium=feed"}
-
-      SimpleRSS.stub(:parse).and_return(@first_feed)
+      @first_feed = Feed.create(new_feed_attributes)
       get :index
     end
 
@@ -22,8 +27,15 @@ describe FeedsController do
     end
 
     it "should return a feed" do
-      assigns(:all_feeds).should include(@first_feed)
+      assigns(:feeds).should_not be_nil
     end
 
+    it "should return a feed including parsed feed" do
+      @first_feed[:parsed_feed].should eql(new_feed_attributes[:parsed_feed])
+    end
+  end
+
+  def new_feed_attributes
+    { uri: "uri", parsed_feed:{ title: "A title", published: "On time", link: "Yet another link" }}
   end
 end

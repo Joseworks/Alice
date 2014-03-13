@@ -1,13 +1,11 @@
 <div class="archives">
   <h2>Listing Feeds</h2>
 
-  <% feeds= Feed.all %>
-  <% if feeds.empty? -%>
+  <% if @feeds.empty? %>
     <p> There are no feeds yet. We will update soon. </p>
-  <% else -%>
+  <% else %>
 
   <% @feeds.each do |feed| %>
-
     <li> <span class="feeds-element"><%= link_to "#{feed[:parsed_feed][:title]}".force_encoding('UTF-8'), "#{feed[:parsed_feed][:uri]}".force_encoding('UTF-8') %></span></li>
 
     <% feed[:parsed_feed][:items ].each do |x|   %>
