@@ -8,15 +8,15 @@ common:
   # secret: 8_2BGh0
   # The array of feeds you want to aggregate. If you change this then manually delete the whole cache.
   feeds:
-   - http://feeds.feedburner.com/trdnews?format=xml
    - http://ny.curbed.com/atom.xml
+   - http://www.costar.com/News/RSS/RSS.aspx?m=NYC
    - http://www.dnainfo.com/new-york/index/all
    - http://feeds.crainsnewyork.com/crainsnewyork/deals
    - http://feeds.feedburner.com/inmannews?format=xml
-   - http://www.ny1.com/Rss/Feeds.aspx?SecID=20090&RegionCookie=1
    - http://rss.nytimes.com/services/xml/rss/nyt/RealEstate.xml
    - http://rss.nytimes.com/services/xml/rss/nyt/Commercial.xml
-   - http://www.costar.com/News/RSS/RSS.aspx?m=NYC
+   - http://feeds.feedburner.com/trdnews?format=xml
+   - http://www.ny1.com/Rss/Feeds.aspx?SecID=20090
   # A map between the original feed item titles in the XML, and the titles you want to show when rendered.
   # In other words, you can change how the individual feed items are labelled.
 
