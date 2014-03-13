@@ -6,10 +6,11 @@
   <% else %>
 
   <% @feeds.each do |feed| %>
-    <li> <span class="feeds-element"><%= link_to "#{feed[:parsed_feed][:title]}".force_encoding('UTF-8'), "#{feed[:parsed_feed][:uri]}".force_encoding('UTF-8') %></span></li>
+    <li> <span class="feeds-element"><%= link_to "#{feed[:parsed_feed][:title]}".force_encoding('UTF-8'), "#{feed[:parsed_feed][:uri]}".force_encoding('UTF-8'), :target => "_blank" %></span></li>
 
+    <% #Simple RSS does returns an array with 'title' and 'link' in some particular cases, hence URI.extract is used with .last to guarantee that only the link will be used with link_to %>
     <% feed[:parsed_feed][:items ].each do |x|   %>
-      <%= link_to "#{x[:title]}".force_encoding('UTF-8'), "#{x[:link]}".force_encoding('UTF-8') %>
+      <%= link_to "#{x[:title]}".force_encoding('UTF-8'), URI.extract("#{x[:link]}").last, :target => "_blank" %>
       </br>
     <% end %>
 
