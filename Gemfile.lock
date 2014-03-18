@@ -66,6 +66,7 @@ GEM
     hashie (2.0.5)
     highline (1.6.20)
     hike (1.2.3)
+    htmlentities (4.3.1)
     httpclient (2.3.4.1)
     i18n (0.6.9)
     impressionist (1.5.1)
@@ -214,6 +215,7 @@ DEPENDENCIES
   factory_girl_rails
   formtastic
   highline
+  htmlentities
   impressionist
   jquery-rails
   nokogiri (~> 1.5.0)
