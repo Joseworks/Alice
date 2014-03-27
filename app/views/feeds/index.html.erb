@@ -11,15 +11,7 @@
       <% feed[:parsed_feed][:items ].each do |x|   %>
 
         <% @decoded_feed_title = title_decoder("#{feed[:parsed_feed][:title]}".force_encoding('UTF-8')) %>
-        <% @decoded_feed_url = "#{feed[:parsed_feed][:uri]}".force_encoding('UTF-8') %>
-
-        <% if @decoded_feed_title.include? "CoStar"  %>
-          <% @decoded_feed_title = "Commercial Real Estate News CoStar Group"  %>
-        <% end %>
-
-        <% if @decoded_feed_title.include? "Crain"  %>
-          <% @decoded_feed_title = "Crain's New York Business"  %>
-        <% end %>
+        <% shorten_names(@decoded_feed_title) %>
 
         <% if @decoded_feed_title.include? "DNAINFO.com"  %>
           <% @datetime = DateTime.parse(@decoded_feed_title)  %>
@@ -31,7 +23,7 @@
           <% @date_published_each_feed %>
         <% end %>
 
-        <span class="feeds-element"><%= link_to @decoded_feed_title, @decoded_feed_url, :target => "_blank" %></span>
+        <span class="feeds-element"><%= @decoded_feed_title %></span>
         <%= '-' %>
         <%= link_to title_decoder("#{x[:title]}".force_encoding('UTF-8').html_safe) , URI.extract("#{x[:link]}").last, :target => "_blank" %>
         </br>

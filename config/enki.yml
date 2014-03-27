@@ -2,6 +2,7 @@
 # This file contains no secret information, so can be stored in source control (unlike database.yml)
 title: Quidnunc RE
 url:   http://quidnuncre.com
-exception_notifications: patrick.kennedy@quidnuncre.com
+exception_notifications: josequidnuncre@gmail.com
 author:
   name:    Quidnunc RE Team        # For copyright notice and ATOM feeds
+

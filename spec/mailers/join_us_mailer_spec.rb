@@ -22,7 +22,7 @@ describe JoinUsMailer do
     end
 
     it 'renders the receiver email' do
-      mail.to.should == ['patrick.kennedy@quidnuncre.com']
+      mail.to.should == ['josequidnuncre@gmail.com']
     end
 
     it 'renders the sender email' do
