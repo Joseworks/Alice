@@ -20,6 +20,17 @@ common:
   # A map between the original feed item titles in the XML, and the titles you want to show when rendered.
   # In other words, you can change how the individual feed items are labelled.
 
+# Original Feeds List
+  # The Real Deal
+  # Curbed
+  # DNA Info
+  # GlobeSt.com
+  # Crain’s New York Business
+  # Inman News
+  # NY1 Real Estate
+  # NYT Real Estate
+  # Wall Street Journal Real Estate
+  # CoStar
 
 #development:
 
