@@ -5,6 +5,6 @@ class JoinUsMailer < ActionMailer::Base
     @message = message
     @name = name
     @email = email
-    mail(to: 'patrick.kennedy@quidnuncre.com', subject: 'Join us inquiry', from: @email)
+    mail(to: 'josequidnuncre@gmail.com', subject: 'Join us inquiry', from: @email)
   end
 end
