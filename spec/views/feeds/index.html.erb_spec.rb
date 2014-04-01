@@ -15,21 +15,7 @@ describe "feeds/index" do
                                               }
                             }
 
-    more_valid_feed_attributes = {  :uri => "http://a_link.com/atom.xml",
-                                    :parsed_feed => { :uri => "http://a_link.com/atom.xml",
-                                                      :title => "ReCurved",
-                                                      :items => [{:title     =>"Another nice Title, but created before",
-                                                                  :published => "2014-03-13 12:00:08",
-                                                                  :link      => "http://ny.recurbed.com/atom.xml"
-                                                                }],
-                                    :created_at => "2014-03-13 12:00:08",
-                                    :updated_at => "2014-03-13 12:00:08"
-                                                    }
-                                    }
-      @feed_one =  Feed.create(valid_feed_attributes)
-      @feed_two =  Feed.create(more_valid_feed_attributes)
-
-      @feeds = [@feed_one, @feed_two]
+      @feeds = [Feed.create(valid_feed_attributes)]
   end
 
 

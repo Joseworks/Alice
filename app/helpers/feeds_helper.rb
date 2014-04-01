@@ -30,7 +30,7 @@ module FeedsHelper
        @feed_date = feed.created_at || feed.published_at
        feed[:parsed_feed][:items ].each do |item|
          @decoded_source_feed_name = title_decoder("#{feed[:parsed_feed][:title]}".force_encoding('UTF-8'))
-         shorten_names(@decoded_source_feed_name,@feed_date, item[:published])
+         shorten_names(@decoded_source_feed_name, @feed_date, item[:published])
          @feed_name = title_decoder("#{item[:title]}".force_encoding('UTF-8').html_safe)
          @feed_link = URI.extract("#{item[:link]}").last
          @decoded_feed_url = "#{feed[:parsed_feed][:uri]}".force_encoding('UTF-8')
