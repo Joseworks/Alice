@@ -4,12 +4,11 @@
   <% if @feeds.blank? %>
     <p> There are no feeds yet. We will update soon. </p>
   <% else %>
-    <% sort_feeds_array %>
     <br>
-    <% @feed_array.each do |val| %>
-      <% if val.present? %>
-        <span class="feeds-element"> <%= val[0] %> </span>
-        <%= link_to " - #{val[1]}", val[2] , :target => "blank" %>
+    <% sort_feeds_array(@feeds).each do |value| %>
+      <% if value.present? %>
+        <span class="feeds-element"> <%= value[0] %> </span>
+        <%= link_to " - #{value[1]}", value[2] , :target => "blank" %>
         <br>
       <% end %>
     <% end %>

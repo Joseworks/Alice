@@ -33,6 +33,7 @@ describe "feeds/index" do
   it 'displays the name of the feed with a link to the feed' do
     render :template => "/feeds/index", :formats => [:html]
     rendered.should have_selector( "a", :href   => "http://ny.curbed.com/atom.xml", :target => "blank"), "A nice Title"
+
   end
 
 end

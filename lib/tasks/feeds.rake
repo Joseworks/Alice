@@ -1,5 +1,3 @@
-require 'highline'
-
 namespace :rss do
   desc "Refresh RSS feeds"
     task :refresh_feeds => :environment do
