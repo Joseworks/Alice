@@ -3,7 +3,7 @@ namespace :rss do
     task :refresh_feeds => :environment do
 
       @all_feeds = AppConfig.feeds.map do |uri|
-        feed = SimpleRSS.parse open( uri )
+        feed = SimpleRSS.parse open( uri, :read_timeout=>15 )
         { :uri => uri, :title => feed.title,
           :items => feed.items.map{ |item|
           {:title => item.title, :published => item.published, :link => item.link} } }

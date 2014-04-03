@@ -5,7 +5,7 @@ describe "feeds/index" do
   before(:each) do
     valid_feed_attributes = { :uri => "http://ny.curbed.com/atom.xml",
                               :parsed_feed => { :uri => "http://ny.curbed.com/atom.xml",
-                                                :title => "Curved",
+                                                :title => "Curbed NY",
                                                 :items => [{:title     =>"A nice Title",
                                                             :published => "2014-03-13 12:05:08",
                                                             :link      => "http://ny.curbed.com/atom.xml"
@@ -18,10 +18,9 @@ describe "feeds/index" do
       @feeds = [Feed.create(valid_feed_attributes)]
   end
 
-
   it 'displays the name of the feeds source' do
     render :template => "/feeds/index", :formats => [:html]
-    rendered.should contain("Curved")
+    rendered.should contain("Curbed NY")
   end
 
    it 'displays the title of the feed' do
@@ -37,5 +36,3 @@ describe "feeds/index" do
   end
 
 end
-
-
