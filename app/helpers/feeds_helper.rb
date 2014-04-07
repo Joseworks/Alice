@@ -27,7 +27,6 @@ module FeedsHelper
          feed_array << [decoded_name, feed_name, feed_link, date_published_each_feed]
        end
      end
-
      feed_array.sort!  do  |x,y|
        if  x[3].nil?
          1
@@ -38,8 +37,8 @@ module FeedsHelper
       end
      end
 
-    # feed_array.sort_by(&:published_at) DV Note :)
-     feed_array
+    feed_array = feed_array.reject{ |arr| arr.all? {|elem| elem.nil? || elem.strip.empty? }}
+
   end
 
   def extract_date_from_title(decoded_feed_name, main_feed, each_item)
@@ -65,7 +64,7 @@ module FeedsHelper
     elsif feed_title.include? "Crain"
       decoded_source_feed_name = "Crain's New York Business"
     elsif feed_title.include?("DNAINFO")
-      decoded_source_feed_name = "DNAINFO.com Top Stories"
+      decoded_source_feed_name = "DNAINFO.com"
     else
       feed_title
     end

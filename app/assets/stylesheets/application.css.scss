@@ -915,11 +915,26 @@ padding-right: 5px;
 padding-left: 6px;
 padding-bottom: 1px;
 padding-top: 1px;
-font-size: 12px;
+font-size: 13px;
   &:hover {
+    font-size: 15px;
     background-color: #f56b23;
   }
+}
 
+.feeds-links {
+
+margin-right: 6px;
+padding-right: 5px;
+padding-left: 6px;
+padding-bottom: 1px;
+padding-top: 1px;
+font-size: 13px;
+  &:hover {
+    font-size: 15px;
+    background-color: white;
+    border:1px solid #f56b23;
+  }
 }
 
 pre.ruby .keyword { color: #c41f1f; }

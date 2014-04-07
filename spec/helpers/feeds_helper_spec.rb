@@ -54,18 +54,6 @@ describe FeedsHelper do
                                                         }
                                         }
 
-    valid_feed_5_attributes = {  :uri => "http://link_more.com/atom.xml",
-                                        :parsed_feed => { :uri => "http://link_more.com/atom.xml",
-                                                          :title => "Another Generic page",
-                                                          :items => [{:title     =>"Just another Generic Title",
-                                                                      :published => "",
-                                                                      :link      => "http://link_more.com/atom.xml"
-                                                                    }],
-                                        :created_at => "",
-                                        :updated_at => ""
-                                                        }
-                                        }
-
       @feed_one   =  Feed.create(valid_feed_1_attributes)
       @feed_two   =  Feed.create(valid_feed_2_attributes)
       @feed_three =  Feed.create(valid_feed_3_attributes)
@@ -111,7 +99,7 @@ describe FeedsHelper do
 
     it 'shortens the names of DNAINFO.com ' do
         decoded_source_feed_name = shorten_names(@feed_three[:parsed_feed][:title])
-        expect(decoded_source_feed_name).to eq("DNAINFO.com Top Stories")
+        expect(decoded_source_feed_name).to eq("DNAINFO.com")
     end
 
     it 'assigns nil if feed does not contain published date value' do
@@ -129,43 +117,40 @@ describe FeedsHelper do
   describe '#sort_feeds_array' do
     it 'Sorts the array of feeds by date' do
 
-    @fifth_date = "2000-03-13 12:00:00"
-    @sixth_date = "2000-03-14 12:00:00"
+      @fifth_date = "2000-03-13 12:00:00"
+      @sixth_date = "2000-03-14 12:00:00"
 
-    valid_feed_5_attributes = {  :uri => "http://link_more.com/atom.xml",
-                                        :parsed_feed => { :uri => "http://link_more.com/atom.xml",
-                                                          :title => "Another Generic page",
-                                                          :items => [{:title     =>"Just another Generic Title",
-                                                                      :published => @fifth_date,
-                                                                      :link      => "http://link_more.com/atom.xml"
-                                                                    }],
-                                        :created_at => @fifth_date,
-                                        :updated_at => @fifth_date
-                                                        }
-                                        }
+      valid_feed_5_attributes = {  :uri => "http://link_more.com/atom.xml",
+                                          :parsed_feed => { :uri => "http://link_more.com/atom.xml",
+                                                            :title => "Another Generic page",
+                                                            :items => [{:title     =>"Just another Generic Title",
+                                                                        :published => @fifth_date,
+                                                                        :link      => "http://link_more.com/atom.xml"
+                                                                      }],
+                                          :created_at => @fifth_date,
+                                          :updated_at => @fifth_date
+                                                          }
+                                          }
 
-    valid_feed_6_attributes = {  :uri => "http://link_more.com/atom.xml",
-                                        :parsed_feed => { :uri => "http://link_more.com/atom.xml",
-                                                          :title => "Another Generic page",
-                                                          :items => [{:title     =>"Just another Generic Title",
-                                                                      :published => @sixth_date,
-                                                                      :link      => "http://link_more.com/atom.xml"
-                                                                    }],
-                                        :created_at => @sixth_date,
-                                        :updated_at => @sixth_date
-                                                        }
-                                        }
+      valid_feed_6_attributes = {  :uri => "http://link_more.com/atom.xml",
+                                          :parsed_feed => { :uri => "http://link_more.com/atom.xml",
+                                                            :title => "Another Generic page",
+                                                            :items => [{:title     =>"Just another Generic Title",
+                                                                        :published => @sixth_date,
+                                                                        :link      => "http://link_more.com/atom.xml"
+                                                                      }],
+                                          :created_at => @sixth_date,
+                                          :updated_at => @sixth_date
+                                                          }
+                                          }
       @feed_five  =  Feed.create(valid_feed_5_attributes)
       @feed_six  =  Feed.create(valid_feed_6_attributes)
 
-       @feeds = [@feed_six, @feed_five]
-       @sorted_feeds = [@feed_five, @feed_six]
-      # expect(sort_feeds_array(@feeds)).to eq(@sorted_feeds)
-
+      @feeds = [@feed_six, @feed_five]
+      @sorted_feeds = [["Another Generic page", "Just another Generic Title", "http://link",  @sixth_date],
+                       ["Another Generic page", "Just another Generic Title", "http://link",  @fifth_date]]
+      expect(sort_feeds_array(@feeds)).to eq(@sorted_feeds)
     end
   end
 
 end
-
-
-
