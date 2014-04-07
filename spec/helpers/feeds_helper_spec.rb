@@ -6,7 +6,7 @@ describe FeedsHelper do
     @second_date = "2002-03-13 12:00:00"
     @third_date  = "2001-03-29 03:39:00"
     @fourth_date = "2000-03-13 12:00:00"
-    valid_feed_attributes = { :uri => "http://ny.curbed.com/atom.xml",
+    valid_feed_1_attributes = { :uri => "http://ny.curbed.com/atom.xml",
                               :parsed_feed => { :uri => "http://ny.curbed.com/atom.xml",
                                                 :title => "CoStar Group Real Estate Bussines",
                                                 :items => [{:title     =>"A nice Title",
@@ -18,11 +18,11 @@ describe FeedsHelper do
                                               }
                             }
 
-    more_valid_feed_attributes = {  :uri => "http://a_link.com/atom.xml",
+    valid_feed_2_attributes = {  :uri => "http://a_link.com/atom.xml",
                                     :parsed_feed => { :uri => "http://a_link.com/atom.xml",
                                                       :title => "Real Estate Deal Watch - Crain's New York Business",
                                                       :items => [{:title     =>"Another nice Title",
-                                                                  :published => "",
+                                                                  :published => @second_date,
                                                                   :link      => "http://ny.recurbed.com/atom.xml"
                                                                 }],
                                     :created_at => @second_date,
@@ -30,12 +30,11 @@ describe FeedsHelper do
                                                     }
                                     }
 
-    even_more_valid_feed_attributes = {  :uri => "http://www.dnainfo.com/new-york/index/all",
+    valid_feed_3_attributes = {  :uri => "http://www.dnainfo.com/new-york/index/all",
                                           :parsed_feed => { :uri => "hhttp://www.dnainfo.com/new-york/index/all",
                                                             :title => "Home Page Top Stories on DNAINFO.com - Saturday, March 29, 2001 | 3:39am",
                                                             :items => [{:title     => "Home Page Top Stories on DNAINFO.com",
-                                                                        :published => "",
-
+                                                                        :published => @third_date,
                                                                         :link      => "http://www.dnainfo.com/new-york/index/all"
                                                                       }],
                                           :created_at => @third_date,
@@ -43,7 +42,7 @@ describe FeedsHelper do
                                                           }
                                     }
 
-    one_more_valid_feed_attributes = {  :uri => "http://generic_link_more.com/atom.xml",
+    valid_feed_4_attributes = {  :uri => "http://generic_link_more.com/atom.xml",
                                         :parsed_feed => { :uri => "http://generic_link_more.com/atom.xml",
                                                           :title => "Generic page",
                                                           :items => [{:title     =>"Just a Generic Title",
@@ -54,7 +53,8 @@ describe FeedsHelper do
                                         :updated_at => @fourth_date
                                                         }
                                         }
-    yet_more_valid_feed_attributes = {  :uri => "http://link_more.com/atom.xml",
+
+    valid_feed_5_attributes = {  :uri => "http://link_more.com/atom.xml",
                                         :parsed_feed => { :uri => "http://link_more.com/atom.xml",
                                                           :title => "Another Generic page",
                                                           :items => [{:title     =>"Just another Generic Title",
@@ -66,13 +66,11 @@ describe FeedsHelper do
                                                         }
                                         }
 
-      @feed_one   =  Feed.create(valid_feed_attributes)
-      @feed_two   =  Feed.create(more_valid_feed_attributes)
-      @feed_three =  Feed.create(even_more_valid_feed_attributes)
-      @feed_four  =  Feed.create(one_more_valid_feed_attributes)
-      @feed_five  =  Feed.create(yet_more_valid_feed_attributes)
+      @feed_one   =  Feed.create(valid_feed_1_attributes)
+      @feed_two   =  Feed.create(valid_feed_2_attributes)
+      @feed_three =  Feed.create(valid_feed_3_attributes)
+      @feed_four  =  Feed.create(valid_feed_4_attributes)
       @feeds = [@feed_one, @feed_two, @feed_three, @feed_four, @feed_five]
-
   end
 
   include FeedsHelper
@@ -111,7 +109,6 @@ describe FeedsHelper do
         expect(decoded_source_feed_name).to eq("Crain's New York Business")
     end
 
-
     it 'shortens the names of DNAINFO.com ' do
         decoded_source_feed_name = shorten_names(@feed_three[:parsed_feed][:title])
         expect(decoded_source_feed_name).to eq("DNAINFO.com Top Stories")
@@ -125,31 +122,46 @@ describe FeedsHelper do
       end
     end
 
-    it 'assigns nilRSS main feed does not contain a created_at date' do
-      @feed_five[:parsed_feed][:items].each do |item|
-        decoded_source_feed_name = item[:title]
-        assign_date_each_feed(item)
-        expect(@main_feed_created_date).to eq(nil)
-      end
-    end
-
-    it 'assigns the current time and date to each feed if the date does not contain a published_at date' do
-      @feed_four[:parsed_feed][:items].each do |item|
-        decoded_source_feed_name = item[:title]
-        assign_date_each_feed(item)
-        expect(@feed_date).to eq(@main_feed_created_date)
-      end
-    end
 
   end
 
   include FeedsHelper
   describe '#sort_feeds_array' do
     it 'Sorts the array of feeds by date' do
-       sort_feeds_array(@feeds)
-    end
-    it 'checks every feed has a published date' do
-      array_sorted = sort_feeds_array(@feeds)
+
+    @fifth_date = "2000-03-13 12:00:00"
+    @sixth_date = "2000-03-14 12:00:00"
+
+    valid_feed_5_attributes = {  :uri => "http://link_more.com/atom.xml",
+                                        :parsed_feed => { :uri => "http://link_more.com/atom.xml",
+                                                          :title => "Another Generic page",
+                                                          :items => [{:title     =>"Just another Generic Title",
+                                                                      :published => @fifth_date,
+                                                                      :link      => "http://link_more.com/atom.xml"
+                                                                    }],
+                                        :created_at => @fifth_date,
+                                        :updated_at => @fifth_date
+                                                        }
+                                        }
+
+    valid_feed_6_attributes = {  :uri => "http://link_more.com/atom.xml",
+                                        :parsed_feed => { :uri => "http://link_more.com/atom.xml",
+                                                          :title => "Another Generic page",
+                                                          :items => [{:title     =>"Just another Generic Title",
+                                                                      :published => @sixth_date,
+                                                                      :link      => "http://link_more.com/atom.xml"
+                                                                    }],
+                                        :created_at => @sixth_date,
+                                        :updated_at => @sixth_date
+                                                        }
+                                        }
+      @feed_five  =  Feed.create(valid_feed_5_attributes)
+      @feed_six  =  Feed.create(valid_feed_6_attributes)
+
+       @feeds = [@feed_six, @feed_five]
+       @sorted_feeds = [@feed_five, @feed_six]
+      # expect(sort_feeds_array(@feeds)).to eq(@sorted_feeds)
+
     end
   end
 

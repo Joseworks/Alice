@@ -24,7 +24,7 @@ module FeedsHelper
 
          feed_link = URI.extract("#{item[:link]}").last
 
-        feed_array << [decoded_name, feed_name, feed_link, date_published_each_feed]
+         feed_array << [decoded_name, feed_name, feed_link, date_published_each_feed]
        end
      end
 
@@ -53,7 +53,7 @@ module FeedsHelper
   def assign_date_each_feed(each_item)
     date_published = each_item[:published]
     if date_published.blank?
-      date_published = nil# DateTime.now.strftime('%Y-%m-%d %H:%M')
+      date_published = nil
     else
        date_published
     end
@@ -75,7 +75,6 @@ module FeedsHelper
     coder = HTMLEntities.new
     coder.decode(title)
   end
-
 
 end
 
