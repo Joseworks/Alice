@@ -266,8 +266,7 @@ textarea {
     a {
       display: inline-block;
       color: white;
-      padding: 15px 19px;
-      // padding: 15px 12px;
+      padding: 15px 12px;
       transition: 200ms ease;
     }
 
@@ -910,21 +909,56 @@ fieldset.toc
 }
 
 .feeds-element {
-border:1px solid #f56b23;
+/* border:1px solid blue; */
 margin-right: 6px;
-padding-right: 5px;
+padding-right: 0px;
 padding-left: 6px;
 padding-bottom: 1px;
 padding-top: 1px;
-font-size: 12px;
+font-size: 13px;
   &:hover {
     font-size: 15px;
     background-color: #f56b23;
   }
 }
 
+.feeds-links {
+margin-right: 6px;
+padding-right: 5px;
+padding-left: 6px;
+padding-bottom: 1px;
+padding-top: 1px;
+font-size: 13px;
+
+  &:hover {
+    font-size: 15px;
+    background-color: white;
+    border:1px solid blue;
+  }
+      a:hover {
+      padding-bottom: 10px;
+      text-decoration: none;
+    }
+
+}
+
+.feed-header {
+border: none;
+border-radius: 0px 0px 3px 3px;
+background-color: #f56b23;
+color: #FFFFFF;
+font-size: 16px;
+margin: 0 5px 0px 0;
+padding: 8px 5px;
+text-align: center;
+text-decoration: none;
+width: 100%;
+}
+
+
 
 pre.ruby .keyword { color: #c41f1f; }
 pre.ruby .constant { color: #961818; }
 pre.ruby .comment { color: #f37e00; }
 pre.ruby .string { color: #b77c0a; }
+

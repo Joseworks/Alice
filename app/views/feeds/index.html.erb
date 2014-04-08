@@ -1,14 +1,19 @@
-<h2>Listing Feeds</h2>
       <%#Simple RSS does returns an array with 'title' and 'link' in some particular cases, hence URI.extract is used with .last to guarantee that only the link will be used with link_to %>
-
+  <div class="feed-header"> <%= "#{DateTime.now.strftime('%B %e at %l:%M %p')}"  %></div>
   <% if @feeds.blank? %>
     <p> There are no feeds yet. We will update soon. </p>
   <% else %>
     <br>
     <% sort_feeds_array(@feeds).each do |value| %>
       <% if value.present? %>
-        <span class="feeds-element"> <%= value[0] %> </span>
-        <%= link_to " - #{value[1]}", value[2] , :target => "blank" %>
+        <% if value[1].length > 80 %>
+         <% value[1] = value[1].truncate(65, separator:' ') %>
+        <% end %>
+
+
+        <span class="feeds-links"><%= link_to " - #{value[1]}", value[2] , :target => "blank" %><%= " #{value[0]}" %> </span>
+        <!span class="feeds-element"> <!/span>
+
         <br>
       <% end %>
     <% end %>
