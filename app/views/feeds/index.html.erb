@@ -8,8 +8,7 @@
     <% sort_feeds_array(@feeds).each do |value| %>
       <% if value.present? %>
         <span class="feeds-element"> <%= value[0] %> </span>
-        <span class="feeds-links"><%= link_to " - #{truncate(value[1],:length => 70)}", value[2] , :target => "blank" %></span>
-
+        <%= link_to " - #{value[1]}", value[2] , :target => "blank" %>
         <br>
       <% end %>
     <% end %>

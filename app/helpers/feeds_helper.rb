@@ -62,9 +62,17 @@ module FeedsHelper
     if feed_title.include? "CoStar"
       decoded_source_feed_name  = "CoStar Group"
     elsif feed_title.include? "Crain"
-      decoded_source_feed_name = "Crain's New York Business"
+      decoded_source_feed_name = "Crain's NY"
     elsif feed_title.include?("DNAINFO")
-      decoded_source_feed_name = "DNAINFO.com"
+      decoded_source_feed_name = "DNAINFO"
+    elsif feed_title.include?("The Real Deal")
+      decoded_source_feed_name = "The Real Deal"
+    elsif feed_title.include?("NYT > Commercial Real Estate")
+      decoded_source_feed_name = "NYT > CRE"
+    elsif feed_title.include?("NYT > Real Estate")
+      decoded_source_feed_name = "NYT > RE"
+    elsif feed_title.include?("NY1")
+      decoded_source_feed_name = "NY1-RE"
     else
       feed_title
     end
