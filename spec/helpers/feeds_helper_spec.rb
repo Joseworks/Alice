@@ -33,7 +33,7 @@ describe FeedsHelper do
 
     it 'shortens the names of CoStar Group' do
         decoded_source_feed_name = shorten_names(@feed_one[:parsed_feed][:title])
-        expect(decoded_source_feed_name).to eq("CoStar Group")
+        expect(decoded_source_feed_name).to eq("CoStar")
     end
 
     it 'shortens the names of Crain New York Business' do
@@ -43,7 +43,7 @@ describe FeedsHelper do
 
     it 'shortens the names of DNAINFO.com ' do
         decoded_source_feed_name = shorten_names(@feed_three[:parsed_feed][:title])
-        expect(decoded_source_feed_name).to eq("DNAINFO")
+        expect(decoded_source_feed_name).to eq("DNA Info")
     end
 
     it 'shortens the names of The Real Deal New York ' do

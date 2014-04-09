@@ -908,17 +908,21 @@ fieldset.toc
   padding-left: 15px;
 }
 
-.feeds-element {
-/* border:1px solid blue; */
+.feeds-quidnunc {
+border:1px solid #f56b23;
 margin-right: 6px;
-padding-right: 0px;
+padding-right: 5px;
 padding-left: 6px;
 padding-bottom: 1px;
 padding-top: 1px;
-font-size: 13px;
+font-size: 12px;
+float: right;
+
   &:hover {
     font-size: 15px;
-    background-color: #f56b23;
+    background-color: white;
+    border:1px solid #f56b23;
+
   }
 }
 
@@ -929,7 +933,29 @@ padding-left: 6px;
 padding-bottom: 1px;
 padding-top: 1px;
 font-size: 13px;
+   /* margin-top:2px;
+margin-bottom:2px;*/
+  &:hover {
+    font-size: 15px;
+    background-color: white;
+    border:1px solid blue;
+  }
+      a:hover {
+      padding-bottom: 10px;
+      text-decoration: none;
+    }
 
+}
+
+.feeds-source {
+margin-right: 6px;
+padding-right: 5px;
+padding-left: 6px;
+padding-bottom: 1px;
+padding-top: 1px;
+font-size: 12px;
+border:1px solid blue;
+float: right;
   &:hover {
     font-size: 15px;
     background-color: white;

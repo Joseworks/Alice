@@ -27,6 +27,7 @@ module FeedsHelper
          feed_array << [decoded_name, feed_name, feed_link, date_published_each_feed]
        end
      end
+
      feed_array.sort!  do  |x,y|
        if  x[3].nil?
          1
@@ -60,11 +61,11 @@ module FeedsHelper
 
   def shorten_names(feed_title)
     if feed_title.include? "CoStar"
-      decoded_source_feed_name  = "CoStar Group"
+      decoded_source_feed_name  = "CoStar"
     elsif feed_title.include? "Crain"
       decoded_source_feed_name = "Crain's NY"
     elsif feed_title.include?("DNAINFO")
-      decoded_source_feed_name = "DNAINFO"
+      decoded_source_feed_name = "DNA Info"
     elsif feed_title.include?("The Real Deal")
       decoded_source_feed_name = "The Real Deal"
     elsif feed_title.include?("NYT > Commercial Real Estate")
