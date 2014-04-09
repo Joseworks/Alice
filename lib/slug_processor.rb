@@ -7,6 +7,7 @@ class SlugProcessor
     result.gsub!(/-+/, '-')             # collapse dashes
     result.gsub!(/-$/, '')              # trim dashes
     result.gsub!(/^-/, '')              # trim dashes
+    result.gsub!(/'/, '')              # trim single aposthrophe
     result
   end
 end

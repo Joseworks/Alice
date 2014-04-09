@@ -21,8 +21,8 @@ describe SlugProcessor, '#slugorize' do
     SlugProcessor.slugorize('abc""!@#$%^*()/=+|\[],.<>123').should == "abc-123"
   end
 
-  it "should allow apostrophes for good punctuation" do
-    SlugProcessor.slugorize("tomato's").should == "tomato's"
+  it "should not allow apostrophes" do
+    SlugProcessor.slugorize("tomato's").should == "tomatos"
   end
 
   it "should replace all whitespace with a dash" do
@@ -39,6 +39,9 @@ describe SlugProcessor, '#slugorize' do
 
   it "should collapse multiple dashes" do
     SlugProcessor.slugorize("abc---xyz").should == "abc-xyz"
+  end
+  it "should collapse a single apostrophe" do
+    SlugProcessor.slugorize("abc'xyz").should == "abcxyz"
   end
 end
 
