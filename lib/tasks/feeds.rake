@@ -6,7 +6,7 @@ namespace :rss do
         feed = SimpleRSS.parse open( uri, :read_timeout=>15 )
         { :uri => uri, :title => feed.title,
           :items => feed.items.map{ |item|
-          {:title => item.title, :published => item.published, :link => item.link} } }
+          {:title => item.title, :published => item.published, :pubDate => item.pubDate, :link => item.link} } }
       end
 
       @all_feeds.each do |feed|

@@ -1,6 +1,7 @@
       <%#Simple RSS does returns an array with 'title' and 'link' in some particular cases, hence URI.extract is used with .last to guarantee that only the link will be used with link_to %>
   <% today_date = DateTime.now.strftime('%A, %B %e, %Y') %>
   <% yesterday_date = DateTime.yesterday.strftime('%A, %B %e, %Y')  %>
+  <% yesterday_header_counter = 0 %>
 
   <div class="feed-header"> <%= "#{today_date}"  %></div>
 
@@ -12,21 +13,34 @@
     <% sort_feeds_array(@feeds).each do |value| %>
       <% if value.present? %>
         <% if value[1].length > 80 %>
-         <% value[1] = value[1].truncate(65, separator:' ') %>
+          <% value[1] = value[1].truncate(65, separator:' ') %>
         <% end %>
 
-        <% if value[0].include?"Quidnunc RE" %>
-          <span class="feeds-quidnunc"><%= value[0] %></span>
-          <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
-
-        <% else %>
-          <span class="feeds-source"><%=" #{value[0]}" %></span>
-          <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
+        <% if  DateTime.parse(value[3].to_s) >= Chronic.parse('yesterday midnight')  %>
+          <% if value[0].include?"Quidnunc RE" %>
+            <span class="feeds-quidnunc"><%= value[0] %></span>
+            <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
+          <% else %>
+            <span class="feeds-source"><%=" #{value[0]}" %></span>
+            <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
+             <br>
+          <% end %>
+        <% elsif  DateTime.parse(value[3].to_s) > Chronic.parse('three days ago midnight') && DateTime.parse(value[3].to_s) < Chronic.parse('yesterday midnight') && yesterday_header_counter == 0 %>
+            <div class="feed-header"> <%= "#{yesterday_date}"  %></div>
+            <% yesterday_header_counter = 1 %>
+          <% if value[0].include?"Quidnunc RE" %>
+            <span class="feeds-quidnunc"><%= value[0] %></span>
+            <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
+          <% else %>
+            <span class="feeds-source"><%=" #{value[0]}" %></span>
+            <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
+             <br>
+          <% end %>
         <% end %>
 
-        <br>
       <% end %>
     <% end %>
 
   <% end %>
 </div>
+

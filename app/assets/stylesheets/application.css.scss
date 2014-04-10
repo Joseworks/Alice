@@ -908,65 +908,7 @@ fieldset.toc
   padding-left: 15px;
 }
 
-.feeds-quidnunc {
-border:1px solid #f56b23;
-margin-right: 6px;
-padding-right: 5px;
-padding-left: 6px;
-padding-bottom: 1px;
-padding-top: 1px;
-font-size: 12px;
-float: right;
-
-  &:hover {
-    font-size: 15px;
-    background-color: white;
-    border:1px solid #f56b23;
-
-  }
-}
-
-.feeds-links {
-margin-right: 6px;
-padding-right: 5px;
-padding-left: 6px;
-padding-bottom: 1px;
-padding-top: 1px;
-font-size: 13px;
-   /* margin-top:2px;
-margin-bottom:2px;*/
-  &:hover {
-    font-size: 15px;
-    background-color: white;
-    border:1px solid blue;
-  }
-      a:hover {
-      padding-bottom: 10px;
-      text-decoration: none;
-    }
-
-}
-
-.feeds-source {
-margin-right: 6px;
-padding-right: 5px;
-padding-left: 6px;
-padding-bottom: 1px;
-padding-top: 1px;
-font-size: 12px;
-border:1px solid blue;
-float: right;
-  &:hover {
-    font-size: 15px;
-    background-color: white;
-    border:1px solid blue;
-  }
-      a:hover {
-      padding-bottom: 10px;
-      text-decoration: none;
-    }
-
-}
+/* FEEDS */
 
 .feed-header {
 border: none;
@@ -981,7 +923,66 @@ text-decoration: none;
 width: 100%;
 }
 
+.feeds-quidnunc {
+border:1px solid #f56b23;
+margin-right: 6px;
+padding-right: 5px;
+padding-left: 6px;
+padding-bottom: 1px;
+padding-top: 1px;
+font-size: 12px;
+float: right;
 
+  &:hover {
+    font-size: 12px;
+    background-color: white;
+    border:1px solid #f56b23;
+    background: rgb(252, 221, 183);
+
+  }
+}
+
+.feeds-links {
+margin-right: 6px;
+padding-right: 5px;
+padding-left: 6px;
+/* padding-bottom: 1px;
+padding-top: 1px; */
+font-size: 13px;
+  &:hover {
+    font-size: 15px;
+    background-color: white;
+    border:1px solid blue;
+  }
+      a:hover {
+      padding-bottom: 10px;
+      text-decoration: none;
+    }
+
+}
+
+.feeds-source {
+   /* margin-top:2px;
+margin-bottom:2px;*/
+margin-right: 6px;
+padding-right: 5px;
+padding-left: 6px;
+/* padding-bottom: 1px;
+padding-top: 1px; */
+font-size: 12px;
+border:1px solid blue;
+float: right;
+  &:hover {
+    font-size: 12px;
+    background: aliceblue;
+    border:1px solid blue;
+  }
+      a:hover {
+      padding-bottom: 10px;
+      text-decoration: none;
+    }
+
+}
 
 pre.ruby .keyword { color: #c41f1f; }
 pre.ruby .constant { color: #961818; }

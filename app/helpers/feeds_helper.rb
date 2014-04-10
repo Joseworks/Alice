@@ -51,11 +51,15 @@ module FeedsHelper
   end
 
   def assign_date_each_feed(each_item)
+    date_published_NYT = each_item[:pubDate]
     date_published = each_item[:published]
-    if date_published.blank?
+
+    if date_published.blank? && date_published_NYT.blank?
       date_published = nil
-    else
-       date_published
+    elsif date_published.blank? && !date_published_NYT.blank?
+       date_published = date_published_NYT
+     else
+      date_published
     end
   end
 
