@@ -10,11 +10,31 @@ namespace :rss do
       end
 
       @all_feeds.each do |feed|
-          new = Feed.find_or_initialize_by_uri( feed[:uri] )
-          new.parsed_feed = feed
-          new.save!
+        feed[:items].each do |item|
+          if !item[:published].nil?
+            item[:published] = item[:published].utc
+          elsif !item[:pubDate].nil?
+            item[:pubDate] =  item[:pubDate].utc
+            # p item[:pubDate]
+          end
 
+        if feed[:title].include? "DNAINFO.com"
+          dna_title = feed[:title]
+          item[:published] = DateTime.parse(dna_title)
+          item[:published] =item[:published].utc
+          # p "item[:published] date ->  #{item[:published].is_a?(DateTime)}  #{item[:published]}  |-|   #{item[:published].utc.to_datetime  }|-|#{item[:published].utc} "
+        end
+
+        end
       end
+
+
+      @all_feeds.each do |feed|
+        new = Feed.find_or_initialize_by_uri( feed[:uri] )
+        new.parsed_feed = feed
+        new.save!
+      end
+
     end
 
 

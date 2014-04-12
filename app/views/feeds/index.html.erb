@@ -1,6 +1,13 @@
       <%#Simple RSS does returns an array with 'title' and 'link' in some particular cases, hence URI.extract is used with .last to guarantee that only the link will be used with link_to %>
-  <% today_date = DateTime.now.strftime('%A, %B %e, %Y') %>
-  <% yesterday_date = DateTime.yesterday.strftime('%A, %B %e, %Y')  %>
+
+<% # encoding: UTF-8 %>
+
+
+
+  <% today_date = DateTime.now.utc %>
+  <% today_date = today_date.strftime('%A, %B %e, %Y') %>
+  <% yesterday_date = 1.day.ago.midnight.utc %>
+  <% yesterday_date_to_display = yesterday_date.strftime('%A, %B %e, %Y')  %>
   <% yesterday_header_counter = 0 %>
 
   <div class="feed-header"> <%= "#{today_date}"  %></div>
@@ -16,26 +23,49 @@
           <% value[1] = value[1].truncate(65, separator:' ') %>
         <% end %>
 
-        <% if  DateTime.parse(value[3].to_s) >= Chronic.parse('yesterday midnight')  %>
+        <% if  DateTime.parse(value[3].to_s) >= Chronic.parse('yesterday midnight').utc  %>
           <% if value[0].include?"Quidnunc RE" %>
-            <span class="feeds-quidnunc"><%= value[0] %></span>
+            <span class="feeds-quidnunc"><%= value[0] %></span><%= value[3].in_time_zone("Eastern Time (US & Canada)") %>
+
             <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
           <% else %>
-            <span class="feeds-source"><%=" #{value[0]}" %></span>
+            <span class="feeds-source"><%=" #{value[0]}" %></span><%= value[3] %>
+
             <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
              <br>
           <% end %>
-        <% elsif  DateTime.parse(value[3].to_s) > Chronic.parse('three days ago midnight') && DateTime.parse(value[3].to_s) < Chronic.parse('yesterday midnight') && yesterday_header_counter == 0 %>
-            <div class="feed-header"> <%= "#{yesterday_date}"  %></div>
+
+        <% elsif  DateTime.parse(value[3].to_s) >= Chronic.parse('two days ago midnight').utc && DateTime.parse(value[3].to_s) < Chronic.parse('yesterday midnight') && yesterday_header_counter == 0 %>
+            <div class="feed-header"> <%= "#{yesterday_date_to_display}"  %></div>
             <% yesterday_header_counter = 1 %>
           <% if value[0].include?"Quidnunc RE" %>
-            <span class="feeds-quidnunc"><%= value[0] %></span>
+            <span class="feeds-quidnunc"><%= value[0] %></span><%= value[3].in_time_zone("Eastern Time (US & Canada)") %>
+
             <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
           <% else %>
-            <span class="feeds-source"><%=" #{value[0]}" %></span>
+            <span class="feeds-source"><%=" #{value[0]}" %></span><%= value[3].in_time_zone("Eastern Time (US & Canada)") %>
+
             <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
              <br>
           <% end %>
+
+        <% else %>
+          <% if DateTime.parse(value[3].to_s) > Chronic.parse('three days ago midnight').utc && DateTime.parse(value[3].to_s) < Chronic.parse('two days ago') && yesterday_header_counter == 1 %>
+            <div class="feed-header"> <%= "Older Feeds"%></div>
+            <% yesterday_header_counter = 2 %>
+          <% end %>
+
+          <% if value[0].include?"Quidnunc RE" %>
+            <span class="feeds-quidnunc"><%= value[0] %></span><%= value[3].in_time_zone("Eastern Time (US & Canada)") %>
+
+            <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
+          <% else %>
+            <span class="feeds-source"><%=" #{value[0]}" %></span><%= value[3].in_time_zone("Eastern Time (US & Canada)") %>
+
+            <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
+             <br>
+          <% end %>
+
         <% end %>
 
       <% end %>

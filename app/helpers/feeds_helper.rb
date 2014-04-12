@@ -8,13 +8,7 @@ module FeedsHelper
      feeds.each do |feed|
        feed[:parsed_feed][:items].each do |item|
 
-         if feed[:parsed_feed][:title].include? "DNAINFO.com"
-           decoded_source_feed_name ="#{feed[:parsed_feed][:title]}".force_encoding('UTF-8')
-           dna_title_date = extract_date_from_title(decoded_source_feed_name, feed, item)
-           item[:published] = dna_title_date
-         else
-           decoded_source_feed_name = title_decoder("#{feed[:parsed_feed][:title]}".force_encoding('UTF-8'))
-         end
+         decoded_source_feed_name = title_decoder("#{feed[:parsed_feed][:title]}".force_encoding('UTF-8'))
 
          date_published_each_feed =  assign_date_each_feed(item)
 
@@ -40,14 +34,6 @@ module FeedsHelper
 
     feed_array = feed_array.reject{ |arr| arr.all? {|elem| elem.nil? || elem.strip.empty? }}
 
-  end
-
-  def extract_date_from_title(decoded_feed_name, main_feed, each_item)
-    if decoded_feed_name.include? "DNAINFO.com"
-        DateTime.parse(decoded_feed_name, "%Y-%m-%d %H:%M").strftime('%Y-%m-%d %H:%M:%S')
-    else
-        ""
-    end
   end
 
   def assign_date_each_feed(each_item)
