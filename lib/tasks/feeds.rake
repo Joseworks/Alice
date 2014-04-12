@@ -22,9 +22,7 @@ namespace :rss do
           item[:published] = DateTime.parse(dna_title)
           item[:published] =item[:published].utc
         end
-          if item[:published].nil? && item[:pubDate].nil?
-            p " ->  #{item[:title]} ----- #{item[:published] }  --  #{item[:pubDate] } "
-          end
+
         end
       end
 
