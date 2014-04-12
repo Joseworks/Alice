@@ -1,7 +1,5 @@
       <%#Simple RSS does returns an array with 'title' and 'link' in some particular cases, hence URI.extract is used with .last to guarantee that only the link will be used with link_to %>
 
-<% # encoding: UTF-8 %>
-
 
 
   <% today_date = DateTime.now.utc %>
@@ -18,6 +16,12 @@
     <br>
 
     <% sort_feeds_array(@feeds).each do |value| %>
+    <br>
+    <br>
+
+    <span class="feeds-source"><%= p value[3].inspect %></span>
+        <br>
+
       <% if value.present? %>
         <% if value[1].length > 80 %>
           <% value[1] = value[1].truncate(65, separator:' ') %>
