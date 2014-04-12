@@ -15,16 +15,16 @@ namespace :rss do
             item[:published] = item[:published].utc
           elsif !item[:pubDate].nil?
             item[:pubDate] =  item[:pubDate].utc
-            # p item[:pubDate]
           end
 
         if feed[:title].include? "DNAINFO.com"
           dna_title = feed[:title]
           item[:published] = DateTime.parse(dna_title)
           item[:published] =item[:published].utc
-          # p "item[:published] date ->  #{item[:published].is_a?(DateTime)}  #{item[:published]}  |-|   #{item[:published].utc.to_datetime  }|-|#{item[:published].utc} "
         end
-
+          if item[:published].nil? && item[:pubDate].nil?
+            p " ->  #{item[:title]} ----- #{item[:published] }  --  #{item[:pubDate] } "
+          end
         end
       end
 
