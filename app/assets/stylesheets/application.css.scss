@@ -923,6 +923,34 @@ text-decoration: none;
 width: 100%;
 }
 
+.feeds-container{
+  width: 100%;
+
+  margin-top:2px;
+margin-bottom:2px;
+}
+
+.feeds-links {
+margin-right: 6px;
+padding-right: 5px;
+padding-left: 6px;
+padding-bottom: 1px;
+padding-top: 1px;
+font-size: 13px;
+float: left;
+
+  &:hover {
+    font-size: 15px;
+    background-color: white;
+    border:1px solid blue;
+  }
+      a:hover {
+      padding-bottom: 10px;
+      text-decoration: none;
+    }
+
+}
+
 .feeds-quidnunc {
 border:1px solid #f56b23;
 margin-right: 6px;
@@ -940,37 +968,20 @@ float: right;
     background: rgb(252, 221, 183);
 
   }
-}
-
-.feeds-links {
-margin-right: 6px;
-padding-right: 5px;
-padding-left: 6px;
-/* padding-bottom: 1px;
-padding-top: 1px; */
-font-size: 13px;
-  &:hover {
-    font-size: 15px;
-    background-color: white;
-    border:1px solid blue;
-  }
-      a:hover {
+        a:hover {
       padding-bottom: 10px;
       text-decoration: none;
     }
-
 }
 
 .feeds-source {
-   /* margin-top:2px;
-margin-bottom:2px;*/
+border:1px solid blue;
 margin-right: 6px;
 padding-right: 5px;
 padding-left: 6px;
-/* padding-bottom: 1px;
-padding-top: 1px; */
+ padding-bottom: 1px;
+padding-top: 1px;
 font-size: 12px;
-border:1px solid blue;
 float: right;
   &:hover {
     font-size: 12px;
