@@ -6,30 +6,34 @@ describe FeedsHelper do
   end
 
   include FeedsHelper
-  describe '#shorten_names' do
+  describe '#assign_date_each_feed' do
 
 
-    it 'assigns the feed date from name to published date for the feed' do
+    it 'assigns the feed date from published date' do
       @feeds = [@feed_three]
         @feeds.each do |feed|
         @feed_three[:parsed_feed][:items].each do |item|
           decoded_source_feed_name = "#{feed[:parsed_feed][:title]}".force_encoding('UTF-8')
-          decoded_name = extract_date_from_title(decoded_source_feed_name, feed, item)
+          decoded_name = assign_date_each_feed(item)
           expect(decoded_name).to eq(@third_date)
         end
       end
     end
 
-    it 'assigns the feed date from created_at to published date for the feed' do
-      @feeds = [@feed_four]
+    it 'assigns the feed date from pubDate' do
+      @feeds = [@feed_three]
         @feeds.each do |feed|
-        @feed_four[:parsed_feed][:items].each do |item|
+        @feed_five[:parsed_feed][:items].each do |item|
           decoded_source_feed_name = "#{feed[:parsed_feed][:title]}".force_encoding('UTF-8')
-          decoded_name = extract_date_from_title(decoded_source_feed_name, feed, item)
-          expect(decoded_name).to eq("")
+          decoded_name = assign_date_each_feed(item)
+          expect(decoded_name).to eq(@fifth_date)
         end
       end
     end
+   end
+
+  include FeedsHelper
+  describe '#shorten_names' do
 
     it 'shortens the names of CoStar Group' do
         decoded_source_feed_name = shorten_names(@feed_one[:parsed_feed][:title])
@@ -74,8 +78,6 @@ describe FeedsHelper do
       end
 
     end
-
-
   end
 
   include FeedsHelper
@@ -84,8 +86,9 @@ describe FeedsHelper do
       @feed_five[:parsed_feed][:title] = shorten_names(@feed_five[:parsed_feed][:title])
       @feed_six[:parsed_feed][:title] = shorten_names(@feed_six[:parsed_feed][:title])
       @feeds = [@feed_six, @feed_five]
-      @sorted_feeds = [[@feed_six[:parsed_feed][:title], @feed_six[:parsed_feed][:items][0][:title], "http://link", date_time_conversion_to_EST(@sixth_date)],
-                       [@feed_five[:parsed_feed][:title], @feed_five[:parsed_feed][:items][0][:title], "http://link", date_time_conversion_to_EST(@fifth_date)]]
+
+      @sorted_feeds = [[@feed_six[:parsed_feed][:title], @feed_six[:parsed_feed][:items][0][:title], "http://link", @sixth_date],
+                      [@feed_five[:parsed_feed][:title], @feed_five[:parsed_feed][:items][0][:title], "http://link", @fifth_date]]
     end
 
     it 'Sorts the array of feeds by date' do

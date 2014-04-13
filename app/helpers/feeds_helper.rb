@@ -42,7 +42,7 @@ module FeedsHelper
 
     if date_published.blank? && date_published_NYT.blank?
       date_published = nil
-    elsif date_published.blank? && !date_published_NYT.blank?
+    elsif date_published.blank? && date_published_NYT
        date_published = date_published_NYT
      else
       date_published

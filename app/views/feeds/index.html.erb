@@ -19,7 +19,7 @@
           <% value[1] = value[1].truncate(75, separator:' ') %>
         <% end %>
 
-        <% if  value[3].utc >= Chronic.parse('yesterday midnight').utc  %>
+        <% if  value[3].utc >= 0.days.ago.midnight.utc.utc  %>
           <% if value[0].include?"Quidnunc RE" %>
             <div class="feeds-container">
               <span class="feeds-quidnunc"><%= value[0] %></span>
@@ -33,7 +33,7 @@
           <% end %>
           <br>
 
-        <% elsif  value[3] >= Chronic.parse('two days ago midnight').utc && value[3] < Chronic.parse('yesterday midnight') &&yesterday_header_counter == 0 %>
+        <% elsif  value[3] >= 1.day.ago.midnight.utc && value[3] < 0.days.ago.midnight.utc && yesterday_header_counter == 0 %>
             <div class="feed-header"> <%= "#{yesterday_date_to_display}"  %></div>
             <% yesterday_header_counter = 1 %>
 
@@ -51,7 +51,7 @@
           <br>
 
         <% else %>
-          <% if value[3] > Chronic.parse('three days ago midnight').utc && value[3] < Chronic.parse('two days ago') && yesterday_header_counter == 1 %>
+          <% if value[3] > 2.days.ago.midnight.utc && value[3] <  2.days.ago.utc && yesterday_header_counter == 1 %>
             <div class="feed-header"> <%= "Older Feeds"%></div>
             <% yesterday_header_counter = 2 %>
           <% end %>

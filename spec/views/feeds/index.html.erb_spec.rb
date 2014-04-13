@@ -7,15 +7,31 @@ describe "feeds/index" do
                               :parsed_feed => { :uri => "http://ny.curbed.com/atom.xml",
                                                 :title => "Curbed NY",
                                                 :items => [{:title     =>"A nice Title",
-                                                            :published => "2014-03-13 12:05:08",
-                                                            :link      => "http://ny.curbed.com/atom.xml"
-                                                          }],
-                              :created_at => "2014-03-13 12:05:08",
-                              :updated_at => "2014-03-13 12:05:08"
+                                                            :published => DateTime.now,
+                                                            :link      => "http://ny.curbed.com/atom.xml"}],
                                               }
                             }
 
-      @feeds = [Feed.create(valid_feed_attributes)]
+    yesterday_valid_feed_attributes = { :uri => "http://ny.curbed.com/atom.xml",
+                                        :parsed_feed => { :uri => "http://ny.curbed.com/atom.xml",
+                                                          :title => "More Curbed NY",
+                                                          :items => [{:title     =>"Another nice Title",
+                                                                      :published => (1.day.ago.midnight),
+                                                                      :link      => "http://ny.curbed.com/atom.xml"}],
+
+                                                        }
+                                      }
+      @feeds = [Feed.create(valid_feed_attributes), Feed.create(yesterday_valid_feed_attributes)]
+  end
+
+  it 'displays a header with the current time' do
+    render :template => "/feeds/index", :formats => [:html]
+    rendered.should contain(DateTime.now.utc.strftime('%A, %B %e, %Y') )
+  end
+
+  it 'displays a header with yesterday time' do
+    render :template => "/feeds/index", :formats => [:html]
+    rendered.should contain((1.day.ago.midnight.utc).strftime('%A, %B %e, %Y') )
   end
 
   it 'displays the name of the feeds source' do
@@ -28,11 +44,14 @@ describe "feeds/index" do
       rendered.should contain("A nice Title")
    end
 
+   it 'displays the title of the yesterday feed' do
+      render :template => "/feeds/index", :formats => [:html]
+      rendered.should contain("Another nice Title")
+   end
 
   it 'displays the name of the feed with a link to the feed' do
     render :template => "/feeds/index", :formats => [:html]
     rendered.should have_selector( "a", :href   => "http://ny.curbed.com/atom.xml", :target => "blank"), "A nice Title"
-
   end
 
 end

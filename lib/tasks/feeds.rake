@@ -11,9 +11,9 @@ namespace :rss do
 
       @all_feeds.each do |feed|
         feed[:items].each do |item|
-          if !item[:published].nil?
+          if item[:published]
             item[:published] = item[:published].utc
-          elsif !item[:pubDate].nil?
+          elsif item[:pubDate]
             item[:pubDate] =  item[:pubDate].utc
           end
 
