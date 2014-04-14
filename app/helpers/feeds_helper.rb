@@ -75,5 +75,3 @@ module FeedsHelper
   end
 
 end
-
-

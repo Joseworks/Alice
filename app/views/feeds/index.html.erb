@@ -7,6 +7,7 @@
   <% yesterday_header_counter = 0 %>
 
   <div class="feed-header"> <%= "#{today_date}"  %></div>
+  <br>
 
   <% if @feeds.blank? %>
     <p> There are no feeds yet. We will update soon. </p>
@@ -33,9 +34,13 @@
           <% end %>
           <br>
 
-        <% elsif  value[3] >= 1.day.ago.midnight.utc && value[3] < 0.days.ago.midnight.utc && yesterday_header_counter == 0 %>
+        <% elsif  value[3] >= 1.day.ago.midnight.utc && value[3] < 0.days.ago.midnight.utc %>
+          <% if yesterday_header_counter == 0 %>
+            <br>
             <div class="feed-header"> <%= "#{yesterday_date_to_display}"  %></div>
             <% yesterday_header_counter = 1 %>
+            <br>
+          <% end %>
 
           <% if value[0].include?"Quidnunc RE" %>
             <div class="feeds-container">
@@ -51,23 +56,27 @@
           <br>
 
         <% else %>
-          <% if value[3].utc > 2.days.ago.midnight.utc && value[3] < 2.days.ago.utc && yesterday_header_counter == 1 %>
+          <% if yesterday_header_counter == 1 %>
+          <br>
             <div class="feed-header"> <%= "Older Feeds"%></div>
             <% yesterday_header_counter = 2 %>
           <% end %>
 
-          <% if value[0].include?"Quidnunc RE" %>
-            <div class="feeds-container">
-              <span class="feeds-quidnunc"><%= value[0] %></span>
-              <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
-            </div>
-          <% else %>
-            <div class="feeds-container">
-              <span class="feeds-source"><%=" #{value[0]}" %></span>
-              <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
-            </div>
+          <%if value[3].utc > 2.days.ago.midnight.utc && value[3] < 1.days.ago.midnight.utc %>
+
+            <% if value[0].include?"Quidnunc RE" %>
+              <div class="feeds-container">
+                <span class="feeds-quidnunc"><%= value[0] %></span>
+                <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
+              </div>
+            <% else %>
+              <div class="feeds-container">
+                <span class="feeds-source"><%=" #{value[0]}" %></span>
+                <span class="feeds-links"><%= link_to " #{value[1]}", value[2] , :target => "blank" %> </span>
+              </div>
+            <% end %>
+            <br>
           <% end %>
-          <br>
 
         <% end %>
 

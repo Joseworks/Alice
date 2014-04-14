@@ -11,17 +11,18 @@ namespace :rss do
 
       @all_feeds.each do |feed|
         feed[:items].each do |item|
-          if item[:published]
-            item[:published] = item[:published].utc
-          elsif item[:pubDate]
-            item[:pubDate] =  item[:pubDate].utc
-          end
 
         if feed[:title].include? "DNAINFO.com"
           dna_title = feed[:title]
           item[:published] = DateTime.parse(dna_title)
-          item[:published] =item[:published].utc
+          item[:published] = item[:published].utc
         end
+
+          if item[:published]
+            item[:published] = item[:published].utc
+          elsif item[:pubDate]
+            item[:pubDate] = item[:pubDate].utc
+          end
 
         end
       end

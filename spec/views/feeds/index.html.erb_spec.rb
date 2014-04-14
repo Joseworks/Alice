@@ -32,7 +32,17 @@ describe "feeds/index" do
                                                         }
                                       }
 
-      @feeds = [Feed.create(valid_feed_attributes), Feed.create(yesterday_valid_feed_attributes), Feed.create(older_valid_feed_attributes)]
+    very_old_valid_feed_attributes = { :uri => "http://ny.curbed.com/atom.xml",
+                                        :parsed_feed => { :uri => "http://ny.curbed.com/atom.xml",
+                                                          :title => "More Curbed NY",
+                                                          :items => [{:title     =>"Extremely old nice Title",
+                                                                      :published => (3.days.ago),
+                                                                      :link      => "http://ny.curbed.com/atom.xml"}],
+
+                                                        }
+                                      }
+
+      @feeds = [Feed.create(valid_feed_attributes), Feed.create(yesterday_valid_feed_attributes), Feed.create(older_valid_feed_attributes), Feed.create(very_old_valid_feed_attributes) ]
   end
 
   it 'displays a header with the current time' do
@@ -65,10 +75,19 @@ describe "feeds/index" do
      rendered.should contain("Another nice Title")
    end
 
-   it 'displays the title of the older feed' do
+   it 'displays the title of a two days older feed' do
      render :template => "/feeds/index", :formats => [:html]
      rendered.should contain("Older nice Title")
    end
+
+
+
+   it ' does not displays the title of a three days older feed' do
+     render :template => "/feeds/index", :formats => [:html]
+     rendered.should_not contain("Extremely old nice Title")
+   end
+
+
 
   it 'displays the name of the feed with a link to the feed' do
     render :template => "/feeds/index", :formats => [:html]
