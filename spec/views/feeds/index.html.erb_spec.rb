@@ -16,12 +16,23 @@ describe "feeds/index" do
                                         :parsed_feed => { :uri => "http://ny.curbed.com/atom.xml",
                                                           :title => "More Curbed NY",
                                                           :items => [{:title     =>"Another nice Title",
-                                                                      :published => (1.day.ago.midnight),
+                                                                      :published => (1.days.ago.midnight),
                                                                       :link      => "http://ny.curbed.com/atom.xml"}],
 
                                                         }
                                       }
-      @feeds = [Feed.create(valid_feed_attributes), Feed.create(yesterday_valid_feed_attributes)]
+
+    older_valid_feed_attributes = { :uri => "http://ny.curbed.com/atom.xml",
+                                        :parsed_feed => { :uri => "http://ny.curbed.com/atom.xml",
+                                                          :title => "More Curbed NY",
+                                                          :items => [{:title     =>"Older nice Title",
+                                                                      :published => (2.days.ago),
+                                                                      :link      => "http://ny.curbed.com/atom.xml"}],
+
+                                                        }
+                                      }
+
+      @feeds = [Feed.create(valid_feed_attributes), Feed.create(yesterday_valid_feed_attributes), Feed.create(older_valid_feed_attributes)]
   end
 
   it 'displays a header with the current time' do
@@ -34,19 +45,29 @@ describe "feeds/index" do
     rendered.should contain((1.day.ago.midnight.utc).strftime('%A, %B %e, %Y') )
   end
 
+  it 'displays a header with older feeds' do
+    render :template => "/feeds/index", :formats => [:html]
+    rendered.should contain("Older Feeds")
+  end
+
   it 'displays the name of the feeds source' do
     render :template => "/feeds/index", :formats => [:html]
     rendered.should contain("Curbed NY")
   end
 
    it 'displays the title of the feed' do
-      render :template => "/feeds/index", :formats => [:html]
-      rendered.should contain("A nice Title")
+     render :template => "/feeds/index", :formats => [:html]
+     rendered.should contain("A nice Title")
    end
 
    it 'displays the title of the yesterday feed' do
-      render :template => "/feeds/index", :formats => [:html]
-      rendered.should contain("Another nice Title")
+     render :template => "/feeds/index", :formats => [:html]
+     rendered.should contain("Another nice Title")
+   end
+
+   it 'displays the title of the older feed' do
+     render :template => "/feeds/index", :formats => [:html]
+     rendered.should contain("Older nice Title")
    end
 
   it 'displays the name of the feed with a link to the feed' do
