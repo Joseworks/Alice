@@ -8,6 +8,7 @@ common:
   # secret: 8_2BGh0
   # The array of feeds you want to aggregate. If you change this then manually delete the whole cache.
   feeds:
+   - http://www.quidnuncre.com/posts.atom
    - http://ny.curbed.com/atom.xml
    - http://www.costar.com/News/RSS/RSS.aspx?m=NYC
    - http://www.dnainfo.com/new-york/index/all
@@ -17,7 +18,11 @@ common:
    - http://rss.nytimes.com/services/xml/rss/nyt/Commercial.xml
    - http://feeds.feedburner.com/trdnews?format=xml
    - http://www.ny1.com/Rss/Feeds.aspx?SecID=1000
-   - http://www.quidnuncre.com/posts.atom
+   # - http://nypost.com/real-estate/feed/
+   # - http://nymag.com/rss/Real_Estate.xml
+   # - http://www.mortgagenewsdaily.com/channels/mortgage_rates_update/rss.aspx
+   # - http://feeds.wsjonline.com/wsj/video/real-estate/feed?format=xml
+   # - https://www.rcanalytics.com/public-articles.xml
   # A map between the original feed item titles in the XML, and the titles you want to show when rendered.
   # In other words, you can change how the individual feed items are labelled.
 
@@ -32,6 +37,13 @@ common:
   # NYT Real Estate
   # Wall Street Journal Real Estate
   # CoStar
+
+  #Added
+  # New York Post
+  # New York Mag
+  # Mortgage News Daily
+  # Wall Street Journal Video News Real Estate
+  # Real Capital Analytics Commercial Real Estate News
 
 #development:
 
