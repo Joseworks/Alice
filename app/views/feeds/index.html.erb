@@ -16,10 +16,7 @@
 
     <% sort_feeds_array(@feeds).each do |value| %>
       <% if value.present? %>
-        <% if value[1].length > 75 %>
-          <% value[1] = value[1].truncate(75, separator:' ') %>
-        <% end %>
-
+        <% value[1] = value[1].truncate(67, separator:' ') %>
         <% if  value[3] >= 0.days.ago.midnight.utc  %>
           <% if value[0].include?"Quidnunc RE" %>
             <div class="feeds-container">
