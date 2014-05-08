@@ -27,7 +27,7 @@
   <% if post.body_html %>
     <%= link_to("[more...]", post_path(post)) %>
   <% end %>
-  
+
   <div class="front-meta">
     <span class="comment-count"><%= link_to('', post_path(post, anchor: "disqus_thread")) %></span>
   </div>

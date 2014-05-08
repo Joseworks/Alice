@@ -281,3 +281,6 @@ div.img-attached {
 .published {
   color: green;
 }
+.impressions-count {
+  text-align: center;
+}

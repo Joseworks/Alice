@@ -4,7 +4,13 @@
   <% if @post.image.exists? %>
     <%= @post.image.url(:medium).to_s %>
   <% end %>
+
+
+  <%= "This post has #{@post.impressions_count} views as #{DateTime.now.strftime('%A, %B %e, %Y')}" %>
+  <br>
+  <br>
   <%= button_to "Publish now", publish_post_admin_post_path(@post) %>
+  <br>
 <% end %>
 <%= semantic_form_for([:admin, @post]) do |form| -%>
   <%= render :partial => 'form', :locals => {:form => form} %>

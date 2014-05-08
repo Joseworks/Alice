@@ -10,7 +10,8 @@
       <th><%= sortable "author", "Author" %></th>
       <th>Excerpt</th>
       <th>Actions</th>
-      <th>Publication Status</th>
+      <th><%= sortable "published_at", "Publication Status" %></th>
+      <th><%= sortable "impressions_count","Amount of views" %></th>
     </tr>
   </thead>
 
@@ -24,7 +25,7 @@
 
   <tfoot>
       <tr class="pagination">
-        <td colspan="6">
+        <td colspan="7">
           <%= will_paginate(@posts, :previous_label => '« Newer', :next_label => 'Older »') %>
         </td>
       </tr>
